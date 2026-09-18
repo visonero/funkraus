@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Logo from "@/components/Logo";
 
 export default function AdminPage() {
@@ -23,9 +24,9 @@ export default function AdminPage() {
           Hier entsteht das CMS: Module, Kapitel und Quizfragen verwalten, ohne Code anzufassen. Wird gebaut, sobald die
           Datenbank-Struktur für Kursinhalte steht.
         </p>
-        <a href="/" className="btn-ghost" style={{ display: "inline-block", marginTop: 28, padding: "12px 24px", borderRadius: 999, fontSize: 14 }}>
+        <Link href="/" className="btn-ghost" style={{ display: "inline-block", marginTop: 28, padding: "12px 24px", borderRadius: 999, fontSize: 14 }}>
           Zurück zur Startseite
-        </a>
+        </Link>
       </div>
     </div>
   );
