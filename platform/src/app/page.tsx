@@ -3,6 +3,7 @@ import SiteNav from "@/components/SiteNav";
 import FeaturesAccordion from "@/components/FeaturesAccordion";
 import CurriculumTabs from "@/components/CurriculumTabs";
 import FaqAccordion from "@/components/FaqAccordion";
+import CheckoutButton from "@/components/CheckoutButton";
 
 const PRICE = "349";
 
@@ -382,9 +383,7 @@ export default function Home() {
                 </div>
               ))}
             </div>
-            <a href="#" className="btn-accent" style={{ display: "block", marginTop: 32, padding: 17, borderRadius: 999, fontSize: 16 }}>
-              Jetzt freischalten
-            </a>
+            <CheckoutButton price={PRICE} />
             <p style={{ marginTop: 14, fontSize: 12, color: "var(--text-faint)" }}>
               Preis kann sich vor Launch noch anpassen — das Prinzip bleibt: ein einziger, sofort sichtbarer Preis.
             </p>

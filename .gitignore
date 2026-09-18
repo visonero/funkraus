@@ -4,6 +4,9 @@
 # Claude Code local settings (personal, not shared)
 .claude/settings.local.json
 
+# never commit local credential notes
+GitHubToken.pages
+
 # editor
 .vscode/
 .idea/

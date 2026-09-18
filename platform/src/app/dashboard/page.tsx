@@ -1,7 +1,10 @@
 import { redirect } from "next/navigation";
 import Logo from "@/components/Logo";
 import SignOutButton from "@/components/SignOutButton";
+import CheckoutButton from "@/components/CheckoutButton";
 import { createClient } from "@/lib/supabase/server";
+
+const PRICE = "349";
 
 export default async function DashboardPage() {
   const supabase = await createClient();
@@ -12,6 +15,15 @@ export default async function DashboardPage() {
   if (!user) {
     redirect("/login");
   }
+
+  const { data: purchase } = await supabase
+    .from("purchases")
+    .select("status")
+    .eq("user_id", user.id)
+    .eq("status", "paid")
+    .maybeSingle();
+
+  const hasAccess = Boolean(purchase);
 
   return (
     <div style={{ minHeight: "100vh", background: "var(--bg)" }}>
@@ -35,10 +47,22 @@ export default async function DashboardPage() {
           <h1 style={{ marginTop: 12, fontSize: 26, fontWeight: 700 }}>
             Willkommen, <span className="grad">{user.email}</span>
           </h1>
-          <p style={{ marginTop: 14, fontSize: 14.5, color: "var(--text-dim)" }}>
-            Dein Login funktioniert. Kursmodule, Fortschritt und Zahlungsstatus erscheinen hier, sobald Stripe-Checkout
-            und die Kursinhalte angebunden sind.
-          </p>
+
+          {hasAccess ? (
+            <>
+              <p style={{ marginTop: 14, fontSize: 14.5, color: "var(--text-dim)" }}>
+                ✅ Kauf bestätigt — dein Zugang ist freigeschaltet. Die Kursmodule selbst erscheinen hier, sobald die
+                Inhalte hochgeladen sind.
+              </p>
+            </>
+          ) : (
+            <>
+              <p style={{ marginTop: 14, fontSize: 14.5, color: "var(--text-dim)" }}>
+                Dein Login funktioniert, aber du hast den Kurs noch nicht freigeschaltet.
+              </p>
+              <CheckoutButton price={PRICE} />
+            </>
+          )}
         </div>
       </div>
     </div>
