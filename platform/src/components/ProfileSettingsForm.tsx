@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import { field, label } from "@/lib/form-styles";
 
@@ -17,6 +18,7 @@ export default function ProfileSettingsForm({
   initialEmail,
   initialNewsletterOptIn,
 }: Props) {
+  const router = useRouter();
   const [fullName, setFullName] = useState(initialFullName);
   const [email, setEmail] = useState(initialEmail);
   const [newsletterOptIn, setNewsletterOptIn] = useState(initialNewsletterOptIn);
@@ -60,6 +62,7 @@ export default function ProfileSettingsForm({
       setProfileMessage("Gespeichert.");
     }
 
+    router.refresh();
     setSavingProfile(false);
   }
 
