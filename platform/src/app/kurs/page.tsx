@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import SiteNav from "@/components/SiteNav";
-import FeaturesAccordion from "@/components/FeaturesAccordion";
+import ScrollRevealInit from "@/components/ScrollRevealInit";
+import FeaturesShowcase from "@/components/FeaturesShowcase";
 import CurriculumTabs from "@/components/CurriculumTabs";
 import FaqAccordion from "@/components/FaqAccordion";
 import CheckoutButton from "@/components/CheckoutButton";
+import TrustStamps from "@/components/TrustStamps";
 import Footer from "@/components/Footer";
 import { createClient } from "@/lib/supabase/server";
 
@@ -39,11 +41,12 @@ export default async function KursPage() {
 
   return (
     <div style={{ width: "100%", background: "var(--bg)", overflowX: "hidden", position: "relative" }}>
+      <ScrollRevealInit />
       <SiteNav email={user?.email ?? null} ctaHref="#kaufen" />
 
       {/* INTRO */}
       <div className="sky-wash section-pad" style={{ padding: "80px 32px 60px", position: "relative" }}>
-        <div style={{ maxWidth: 760, margin: "0 auto", textAlign: "center", position: "relative", zIndex: 1 }}>
+        <div className="reveal" style={{ maxWidth: 760, margin: "0 auto", textAlign: "center", position: "relative", zIndex: 1 }}>
           <span className="label" style={{ color: "var(--sky)" }}>BZF I &amp; BZF II · Online-Kurs</span>
           <h1 style={{ fontSize: "clamp(32px,5vw,52px)", marginTop: 14, fontWeight: 800, lineHeight: 1.1 }}>
             Alles, was du für dein <span className="grad">Sprechfunkzeugnis</span> brauchst.
@@ -62,19 +65,21 @@ export default async function KursPage() {
       </div>
 
       {/* FEATURES */}
-      <div className="section-pad" style={{ padding: "20px 32px 90px", maxWidth: 1180, margin: "0 auto" }}>
-        <div style={{ maxWidth: 640 }}>
-          <span className="label" style={{ color: "var(--sky)" }}>Kursinhalt</span>
-          <h2 style={{ fontSize: "clamp(26px,3.2vw,36px)", marginTop: 14, fontWeight: 700 }}>
-            Alles in <span className="grad">einem Kurs.</span>
-          </h2>
+      <div style={{ position: "relative" }}>
+        <div className="section-pad" style={{ padding: "20px 32px 40px", maxWidth: 1180, margin: "0 auto" }}>
+          <div className="reveal" style={{ maxWidth: 640 }}>
+            <span className="label" style={{ color: "var(--sky)" }}>Kursinhalt</span>
+            <h2 style={{ fontSize: "clamp(26px,3.2vw,36px)", marginTop: 14, fontWeight: 700 }}>
+              Alles in <span className="grad">einem Kurs.</span>
+            </h2>
+          </div>
         </div>
-        <FeaturesAccordion />
+        <FeaturesShowcase />
       </div>
 
       {/* CURRICULUM */}
       <div className="section-pad" style={{ padding: "20px 32px 90px", maxWidth: 1180, margin: "0 auto" }}>
-        <div style={{ maxWidth: 640 }}>
+        <div className="reveal" style={{ maxWidth: 640 }}>
           <span className="label" style={{ color: "var(--sky)" }}>Kursstruktur</span>
           <h2 style={{ fontSize: "clamp(26px,3.2vw,36px)", marginTop: 14, fontWeight: 700 }}>
             Zwei Prüfungen, <span className="grad">ein Kurs.</span>
@@ -85,7 +90,7 @@ export default async function KursPage() {
 
       {/* GALLERY PLACEHOLDER */}
       <div className="section-pad" style={{ padding: "20px 32px 90px", maxWidth: 1180, margin: "0 auto" }}>
-        <div style={{ maxWidth: 640 }}>
+        <div className="reveal" style={{ maxWidth: 640 }}>
           <span className="label" style={{ color: "var(--sky)" }}>Einblick</span>
           <h2 style={{ fontSize: "clamp(26px,3.2vw,36px)", marginTop: 14, fontWeight: 700 }}>
             So sieht der Kurs <span className="grad">von innen aus.</span>
@@ -121,14 +126,14 @@ export default async function KursPage() {
         <div className="deco blob hide-mobile" style={{ position: "absolute", top: "4%", left: "4%", width: 260, height: 260, opacity: 0.18, background: "var(--sky)" }} />
         <div className="deco blob hide-mobile" style={{ position: "absolute", bottom: "2%", right: "2%", width: 220, height: 220, opacity: 0.2, background: "var(--sky-2)" }} />
         <div className="section-pad" style={{ position: "relative", zIndex: 1, padding: "40px 32px 110px", maxWidth: 1180, margin: "0 auto" }}>
-          <div style={{ maxWidth: 640, margin: "0 auto", textAlign: "center" }}>
+          <div className="reveal" style={{ maxWidth: 640, margin: "0 auto", textAlign: "center" }}>
             <span className="label" style={{ color: "var(--sky)" }}>Jetzt sichern</span>
             <h2 style={{ fontSize: "clamp(26px,3.2vw,36px)", marginTop: 14, fontWeight: 700 }}>
               Ein Preis. <span className="grad">Keine Überraschungen.</span>
             </h2>
           </div>
 
-          <div className="glass-strong" style={{ maxWidth: 460, margin: "40px auto 0", borderRadius: 28, padding: 44, textAlign: "center" }}>
+          <div className="reveal glass-strong" style={{ maxWidth: 460, margin: "40px auto 0", borderRadius: 28, padding: 44, textAlign: "center" }}>
             <span
               style={{
                 display: "inline-block",
@@ -164,17 +169,14 @@ export default async function KursPage() {
               ))}
             </div>
             <CheckoutButton price={PRICE} />
-            <div style={{ display: "flex", justifyContent: "center", gap: 16, marginTop: 20, flexWrap: "wrap" }}>
-              <span style={{ fontSize: 12, color: "var(--text-faint)" }}>⚖️ §5 UrhG geprüft</span>
-              <span style={{ fontSize: 12, color: "var(--text-faint)" }}>🚫📞 Kein Verkaufsgespräch</span>
-            </div>
+            <TrustStamps style={{ marginTop: 24 }} />
           </div>
         </div>
       </div>
 
       {/* FAQ */}
       <div className="section-pad" style={{ padding: "20px 32px 110px", maxWidth: 760, margin: "0 auto" }}>
-        <div style={{ textAlign: "center", marginBottom: 20 }}>
+        <div className="reveal" style={{ textAlign: "center", marginBottom: 20 }}>
           <span className="label" style={{ color: "var(--sky)" }}>FAQ</span>
           <h2 style={{ fontSize: "clamp(24px,3vw,32px)", marginTop: 14, fontWeight: 700 }}>
             Häufige <span className="grad">Fragen</span>

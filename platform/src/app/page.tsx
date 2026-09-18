@@ -1,7 +1,12 @@
 import Link from "next/link";
 import SiteNav from "@/components/SiteNav";
-import FeaturesAccordion from "@/components/FeaturesAccordion";
+import ScrollRevealInit from "@/components/ScrollRevealInit";
+import HighlightsCounters from "@/components/HighlightsCounters";
+import FeaturesShowcase from "@/components/FeaturesShowcase";
 import CurriculumTabs from "@/components/CurriculumTabs";
+import HowItWorksTimeline from "@/components/HowItWorksTimeline";
+import TrustStamps from "@/components/TrustStamps";
+import PricingMockup from "@/components/PricingMockup";
 import FaqAccordion from "@/components/FaqAccordion";
 import Footer from "@/components/Footer";
 import { createClient } from "@/lib/supabase/server";
@@ -38,13 +43,6 @@ const COMPARE_ROWS = [
   { label: "Lernformat", them: "Überwiegend Video", us: "Video, Audio-Funkübungen, interaktive Quizze" },
   { label: "Prüfungsfragen", them: "Separat zu besorgen", us: "Vollständig integriert, offizieller Fragenkatalog" },
   { label: "Tempo", them: "Feste Gruppentermine", us: "Komplett selbstbestimmt" },
-];
-
-const STEPS = [
-  { num: "1", title: "Kurs freischalten", desc: "Einmalig zahlen, sofort Zugriff auf alle Module — kein Warten auf einen Kurstermin." },
-  { num: "2", title: "Lernen in deinem Tempo", desc: "Video, Audio und Quizze im Wechsel — wann und wo du willst." },
-  { num: "3", title: "Prüfungssimulation bestehen", desc: "Der volle 100-Fragen-Test im echten Prüfungsformat, mit Zeitlimit." },
-  { num: "4", title: "Zur Prüfung antreten", desc: "Wir zeigen dir, wie und wo du dich bei der Bundesnetzagentur anmeldest." },
 ];
 
 const PRICE_FEATURES = [
@@ -92,6 +90,7 @@ export default async function Home() {
 
   return (
     <div style={{ width: "100%", background: "var(--bg)", overflowX: "hidden", position: "relative" }}>
+      <ScrollRevealInit />
       <SiteNav email={user?.email ?? null} />
 
       {/* HERO */}
@@ -175,6 +174,8 @@ export default async function Home() {
           ))}
         </div>
       </div>
+
+      <HighlightsCounters />
 
       {/* PROBLEM */}
       <div style={{ position: "relative", overflow: "hidden" }}>
@@ -268,15 +269,19 @@ export default async function Home() {
       {/* FEATURES */}
       <div style={{ position: "relative", overflow: "hidden" }}>
         <Blob style={{ bottom: "-4%", right: "-6%", width: 260, height: 260, opacity: 0.22 }} color="var(--mint)" />
-        <div className="section-pad" style={{ position: "relative", zIndex: 1, padding: "20px 32px 100px", maxWidth: 1180, margin: "0 auto" }}>
+        <div className="section-pad" style={{ position: "relative", zIndex: 1, padding: "20px 32px 40px", maxWidth: 1180, margin: "0 auto" }}>
           <div className="reveal" style={{ maxWidth: 640 }}>
             <span className="label" style={{ color: "var(--sky)" }}>Kursinhalt</span>
             <h2 style={{ fontSize: "clamp(28px,3.4vw,42px)", marginTop: 14, fontWeight: 700, lineHeight: 1.2 }}>
               Alles, was du für <span className="grad">BZF I &amp; II</span> brauchst — in einem Kurs.
             </h2>
+            <p className="hide-mobile" style={{ marginTop: 12, fontSize: 14, color: "var(--text-faint)" }}>
+              Scroll weiter, um durch alle Vorteile zu blättern ↓
+            </p>
           </div>
-          <FeaturesAccordion />
         </div>
+        {/* Full-bleed: not constrained to the 1180px container */}
+        <FeaturesShowcase />
       </div>
 
       {/* CURRICULUM TABS */}
@@ -296,62 +301,7 @@ export default async function Home() {
         </div>
       </div>
 
-      {/* HOW IT WORKS */}
-      <div id="ablauf" style={{ position: "relative", overflow: "hidden" }}>
-        <Blob style={{ bottom: "0%", left: "-6%", width: 240, height: 240, opacity: 0.2 }} color="var(--violet)" />
-        <div className="section-pad" style={{ position: "relative", zIndex: 1, padding: "20px 32px 100px", maxWidth: 1180, margin: "0 auto" }}>
-          <div className="reveal" style={{ maxWidth: 640 }}>
-            <span className="label" style={{ color: "var(--sky)" }}>So einfach geht&apos;s</span>
-            <h2 style={{ fontSize: "clamp(28px,3.4vw,42px)", marginTop: 14, fontWeight: 700, lineHeight: 1.2 }}>
-              Vom Kauf zur <span className="grad">bestandenen Prüfung.</span>
-            </h2>
-          </div>
-          <div style={{ display: "flex", gap: 40, alignItems: "flex-start", marginTop: 56 }}>
-            <div style={{ position: "relative", flex: 1, minWidth: 0, maxWidth: 560 }}>
-              <div style={{ position: "absolute", left: 20, top: 22, bottom: 22, width: 3, borderRadius: 2, background: "linear-gradient(180deg,var(--sky),var(--sky-2))" }} />
-              {STEPS.map((s) => (
-                <div key={s.num} className="reveal" style={{ position: "relative", display: "flex", gap: 24, paddingBottom: 44 }}>
-                  <div className="glass" style={{ flex: "none", width: 44, height: 44, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--font-display)", fontWeight: 800, color: "var(--sky-deep)", zIndex: 1 }}>
-                    {s.num}
-                  </div>
-                  <div style={{ paddingTop: 8 }}>
-                    <h3 style={{ fontSize: 18, fontWeight: 700 }}>{s.title}</h3>
-                    <p style={{ marginTop: 8, fontSize: 14.5, color: "var(--text-dim)", maxWidth: 420 }}>{s.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="hide-mobile" style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", minHeight: 320 }}>
-              <div style={{ position: "relative", width: 130, height: 130 }}>
-                <div className="ping-ring" style={{ position: "absolute", inset: 0, borderRadius: "50%", border: "2px solid var(--sky)", animation: "pingring 3s ease-out infinite" }} />
-                <div className="ping-ring" style={{ position: "absolute", inset: 0, borderRadius: "50%", border: "2px solid var(--sky-2)", animation: "pingring 3s ease-out infinite", animationDelay: "1s" }} />
-                <div className="ping-ring" style={{ position: "absolute", inset: 0, borderRadius: "50%", border: "2px solid var(--violet)", animation: "pingring 3s ease-out infinite", animationDelay: "2s" }} />
-                <div className="glass" style={{ position: "absolute", inset: 36, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 32 }}>📡</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* TRUST */}
-      <div className="section-pad" style={{ padding: "20px 32px 100px", maxWidth: 900, margin: "0 auto", position: "relative" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))", gap: 24 }}>
-          <div className="reveal glass-strong" style={{ borderRadius: 26, padding: "44px 36px", textAlign: "center" }}>
-            <div style={{ width: 56, height: 56, borderRadius: 16, background: "rgba(47,155,234,0.14)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 26, margin: "0 auto 20px" }}>⚖️</div>
-            <div className="grad" style={{ fontFamily: "var(--font-display)", fontSize: 32, fontWeight: 800 }}>§5 UrhG geprüft</div>
-            <p style={{ marginTop: 12, fontSize: 14.5, color: "var(--text-dim)" }}>
-              Alle Prüfungsfragen stammen aus dem offiziellen, frei nutzbaren Fragenkatalog der Bundesnetzagentur — anwaltlich geprüft.
-            </p>
-          </div>
-          <div className="reveal glass-strong" style={{ borderRadius: 26, padding: "44px 36px", textAlign: "center" }}>
-            <div style={{ width: 56, height: 56, borderRadius: 16, background: "rgba(34,211,238,0.16)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 26, margin: "0 auto 20px" }}>🚫📞</div>
-            <div className="grad" style={{ fontFamily: "var(--font-display)", fontSize: 32, fontWeight: 800 }}>Kein Verkaufsgespräch</div>
-            <p style={{ marginTop: 12, fontSize: 14.5, color: "var(--text-dim)" }}>
-              Kein Erstgespräch, kein Beratungstermin. Der Preis steht von Anfang an fest — du entscheidest allein.
-            </p>
-          </div>
-        </div>
-      </div>
+      <HowItWorksTimeline />
 
       {/* PRICING */}
       <div id="preis" style={{ position: "relative", overflow: "hidden" }}>
@@ -365,66 +315,67 @@ export default async function Home() {
             </h2>
           </div>
 
-          <div className="reveal" style={{ maxWidth: 760, margin: "56px auto 0" }}>
-            <div style={{ display: "flex", justifyContent: "space-between", fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 12, color: "var(--text-faint)", marginBottom: 10 }}>
-              <span>SELBSTLERN-APP · AB €90</span>
-              <span>PREMIUM-COACHING MIT VERKAUFSGESPRÄCH · AB €1.000+</span>
-            </div>
-            <div style={{ position: "relative", height: 10, borderRadius: 999, background: "linear-gradient(90deg, rgba(47,155,234,0.15), rgba(34,211,238,0.35))" }}>
-              <div className="gauge-marker" style={{ position: "absolute", left: "42%", top: -16, transform: "translateX(-50%)", display: "flex", flexDirection: "column", alignItems: "center" }}>
-                <div className="label" style={{ color: "var(--sky-deep)", whiteSpace: "nowrap", marginBottom: 4 }}>funkraus</div>
-                <div style={{ width: 16, height: 16, borderRadius: "50%", background: "linear-gradient(135deg,var(--sky),var(--sky-2))", border: "3px solid #fff", boxShadow: "0 4px 12px rgba(47,155,234,0.5)" }} />
+          <div
+            className="reveal"
+            style={{
+              marginTop: 56,
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit,minmax(340px,1fr))",
+              gap: 48,
+              alignItems: "center",
+            }}
+          >
+            <div className="glass-strong" style={{ maxWidth: 400, borderRadius: 24, padding: 32, textAlign: "center" }}>
+              <span
+                style={{
+                  display: "inline-block",
+                  padding: "5px 14px",
+                  borderRadius: 999,
+                  background: "rgba(255,143,179,0.16)",
+                  color: "#c0447a",
+                  fontFamily: "var(--font-display)",
+                  fontWeight: 700,
+                  fontSize: 11.5,
+                  marginBottom: 12,
+                }}
+              >
+                🔥 Zeitlich begrenztes Angebot
+              </span>
+              <div>
+                <span className="label" style={{ color: "var(--text-faint)" }}>BZF I &amp; II komplett</span>
               </div>
+              <div style={{ marginTop: 8, fontSize: 16, color: "var(--text-faint)", textDecoration: "line-through" }}>
+                €{ORIGINAL_PRICE}
+              </div>
+              <div style={{ marginTop: 2, display: "flex", alignItems: "baseline", justifyContent: "center", gap: 5 }}>
+                <span className="grad" style={{ fontSize: 20, fontWeight: 800 }}>€</span>
+                <span className="grad" style={{ fontFamily: "var(--font-display)", fontSize: 52, fontWeight: 800 }}>{PRICE}</span>
+              </div>
+              <p style={{ marginTop: 2, fontSize: 12.5, color: "var(--text-faint)" }}>einmalig · kein Abo · lebenslanger Zugriff</p>
+              <div style={{ textAlign: "left", marginTop: 24, display: "flex", flexDirection: "column", gap: 11 }}>
+                {PRICE_FEATURES.map((text) => (
+                  <div key={text} style={{ display: "flex", gap: 9, alignItems: "flex-start" }}>
+                    <span style={{ color: "var(--sky)", fontWeight: 800, flex: "none" }}>✓</span>
+                    <span style={{ fontSize: 13.5, color: "var(--text-dim)" }}>{text}</span>
+                  </div>
+                ))}
+              </div>
+              <Link
+                href="/kurs"
+                className="btn-accent"
+                style={{ display: "block", marginTop: 26, padding: 15, borderRadius: 999, fontSize: 15 }}
+              >
+                Kursdetails ansehen &amp; sichern
+              </Link>
+              <p style={{ marginTop: 12, fontSize: 11.5, color: "var(--text-faint)" }}>
+                Angebot gültig für kurze Zeit — der Preis steigt danach auf €{ORIGINAL_PRICE}.
+              </p>
             </div>
-            <p style={{ textAlign: "center", marginTop: 26, fontSize: 12.5, color: "var(--text-faint)" }}>
-              Illustrative Marktspanne, keine exakten Konkurrenzpreise. funkraus liegt bewusst über den reinen Selbstlern-Apps und deutlich unter dem Coaching-Segment mit vorgeschaltetem Verkaufsgespräch.
-            </p>
-          </div>
 
-          <div className="reveal glass-strong" style={{ maxWidth: 440, margin: "48px auto 0", borderRadius: 28, padding: 44, textAlign: "center" }}>
-            <span
-              style={{
-                display: "inline-block",
-                padding: "5px 14px",
-                borderRadius: 999,
-                background: "rgba(255,143,179,0.16)",
-                color: "#c0447a",
-                fontFamily: "var(--font-display)",
-                fontWeight: 700,
-                fontSize: 12,
-                marginBottom: 14,
-              }}
-            >
-              🔥 Zeitlich begrenztes Angebot
-            </span>
-            <br />
-            <span className="label" style={{ color: "var(--text-faint)" }}>BZF I &amp; II komplett</span>
-            <div style={{ marginTop: 10, fontSize: 18, color: "var(--text-faint)", textDecoration: "line-through" }}>
-              €{ORIGINAL_PRICE}
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 32 }}>
+              <PricingMockup />
+              <TrustStamps />
             </div>
-            <div style={{ marginTop: 2, display: "flex", alignItems: "baseline", justifyContent: "center", gap: 6 }}>
-              <span className="grad" style={{ fontSize: 24, fontWeight: 800 }}>€</span>
-              <span className="grad" style={{ fontFamily: "var(--font-display)", fontSize: 66, fontWeight: 800 }}>{PRICE}</span>
-            </div>
-            <p style={{ marginTop: 4, fontSize: 13.5, color: "var(--text-faint)" }}>einmalig · kein Abo · lebenslanger Zugriff</p>
-            <div style={{ textAlign: "left", marginTop: 32, display: "flex", flexDirection: "column", gap: 14 }}>
-              {PRICE_FEATURES.map((text) => (
-                <div key={text} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
-                  <span style={{ color: "var(--sky)", fontWeight: 800, flex: "none" }}>✓</span>
-                  <span style={{ fontSize: 14.5, color: "var(--text-dim)" }}>{text}</span>
-                </div>
-              ))}
-            </div>
-            <Link
-              href="/kurs"
-              className="btn-accent"
-              style={{ display: "block", marginTop: 32, padding: 17, borderRadius: 999, fontSize: 16 }}
-            >
-              Kursdetails ansehen &amp; sichern
-            </Link>
-            <p style={{ marginTop: 14, fontSize: 12, color: "var(--text-faint)" }}>
-              Angebot gültig für kurze Zeit — der Preis steigt danach auf €{ORIGINAL_PRICE}.
-            </p>
           </div>
         </div>
       </div>

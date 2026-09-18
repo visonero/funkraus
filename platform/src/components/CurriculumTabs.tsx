@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { gsap } from "@/lib/gsap";
 
 const BZF2_MODULES = [
   {
@@ -74,58 +75,127 @@ const BZF1_MODULES = [
   },
 ];
 
+const COLLAPSED_HEIGHT = 300;
+
 export default function CurriculumTabs() {
   const [track, setTrack] = useState<"bzf2" | "bzf1">("bzf2");
+  const [expanded, setExpanded] = useState(false);
+  const listRef = useRef<HTMLDivElement>(null);
   const modules = track === "bzf1" ? BZF1_MODULES : BZF2_MODULES;
+
+  function switchTrack(next: "bzf2" | "bzf1") {
+    setTrack(next);
+    setExpanded(false);
+    if (listRef.current) {
+      gsap.set(listRef.current, { height: COLLAPSED_HEIGHT });
+    }
+  }
+
+  function handleExpand() {
+    if (!listRef.current) return;
+    const fullHeight = listRef.current.scrollHeight;
+    gsap.to(listRef.current, {
+      height: fullHeight,
+      duration: 0.7,
+      ease: "power2.inOut",
+      onComplete: () => setExpanded(true),
+    });
+  }
+
+  // Keep the collapsed cap correct if content or viewport size changes.
+  useEffect(() => {
+    if (!expanded && listRef.current) {
+      gsap.set(listRef.current, { height: COLLAPSED_HEIGHT });
+    }
+  }, [track, expanded]);
+
+  const needsFade = !expanded && modules.length > 3;
 
   return (
     <div>
       <div style={{ display: "flex", gap: 12, marginTop: 36, flexWrap: "wrap" }}>
-        <button className={`tab-btn${track === "bzf2" ? " is-active" : ""}`} onClick={() => setTrack("bzf2")}>
+        <button className={`tab-btn${track === "bzf2" ? " is-active" : ""}`} onClick={() => switchTrack("bzf2")}>
           BZF II · Deutscher Luftraum
         </button>
-        <button className={`tab-btn${track === "bzf1" ? " is-active" : ""}`} onClick={() => setTrack("bzf1")}>
+        <button className={`tab-btn${track === "bzf1" ? " is-active" : ""}`} onClick={() => switchTrack("bzf1")}>
           BZF I · Englisch &amp; International
         </button>
       </div>
-      <div style={{ marginTop: 32, display: "flex", flexDirection: "column", gap: 12 }}>
-        {modules.map((mod) => (
-          <div
-            key={mod.num}
-            className="row-compare glass"
-            style={{ display: "flex", alignItems: "flex-start", gap: 20, padding: "22px 24px", borderRadius: 16 }}
-          >
-            <span
-              style={{
-                fontFamily: "var(--font-display)",
-                fontWeight: 800,
-                color: "var(--sky)",
-                fontSize: 14,
-                flex: "none",
-                width: 36,
-                paddingTop: 2,
-              }}
+
+      <div style={{ position: "relative", marginTop: 32 }}>
+        <div
+          ref={listRef}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 12,
+            overflow: "hidden",
+            height: needsFade ? COLLAPSED_HEIGHT : undefined,
+          }}
+        >
+          {modules.map((mod) => (
+            <div
+              key={mod.num}
+              className="row-compare glass"
+              style={{ display: "flex", alignItems: "flex-start", gap: 20, padding: "22px 24px", borderRadius: 16 }}
             >
-              {mod.num}
-            </span>
-            <div style={{ flex: 1 }}>
-              <p style={{ fontWeight: 600, fontSize: 15.5 }}>{mod.title}</p>
-              <p style={{ marginTop: 6, fontSize: 13.5, color: "var(--text-dim)" }}>{mod.desc}</p>
+              <span
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontWeight: 800,
+                  color: "var(--sky)",
+                  fontSize: 14,
+                  flex: "none",
+                  width: 36,
+                  paddingTop: 2,
+                }}
+              >
+                {mod.num}
+              </span>
+              <div style={{ flex: 1 }}>
+                <p style={{ fontWeight: 600, fontSize: 15.5 }}>{mod.title}</p>
+                <p style={{ marginTop: 6, fontSize: 13.5, color: "var(--text-dim)" }}>{mod.desc}</p>
+              </div>
+              <span
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontWeight: 600,
+                  fontSize: 12.5,
+                  color: "var(--text-faint)",
+                  flex: "none",
+                  paddingTop: 2,
+                }}
+              >
+                {mod.duration}
+              </span>
             </div>
-            <span
+          ))}
+        </div>
+
+        {needsFade && (
+          <div className="curriculum-fade">
+            <button
+              onClick={handleExpand}
+              aria-label="Alle Module anzeigen"
+              className="scroll-hint-btn"
               style={{
-                fontFamily: "var(--font-display)",
-                fontWeight: 600,
-                fontSize: 12.5,
-                color: "var(--text-faint)",
-                flex: "none",
-                paddingTop: 2,
+                width: 44,
+                height: 44,
+                borderRadius: "50%",
+                border: "none",
+                background: "linear-gradient(135deg,var(--sky),var(--sky-deep))",
+                color: "#fff",
+                fontSize: 18,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                boxShadow: "0 10px 24px -8px rgba(47,155,234,0.5)",
               }}
             >
-              {mod.duration}
-            </span>
+              ↓
+            </button>
           </div>
-        ))}
+        )}
       </div>
     </div>
   );
