@@ -2,7 +2,7 @@ import Link from "next/link";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { createModule, deleteModule } from "./actions";
 import DeleteButton from "@/components/DeleteButton";
-import { field, label, dangerBtn } from "./form-styles";
+import { field, label, dangerBtn } from "@/lib/form-styles";
 
 export default async function AdminModulesPage() {
   const db = createAdminClient();

@@ -1,11 +1,13 @@
-import Logo from "@/components/Logo";
+import Link from "next/link";
 import SiteNav from "@/components/SiteNav";
 import FeaturesAccordion from "@/components/FeaturesAccordion";
 import CurriculumTabs from "@/components/CurriculumTabs";
 import FaqAccordion from "@/components/FaqAccordion";
-import CheckoutButton from "@/components/CheckoutButton";
+import Footer from "@/components/Footer";
+import { createClient } from "@/lib/supabase/server";
 
 const PRICE = "349";
+const ORIGINAL_PRICE = "799";
 
 const PROBLEMS = [
   {
@@ -82,10 +84,15 @@ function Blob({ style, color }: { style: React.CSSProperties; color: string }) {
   return <div className="deco blob hide-mobile" style={{ ...style, background: color }} />;
 }
 
-export default function Home() {
+export default async function Home() {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   return (
     <div style={{ width: "100%", background: "var(--bg)", overflowX: "hidden", position: "relative" }}>
-      <SiteNav />
+      <SiteNav email={user?.email ?? null} />
 
       {/* HERO */}
       <div style={{ position: "relative", minHeight: "92vh", display: "flex", alignItems: "center", overflow: "hidden", isolation: "isolate" }}>
@@ -133,10 +140,16 @@ export default function Home() {
           <p style={{ marginTop: 26, fontSize: 19, color: "var(--text-dim)", maxWidth: 560, marginLeft: "auto", marginRight: "auto" }}>
             Der komplette Kurs für dein Sprechfunkzeugnis — fester Preis, sofortiger Zugang, echte Audio-Funkübungen statt endloser Videostunden.
           </p>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 14, marginTop: 36, justifyContent: "center" }}>
-            <a href="#preis" className="btn-accent" style={{ padding: "17px 30px", borderRadius: 999, fontSize: 16, display: "inline-block" }}>
+          <div style={{ display: "inline-flex", alignItems: "center", gap: 10, marginTop: 22, padding: "8px 16px", borderRadius: 999, background: "rgba(255,143,179,0.16)", border: "1px solid rgba(255,143,179,0.35)" }}>
+            <span style={{ fontSize: 13 }}>🔥</span>
+            <span style={{ fontSize: 13, fontWeight: 700, color: "#c0447a" }}>
+              Einführungsangebot: <span style={{ textDecoration: "line-through", opacity: 0.7 }}>€{ORIGINAL_PRICE}</span> nur €{PRICE} — zeitlich begrenzt
+            </span>
+          </div>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 14, marginTop: 22, justifyContent: "center" }}>
+            <Link href="/kurs" className="btn-accent" style={{ padding: "17px 30px", borderRadius: 999, fontSize: 16, display: "inline-block" }}>
               Kurs freischalten — €{PRICE}
-            </a>
+            </Link>
             <a href="#kurs" className="btn-ghost" style={{ padding: "17px 30px", borderRadius: 999, fontSize: 16, display: "inline-block" }}>
               Kursinhalte ansehen ↓
             </a>
@@ -369,8 +382,27 @@ export default function Home() {
           </div>
 
           <div className="reveal glass-strong" style={{ maxWidth: 440, margin: "48px auto 0", borderRadius: 28, padding: 44, textAlign: "center" }}>
+            <span
+              style={{
+                display: "inline-block",
+                padding: "5px 14px",
+                borderRadius: 999,
+                background: "rgba(255,143,179,0.16)",
+                color: "#c0447a",
+                fontFamily: "var(--font-display)",
+                fontWeight: 700,
+                fontSize: 12,
+                marginBottom: 14,
+              }}
+            >
+              🔥 Zeitlich begrenztes Angebot
+            </span>
+            <br />
             <span className="label" style={{ color: "var(--text-faint)" }}>BZF I &amp; II komplett</span>
-            <div style={{ marginTop: 14, display: "flex", alignItems: "baseline", justifyContent: "center", gap: 6 }}>
+            <div style={{ marginTop: 10, fontSize: 18, color: "var(--text-faint)", textDecoration: "line-through" }}>
+              €{ORIGINAL_PRICE}
+            </div>
+            <div style={{ marginTop: 2, display: "flex", alignItems: "baseline", justifyContent: "center", gap: 6 }}>
               <span className="grad" style={{ fontSize: 24, fontWeight: 800 }}>€</span>
               <span className="grad" style={{ fontFamily: "var(--font-display)", fontSize: 66, fontWeight: 800 }}>{PRICE}</span>
             </div>
@@ -383,9 +415,15 @@ export default function Home() {
                 </div>
               ))}
             </div>
-            <CheckoutButton price={PRICE} />
+            <Link
+              href="/kurs"
+              className="btn-accent"
+              style={{ display: "block", marginTop: 32, padding: 17, borderRadius: 999, fontSize: 16 }}
+            >
+              Kursdetails ansehen &amp; sichern
+            </Link>
             <p style={{ marginTop: 14, fontSize: 12, color: "var(--text-faint)" }}>
-              Preis kann sich vor Launch noch anpassen — das Prinzip bleibt: ein einziger, sofort sichtbarer Preis.
+              Angebot gültig für kurze Zeit — der Preis steigt danach auf €{ORIGINAL_PRICE}.
             </p>
           </div>
         </div>
@@ -418,52 +456,13 @@ export default function Home() {
             Bereit, <span className="grad">klar zu funken?</span>
           </h2>
           <p style={{ marginTop: 16, fontSize: 17, color: "var(--text-dim)" }}>Sofortiger Zugang. Fester Preis. Kein Verkaufsgespräch.</p>
-          <a href="#preis" className="btn-accent" style={{ display: "inline-block", marginTop: 32, padding: "18px 38px", borderRadius: 999, fontSize: 17 }}>
+          <Link href="/kurs" className="btn-accent" style={{ display: "inline-block", marginTop: 32, padding: "18px 38px", borderRadius: 999, fontSize: 17 }}>
             Kurs freischalten — €{PRICE}
-          </a>
+          </Link>
         </div>
       </div>
 
-      {/* FOOTER */}
-      <div style={{ borderTop: "1px solid var(--line)", padding: "64px 32px 32px", background: "var(--bg-soft)" }}>
-        <div style={{ maxWidth: 1180, margin: "0 auto", display: "grid", gridTemplateColumns: "1.4fr 1fr 1fr 1fr", gap: 32 }}>
-          <div>
-            <Logo size={26} />
-            <p style={{ marginTop: 14, fontSize: 13.5, color: "var(--text-faint)", maxWidth: 280 }}>
-              Verstanden. Und bestanden. Der Online-Kurs für dein Sprechfunkzeugnis BZF I &amp; II.
-            </p>
-          </div>
-          <div>
-            <p className="label" style={{ color: "var(--text-faint)", marginBottom: 14 }}>Kurs</p>
-            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-              <a className="nav-link" style={{ fontSize: 13.5 }} href="#kurs">Kursinhalt</a>
-              <a className="nav-link" style={{ fontSize: 13.5 }} href="#preis">Preis</a>
-              <a className="nav-link" style={{ fontSize: 13.5 }} href="#faq">FAQ</a>
-            </div>
-          </div>
-          <div>
-            <p className="label" style={{ color: "var(--text-faint)", marginBottom: 14 }}>Unternehmen</p>
-            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-              <a className="nav-link" style={{ fontSize: 13.5 }} href="#">Über uns</a>
-              <a className="nav-link" style={{ fontSize: 13.5 }} href="#">Kontakt</a>
-            </div>
-          </div>
-          <div>
-            <p className="label" style={{ color: "var(--text-faint)", marginBottom: 14 }}>Rechtliches</p>
-            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-              <a className="nav-link" style={{ fontSize: 13.5 }} href="#">Impressum</a>
-              <a className="nav-link" style={{ fontSize: 13.5 }} href="#">Datenschutz</a>
-              <a className="nav-link" style={{ fontSize: 13.5 }} href="#">AGB</a>
-            </div>
-          </div>
-        </div>
-        <div style={{ maxWidth: 1180, margin: "40px auto 0", paddingTop: 24, borderTop: "1px solid var(--line)", display: "flex", flexWrap: "wrap", justifyContent: "space-between", gap: 12 }}>
-          <p style={{ fontSize: 12, color: "var(--text-faint)", maxWidth: 640 }}>
-            funkraus ist kein Teil der Bundesnetzagentur oder des LBA und steht in keiner Verbindung zu diesen Behörden. Alle Prüfungsinhalte basieren auf öffentlich zugänglichen, amtlichen Materialien.
-          </p>
-          <p style={{ fontSize: 12, color: "var(--text-faint)" }}>© 2026 funkraus</p>
-        </div>
-      </div>
+      <Footer />
     </div>
   );
 }

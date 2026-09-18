@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { updateModule, deleteModule, createLesson, deleteLesson } from "../../actions";
 import DeleteButton from "@/components/DeleteButton";
-import { field, label, dangerBtn, smallBtn } from "../../form-styles";
+import { field, label, dangerBtn, smallBtn } from "@/lib/form-styles";
 
 const CONTENT_TYPES = ["video", "audio", "text", "quiz"];
 

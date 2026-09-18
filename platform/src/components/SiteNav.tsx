@@ -1,7 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import Logo from "./Logo";
+import { createClient } from "@/lib/supabase/client";
 
 const LINKS = [
   { href: "#kurs", label: "Kurs" },
@@ -11,8 +14,26 @@ const LINKS = [
   { href: "#faq", label: "FAQ" },
 ];
 
-export default function SiteNav() {
+export default function SiteNav({
+  email,
+  ctaHref = "/kurs",
+}: {
+  email?: string | null;
+  ctaHref?: string;
+}) {
+  const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [profileOpen, setProfileOpen] = useState(false);
+
+  async function handleSignOut() {
+    const supabase = createClient();
+    await supabase.auth.signOut();
+    setProfileOpen(false);
+    router.push("/");
+    router.refresh();
+  }
+
+  const initial = email ? email.charAt(0).toUpperCase() : "?";
 
   return (
     <div
@@ -36,7 +57,9 @@ export default function SiteNav() {
           justifyContent: "space-between",
         }}
       >
-        <Logo />
+        <Link href="/" style={{ display: "flex" }}>
+          <Logo />
+        </Link>
         <div className="desktop-nav" style={{ display: "flex", alignItems: "center", gap: 32 }}>
           {LINKS.map((l) => (
             <a key={l.href} className="nav-link" href={l.href}>
@@ -44,10 +67,82 @@ export default function SiteNav() {
             </a>
           ))}
         </div>
-        <div className="desktop-nav" style={{ display: "flex" }}>
-          <a href="#preis" className="btn-accent" style={{ padding: "11px 22px", borderRadius: 999, fontSize: 14 }}>
+        <div className="desktop-nav" style={{ display: "flex", alignItems: "center", gap: 14 }}>
+          <Link href={ctaHref} className="btn-accent" style={{ padding: "11px 22px", borderRadius: 999, fontSize: 14 }}>
             Kurs freischalten
-          </a>
+          </Link>
+
+          {email ? (
+            <div style={{ position: "relative" }}>
+              <button
+                onClick={() => setProfileOpen((v) => !v)}
+                aria-label="Profilmenü"
+                style={{
+                  width: 40,
+                  height: 40,
+                  borderRadius: "50%",
+                  border: "1.5px solid var(--line-strong)",
+                  background: "linear-gradient(135deg,var(--sky),var(--sky-2))",
+                  color: "#fff",
+                  fontFamily: "var(--font-display)",
+                  fontWeight: 700,
+                  fontSize: 15,
+                }}
+              >
+                {initial}
+              </button>
+              {profileOpen && (
+                <div
+                  className="glass-strong"
+                  style={{
+                    position: "absolute",
+                    right: 0,
+                    top: 48,
+                    borderRadius: 14,
+                    padding: 10,
+                    minWidth: 200,
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: 2,
+                  }}
+                >
+                  <p style={{ fontSize: 12, color: "var(--text-faint)", padding: "6px 10px" }}>{email}</p>
+                  <Link
+                    href="/dashboard"
+                    className="nav-link"
+                    style={{ padding: "8px 10px", fontSize: 14 }}
+                    onClick={() => setProfileOpen(false)}
+                  >
+                    Mein Profil
+                  </Link>
+                  <button
+                    onClick={handleSignOut}
+                    className="nav-link"
+                    style={{ padding: "8px 10px", fontSize: 14, textAlign: "left", background: "transparent", border: "none" }}
+                  >
+                    Abmelden
+                  </button>
+                </div>
+              )}
+            </div>
+          ) : (
+            <Link
+              href="/login"
+              aria-label="Anmelden"
+              className="btn-ghost"
+              style={{
+                width: 40,
+                height: 40,
+                borderRadius: "50%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: 17,
+              }}
+            >
+              👤
+            </Link>
+          )}
         </div>
         <button
           className="menu-btn"
@@ -86,14 +181,32 @@ export default function SiteNav() {
               {l.label}
             </a>
           ))}
-          <a
-            href="#preis"
+          {email ? (
+            <>
+              <Link href="/dashboard" className="nav-link" style={{ padding: "12px 0" }} onClick={() => setMenuOpen(false)}>
+                Mein Profil
+              </Link>
+              <button
+                onClick={handleSignOut}
+                className="nav-link"
+                style={{ padding: "12px 0", textAlign: "left", background: "transparent", border: "none" }}
+              >
+                Abmelden
+              </button>
+            </>
+          ) : (
+            <Link href="/login" className="nav-link" style={{ padding: "12px 0" }} onClick={() => setMenuOpen(false)}>
+              Anmelden
+            </Link>
+          )}
+          <Link
+            href={ctaHref}
             className="btn-accent"
             style={{ padding: "12px 20px", borderRadius: 999, fontSize: 14, textAlign: "center", marginTop: 8 }}
             onClick={() => setMenuOpen(false)}
           >
             Kurs freischalten
-          </a>
+          </Link>
         </div>
       )}
     </div>
