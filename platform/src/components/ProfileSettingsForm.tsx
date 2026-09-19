@@ -108,7 +108,7 @@ export default function ProfileSettingsForm({
             type="submit"
             disabled={savingProfile}
             className="btn-accent"
-            style={{ padding: 12, borderRadius: 10, border: "none", alignSelf: "flex-start", paddingLeft: 24, paddingRight: 24 }}
+            style={{ padding: 12, borderRadius: 10, border: "none", justifySelf: "start", paddingLeft: 24, paddingRight: 24 }}
           >
             {savingProfile ? "Speichert…" : "Speichern"}
           </button>

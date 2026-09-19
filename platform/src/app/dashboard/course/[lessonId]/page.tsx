@@ -1,0 +1,98 @@
+import Link from "next/link";
+import { notFound, redirect } from "next/navigation";
+import AppIcon from "@/components/app/AppIcon";
+import CompleteButton from "@/components/app/CompleteButton";
+import LessonQuiz from "@/components/app/LessonQuiz";
+import { getCurrentUser } from "@/lib/auth/session";
+import { getCourseData, getLessonDetail, hasCourseAccess } from "@/lib/course/data";
+
+const TYPE_LABEL = { video: "Video", audio: "Audio", text: "Lesetext", quiz: "Quiz" } as const;
+
+export default async function LessonPage({ params }: PageProps<"/dashboard/course/[lessonId]">) {
+  const { lessonId } = await params;
+  const user = (await getCurrentUser())!;
+
+  if (!(await hasCourseAccess(user.id))) redirect("/dashboard/course");
+
+  const [lesson, course] = await Promise.all([getLessonDetail(lessonId, user.id), getCourseData(user.id)]);
+  if (!lesson) notFound();
+
+  const flat = course.modules.flatMap((m) => m.chapters.map((c) => ({ chapter: c, module: m })));
+  const index = flat.findIndex((f) => f.chapter.id === lesson.id);
+  const current = index >= 0 ? flat[index] : null;
+  const prev = index > 0 ? flat[index - 1] : null;
+  const next = index >= 0 && index < flat.length - 1 ? flat[index + 1] : null;
+  const paragraphs = (lesson.body ?? "").split(/\n{2,}/).map((p) => p.trim()).filter(Boolean);
+
+  return (
+    <div style={{ maxWidth: 820 }}>
+      <nav aria-label="Brotkrumen" style={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: 6, fontSize: 13, color: "var(--text-faint)", fontWeight: 600 }}>
+        <Link href="/dashboard/course" style={{ color: "var(--sky-deep)" }}>Kurs</Link>
+        {current && (
+          <>
+            <span>›</span>
+            <span>Modul {Number(current.module.num) || current.module.num}</span>
+          </>
+        )}
+      </nav>
+
+      <div style={{ display: "flex", alignItems: "center", gap: 10, marginTop: 14 }}>
+        <span className="module-track" style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
+          <AppIcon name={lesson.type} size={14} />
+          {TYPE_LABEL[lesson.type]}
+        </span>
+        {lesson.completed && (
+          <span className="module-track" style={{ background: "rgba(52,211,153,0.16)", color: "#0b7a55" }}>Abgeschlossen</span>
+        )}
+      </div>
+      <h1 style={{ marginTop: 12, fontSize: "clamp(24px,3vw,32px)", fontWeight: 800, lineHeight: 1.2 }}>{lesson.title}</h1>
+      {current && <p style={{ marginTop: 6, fontSize: 14, color: "var(--text-faint)" }}>{current.module.title}</p>}
+
+      {(lesson.type === "video" || lesson.type === "audio") && (
+        <div className="glass" style={{ marginTop: 24, borderRadius: 20, overflow: "hidden" }}>
+          {lesson.mediaUrl && lesson.type === "video" ? (
+            <video controls preload="metadata" src={lesson.mediaUrl} style={{ display: "block", width: "100%", aspectRatio: "16 / 9", background: "#0e1a2b" }} />
+          ) : lesson.mediaUrl ? (
+            <audio controls preload="metadata" src={lesson.mediaUrl} style={{ display: "block", width: "100%", padding: 16 }} />
+          ) : (
+            <div style={{ aspectRatio: "16 / 9", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 10, color: "var(--text-faint)" }}>
+              <AppIcon name={lesson.type} size={36} />
+              <span style={{ fontSize: 14, fontWeight: 600 }}>{lesson.type === "video" ? "Video" : "Audio"} folgt in Kürze</span>
+            </div>
+          )}
+        </div>
+      )}
+
+      {paragraphs.length > 0 && (
+        <div style={{ marginTop: 28, display: "flex", flexDirection: "column", gap: 16, fontSize: 16, lineHeight: 1.75, color: "var(--text-dim)" }}>
+          {paragraphs.map((p, i) => (
+            <p key={i} style={{ whiteSpace: "pre-line" }}>{p}</p>
+          ))}
+        </div>
+      )}
+
+      {lesson.questions.length > 0 && (
+        <section style={{ marginTop: 40 }}>
+          <h2 style={{ fontSize: 20, fontWeight: 700, marginBottom: 16 }}>Fragen zum Kapitel</h2>
+          <LessonQuiz key={lesson.id} questions={lesson.questions} />
+        </section>
+      )}
+
+      <div className="glass-strong dash-card" style={{ marginTop: 40, display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 16 }}>
+        <CompleteButton key={lesson.id} lessonId={lesson.id} completed={lesson.completed} />
+        <div style={{ display: "flex", gap: 10 }}>
+          {prev && (
+            <Link href={`/dashboard/course/${prev.chapter.id}`} className="btn-ghost" style={{ padding: "11px 20px", borderRadius: 999, fontSize: 14, fontWeight: 600 }}>
+              ← Zurück
+            </Link>
+          )}
+          {next && (
+            <Link href={`/dashboard/course/${next.chapter.id}`} className="btn-ghost" style={{ padding: "11px 20px", borderRadius: 999, fontSize: 14, fontWeight: 600 }}>
+              Weiter →
+            </Link>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}

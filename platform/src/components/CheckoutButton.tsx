@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-export default function CheckoutButton({ price }: { price: string }) {
+export default function CheckoutButton({ price, marginTop = 32 }: { price: string; marginTop?: number }) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -38,7 +38,7 @@ export default function CheckoutButton({ price }: { price: string }) {
         style={{
           display: "block",
           width: "100%",
-          marginTop: 32,
+          marginTop,
           padding: 17,
           borderRadius: 999,
           fontSize: 16,
