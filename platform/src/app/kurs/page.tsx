@@ -65,14 +65,12 @@ export default async function KursPage() {
       </div>
 
       {/* FEATURES */}
-      <div style={{ position: "relative" }}>
-        <div className="section-pad" style={{ padding: "20px 32px 40px", maxWidth: 1180, margin: "0 auto" }}>
-          <div className="reveal" style={{ maxWidth: 640 }}>
-            <span className="label" style={{ color: "var(--sky)" }}>Kursinhalt</span>
-            <h2 style={{ fontSize: "clamp(26px,3.2vw,36px)", marginTop: 14, fontWeight: 700 }}>
-              Alles in <span className="grad">einem Kurs.</span>
-            </h2>
-          </div>
+      <div className="section-pad" style={{ padding: "20px 32px 90px", maxWidth: 1180, margin: "0 auto" }}>
+        <div className="reveal" style={{ maxWidth: 640 }}>
+          <span className="label" style={{ color: "var(--sky)" }}>Kursinhalt</span>
+          <h2 style={{ fontSize: "clamp(26px,3.2vw,36px)", marginTop: 14, fontWeight: 700 }}>
+            Alles in <span className="grad">einem Kurs.</span>
+          </h2>
         </div>
         <FeaturesShowcase />
       </div>

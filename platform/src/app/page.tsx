@@ -269,19 +269,15 @@ export default async function Home() {
       {/* FEATURES */}
       <div style={{ position: "relative", overflow: "hidden" }}>
         <Blob style={{ bottom: "-4%", right: "-6%", width: 260, height: 260, opacity: 0.22 }} color="var(--mint)" />
-        <div className="section-pad" style={{ position: "relative", zIndex: 1, padding: "20px 32px 40px", maxWidth: 1180, margin: "0 auto" }}>
+        <div className="section-pad" style={{ position: "relative", zIndex: 1, padding: "20px 32px 100px", maxWidth: 1180, margin: "0 auto" }}>
           <div className="reveal" style={{ maxWidth: 640 }}>
             <span className="label" style={{ color: "var(--sky)" }}>Kursinhalt</span>
             <h2 style={{ fontSize: "clamp(28px,3.4vw,42px)", marginTop: 14, fontWeight: 700, lineHeight: 1.2 }}>
               Alles, was du für <span className="grad">BZF I &amp; II</span> brauchst — in einem Kurs.
             </h2>
-            <p className="hide-mobile" style={{ marginTop: 12, fontSize: 14, color: "var(--text-faint)" }}>
-              Scroll weiter, um durch alle Vorteile zu blättern ↓
-            </p>
           </div>
+          <FeaturesShowcase />
         </div>
-        {/* Full-bleed: not constrained to the 1180px container */}
-        <FeaturesShowcase />
       </div>
 
       {/* CURRICULUM TABS */}

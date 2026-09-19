@@ -1,8 +1,7 @@
 "use client";
 
-import { useRef } from "react";
+import { useState } from "react";
 import FeatureIcon, { type FeatureIconType } from "./FeatureIcon";
-import { gsap, useGSAP } from "@/lib/gsap";
 
 const FEATURES: { icon: FeatureIconType; title: string; desc: string }[] = [
   {
@@ -37,114 +36,72 @@ const FEATURES: { icon: FeatureIconType; title: string; desc: string }[] = [
   },
 ];
 
-function SlideContent({ f, i }: { f: (typeof FEATURES)[number]; i: number }) {
+export default function FeaturesShowcase() {
+  const [flipped, setFlipped] = useState<Set<number>>(new Set());
+
+  function toggle(i: number) {
+    setFlipped((prev) => {
+      const next = new Set(prev);
+      if (next.has(i)) {
+        next.delete(i);
+      } else {
+        next.add(i);
+      }
+      return next;
+    });
+  }
+
   return (
     <div
-      className="glass-strong"
       style={{
-        borderRadius: 28,
-        padding: "48px 44px",
-        maxWidth: 520,
-        width: "100%",
-        textAlign: "center",
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fit,minmax(260px,1fr))",
+        gap: 20,
+        marginTop: 40,
       }}
     >
-      <div
-        style={{
-          width: 72,
-          height: 72,
-          borderRadius: 20,
-          background: "rgba(47,155,234,0.12)",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          margin: "0 auto 24px",
-        }}
-      >
-        <FeatureIcon type={f.icon} size={40} />
-      </div>
-      <span className="label" style={{ color: "var(--sky)" }}>
-        {String(i + 1).padStart(2, "0")} / {String(FEATURES.length).padStart(2, "0")}
-      </span>
-      <h3 style={{ marginTop: 10, fontSize: 24, fontWeight: 700 }}>{f.title}</h3>
-      <p style={{ marginTop: 14, fontSize: 15.5, color: "var(--text-dim)" }}>{f.desc}</p>
-    </div>
-  );
-}
-
-export default function FeaturesShowcase() {
-  const pinRef = useRef<HTMLDivElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
-
-  useGSAP(
-    () => {
-      const mm = gsap.matchMedia();
-      mm.add(
-        {
-          isDesktop: "(min-width: 900px)",
-          reduceMotion: "(prefers-reduced-motion: reduce)",
-        },
-        (context) => {
-          const { isDesktop, reduceMotion } = context.conditions as {
-            isDesktop: boolean;
-            reduceMotion: boolean;
-          };
-          if (!isDesktop || reduceMotion || !trackRef.current || !pinRef.current) return;
-
-          const track = trackRef.current;
-          // Pacing: the pin only lasts ~55% of the full translation distance,
-          // so the horizontal pan finishes well before 1 viewport-width of
-          // scroll per slide (the "full" distance feels sluggish at 6 slides).
-          const PACE = 0.55;
-          const tween = gsap.to(track, {
-            x: () => -(track.scrollWidth - window.innerWidth),
-            ease: "none",
-            scrollTrigger: {
-              trigger: pinRef.current,
-              start: "top top",
-              end: () => "+=" + (track.scrollWidth - window.innerWidth) * PACE,
-              pin: true,
-              scrub: 1,
-              snap: 1 / (FEATURES.length - 1),
-              invalidateOnRefresh: true,
-            },
-          });
-
-          return () => {
-            tween.scrollTrigger?.kill();
-            tween.kill();
-          };
-        },
-      );
-
-      return () => mm.revert();
-    },
-    { scope: pinRef },
-  );
-
-  return (
-    <div>
-      {/* Desktop: pinned horizontal scroll */}
-      <div className="features-desktop-pin" ref={pinRef} style={{ position: "relative", overflow: "hidden" }}>
-        <div style={{ height: "100vh", display: "flex", alignItems: "center" }}>
-          <div className="features-track" ref={trackRef}>
-            {FEATURES.map((f, i) => (
-              <div className="feature-slide" key={f.title}>
-                <SlideContent f={f} i={i} />
+      {FEATURES.map((f, i) => {
+        const isFlipped = flipped.has(i);
+        return (
+          <button
+            key={f.title}
+            type="button"
+            className="flip-card reveal"
+            onClick={() => toggle(i)}
+            aria-pressed={isFlipped}
+            aria-label={`${f.title} — Details ${isFlipped ? "ausblenden" : "anzeigen"}`}
+          >
+            <div className={`flip-card-inner${isFlipped ? " is-flipped" : ""}`}>
+              <div className="flip-card-face flip-card-front glass card">
+                <div
+                  style={{
+                    width: 48,
+                    height: 48,
+                    borderRadius: 14,
+                    background: "rgba(34,211,238,0.14)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <FeatureIcon type={f.icon} size={28} />
+                </div>
+                <h3 style={{ marginTop: 16, fontSize: 16, fontWeight: 700, color: "var(--text)" }}>{f.title}</h3>
+                <span style={{ marginTop: "auto", fontSize: 12, color: "var(--sky-deep)", fontWeight: 600 }}>
+                  Tippen für Details →
+                </span>
               </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile: native swipeable scroll-snap row */}
-      <div className="features-mobile-track">
-        {FEATURES.map((f, i) => (
-          <div className="feature-card-mobile" key={f.title}>
-            <SlideContent f={f} i={i} />
-          </div>
-        ))}
-      </div>
+              <div className="flip-card-face flip-card-back glass-strong">
+                <h3 style={{ fontSize: 14.5, fontWeight: 700, color: "var(--sky-deep)" }}>{f.title}</h3>
+                <p style={{ marginTop: 10, fontSize: 13.5, color: "var(--text-dim)", lineHeight: 1.5 }}>{f.desc}</p>
+                <span style={{ marginTop: "auto", fontSize: 12, color: "var(--text-faint)", fontWeight: 600 }}>
+                  ← Zurück
+                </span>
+              </div>
+            </div>
+          </button>
+        );
+      })}
     </div>
   );
 }
