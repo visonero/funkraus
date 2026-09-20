@@ -1,0 +1,26 @@
+{
+ "id": "2.1-hook-video",
+ "language": "de",
+ "scenes": [
+  {
+   "id": "problem",
+   "voice": "trainer",
+   "text": "Du sagst B. Der Fluglotse hört D. Oder P. Oder T. Bei Funkrauschen ist das ganz normal."
+  },
+  {
+   "id": "alphabet",
+   "voice": "trainer",
+   "text": "Darum buchstabierst du im Flugfunk nicht mit Buchstaben, sondern mit Wörtern. Alfa, Bravo, Charlie: das internationale Buchstabieralphabet."
+  },
+  {
+   "id": "callsign",
+   "voice": "trainer",
+   "text": "Aus deinem Rufzeichen D, E, J, F, C wird so: Delta, Echo, Juliett, Foxtrot, Charlie."
+  },
+  {
+   "id": "outro",
+   "voice": "trainer",
+   "text": "In dieser Lektion lernst du alle sechsundzwanzig Wörter, hörst sie gesprochen und übst sie laut mit. Los geht's."
+  }
+ ]
+}

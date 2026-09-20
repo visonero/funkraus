@@ -4,10 +4,12 @@ import { revalidatePath } from "next/cache";
 import { getCurrentUser } from "@/lib/auth/session";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { hasCourseAccess } from "./data";
-import { DEMO_CORRECT_INDEX, isDemoMode } from "./demo";
+import { DEMO_CORRECT_INDEX, DEMO_EXPLANATION, isDemoMode } from "./demo";
 
 type ActionResult = { ok: true } | { ok: false; error: string };
-type AnswerResult = { ok: true; correct: boolean; correctIndex: number } | { ok: false; error: string };
+type AnswerResult =
+  | { ok: true; correct: boolean; correctIndex: number; explanation: string | null }
+  | { ok: false; error: string };
 
 const SAVE_ERROR = "Fortschritt konnte nicht gespeichert werden. Bitte versuch es gleich nochmal.";
 
@@ -39,15 +41,15 @@ export async function submitAnswer(questionId: string, selectedIndex: number): P
   const learner = await requireLearner();
   if ("error" in learner) return { ok: false, error: learner.error };
   if (isDemoMode()) {
-    return { ok: true, correct: selectedIndex === DEMO_CORRECT_INDEX, correctIndex: DEMO_CORRECT_INDEX };
+    return { ok: true, correct: selectedIndex === DEMO_CORRECT_INDEX, correctIndex: DEMO_CORRECT_INDEX, explanation: DEMO_EXPLANATION };
   }
 
   const admin = createAdminClient();
-  const { data: question } = await admin
-    .from("quiz_questions")
-    .select("id, correct_index, options")
-    .eq("id", questionId)
-    .maybeSingle();
+  const questionQuery = (columns: string) => admin.from("quiz_questions").select(columns).eq("id", questionId).maybeSingle();
+  // Before migration 0005 the explanation column does not exist yet.
+  let found = await questionQuery("id, correct_index, options, explanation");
+  if (found.error) found = await questionQuery("id, correct_index, options");
+  const question = found.data as unknown as { correct_index: number; options: unknown; explanation?: string | null } | null;
 
   const optionCount = Array.isArray(question?.options) ? question.options.length : 0;
   if (!question || !Number.isInteger(selectedIndex) || selectedIndex < 0 || selectedIndex >= optionCount) {
@@ -64,5 +66,5 @@ export async function submitAnswer(questionId: string, selectedIndex: number): P
 
   if (error) return { ok: false, error: SAVE_ERROR };
   revalidatePath("/dashboard", "layout");
-  return { ok: true, correct, correctIndex: question.correct_index };
+  return { ok: true, correct, correctIndex: question.correct_index, explanation: question.explanation ?? null };
 }

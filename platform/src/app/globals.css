@@ -1105,3 +1105,69 @@ button {
     padding: 20px;
   }
 }
+
+.prose {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--text-dim);
+}
+.prose > :first-child {
+  margin-top: 0;
+}
+.prose p {
+  margin: 0 0 16px;
+}
+.prose h2 {
+  margin: 32px 0 12px;
+  font-size: 21px;
+  font-weight: 700;
+  color: var(--text);
+}
+.prose strong {
+  color: var(--text);
+}
+.prose ul,
+.prose ol {
+  margin: 0 0 16px;
+  padding-left: 22px;
+}
+.prose li {
+  margin-bottom: 6px;
+}
+.prose table {
+  width: 100%;
+  margin: 8px 0 20px;
+  border-collapse: collapse;
+  font-size: 14.5px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.prose th {
+  padding: 10px 14px;
+  text-align: left;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  border-bottom: 1px solid var(--line);
+}
+.prose td {
+  padding: 8px 14px;
+  border-bottom: 1px solid var(--line);
+}
+.prose tr:last-child td {
+  border-bottom: none;
+}
+.prose td:first-child {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-weight: 800;
+  color: var(--sky-deep);
+  width: 48px;
+}
+.prose td:nth-child(2) {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-weight: 600;
+  color: var(--text);
+}

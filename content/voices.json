@@ -1,0 +1,14 @@
+{
+ "_comment": "Set elevenlabs.voice_id per voice after auditioning voices in the ElevenLabs Voice Library. 'say' is the macOS placeholder used only for pipeline tests.",
+ "voices": {
+  "trainer": {
+   "elevenlabs": {
+    "voice_id": null,
+    "model_id": "eleven_multilingual_v2",
+    "stability": 0.5,
+    "similarity_boost": 0.75
+   },
+   "say": "Anna"
+  }
+ }
+}

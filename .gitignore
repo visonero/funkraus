@@ -10,3 +10,9 @@ GitHubToken.pages
 # editor
 .vscode/
 .idea/
+
+# Generated course media and tooling
+content/build/
+content/video/node_modules/
+content/video/out/
+content/video/public/

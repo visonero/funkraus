@@ -1,0 +1,40 @@
+{
+  "questions": [
+    {
+      "catalogue_number": 45,
+      "explanation": "D-E-J-F-C wird Buchstabe für Buchstabe mit dem Buchstabieralphabet gesprochen: DELTA ECHO JULIETT FOXTROT CHARLIE. Achte auf JULIETT, das im Alphabet mit zwei T geschrieben wird."
+    },
+    {
+      "catalogue_number": 46,
+      "explanation": "D-I-J-Y-F wird zu DELTA INDIA JULIETT YANKEE FOXTROT. Übe INDIA, JULIETT und YANKEE besonders gut."
+    },
+    {
+      "source_ref": "funkraus Übungsfrage",
+      "question": "Welches Wort steht im Buchstabieralphabet für den Buchstaben J?",
+      "options": ["JULIETT", "JAGUAR", "JAPAN", "JOKER"],
+      "explanation": "Für J sprichst du JULIETT. Das Wort wird mit zwei T geschrieben, in der Tafel steht die ungefähre Aussprache DSCHU LJETT."
+    },
+    {
+      "source_ref": "funkraus Übungsfrage",
+      "question": "Wie wird die Flugplatzkennung EDDM buchstabiert?",
+      "options": [
+        "ECHO DELTA DELTA MIKE",
+        "ECHO DELTA DELTA MEXICO",
+        "EUROPA DELTA DELTA MIKE",
+        "ECHO DELTA DELTA MADRID"
+      ],
+      "explanation": "E = ECHO, D = DELTA, D = DELTA, M = MIKE. Nur Wörter aus dem Buchstabieralphabet sind zulässig; MEXICO, EUROPA und MADRID gehören nicht dazu."
+    },
+    {
+      "source_ref": "funkraus Übungsfrage",
+      "question": "Wann verwendest du im Sprechfunkverkehr das Buchstabieralphabet?",
+      "options": [
+        "Zum Buchstabieren von Eigennamen, Abkürzungen und Wörtern, deren Schreibung unklar ist",
+        "Nur bei der Abgabe von Notmeldungen",
+        "Nur für das eigene Luftfahrzeug-Rufzeichen",
+        "Nur, wenn der Funkverkehr in englischer Sprache geführt wird"
+      ],
+      "explanation": "Nach SERA.14020 (Bekanntmachung über die Sprechfunkverfahren) wird das Buchstabieralphabet für Eigennamen, Abkürzungen und Wörter mit unklarer Schreibung verwendet."
+    }
+  ]
+}

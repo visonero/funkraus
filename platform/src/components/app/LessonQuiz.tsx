@@ -4,7 +4,7 @@ import { useState, useTransition } from "react";
 import { submitAnswer } from "@/lib/course/actions";
 
 type Question = { id: string; question: string; options: string[] };
-type Result = { selected: number; correct: boolean; correctIndex: number };
+type Result = { selected: number; correct: boolean; correctIndex: number; explanation: string | null };
 
 export default function LessonQuiz({ questions }: { questions: Question[] }) {
   const [results, setResults] = useState<Record<string, Result>>({});
@@ -19,7 +19,7 @@ export default function LessonQuiz({ questions }: { questions: Question[] }) {
     startTransition(async () => {
       const res = await submitAnswer(q.id, index);
       if (res.ok) {
-        setResults((prev) => ({ ...prev, [q.id]: { selected: index, correct: res.correct, correctIndex: res.correctIndex } }));
+        setResults((prev) => ({ ...prev, [q.id]: { selected: index, correct: res.correct, correctIndex: res.correctIndex, explanation: res.explanation } }));
       } else {
         setError(res.error);
       }
@@ -66,6 +66,11 @@ export default function LessonQuiz({ questions }: { questions: Question[] }) {
                 );
               })}
             </div>
+            {result?.explanation && (
+              <p style={{ marginTop: 14, padding: "12px 14px", borderRadius: 12, background: "rgba(47,155,234,0.08)", fontSize: 14, lineHeight: 1.6, color: "var(--text-dim)" }}>
+                {result.explanation}
+              </p>
+            )}
             {result && (
               <div style={{ display: "flex", alignItems: "center", gap: 14, marginTop: 14, flexWrap: "wrap" }}>
                 <span style={{ fontSize: 14, fontWeight: 700, color: result.correct ? "#0f9f6e" : "#c0334d" }}>

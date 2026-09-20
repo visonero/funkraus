@@ -1,0 +1,135 @@
+{
+ "source": "NfL 2024-1-3266 (DFS), Nr. 6 Buchstabieren im Sprechfunkverkehr (SERA.14020)",
+ "letters": [
+  {
+   "letter": "A",
+   "word": "ALFA",
+   "pronunciation": "AL FA"
+  },
+  {
+   "letter": "B",
+   "word": "BRAVO",
+   "pronunciation": "BRA WO"
+  },
+  {
+   "letter": "C",
+   "word": "CHARLIE",
+   "pronunciation": "TSCHAHR LI oder SCHAHR LI"
+  },
+  {
+   "letter": "D",
+   "word": "DELTA",
+   "pronunciation": "DEL TA"
+  },
+  {
+   "letter": "E",
+   "word": "ECHO",
+   "pronunciation": "ECK O"
+  },
+  {
+   "letter": "F",
+   "word": "FOXTROT",
+   "pronunciation": "FOX TROT"
+  },
+  {
+   "letter": "G",
+   "word": "GOLF",
+   "pronunciation": "GOLF"
+  },
+  {
+   "letter": "H",
+   "word": "HOTEL",
+   "pronunciation": "HO TELL"
+  },
+  {
+   "letter": "I",
+   "word": "INDIA",
+   "pronunciation": "IN DJA"
+  },
+  {
+   "letter": "J",
+   "word": "JULIETT",
+   "pronunciation": "DSCHU LJETT"
+  },
+  {
+   "letter": "K",
+   "word": "KILO",
+   "pronunciation": "KI LO"
+  },
+  {
+   "letter": "L",
+   "word": "LIMA",
+   "pronunciation": "LI MA"
+  },
+  {
+   "letter": "M",
+   "word": "MIKE",
+   "pronunciation": "MAIK"
+  },
+  {
+   "letter": "N",
+   "word": "NOVEMBER",
+   "pronunciation": "NO WEMM BA"
+  },
+  {
+   "letter": "O",
+   "word": "OSCAR",
+   "pronunciation": "OSS KA"
+  },
+  {
+   "letter": "P",
+   "word": "PAPA",
+   "pronunciation": "PA PA"
+  },
+  {
+   "letter": "Q",
+   "word": "QUEBEC",
+   "pronunciation": "KI BECK"
+  },
+  {
+   "letter": "R",
+   "word": "ROMEO",
+   "pronunciation": "ROH MIO"
+  },
+  {
+   "letter": "S",
+   "word": "SIERRA",
+   "pronunciation": "SI ER RA"
+  },
+  {
+   "letter": "T",
+   "word": "TANGO",
+   "pronunciation": "TÄN GO"
+  },
+  {
+   "letter": "U",
+   "word": "UNIFORM",
+   "pronunciation": "JU NIFORM oder U NIFORM"
+  },
+  {
+   "letter": "V",
+   "word": "VICTOR",
+   "pronunciation": "WIK TOR"
+  },
+  {
+   "letter": "W",
+   "word": "WHISKEY",
+   "pronunciation": "WISS KI"
+  },
+  {
+   "letter": "X",
+   "word": "X-RAY",
+   "pronunciation": "EX RE"
+  },
+  {
+   "letter": "Y",
+   "word": "YANKEE",
+   "pronunciation": "JÄN KI"
+  },
+  {
+   "letter": "Z",
+   "word": "ZULU",
+   "pronunciation": "SU LU"
+  }
+ ]
+}

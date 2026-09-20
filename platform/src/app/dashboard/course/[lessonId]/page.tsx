@@ -1,4 +1,6 @@
 import Link from "next/link";
+import Markdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { notFound, redirect } from "next/navigation";
 import AppIcon from "@/components/app/AppIcon";
 import CompleteButton from "@/components/app/CompleteButton";
@@ -22,7 +24,7 @@ export default async function LessonPage({ params }: PageProps<"/dashboard/cours
   const current = index >= 0 ? flat[index] : null;
   const prev = index > 0 ? flat[index - 1] : null;
   const next = index >= 0 && index < flat.length - 1 ? flat[index + 1] : null;
-  const paragraphs = (lesson.body ?? "").split(/\n{2,}/).map((p) => p.trim()).filter(Boolean);
+  const hasMedia = Boolean(lesson.mediaUrl || lesson.audioUrl);
 
   return (
     <div style={{ maxWidth: 820 }}>
@@ -48,27 +50,38 @@ export default async function LessonPage({ params }: PageProps<"/dashboard/cours
       <h1 style={{ marginTop: 12, fontSize: "clamp(24px,3vw,32px)", fontWeight: 800, lineHeight: 1.2 }}>{lesson.title}</h1>
       {current && <p style={{ marginTop: 6, fontSize: 14, color: "var(--text-faint)" }}>{current.module.title}</p>}
 
-      {(lesson.type === "video" || lesson.type === "audio") && (
+      {lesson.mediaUrl && (
         <div className="glass" style={{ marginTop: 24, borderRadius: 20, overflow: "hidden" }}>
-          {lesson.mediaUrl && lesson.type === "video" ? (
-            <video controls preload="metadata" src={lesson.mediaUrl} style={{ display: "block", width: "100%", aspectRatio: "16 / 9", background: "#0e1a2b" }} />
-          ) : lesson.mediaUrl ? (
-            <audio controls preload="metadata" src={lesson.mediaUrl} style={{ display: "block", width: "100%", padding: 16 }} />
-          ) : (
-            <div style={{ aspectRatio: "16 / 9", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 10, color: "var(--text-faint)" }}>
-              <AppIcon name={lesson.type} size={36} />
-              <span style={{ fontSize: 14, fontWeight: 600 }}>{lesson.type === "video" ? "Video" : "Audio"} folgt in Kürze</span>
-            </div>
-          )}
+          <video controls preload="metadata" src={lesson.mediaUrl} style={{ display: "block", width: "100%", aspectRatio: "16 / 9", background: "#0e1a2b" }} />
         </div>
       )}
 
-      {paragraphs.length > 0 && (
-        <div style={{ marginTop: 28, display: "flex", flexDirection: "column", gap: 16, fontSize: 16, lineHeight: 1.75, color: "var(--text-dim)" }}>
-          {paragraphs.map((p, i) => (
-            <p key={i} style={{ whiteSpace: "pre-line" }}>{p}</p>
-          ))}
+      {!hasMedia && (lesson.type === "video" || lesson.type === "audio") && (
+        <div className="glass" style={{ marginTop: 24, borderRadius: 20, aspectRatio: "16 / 9", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 10, color: "var(--text-faint)" }}>
+          <AppIcon name={lesson.type} size={36} />
+          <span style={{ fontSize: 14, fontWeight: 600 }}>{lesson.type === "video" ? "Video" : "Audio"} folgt in Kürze</span>
         </div>
+      )}
+
+      {lesson.body && (
+        <div className="prose" style={{ marginTop: 28 }}>
+          <Markdown remarkPlugins={[remarkGfm]}>{lesson.body}</Markdown>
+        </div>
+      )}
+
+      {lesson.audioUrl && (
+        <section className="glass dash-card" style={{ marginTop: 32 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+            <span className="dash-icon" style={{ background: "rgba(47,155,234,0.14)", color: "var(--sky)" }}>
+              <AppIcon name="audio" size={20} />
+            </span>
+            <div>
+              <p className="dash-card-title">Hörübung</p>
+              <p style={{ fontSize: 13, color: "var(--text-faint)" }}>Hör zu und sprich in den Pausen laut mit.</p>
+            </div>
+          </div>
+          <audio controls preload="metadata" src={lesson.audioUrl} style={{ display: "block", width: "100%", marginTop: 16 }} />
+        </section>
       )}
 
       {lesson.questions.length > 0 && (
@@ -76,6 +89,19 @@ export default async function LessonPage({ params }: PageProps<"/dashboard/cours
           <h2 style={{ fontSize: 20, fontWeight: 700, marginBottom: 16 }}>Fragen zum Kapitel</h2>
           <LessonQuiz key={lesson.id} questions={lesson.questions} />
         </section>
+      )}
+
+      {lesson.pdfUrl && (
+        <a href={lesson.pdfUrl} target="_blank" rel="noopener noreferrer" className="glass dash-card course-continue" style={{ marginTop: 32, marginBottom: 0 }}>
+          <span className="dash-icon" style={{ background: "rgba(47,155,234,0.14)", color: "var(--sky)" }}>
+            <AppIcon name="text" size={22} />
+          </span>
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <p style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 16 }}>PDF zum Ausdrucken</p>
+            <p style={{ fontSize: 13, color: "var(--text-faint)" }}>Karte öffnen oder herunterladen</p>
+          </div>
+          <AppIcon name="arrow" size={22} />
+        </a>
       )}
 
       <div className="glass-strong dash-card" style={{ marginTop: 40, display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 16 }}>

@@ -83,6 +83,8 @@ export type LessonDetail = {
   type: ChapterType;
   body: string | null;
   mediaUrl: string | null;
+  audioUrl: string | null;
+  pdfUrl: string | null;
   questions: { id: string; question: string; options: string[] }[];
   completed: boolean;
 };

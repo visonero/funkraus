@@ -1,4 +1,5 @@
 import { cache } from "react";
+import { createAdminClient } from "@/lib/supabase/admin";
 import { createClient } from "@/lib/supabase/server";
 import { demoLessonDetail, demoRaw, isDemoMode } from "./demo";
 import type {
@@ -14,6 +15,8 @@ import type {
 } from "./types";
 
 const TIME_ZONE = "Europe/Berlin";
+const MEDIA_BUCKET = "course-media";
+const MEDIA_URL_TTL_SECONDS = 2 * 60 * 60;
 const dayKeyFormat = new Intl.DateTimeFormat("sv-SE", { timeZone: TIME_ZONE });
 const weekdayFormat = new Intl.DateTimeFormat("de-DE", { timeZone: TIME_ZONE, weekday: "short" });
 
@@ -179,6 +182,17 @@ export const getCourseData = cache(async (userId: string): Promise<CourseData> =
   return computeCourse(isDemoMode() ? demoRaw() : await fetchRawCourse(userId));
 });
 
+// Files in the private course-media bucket are stored as paths and handed out as short-lived signed
+// URLs; full http(s) URLs (e.g. a video CDN) pass through unchanged.
+async function resolveMediaUrl(path: string | null, downloadName?: string) {
+  if (!path) return null;
+  if (/^https?:\/\//.test(path)) return path;
+  const { data } = await createAdminClient()
+    .storage.from(MEDIA_BUCKET)
+    .createSignedUrl(path, MEDIA_URL_TTL_SECONDS, downloadName ? { download: downloadName } : undefined);
+  return data?.signedUrl ?? null;
+}
+
 export async function getLessonDetail(lessonId: string, userId: string): Promise<LessonDetail | null> {
   const course = await getCourseData(userId);
   const completed = course.modules.flatMap((m) => m.chapters).find((c) => c.id === lessonId)?.completed ?? false;
@@ -186,24 +200,31 @@ export async function getLessonDetail(lessonId: string, userId: string): Promise
   if (isDemoMode()) return demoLessonDetail(lessonId, completed);
 
   const supabase = await createClient();
-  const [lesson, questions] = await Promise.all([
-    supabase
-      .from("course_lessons")
-      .select("id, title, content_type, body, media_url")
-      .eq("id", lessonId)
-      .maybeSingle(),
-    // correct_index is deliberately not selected — answers are checked server-side.
+  const lessonQuery = (columns: string) => supabase.from("course_lessons").select(columns).eq("id", lessonId).maybeSingle();
+  const [fullLesson, questions] = await Promise.all([
+    lessonQuery("id, title, content_type, body, media_url, audio_url, pdf_url"),
+    // correct_index and explanation are deliberately not selected — answers are checked server-side.
     supabase.from("quiz_questions").select("id, question, options").eq("lesson_id", lessonId).order("sort_order"),
   ]);
+  // Before migration 0005 the audio/pdf columns do not exist yet.
+  const lesson = fullLesson.error ? await lessonQuery("id, title, content_type, body, media_url") : fullLesson;
+  const row = lesson.data as unknown as Record<string, string | null> | null;
+  if (!row) return null;
 
-  if (!lesson.data) return null;
+  const [mediaUrl, audioUrl, pdfUrl] = await Promise.all([
+    resolveMediaUrl(row.media_url ?? null),
+    resolveMediaUrl(row.audio_url ?? null),
+    resolveMediaUrl(row.pdf_url ?? null, `${(row.title ?? "Material").replace(/[^\p{L}\p{N}]+/gu, "-")}.pdf`),
+  ]);
 
   return {
-    id: lesson.data.id,
-    title: lesson.data.title,
-    type: toChapterType(lesson.data.content_type),
-    body: lesson.data.body,
-    mediaUrl: lesson.data.media_url,
+    id: row.id as string,
+    title: row.title as string,
+    type: toChapterType(row.content_type as string),
+    body: row.body ?? null,
+    mediaUrl,
+    audioUrl,
+    pdfUrl,
     questions: (questions.data ?? []).map((q) => ({
       id: q.id,
       question: q.question,

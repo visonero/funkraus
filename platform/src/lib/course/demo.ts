@@ -7,6 +7,7 @@ export function isDemoMode() {
 }
 
 export const DEMO_CORRECT_INDEX = 0;
+export const DEMO_EXPLANATION = "Demo-Erklärung: Hier steht später eine kurze Begründung zur richtigen Antwort.";
 
 type DemoChapter = [title: string, type: ChapterType, questions: number];
 type DemoModule = { track: Track; num: string; title: string; minutes: number; description: string; chapters: DemoChapter[] };
@@ -193,6 +194,8 @@ export function demoLessonDetail(lessonId: string, completed: boolean): LessonDe
       "Dies ist ein Platzhaltertext für die Vorschau. Hier erscheint später der Lehrtext dieses Kapitels.\n\n" +
       "Ein zweiter Absatz zeigt, wie längere Inhalte im Kursbereich dargestellt werden: gut lesbar, mit viel Weißraum.",
     mediaUrl: null,
+    audioUrl: null,
+    pdfUrl: null,
     questions: Array.from({ length: Math.min(qCount, 3) }, (_, i) => ({
       id: `demo-q-${match[1]}-${match[2]}-${i + 1}`,
       question: `Beispielfrage ${i + 1}: Welche Antwort ist die korrekte Standardphrase?`,

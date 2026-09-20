@@ -1,0 +1,14 @@
+{
+  "id": "2.1",
+  "title": "Die Buchstabiertafel (ICAO-Alphabet)",
+  "content_type": "audio",
+  "sort_order": 0,
+  "assets": {
+    "video": "2.1-hook-video/hook-video.mp4",
+    "audio": "2.1-audio-drill/2.1-audio-drill.mp3",
+    "pdf": "2.1-alphabet-karte/alphabet-karte.pdf"
+  },
+  "sources": [
+    "NfL 2024-1-3266 (Bekanntmachung über die Sprechfunkverfahren), Nr. 6 (SERA.14020)"
+  ]
+}
