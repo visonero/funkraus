@@ -1,0 +1,12 @@
+{
+  "id": "2.3",
+  "title": "Aufbau eines Funkspruchs und Kürzelsystem",
+  "content_type": "audio",
+  "sort_order": 2,
+  "assets": {
+    "video": "2.3-hook-video/hook-video.mp4",
+    "audio": "2.3-audio-drill/2.3-audio-drill.mp3",
+    "pdf": "2.3-kuerzel-karte/kuerzel-karte.pdf"
+  },
+  "sources": ["NfL 2024-1-3266, Nr. 1 (SERA.14001), Nr. 12 Verfahren der Übermittlung (SERA.14045), Nr. 13 bis 14 Rufzeichen (SERA.14050, 14055), Nr. 17 Testverfahren (SERA.14070), Nr. 18 Austausch von Meldungen (SERA.14075)"]
+}

@@ -1,0 +1,219 @@
+{
+ "id": "2.2-hook-video",
+ "language": "de",
+ "scenes": [
+  {
+   "id": "intro",
+   "voice": "trainer",
+   "text": "Im Alltag sagst du: Piste [[0]]siebenundzwanzig. Im Flugfunk klingt das anders, nämlich Piste zwo sieben. Damit nichts verwechselt wird, werden Zahlen im Funk Ziffer für Ziffer gesprochen. Wie das genau geht, lernst du in dieser Lektion.",
+   "visual": {
+    "kind": "headline",
+    "headline": "Im Alltag sagst du",
+    "highlight": "siebenundzwanzig",
+    "tiles": [
+     "27"
+    ]
+   }
+  },
+  {
+   "id": "digits",
+   "voice": "trainer",
+   "text": "Zuerst die Ziffern. Hör genau hin, denn ein paar klingen anders, als du es gewohnt bist. [[0]]Null. [[1]]Eins. [[2]]Zwo. [[3]]Drei. [[4]]Vier. [[5]]Fünf. [[6]]Sechs. [[7]]Sieben. [[8]]Acht. [[9]]Neun. [[10]]Hundert. [[11]]Tausend. Besonders wichtig: Die Zwei heißt im Funk immer zwo.",
+   "visual": {
+    "kind": "grid",
+    "headline": "Die Ziffern",
+    "highlight": "im Funk",
+    "columns": 6,
+    "items": [
+     {
+      "top": "0",
+      "bottom": "NULL"
+     },
+     {
+      "top": "1",
+      "bottom": "EINS"
+     },
+     {
+      "top": "2",
+      "bottom": "ZWO"
+     },
+     {
+      "top": "3",
+      "bottom": "DREI"
+     },
+     {
+      "top": "4",
+      "bottom": "VIER"
+     },
+     {
+      "top": "5",
+      "bottom": "FÜNF"
+     },
+     {
+      "top": "6",
+      "bottom": "SECHS"
+     },
+     {
+      "top": "7",
+      "bottom": "SIEBEN"
+     },
+     {
+      "top": "8",
+      "bottom": "ACHT"
+     },
+     {
+      "top": "9",
+      "bottom": "NEUN"
+     },
+     {
+      "top": "100",
+      "bottom": "HUNDERT"
+     },
+     {
+      "top": "1000",
+      "bottom": "TAUSEND"
+     }
+    ]
+   },
+   "subtitles": false
+  },
+  {
+   "id": "runway",
+   "voice": "trainer",
+   "text": "Und so wendest du das an. Bei Pisten, Steuerkursen und beim Wind sprichst du jede Ziffer einzeln. Piste 27 wird zu: [[0]]zwo, [[1]]sieben.",
+   "visual": {
+    "kind": "transform",
+    "headline": "Jede Ziffer",
+    "highlight": "einzeln",
+    "plate": "PISTE 27",
+    "tiles": [
+     {
+      "top": "2",
+      "bottom": "ZWO"
+     },
+     {
+      "top": "7",
+      "bottom": "SIEBEN"
+     }
+    ]
+   }
+  },
+  {
+   "id": "wind",
+   "voice": "trainer",
+   "text": "Ein Wind aus 200 Grad mit 15 Knoten klingt so: Wind [[0]]zwo null null Grad, [[1]]eins fünf Knoten.",
+   "visual": {
+    "kind": "transform",
+    "headline": "Auch der Wind",
+    "highlight": "Ziffer für Ziffer",
+    "plate": "WIND 200 / 15",
+    "tiles": [
+     {
+      "top": "200°",
+      "bottom": "ZWO NULL NULL"
+     },
+     {
+      "top": "15 kt",
+      "bottom": "EINS FÜNF"
+     }
+    ]
+   }
+  },
+  {
+   "id": "hundreds",
+   "voice": "trainer",
+   "text": "Nur bei Höhen, Wolkenhöhen und Sichtweiten gibt es eine Besonderheit. Wenn die Zahl aus ganzen Hundertern oder Tausendern besteht, hängst du das Wort dran. 3500 Fuß sind: [[0]]drei, [[1]]tausend, [[2]]fünf, [[3]]hundert Fuß.",
+   "visual": {
+    "kind": "transform",
+    "headline": "Ganze Hunderter und",
+    "highlight": "Tausender",
+    "plate": "3500 ft",
+    "tiles": [
+     {
+      "top": "3",
+      "bottom": "DREI"
+     },
+     {
+      "top": "000",
+      "bottom": "TAUSEND"
+     },
+     {
+      "top": "5",
+      "bottom": "FÜNF"
+     },
+     {
+      "top": "00",
+      "bottom": "HUNDERT"
+     }
+    ]
+   }
+  },
+  {
+   "id": "frequency",
+   "voice": "trainer",
+   "text": "Bei Frequenzen sprichst du das Komma als Komma. Die Frequenz 118,7 wird zu: [[0]]eins, [[1]]eins, [[2]]acht, [[3]]Komma, [[4]]sieben.",
+   "visual": {
+    "kind": "transform",
+    "headline": "Frequenzen",
+    "highlight": "mit Komma",
+    "plate": "118,7",
+    "tiles": [
+     {
+      "top": "1",
+      "bottom": "EINS"
+     },
+     {
+      "top": "1",
+      "bottom": "EINS"
+     },
+     {
+      "top": "8",
+      "bottom": "ACHT"
+     },
+     {
+      "top": ",",
+      "bottom": "KOMMA"
+     },
+     {
+      "top": "7",
+      "bottom": "SIEBEN"
+     }
+    ]
+   }
+  },
+  {
+   "id": "time",
+   "voice": "trainer",
+   "text": "Und die Uhrzeit? Sie wird immer in UTC angegeben. Wenn keine Verwechslung möglich ist, nennst du nur die Minuten. Bei 13:18 Uhr also: [[0]]eins acht. Willst du ganz sicher gehen, nennst du alle vier Ziffern: [[1]]eins drei eins acht.",
+   "visual": {
+    "kind": "transform",
+    "headline": "Die Uhrzeit",
+    "highlight": "in UTC",
+    "plate": "13:18",
+    "tiles": [
+     {
+      "top": "18",
+      "bottom": "EINS ACHT"
+     },
+     {
+      "top": "1318",
+      "bottom": "EINS DREI EINS ACHT"
+     }
+    ]
+   }
+  },
+  {
+   "id": "outro",
+   "voice": "trainer",
+   "text": "Zahlen im Funk sind Übungssache. [[0]]Hör dir die Zahlenübung an, [[1]]sprich in den Pausen mit [[2]]und teste dich mit den fünf Fragen. Los geht's.",
+   "visual": {
+    "kind": "outro",
+    "pills": [
+     "Zuhören",
+     "Nachsprechen",
+     "Fragen"
+    ]
+   }
+  }
+ ]
+}

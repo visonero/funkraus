@@ -1,0 +1,10 @@
+{
+  "id": "0.1",
+  "title": "Willkommen im Kurs",
+  "content_type": "video",
+  "sort_order": 0,
+  "assets": {
+    "video": "0.1-hook-video/hook-video.mp4"
+  },
+  "sources": []
+}

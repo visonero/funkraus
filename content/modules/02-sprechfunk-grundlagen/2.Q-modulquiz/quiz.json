@@ -1,0 +1,64 @@
+{
+  "questions": [
+    {
+      "catalogue_number": 57,
+      "explanation": "Ist die Verbindung hergestellt, sind fortlaufende Übermittlungen ohne erneute Identifizierung zulässig, und das Rufzeichen der Bodenfunkstelle darf weggelassen werden. Freigaben wiederholst du dennoch immer mit deinem Rufzeichen."
+    },
+    {
+      "catalogue_number": 61,
+      "explanation": "Ein abgekürztes Rufzeichen darfst du erst verwenden, nachdem die Bodenfunkstelle es bereits verwendet hat. Beim Herstellen der Verbindung nutzt du stets das vollständige Rufzeichen."
+    },
+    {
+      "catalogue_number": 64,
+      "explanation": "Hast du das Rufzeichen der rufenden Funkstelle nicht verstanden, fordest du es mit „WIEDERHOLEN SIE IHR RUFZEICHEN“ an."
+    },
+    {
+      "catalogue_number": 65,
+      "explanation": "„WIEDERHOLEN SIE WÖRTLICH“ (Read back) fordert die wörtliche Wiederholung der Meldung oder des bezeichneten Teils. „WIEDERHOLEN SIE“ ohne Zusatz heißt nur: sagen Sie es noch einmal."
+    },
+    {
+      "catalogue_number": 67,
+      "explanation": "„NEGATIV“ bedeutet Nein, Erlaubnis nicht erteilt oder das ist nicht richtig. „POSITIV“ ist das Gegenstück für Ja."
+    },
+    {
+      "catalogue_number": 69,
+      "explanation": "Hast du Zweifel am Inhalt einer Meldung, bittest du mit „BESTÄTIGEN SIE“ um Bestätigung. Damit erbittest du die Bestätigung einer Freigabe, Anweisung, Handlung oder Information."
+    },
+    {
+      "catalogue_number": 72,
+      "explanation": "„FREI“ ist die Redewendung für „Genehmigung, unter festgelegten Bedingungen zu verfahren“. Sie steht zum Beispiel in Freigaben."
+    },
+    {
+      "catalogue_number": 74,
+      "explanation": "„WILCO“ ist die Abkürzung von „will comply“: Ich habe die Meldung verstanden und handle danach. Das geht über „VERSTANDEN“ hinaus."
+    },
+    {
+      "catalogue_number": 75,
+      "explanation": "„MONITOR“ heißt: Hören Sie die genannte Frequenz ab. Verwechsle es nicht mit „RUFEN SIE“, bei dem du selbst Funkverbindung herstellst."
+    },
+    {
+      "catalogue_number": 82,
+      "explanation": "Ein Einleitungsanruf wird beim Herstellen der Sprechfunkverbindung abgesetzt. Er nennt zuerst die gerufene und dann die rufende Funkstelle."
+    },
+    {
+      "catalogue_number": 88,
+      "explanation": "Bist du nicht sicher, ob du gerufen wurdest, wartest du ab, bis der Anruf wiederholt wird. Nenne nicht auf Verdacht dein Rufzeichen."
+    },
+    {
+      "catalogue_number": 99,
+      "explanation": "Die Skala reicht von 1 (unverständlich) über 2 (zeitweise verständlich), 3 (schwer verständlich) und 4 (verständlich) bis 5 (sehr gut verständlich). „HÖRE SIE ZWO“ heißt also: zeitweise verständlich."
+    },
+    {
+      "catalogue_number": 100,
+      "explanation": "„HÖRE SIE DREI“ bedeutet auf der Verständlichkeitsskala: schwer verständlich. Merke dir die Skala von 1 (unverständlich) bis 5 (sehr gut verständlich)."
+    },
+    {
+      "catalogue_number": 102,
+      "explanation": "„HÖRE SIE FÜNF“ ist der beste Wert der Skala: sehr gut verständlich."
+    },
+    {
+      "catalogue_number": 105,
+      "explanation": "Eine Testübermittlung besteht aus gerufener Funkstelle, eigenem Rufzeichen, den Wörtern „RADIO CHECK“ und der verwendeten Frequenz."
+    }
+  ]
+}

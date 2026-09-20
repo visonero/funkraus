@@ -1,0 +1,60 @@
+{
+  "questions": [
+    {
+      "catalogue_number": 122,
+      "explanation": "Locker bewölkt (SCATTERED) bedeutet 3 bis 4 Achtel Bedeckung."
+    },
+    {
+      "catalogue_number": 123,
+      "explanation": "Durchbrochen bewölkt (BROKEN) bedeutet 5 bis 7 Achtel Bedeckung."
+    },
+    {
+      "catalogue_number": 124,
+      "explanation": "Bedeckt (OVERCAST) bedeutet, dass der ganze Himmel bedeckt ist: 8 Achtel."
+    },
+    {
+      "catalogue_number": 125,
+      "explanation": "3 bis 4 Achtel Bewölkung heißen im Sprechfunk LOCKERE BEWÖLKUNG (SCATTERED)."
+    },
+    {
+      "catalogue_number": 126,
+      "explanation": "5 bis 7 Achtel Bewölkung heißen im Sprechfunk DURCHBROCHEN BEWÖLKT (BROKEN)."
+    },
+    {
+      "catalogue_number": 127,
+      "explanation": "1 bis 2 Achtel Bewölkung heißen im Sprechfunk GERING BEWÖLKT (FEW)."
+    },
+    {
+      "catalogue_number": 128,
+      "explanation": "CAVOK bedeutet: Sicht 10 km oder mehr und keine Bewölkung unter 5000 ft AGL."
+    },
+    {
+      "catalogue_number": 129,
+      "explanation": "Flugsicht, Bodensicht und Pistensichtweite werden unter 5 km in Metern und darüber in Kilometern angegeben."
+    },
+    {
+      "catalogue_number": 130,
+      "explanation": "Sicht unter 5 km gibst du in Metern an: „SICHT DREI TAUSEND METER“. Kilometer, Fuß und Seemeilen sind hier falsch."
+    },
+    {
+      "catalogue_number": 131,
+      "explanation": "VOLMET sind die Wetterrundsendungen für Flughafenwettermeldungen."
+    },
+    {
+      "catalogue_number": 132,
+      "explanation": "Das Flugplatzwetter holst du dir während des Fluges über die ATIS. GAFOR und AIS-C sind andere Dienste, UHF ist ein Frequenzbereich."
+    },
+    {
+      "catalogue_number": 133,
+      "explanation": "ATIS-Aussendungen enthalten Lande- und Startinformationen zur sicheren Durchführung von Flügen nach VFR und IFR. Wetterinformationen für mehrere Flughäfen gibt es dagegen über VOLMET."
+    },
+    {
+      "catalogue_number": 134,
+      "explanation": "SIGMET-Meldungen werden in dieser Zeit als Flugrundfunksendung auf den Frequenzen des Fluginformationsdienstes zu jeder halben und vollen Stunde verbreitet."
+    },
+    {
+      "catalogue_number": 135,
+      "explanation": "SIGMET-Meldungen warnen vor besonderen Wettererscheinungen wie Gewitter, Turbulenzen und Vereisung. Routinewettermeldungen sind dagegen METAR."
+    }
+  ]
+}

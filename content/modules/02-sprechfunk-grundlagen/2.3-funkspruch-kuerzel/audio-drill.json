@@ -1,0 +1,230 @@
+{
+ "id": "2.3-audio-drill",
+ "language": "de",
+ "segments": [
+  {
+   "voice": "trainer",
+   "text": "Willkommen zur Funkübung. Zuerst die Redewendungen. Ich nenne die Bedeutung, du sagst nach der Pause die passende Redewendung. Danach höre ich dir die Lösung vor."
+  },
+  {
+   "pause": 1.5
+  },
+  {
+   "voice": "trainer",
+   "text": "Wie sagst du: Ja?"
+  },
+  {
+   "pause": 3.0
+  },
+  {
+   "voice": "trainer",
+   "text": "Positiv."
+  },
+  {
+   "pause": 1.5
+  },
+  {
+   "voice": "trainer",
+   "text": "Wie sagst du: Nein?"
+  },
+  {
+   "pause": 3.0
+  },
+  {
+   "voice": "trainer",
+   "text": "Negativ."
+  },
+  {
+   "pause": 1.5
+  },
+  {
+   "voice": "trainer",
+   "text": "Wie sagst du: Ich habe deine letzte Meldung vollständig erhalten?"
+  },
+  {
+   "pause": 3.0
+  },
+  {
+   "voice": "trainer",
+   "text": "Verstanden."
+  },
+  {
+   "pause": 1.5
+  },
+  {
+   "voice": "trainer",
+   "text": "Wie sagst du: Ich habe verstanden und handle danach?"
+  },
+  {
+   "pause": 3.0
+  },
+  {
+   "voice": "trainer",
+   "text": "Wilco."
+  },
+  {
+   "pause": 1.5
+  },
+  {
+   "voice": "trainer",
+   "text": "Wie fragst du, dass die ganze Meldung wiederholt wird?"
+  },
+  {
+   "pause": 3.0
+  },
+  {
+   "voice": "trainer",
+   "text": "Wiederholen Sie."
+  },
+  {
+   "pause": 1.5
+  },
+  {
+   "voice": "trainer",
+   "text": "Wie forderst du eine wörtliche Wiederholung an?"
+  },
+  {
+   "pause": 3.0
+  },
+  {
+   "voice": "trainer",
+   "text": "Wiederholen Sie wörtlich."
+  },
+  {
+   "pause": 1.5
+  },
+  {
+   "voice": "trainer",
+   "text": "Wie zeigst du an: Ich muss mich berichtigen?"
+  },
+  {
+   "pause": 3.0
+  },
+  {
+   "voice": "trainer",
+   "text": "Berichtigung."
+  },
+  {
+   "pause": 1.5
+  },
+  {
+   "voice": "trainer",
+   "text": "Wie sagst du: Warte, ich rufe dich?"
+  },
+  {
+   "pause": 3.0
+  },
+  {
+   "voice": "trainer",
+   "text": "Standby."
+  },
+  {
+   "pause": 1.5
+  },
+  {
+   "voice": "trainer",
+   "text": "Wie sagst du: Genehmigung, unter festgelegten Bedingungen zu verfahren?"
+  },
+  {
+   "pause": 3.0
+  },
+  {
+   "voice": "trainer",
+   "text": "Frei."
+  },
+  {
+   "pause": 1.5
+  },
+  {
+   "voice": "trainer",
+   "text": "Wie sagst du: Ich kann das nicht ausführen?"
+  },
+  {
+   "pause": 3.0
+  },
+  {
+   "voice": "trainer",
+   "text": "Nicht möglich."
+  },
+  {
+   "pause": 1.5
+  },
+  {
+   "pause": 0.5
+  },
+  {
+   "voice": "trainer",
+   "text": "Jetzt Anruf und Antwort. Dein Rufzeichen ist Delta Echo Lima India Delta. Du willst Aachen Radio rufen. Was sagst du?"
+  },
+  {
+   "pause": 5.5
+  },
+  {
+   "voice": "trainer",
+   "text": "Aachen Radio, Delta Echo Lima India Delta."
+  },
+  {
+   "pause": 1.5
+  },
+  {
+   "voice": "trainer",
+   "text": "Aachen Radio antwortet. Wie lautet die Antwort der Station?"
+  },
+  {
+   "pause": 5.0
+  },
+  {
+   "voice": "trainer",
+   "text": "Delta Echo Lima India Delta, Aachen Radio."
+  },
+  {
+   "pause": 1.8
+  },
+  {
+   "voice": "trainer",
+   "text": "Jetzt ein Funktest auf eins eins acht Komma sieben. Was sagst du?"
+  },
+  {
+   "pause": 7.0
+  },
+  {
+   "voice": "trainer",
+   "text": "Aachen Radio, Delta Echo Lima India Delta, Radio Check, eins eins acht Komma sieben."
+  },
+  {
+   "pause": 1.5
+  },
+  {
+   "voice": "trainer",
+   "text": "Die Station versteht dich gut. Wie lautet ihre Antwort?"
+  },
+  {
+   "pause": 5.5
+  },
+  {
+   "voice": "trainer",
+   "text": "Delta Echo Lima India Delta, Aachen Radio, höre Sie vier."
+  },
+  {
+   "pause": 1.8
+  },
+  {
+   "voice": "trainer",
+   "text": "Zum Schluss eine Berichtigung. Du hast Q N H eins null null drei gesagt, gemeint war eins null null zwo. Wie berichtigst du?"
+  },
+  {
+   "pause": 7.0
+  },
+  {
+   "voice": "trainer",
+   "text": "Q N H eins null null drei, Berichtigung, Q N H eins null null zwo."
+  },
+  {
+   "pause": 1.5
+  },
+  {
+   "voice": "trainer",
+   "text": "Sehr gut. Wiederhole die Übung, bis dir die Redewendungen leicht über die Lippen gehen."
+  }
+ ]
+}

@@ -1,0 +1,60 @@
+{
+  "questions": [
+    {
+      "catalogue_number": 51,
+      "explanation": "Für die Bewegungslenkung auf dem Rollfeld eines kontrollierten Flugplatzes lautet das Rufzeichen ROLLKONTROLLE."
+    },
+    {
+      "catalogue_number": 52,
+      "explanation": "Für die Bewegungslenkung in der Platzrunde lautet das Rufzeichen des kontrollierten Flugplatzes TURM."
+    },
+    {
+      "catalogue_number": 53,
+      "explanation": "Bei einem unkontrollierten Landeplatz besteht das Rufzeichen aus dem Ortsnamen und dem Wort RADIO, zum Beispiel „AACHEN RADIO“."
+    },
+    {
+      "catalogue_number": 54,
+      "explanation": "Bei Segelfluggeländen besteht das Rufzeichen aus dem Namen des Geländes und dem Wort SEGELFLUG."
+    },
+    {
+      "catalogue_number": 55,
+      "explanation": "Das Rufzeichen des Fluginformationsdienstes der Flugsicherung lautet INFORMATION."
+    },
+    {
+      "catalogue_number": 56,
+      "explanation": "Von einer Bodenfunkstelle mit dem Rufzeichen INFORMATION erhältst du Fluginformationen wie das Flugplatzwetter. Rollanweisungen und Start- oder Landefreigaben erteilen Kontrollstellen."
+    },
+    {
+      "catalogue_number": 62,
+      "explanation": "Im Luftraum C nimmst du Sprechfunkverbindung mit dem Flugverkehrskontrolldienst auf. Er erteilt dort die Freigaben."
+    },
+    {
+      "catalogue_number": 63,
+      "explanation": "Während des Fluges kannst du Sprechfunkverbindung mit dem Fluginformationsdienst aufnehmen."
+    },
+    {
+      "catalogue_number": 164,
+      "explanation": "Die vier Flugverkehrsdienste sind der Flugverkehrskontrolldienst, der Flugalarmdienst, der Fluginformationsdienst und der Flugverkehrsberatungsdienst."
+    },
+    {
+      "catalogue_number": 165,
+      "explanation": "Zu den Aufgaben des Fluginformationsdienstes gehört die Annahme und Weiterleitung von Flugplan- und Flugplanfolgemeldungen. Freigaben erteilt er nicht."
+    },
+    {
+      "catalogue_number": 166,
+      "explanation": "Für die Bewegungslenkung des Luftverkehrs sind die vom Bundesaufsichtsamt für Flugsicherung zugelassenen Flugsicherungsorganisationen zuständig. Die DFS ist nicht die einzige."
+    },
+    {
+      "catalogue_number": 167,
+      "explanation": "Der Fluginformationsdienst steht dem Piloten während des Fluges zur Verfügung, nicht nur in bestimmten Luftraumklassen."
+    },
+    {
+      "catalogue_number": 168,
+      "explanation": "Zur Flugvorbereitung sind alle Luftfahrzeugführer verpflichtet, unabhängig von Flugart, Erfahrung und Luftfahrzeug."
+    },
+    {
+      "catalogue_number": 169,
+      "explanation": "Eine Wetterberatung ist grundsätzlich bei Flügen einzuholen, die über die Umgebung des Startflugplatzes hinausführen, und vor Flügen nach Instrumentenflugregeln."
+    }
+  ]
+}

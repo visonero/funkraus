@@ -1,0 +1,13 @@
+{
+  "id": "1.3",
+  "title": "Maßeinheiten, Zeit, Luftdruck und Höhenmesser",
+  "content_type": "text",
+  "sort_order": 2,
+  "assets": {
+    "video": "1.3-hook-video/hook-video.mp4"
+  },
+  "sources": [
+    "BNetzA-Prüfungsfragenkatalog 2024, Nr. 25 bis 28, 70, 170 bis 175",
+    "NfL 2024-1-3266, Nr. 2 Uhrzeit (SERA.3401a)"
+  ]
+}

@@ -1,0 +1,88 @@
+{
+ "label": "Lektion 1.4 · Luftraum-Übersicht",
+ "title": "Luftraum für",
+ "highlight": "VFR-Flüge",
+ "sections": [
+  {
+   "title": "Luftraumklassen für VFR-Flüge (SERA.6001)",
+   "rows": [
+    [
+     "C",
+     "VFR erlaubt · Flugverkehrskontrolle · Freigabe und Funkverbindung nötig · VFR wird gegenüber IFR gestaffelt"
+    ],
+    [
+     "D",
+     "VFR erlaubt · Freigabe und Funkverbindung nötig · Verkehrsinformationen · Kontrollzonen (CTR) sind Luftraum D"
+    ],
+    [
+     "E",
+     "VFR erlaubt · weder Freigabe noch Funkverbindung nötig · Verkehrsinformation, soweit möglich"
+    ],
+    [
+     "G",
+     "VFR erlaubt · keine Freigabe, Fluginformationsdienst auf Anforderung"
+    ]
+   ]
+  },
+  {
+   "title": "Wo liegt was?",
+   "rows": [
+    [
+     "Kontrollierter Luftraum",
+     "C, D und E"
+    ],
+    [
+     "Luftraum C",
+     "oberhalb FL 100"
+    ],
+    [
+     "Luftraum E",
+     "ab 1000 ft AGL und 1700 ft AGL, ansonsten ab 2500 ft AGL bis FL 100, soweit nicht anders klassifiziert"
+    ],
+    [
+     "Luftraum G",
+     "darunter, soweit nicht anders klassifiziert"
+    ],
+    [
+     "Kontrollzone (CTR)",
+     "Luftraum D, um Flugplätze mit Flugverkehrskontrolle"
+    ]
+   ]
+  },
+  {
+   "title": "Besondere Gebiete",
+   "rows": [
+    [
+     "RMZ",
+     "Zone mit Funkkommunikationspflicht, vom Boden bis 1000 ft AGL"
+    ],
+    [
+     "TMZ",
+     "Zone mit Transponderpflicht"
+    ],
+    [
+     "ED-R",
+     "Gebiet mit Flugbeschränkungen"
+    ],
+    [
+     "ED-D",
+     "Gefahrengebiet"
+    ],
+    [
+     "HX",
+     "Kontrollzone ohne festgelegte Betriebszeit"
+    ]
+   ]
+  },
+  {
+   "title": "Fluginformationsgebiete unter deutscher Zuständigkeit",
+   "rows": [
+    [
+     "Unterer Luftraum",
+     "FIR Bremen, Langen und München"
+    ]
+   ]
+  }
+ ],
+ "footer": "Quellen: Durchführungsverordnung (EU) Nr. 923/2012 (SERA.6001); BNetzA-Prüfungsfragenkatalog 2024, Nr. 212, 218 bis 226"
+}

@@ -1,0 +1,24 @@
+{
+  "questions": [
+    {
+      "catalogue_number": 44,
+      "explanation": "Ist eine Verwechslung ausgeschlossen, nennst du nur die Minuten, zweistellig. Bei 13:18 Uhr also „EINS ACHT“. Nur wenn ein Irrtum möglich ist, nennst du alle vier Ziffern."
+    },
+    {
+      "catalogue_number": 47,
+      "explanation": "3 500 Fuß bestehen aus ganzen Hundertern. Du sprichst die Ziffer der Tausender, dann TAUSEND, dann die Ziffer der Hunderter und HUNDERT: „DREI TAUSEND FÜNF HUNDERT FUSS“."
+    },
+    {
+      "catalogue_number": 48,
+      "explanation": "Die Höhenmessereinstellung sprichst du Ziffer für Ziffer: „QNH EINS NULL NULL EINS“. Nur genau 1000 hPa wird als „EIN TAUSEND“ gesprochen."
+    },
+    {
+      "catalogue_number": 49,
+      "explanation": "Bei Frequenzen sprichst du alle sechs Ziffern, das Komma als KOMMA: 120,275 wird zu „EINS ZWO NULL KOMMA ZWO SIEBEN FÜNF“. Und denk an ZWO statt „zwei“."
+    },
+    {
+      "catalogue_number": 50,
+      "explanation": "Willst du einen Irrtum oder eine Verwechslung ausschließen, nennst du alle vier Ziffern einzeln: 1318 wird zu „EINS DREI EINS ACHT“."
+    }
+  ]
+}

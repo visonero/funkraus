@@ -3,24 +3,208 @@
  "language": "de",
  "scenes": [
   {
-   "id": "problem",
+   "id": "intro",
    "voice": "trainer",
-   "text": "Du sagst B. Der Fluglotse hört D. Oder P. Oder T. Bei Funkrauschen ist das ganz normal."
+   "text": "Im Alltag buchstabierst du vielleicht mit Vornamen: A wie Anton, B wie Berta. Im Flugfunk funktioniert das anders, denn dort verstehen sich Menschen aus aller Welt. Und über ein rauschendes Funkgerät klingen viele Buchstaben fast gleich: [[0]]B, [[1]]D, [[2]]P und [[3]]T zum Beispiel. Wer hier falsch versteht, verwechselt schnell ein Rufzeichen. Deshalb ersetzt du im Sprechfunk jeden Buchstaben durch ein festgelegtes Wort.",
+   "visual": {
+    "kind": "headline",
+    "headline": "Am Funk klingen diese Buchstaben",
+    "highlight": "fast gleich",
+    "tiles": [
+     "B",
+     "D",
+     "P",
+     "T"
+    ],
+    "wave": true
+   }
   },
   {
    "id": "alphabet",
    "voice": "trainer",
-   "text": "Darum buchstabierst du im Flugfunk nicht mit Buchstaben, sondern mit Wörtern. Alfa, Bravo, Charlie: das internationale Buchstabieralphabet."
+   "text": "Für alle 26 Buchstaben gibt es ein festes Wort. Hör gut zu und lies mit. A, [[0]]Alfa. B, [[1]]Bravo. C, [[2]]Charlie. D, [[3]]Delta. E, [[4]]Echo. F, [[5]]Foxtrot. G, [[6]]Golf. H, [[7]]Hotel. I, [[8]]India. J, [[9]]Juliett. K, [[10]]Kilo. L, [[11]]Lima. M, [[12]]Mike. N, [[13]]November. O, [[14]]Oscar. P, [[15]]Papa. Q, [[16]]Quebec. R, [[17]]Romeo. S, [[18]]Sierra. T, [[19]]Tango. U, [[20]]Uniform. V, [[21]]Victor. W, [[22]]Whiskey. X, [[23]]X-Ray. Y, [[24]]Yankee. Z, [[25]]Zulu.",
+   "visual": {
+    "kind": "grid",
+    "headline": "Für jeden Buchstaben ein",
+    "highlight": "festes Wort",
+    "columns": 9,
+    "items": [
+     {
+      "top": "A",
+      "bottom": "ALFA"
+     },
+     {
+      "top": "B",
+      "bottom": "BRAVO"
+     },
+     {
+      "top": "C",
+      "bottom": "CHARLIE"
+     },
+     {
+      "top": "D",
+      "bottom": "DELTA"
+     },
+     {
+      "top": "E",
+      "bottom": "ECHO"
+     },
+     {
+      "top": "F",
+      "bottom": "FOXTROT"
+     },
+     {
+      "top": "G",
+      "bottom": "GOLF"
+     },
+     {
+      "top": "H",
+      "bottom": "HOTEL"
+     },
+     {
+      "top": "I",
+      "bottom": "INDIA"
+     },
+     {
+      "top": "J",
+      "bottom": "JULIETT"
+     },
+     {
+      "top": "K",
+      "bottom": "KILO"
+     },
+     {
+      "top": "L",
+      "bottom": "LIMA"
+     },
+     {
+      "top": "M",
+      "bottom": "MIKE"
+     },
+     {
+      "top": "N",
+      "bottom": "NOVEMBER"
+     },
+     {
+      "top": "O",
+      "bottom": "OSCAR"
+     },
+     {
+      "top": "P",
+      "bottom": "PAPA"
+     },
+     {
+      "top": "Q",
+      "bottom": "QUEBEC"
+     },
+     {
+      "top": "R",
+      "bottom": "ROMEO"
+     },
+     {
+      "top": "S",
+      "bottom": "SIERRA"
+     },
+     {
+      "top": "T",
+      "bottom": "TANGO"
+     },
+     {
+      "top": "U",
+      "bottom": "UNIFORM"
+     },
+     {
+      "top": "V",
+      "bottom": "VICTOR"
+     },
+     {
+      "top": "W",
+      "bottom": "WHISKEY"
+     },
+     {
+      "top": "X",
+      "bottom": "X-RAY"
+     },
+     {
+      "top": "Y",
+      "bottom": "YANKEE"
+     },
+     {
+      "top": "Z",
+      "bottom": "ZULU"
+     }
+    ]
+   },
+   "subtitles": false
   },
   {
    "id": "callsign",
    "voice": "trainer",
-   "text": "Aus deinem Rufzeichen D, E, J, F, C wird so: Delta, Echo, Juliett, Foxtrot, Charlie."
+   "text": "Schauen wir uns das an einem Beispiel an. Nehmen wir das Rufzeichen D-EJFC. [[0]]D wird zu Delta, [[1]]E zu Echo, [[2]]J zu Juliett, [[3]]F zu Foxtrot [[4]]und C zu Charlie. Gesprochen klingt das dann so: Delta, Echo, Juliett, Foxtrot, Charlie.",
+   "visual": {
+    "kind": "transform",
+    "headline": "Dein Rufzeichen",
+    "plate": "D-EJFC",
+    "tiles": [
+     {
+      "top": "D",
+      "bottom": "DELTA"
+     },
+     {
+      "top": "E",
+      "bottom": "ECHO"
+     },
+     {
+      "top": "J",
+      "bottom": "JULIETT"
+     },
+     {
+      "top": "F",
+      "bottom": "FOXTROT"
+     },
+     {
+      "top": "C",
+      "bottom": "CHARLIE"
+     }
+    ]
+   }
+  },
+  {
+   "id": "rules",
+   "voice": "trainer",
+   "text": "Drei Dinge solltest du dir merken. [[0]]Du sagst das Wort, nicht den Buchstaben. [[1]]Du sprichst deutlich und nicht zu schnell. [[2]]Und in der Prüfung schreibst du die Wörter genau so, wie sie in der Tafel stehen: Alfa und Juliett, nicht Alpha und Juliet.",
+   "visual": {
+    "kind": "transform",
+    "headline": "Drei Regeln fürs",
+    "highlight": "Buchstabieren",
+    "tiles": [
+     {
+      "top": "Wort",
+      "bottom": "nicht der Buchstabe"
+     },
+     {
+      "top": "Klar",
+      "bottom": "deutlich und ruhig"
+     },
+     {
+      "top": "Schreibweise",
+      "bottom": "ALFA und JULIETT"
+     }
+    ]
+   }
   },
   {
    "id": "outro",
    "voice": "trainer",
-   "text": "In dieser Lektion lernst du alle sechsundzwanzig Wörter, hörst sie gesprochen und übst sie laut mit. Los geht's."
+   "text": "Jetzt bist du dran: [[0]]Hör dir die Übung an, [[1]]sprich laut nach [[2]]und teste dich mit den Fragen. Los geht's.",
+   "visual": {
+    "kind": "outro",
+    "pills": [
+     "Hören",
+     "Nachsprechen",
+     "Üben"
+    ]
+   }
   }
  ]
 }

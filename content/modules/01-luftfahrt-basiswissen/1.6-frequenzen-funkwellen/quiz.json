@@ -1,0 +1,48 @@
+{
+  "questions": [
+    {
+      "catalogue_number": 153,
+      "explanation": "Der Sprechfunkverkehr im zivilen beweglichen Flugfunkdienst läuft im Bereich von 117,975 MHz bis 137,000 MHz. Darunter liegt das Band der Navigationsanlagen wie VOR."
+    },
+    {
+      "catalogue_number": 154,
+      "explanation": "Im unteren Luftraum sind die Kanäle im Abstand von 25 kHz und 8,33 kHz angeordnet."
+    },
+    {
+      "catalogue_number": 155,
+      "explanation": "Der Flugfunk läuft im Wechselsprechverkehr: Du kannst nur senden oder empfangen. Deshalb gibt es die Sprechtaste."
+    },
+    {
+      "catalogue_number": 156,
+      "explanation": "121,500 MHz ist die internationale Notfrequenz."
+    },
+    {
+      "catalogue_number": 157,
+      "explanation": "Eine Bodenfunkstelle mit dem Rufzeichen TURM liegt im Flugfunkband, zum Beispiel auf 118,305 MHz. 121,500 MHz ist die Notfrequenz, 109,550 MHz liegt im VOR-Bereich und 200 kHz im Bereich der NDB."
+    },
+    {
+      "catalogue_number": 158,
+      "explanation": "134,555 MHz ist ein Kanal im Abstand von 8,33 kHz. Die anderen Werte sind die Notfrequenz, eine VOR-Frequenz und eine NDB-Frequenz."
+    },
+    {
+      "catalogue_number": 159,
+      "explanation": "Eine Sprechfunkfrequenz wird blockiert, wenn die Sprechtaste klemmt. Dann sendest du dauernd und niemand kann durchkommen."
+    },
+    {
+      "catalogue_number": 160,
+      "explanation": "UKW breitet sich ähnlich wie Licht aus, also quasi optisch. Ionosphärenreflexion und Bodenwellen sind Merkmale anderer Wellenbereiche."
+    },
+    {
+      "catalogue_number": 161,
+      "explanation": "Bei UKW beeinflussen die Flughöhe des Luftfahrzeugs und die topographischen Verhältnisse die Empfangsqualität. Ionosphäre und Tag-Nacht-Effekt spielen hier keine Rolle."
+    },
+    {
+      "catalogue_number": 162,
+      "explanation": "Eine problemlose Verbindung erwartest du, wenn du hoch genug und nahe der Bodenfunkstelle bist. Im Tal oder im Funkschatten eines Berges reißt die Verbindung ab."
+    },
+    {
+      "catalogue_number": 163,
+      "explanation": "Über flachem Gelände sind in FL 65 etwa 95 NM Reichweite zu erwarten. Je höher du fliegst, desto weiter reicht UKW."
+    }
+  ]
+}

@@ -1,0 +1,223 @@
+{
+ "id": "2.2-audio-drill",
+ "language": "de",
+ "segments": [
+  {
+   "voice": "trainer",
+   "text": "Willkommen zur Zahlenübung. Zuerst die Ziffern. Sprich jede Ziffer nach der Pause laut nach."
+  },
+  {
+   "pause": 1.4
+  },
+  {
+   "voice": "trainer",
+   "text": "Null."
+  },
+  {
+   "pause": 1.6
+  },
+  {
+   "voice": "trainer",
+   "text": "Eins."
+  },
+  {
+   "pause": 1.6
+  },
+  {
+   "voice": "trainer",
+   "text": "Zwo."
+  },
+  {
+   "pause": 1.6
+  },
+  {
+   "voice": "trainer",
+   "text": "Drei."
+  },
+  {
+   "pause": 1.6
+  },
+  {
+   "voice": "trainer",
+   "text": "Vier."
+  },
+  {
+   "pause": 1.6
+  },
+  {
+   "voice": "trainer",
+   "text": "Fünf."
+  },
+  {
+   "pause": 1.6
+  },
+  {
+   "voice": "trainer",
+   "text": "Sechs."
+  },
+  {
+   "pause": 1.6
+  },
+  {
+   "voice": "trainer",
+   "text": "Sieben."
+  },
+  {
+   "pause": 1.6
+  },
+  {
+   "voice": "trainer",
+   "text": "Acht."
+  },
+  {
+   "pause": 1.6
+  },
+  {
+   "voice": "trainer",
+   "text": "Neun."
+  },
+  {
+   "pause": 1.6
+  },
+  {
+   "voice": "trainer",
+   "text": "Hundert."
+  },
+  {
+   "pause": 1.6
+  },
+  {
+   "voice": "trainer",
+   "text": "Tausend."
+  },
+  {
+   "pause": 1.6
+  },
+  {
+   "pause": 0.6
+  },
+  {
+   "voice": "trainer",
+   "text": "Jetzt die Zahlen. Ich sage dir die Zahl wie im Alltag. Du sagst sie nach der Pause im Funk. Danach höre ich dir die Lösung vor."
+  },
+  {
+   "pause": 1.4
+  },
+  {
+   "voice": "trainer",
+   "text": "Piste siebenundzwanzig."
+  },
+  {
+   "pause": 4.5
+  },
+  {
+   "voice": "trainer",
+   "text": "Piste zwo sieben."
+  },
+  {
+   "pause": 1.8
+  },
+  {
+   "voice": "trainer",
+   "text": "Wind zweihundert Grad, fünfzehn Knoten."
+  },
+  {
+   "pause": 4.5
+  },
+  {
+   "voice": "trainer",
+   "text": "Wind zwo null null Grad, eins fünf Knoten."
+  },
+  {
+   "pause": 1.8
+  },
+  {
+   "voice": "trainer",
+   "text": "Höhenmessereinstellung eintausenddreizehn."
+  },
+  {
+   "pause": 4.5
+  },
+  {
+   "voice": "trainer",
+   "text": "Q N H eins null eins drei."
+  },
+  {
+   "pause": 1.8
+  },
+  {
+   "voice": "trainer",
+   "text": "Dreitausendfünfhundert Fuß."
+  },
+  {
+   "pause": 4.5
+  },
+  {
+   "voice": "trainer",
+   "text": "Drei tausend fünf hundert Fuß."
+  },
+  {
+   "pause": 1.8
+  },
+  {
+   "voice": "trainer",
+   "text": "Flugfläche fünfundsiebzig."
+  },
+  {
+   "pause": 4.5
+  },
+  {
+   "voice": "trainer",
+   "text": "Flugfläche sieben fünf."
+  },
+  {
+   "pause": 1.8
+  },
+  {
+   "voice": "trainer",
+   "text": "Frequenz einhundertachtzehn Komma sieben."
+  },
+  {
+   "pause": 4.5
+  },
+  {
+   "voice": "trainer",
+   "text": "Eins eins acht Komma sieben."
+  },
+  {
+   "pause": 1.8
+  },
+  {
+   "voice": "trainer",
+   "text": "Uhrzeit dreizehn Uhr achtzehn, alle vier Ziffern."
+  },
+  {
+   "pause": 4.5
+  },
+  {
+   "voice": "trainer",
+   "text": "Eins drei eins acht."
+  },
+  {
+   "pause": 1.8
+  },
+  {
+   "voice": "trainer",
+   "text": "Transpondercode siebentausend."
+  },
+  {
+   "pause": 4.5
+  },
+  {
+   "voice": "trainer",
+   "text": "Squawk sieben tausend."
+  },
+  {
+   "pause": 1.8
+  },
+  {
+   "voice": "trainer",
+   "text": "Sehr gut. Wiederhole die Übung, bis du die Funkform ohne Nachdenken sprichst."
+  }
+ ]
+}

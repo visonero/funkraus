@@ -1,0 +1,101 @@
+{
+ "id": "1.6-hook-video",
+ "language": "de",
+ "scenes": [
+  {
+   "id": "intro",
+   "voice": "trainer",
+   "text": "Ein Funkgerät ist nur so gut wie die Verbindung, die es aufbaut. Und ob sie steht, hängt von Dingen ab, die du zum Teil selbst beeinflussen kannst: von deiner Höhe zum Beispiel oder von deiner Position im Gelände. Deshalb schauen wir uns jetzt an, in welchem Frequenzbereich der Flugfunk arbeitet und wie sich die Funkwellen ausbreiten.",
+   "visual": {
+    "kind": "headline",
+    "headline": "Funk braucht eine",
+    "highlight": "gute Verbindung",
+    "tiles": [
+     "117,975",
+     "137,000"
+    ]
+   }
+  },
+  {
+   "id": "band",
+   "voice": "trainer",
+   "text": "Der zivile Flugfunk arbeitet in einem festen Frequenzbereich: von [[0]]117,975 bis [[1]]137,000 MHz. Im unteren Luftraum liegen die Kanäle 25 kHz oder 8,33 kHz auseinander. [[2]]Und eine Frequenz solltest du dir besonders gut merken: 121,500 MHz. Das ist die internationale Notfrequenz.",
+   "visual": {
+    "kind": "transform",
+    "headline": "Das Flugfunkband",
+    "highlight": "in MHz",
+    "tiles": [
+     {
+      "top": "117,975",
+      "bottom": "unteres Ende"
+     },
+     {
+      "top": "137,000",
+      "bottom": "oberes Ende"
+     },
+     {
+      "top": "121,500",
+      "bottom": "Notfrequenz"
+     }
+    ]
+   }
+  },
+  {
+   "id": "range",
+   "voice": "trainer",
+   "text": "Und wie kommen die Funkwellen vom Sender zum Empfänger? Ultrakurzwellen breiten sich ähnlich aus wie Licht, man sagt: quasi optisch. Das bedeutet: Was du sehen kannst, erreichst du meist auch mit deinem Funkgerät. [[0]]Fliegst du hoch, hast du freie Sicht auf die Station und damit eine gute Verbindung. [[1]]Fliegst du tief im Tal oder hinter einem Berg, liegst du im Funkschatten. [[2]]In FL 65 über flachem Land reicht die Verbindung etwa 95 NM weit.",
+   "visual": {
+    "kind": "transform",
+    "headline": "Höhe entscheidet",
+    "highlight": "über die Reichweite",
+    "tiles": [
+     {
+      "top": "Hoch",
+      "bottom": "gute Verbindung"
+     },
+     {
+      "top": "Tal",
+      "bottom": "Funkschatten"
+     },
+     {
+      "top": "FL 65",
+      "bottom": "ca. 95 NM"
+     }
+    ]
+   }
+  },
+  {
+   "id": "handling",
+   "voice": "trainer",
+   "text": "Zwei Dinge gehören noch dazu. Erstens: Der Flugfunk läuft im Wechselsprechverkehr. Du kannst entweder senden oder hören, nie beides gleichzeitig, [[0]]deshalb gibt es die Sprechtaste. [[1]]Und wenn die Sprechtaste klemmt, blockierst du die Frequenz für alle anderen. Zweitens: Bei UKW spielen weder die Ionosphäre noch der Tag-Nacht-Effekt eine Rolle. Es zählen nur deine Höhe und das Gelände.",
+   "visual": {
+    "kind": "transform",
+    "headline": "Sprechtaste und",
+    "highlight": "Wechselsprechen",
+    "tiles": [
+     {
+      "top": "Sprechtaste",
+      "bottom": "senden oder hören"
+     },
+     {
+      "top": "Taste klemmt",
+      "bottom": "Frequenz blockiert"
+     }
+    ]
+   }
+  },
+  {
+   "id": "outro",
+   "voice": "trainer",
+   "text": "Damit hast du das Wichtigste über die Technik hinter dem Funk: [[0]]das Frequenzband, [[1]]die Notfrequenz [[2]]und die Reichweite. Danach folgen elf Fragen aus dem offiziellen Katalog. Los geht's.",
+   "visual": {
+    "kind": "outro",
+    "pills": [
+     "Frequenzband",
+     "Notfrequenz",
+     "Reichweite"
+    ]
+   }
+  }
+ ]
+}

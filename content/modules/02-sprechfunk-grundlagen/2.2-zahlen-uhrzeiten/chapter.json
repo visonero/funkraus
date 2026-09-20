@@ -1,0 +1,11 @@
+{
+  "id": "2.2",
+  "title": "Zahlen und Uhrzeiten im Funk",
+  "content_type": "audio",
+  "sort_order": 1,
+  "assets": {
+    "video": "2.2-hook-video/hook-video.mp4",
+    "audio": "2.2-audio-drill/2.2-audio-drill.mp3"
+  },
+  "sources": ["NfL 2024-1-3266, Nr. 2 Uhrzeit (SERA.3401a), Nr. 10 Übermitteln von Zahlen (SERA.14035), Nr. 11 Aussprache von Zahlen (SERA.14040)"]
+}

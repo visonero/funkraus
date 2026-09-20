@@ -1,0 +1,48 @@
+{
+  "questions": [
+    {
+      "catalogue_number": 1,
+      "explanation": "Die ITU (Internationale Fernmeldeunion) ist die zwischenstaatliche Organisation, die für den weltweiten Funkdienst besondere Bedeutung hat. IATA und NATO haben andere Aufgaben."
+    },
+    {
+      "catalogue_number": 2,
+      "explanation": "Die rechtliche Grundlage für das Errichten und Betreiben von Funkanlagen in Deutschland ist das Telekommunikationsgesetz (TKG). Das Luftverkehrsgesetz ist die Grundlage für die Luftfahrt insgesamt."
+    },
+    {
+      "catalogue_number": 3,
+      "explanation": "Die Bundesnetzagentur teilt die Frequenzen für Boden- und Luftfunkstellen zu. Sie ist außerdem Prüfungsbehörde für die Flugfunkzeugnisse."
+    },
+    {
+      "catalogue_number": 4,
+      "explanation": "Die Ausnahme für Luftsportgeräte gilt nur außerhalb der Lufträume B, C und D. Im Luftraum D braucht der Luftsportgeräteführer also ein Flugfunkzeugnis. Flugschüler in Ausbildungsluftfahrzeugen und Bodenfunkstellen nur für Flugbetriebsmeldungen sind ausgenommen."
+    },
+    {
+      "catalogue_number": 5,
+      "explanation": "Funkstellen in Kraftfahrzeugen, die nur mit Luftfunkstellen in Freiballonen, Luftsportgeräten und Segelflugzeugen verkehren, brauchen kein Flugfunkzeugnis. Das trifft auf den Rückholer zu. Für die übrigen genannten Personen gilt diese Ausnahme nicht."
+    },
+    {
+      "catalogue_number": 6,
+      "explanation": "Luftfunkstellen an Bord von Luftfahrzeugen, die bei der Ausbildung von Luftfahrtpersonal verwendet werden, sind von der Zeugnispflicht ausgenommen. Deshalb braucht der Flugschüler in der Platzrunde kein Zeugnis, egal ob mit oder ohne Flugverkehrskontrolle."
+    },
+    {
+      "catalogue_number": 7,
+      "explanation": "Das BZF II berechtigt zum Sprechfunk bei VFR-Flügen innerhalb Deutschlands in deutscher Sprache. Für Englisch brauchst du das BZF I, für IFR-Flüge das AZF."
+    },
+    {
+      "catalogue_number": 8,
+      "explanation": "Das BZF II gilt für VFR-Flüge in Deutschland und in deutscher Sprache. Englisch (BZF I) und Instrumentenflug (AZF) sind damit nicht abgedeckt."
+    },
+    {
+      "catalogue_number": 9,
+      "explanation": "Das BZF I berechtigt bei VFR-Flügen zum Sprechfunk in deutscher und englischer Sprache. Ein Flugfunkzeugnis ist auch bei VFR-Flügen nötig."
+    },
+    {
+      "catalogue_number": 10,
+      "explanation": "Eine Luftfunkstelle ist eine Funkstelle des beweglichen Flugfunkdienstes an Bord eines Luftfahrzeugs."
+    },
+    {
+      "catalogue_number": 11,
+      "explanation": "Eine Bodenfunkstelle ist eine ortsfeste Funkstelle im beweglichen Flugfunkdienst. In bestimmten Fällen befindet sie sich an Bord eines Seefahrzeugs oder auf einer Plattform auf See."
+    }
+  ]
+}

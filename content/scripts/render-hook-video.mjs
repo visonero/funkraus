@@ -17,7 +17,6 @@ const chapter = JSON.parse(readFileSync(path.join(chapterDir, "chapter.json"), "
 const script = JSON.parse(readFileSync(path.join(chapterDir, "hook-video.json"), "utf8"));
 const buildDir = path.join(contentDir, "build", script.id);
 const { totalSeconds, timings } = JSON.parse(readFileSync(path.join(buildDir, `${script.id}.timings.json`), "utf8"));
-const letters = JSON.parse(readFileSync(path.join(contentDir, "data", "alphabet.json"), "utf8")).letters;
 
 mkdirSync(path.join(videoDir, "public"), { recursive: true });
 mkdirSync(path.join(videoDir, "out"), { recursive: true });
@@ -26,8 +25,10 @@ copyFileSync(path.join(buildDir, `${script.id}.mp3`), path.join(videoDir, "publi
 const props = {
   audio: `${script.id}.mp3`,
   totalSeconds,
-  scenes: timings,
-  letters,
+  scenes: timings.map((t) => {
+    const scene = script.scenes.find((s) => s.id === t.id);
+    return { ...t, visual: scene.visual, subtitles: scene.subtitles };
+  }),
   lessonLabel: `Lektion ${chapter.id}`,
   lessonTitle: chapter.title.replace(/\s*\(.*\)$/, ""),
 };

@@ -1,0 +1,150 @@
+{
+ "id": "2.3-hook-video",
+ "language": "de",
+ "scenes": [
+  {
+   "id": "intro",
+   "voice": "trainer",
+   "text": "Ein Funkspruch ist wie ein kurzes Telefonat mit festen Regeln. Es gibt keine langen Begrüßungen und kein Hin und Her. Jeder Satz hat seinen Platz, und genau das macht den Funk schnell und eindeutig. In dieser Lektion lernst du, wie ein Funkspruch aufgebaut ist: [[0]]wer ruft, [[1]]wer antwortet [[2]]und wie du bestätigst, was du gehört hast.",
+   "visual": {
+    "kind": "headline",
+    "headline": "Ein Funkspruch:",
+    "highlight": "kurz und klar",
+    "tiles": [
+     "Anruf",
+     "Antwort",
+     "Bestätigung"
+    ]
+   }
+  },
+  {
+   "id": "call",
+   "voice": "trainer",
+   "text": "Beginnen wir mit dem Anruf. Du willst eine Station rufen, zum Beispiel Aachen Radio. Dann nennst du zuerst die Stelle, die du rufst, und danach dich selbst. [[0]]Aachen Radio, [[1]]Delta Echo Lima India Delta.",
+   "visual": {
+    "kind": "transform",
+    "headline": "Der Anruf:",
+    "highlight": "erst die Station",
+    "tiles": [
+     {
+      "top": "AACHEN RADIO",
+      "bottom": "gerufene Stelle"
+     },
+     {
+      "top": "D-ELID",
+      "bottom": "rufende Stelle"
+     }
+    ]
+   }
+  },
+  {
+   "id": "reply",
+   "voice": "trainer",
+   "text": "Die Station antwortet, indem sie die Reihenfolge umdreht: [[0]]erst der Anrufer, [[1]]dann die antwortende Stelle. Also: Delta Echo Lima India Delta, Aachen Radio. Diese Antwort ist zugleich die Aufforderung, jetzt deine Meldung zu senden.",
+   "visual": {
+    "kind": "transform",
+    "headline": "Die Antwort dreht die",
+    "highlight": "Reihenfolge um",
+    "tiles": [
+     {
+      "top": "D-ELID",
+      "bottom": "Anrufer"
+     },
+     {
+      "top": "AACHEN RADIO",
+      "bottom": "antwortet"
+     }
+    ]
+   }
+  },
+  {
+   "id": "phrases",
+   "voice": "trainer",
+   "text": "Für alles Weitere gibt es feste Redewendungen. [[0]]Positiv heißt ja. [[1]]Negativ heißt nein. [[2]]Verstanden sagst du, wenn du die letzte Meldung vollständig erhalten hast. [[3]]Und Wilco heißt: Ich habe verstanden und handle danach. Der Unterschied ist klein, aber wichtig: Mit Wilco kündigst du an, das Verlangte auch zu tun.",
+   "visual": {
+    "kind": "transform",
+    "headline": "Feste",
+    "highlight": "Redewendungen",
+    "tiles": [
+     {
+      "top": "POSITIV",
+      "bottom": "Ja"
+     },
+     {
+      "top": "NEGATIV",
+      "bottom": "Nein"
+     },
+     {
+      "top": "VERSTANDEN",
+      "bottom": "vollständig erhalten"
+     },
+     {
+      "top": "WILCO",
+      "bottom": "verstanden, ich handle"
+     }
+    ]
+   }
+  },
+  {
+   "id": "correction",
+   "voice": "trainer",
+   "text": "Und was, wenn du dich versprichst? Dann korrigierst du dich mit einer festen Formel. Zum Beispiel: [[0]]QNH eins null null drei, [[1]]Berichtigung, [[2]]QNH eins null null zwo. Du wiederholst also die letzte richtige Sprechgruppe und nennst danach den richtigen Wortlaut.",
+   "visual": {
+    "kind": "transform",
+    "headline": "Fehler",
+    "highlight": "korrigieren",
+    "tiles": [
+     {
+      "top": "QNH 1003",
+      "bottom": "der Fehler"
+     },
+     {
+      "top": "BERICHTIGUNG",
+      "bottom": "Korrekturformel"
+     },
+     {
+      "top": "QNH 1002",
+      "bottom": "richtig"
+     }
+    ]
+   }
+  },
+  {
+   "id": "check",
+   "voice": "trainer",
+   "text": "Zum Schluss der Funktest. Er hat feste Bestandteile: die gerufene Stelle, dein Rufzeichen, die Wörter [[0]]Radio Check und die Frequenz. Die Station antwortet mit der Verständlichkeit auf einer Skala von eins bis fünf. [[1]]Höre Sie vier heißt: verständlich. [[2]]Höre Sie fünf heißt: sehr gut verständlich.",
+   "visual": {
+    "kind": "transform",
+    "headline": "Der",
+    "highlight": "Funktest",
+    "tiles": [
+     {
+      "top": "RADIO CHECK",
+      "bottom": "Funktest"
+     },
+     {
+      "top": "4",
+      "bottom": "verständlich"
+     },
+     {
+      "top": "5",
+      "bottom": "sehr gut verständlich"
+     }
+    ]
+   }
+  },
+  {
+   "id": "outro",
+   "voice": "trainer",
+   "text": "Damit hast du das Handwerkszeug für jeden Funkspruch: [[0]]Anruf und Antwort, [[1]]Redewendungen [[2]]und das Kürzelsystem zum Mitschreiben, das du als PDF herunterladen kannst. Los geht's mit der Übung.",
+   "visual": {
+    "kind": "outro",
+    "pills": [
+     "Anruf und Antwort",
+     "Redewendungen",
+     "Kürzel"
+    ]
+   }
+  }
+ ]
+}

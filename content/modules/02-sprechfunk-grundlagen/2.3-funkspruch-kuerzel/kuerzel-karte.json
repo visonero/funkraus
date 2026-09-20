@@ -1,0 +1,136 @@
+{
+ "label": "Lektion 2.3 · Kürzel-Karte",
+ "title": "Kürzel &",
+ "highlight": "Redewendungen",
+ "sections": [
+  {
+   "title": "Standardabkürzungen (aus dem Prüfungsfragenkatalog)",
+   "rows": [
+    [
+     "CTR",
+     "Kontrollzone"
+    ],
+    [
+     "FIR",
+     "Fluginformationsgebiet"
+    ],
+    [
+     "IMC",
+     "Instrumentenwetterbedingungen"
+    ],
+    [
+     "AIS",
+     "Flugberatungsdienst"
+    ],
+    [
+     "SAR",
+     "Such- und Rettungsdienst"
+    ],
+    [
+     "ATIS",
+     "Automatische Ausstrahlung von Lande- und Startinformationen"
+    ],
+    [
+     "UTC",
+     "Koordinierte Weltzeit"
+    ],
+    [
+     "H24",
+     "Ununterbrochener Betrieb bei Tag und Nacht"
+    ],
+    [
+     "HX",
+     "Keine festgelegte Betriebszeit"
+    ],
+    [
+     "HJ",
+     "Sonnenaufgang bis Sonnenuntergang"
+    ]
+   ]
+  },
+  {
+   "title": "Q-Gruppen",
+   "rows": [
+    [
+     "QNH",
+     "Höhenmessereinstellung: zeigt die Höhe über NN an"
+    ],
+    [
+     "QFE",
+     "Luftdruck in Flugplatzhöhe: zeigt die Höhe über dem Flugplatz an"
+    ],
+    [
+     "QDM",
+     "Missweisender Kurs zur Station"
+    ],
+    [
+     "QDR",
+     "Missweisende Peilung von der Station"
+    ]
+   ]
+  },
+  {
+   "title": "Mitschreib-Vorschläge (Lernhilfe, kein Prüfungsstoff)",
+   "rows": [
+    [
+     "RWY",
+     "Piste"
+    ],
+    [
+     "TWY",
+     "Rollweg"
+    ],
+    [
+     "FL",
+     "Flugfläche"
+    ],
+    [
+     "SQ",
+     "Squawk (Transpondercode)"
+    ],
+    [
+     "FREQ",
+     "Frequenz"
+    ],
+    [
+     "↑  ↓",
+     "steigen, sinken"
+    ],
+    [
+     "✓",
+     "Read-back gesprochen"
+    ]
+   ],
+   "example": {
+    "say": "„Piste 24, Wind 240 Grad 8 Knoten, QNH 1015“",
+    "note": "RWY 24  ·  W 240/8  ·  QNH 1015"
+   }
+  },
+  {
+   "title": "Wichtigste Redewendungen",
+   "rows": [
+    [
+     "POSITIV / NEGATIV",
+     "Ja / Nein"
+    ],
+    [
+     "VERSTANDEN",
+     "Letzte Meldung vollständig erhalten"
+    ],
+    [
+     "WILCO",
+     "Verstanden, ich handle danach"
+    ],
+    [
+     "BERICHTIGUNG",
+     "Fehler, es muss richtig heißen …"
+    ],
+    [
+     "WIEDERHOLEN SIE",
+     "Ganze Meldung oder Teil wiederholen"
+    ]
+   ]
+  }
+ ],
+ "footer": "Quellen: BNetzA-Prüfungsfragenkatalog 2024; NfL 2024-1-3266 (DFS), SERA.14045"
+}

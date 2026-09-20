@@ -1,0 +1,10 @@
+{
+  "id": "1.1",
+  "title": "Recht und Zuständigkeiten",
+  "content_type": "text",
+  "sort_order": 0,
+  "assets": {
+    "video": "1.1-hook-video/hook-video.mp4"
+  },
+  "sources": ["FlugfunkV (Verordnung über Flugfunkzeugnisse) §§ 1 bis 4, 8", "BNetzA-Prüfungsfragenkatalog 2024, Nr. 1 bis 11"]
+}

@@ -1,0 +1,168 @@
+{
+ "id": "1.7-hook-video",
+ "language": "de",
+ "scenes": [
+  {
+   "id": "intro",
+   "voice": "trainer",
+   "text": "Ein Wetterbericht im Funk klingt für Einsteiger zuerst wie ein Zahlencode. Und genau das ist er auch: ein Code, der in wenigen Worten sagt, wie der Himmel aussieht, wie weit du siehst und wie der Wind steht. Sobald du den Code kennst, liest du das Wetter fast wie einen Satz. Dafür lernen wir jetzt die wichtigsten Bausteine.",
+   "visual": {
+    "kind": "headline",
+    "headline": "Das Wetter im Funk:",
+    "highlight": "ein kleiner Code",
+    "tiles": [
+     "FEW",
+     "SCT",
+     "BKN",
+     "OVC"
+    ]
+   }
+  },
+  {
+   "id": "clouds",
+   "voice": "trainer",
+   "text": "Fangen wir mit den Wolken an. Sie werden in Achteln des Himmels angegeben. [[0]]Gering bewölkt, auf Englisch FEW, sind ein bis zwei Achtel. [[1]]Locker bewölkt, SCT, drei bis vier Achtel. [[2]]Durchbrochen bewölkt, BKN, fünf bis sieben Achtel. [[3]]Und bedeckt, OVC, bedeutet: der ganze Himmel ist zu, acht Achtel.",
+   "visual": {
+    "kind": "transform",
+    "headline": "Bewölkung in",
+    "highlight": "Achteln",
+    "tiles": [
+     {
+      "top": "FEW",
+      "bottom": "1 bis 2 Achtel"
+     },
+     {
+      "top": "SCT",
+      "bottom": "3 bis 4 Achtel"
+     },
+     {
+      "top": "BKN",
+      "bottom": "5 bis 7 Achtel"
+     },
+     {
+      "top": "OVC",
+      "bottom": "8 Achtel"
+     }
+    ]
+   }
+  },
+  {
+   "id": "cavok",
+   "voice": "trainer",
+   "text": "Und dann gibt es ein Kürzel, das jeden Piloten freut: [[0]]CAVOK. Es steht für gutes Wetter und heißt genau: [[1]]Sicht 10 km oder mehr [[2]]und keine Bewölkung unter 5000 ft über Grund.",
+   "visual": {
+    "kind": "transform",
+    "headline": "Das Kürzel für",
+    "highlight": "gutes Wetter",
+    "tiles": [
+     {
+      "top": "CAVOK",
+      "bottom": "gutes Wetter"
+     },
+     {
+      "top": "10 km",
+      "bottom": "Sicht oder mehr"
+     },
+     {
+      "top": "5000 ft",
+      "bottom": "keine Wolken darunter"
+     }
+    ]
+   }
+  },
+  {
+   "id": "visibility",
+   "voice": "trainer",
+   "text": "Bei der Sicht gilt im Funk eine feste Regel: Unter fünf Kilometern nennst du sie in Metern, darüber in Kilometern. Richtig heißt es also: [[0]]Sicht drei tausend Meter. [[1]]Sicht drei Kilometer wäre falsch.",
+   "visual": {
+    "kind": "transform",
+    "headline": "Sichtweite im",
+    "highlight": "Funk",
+    "tiles": [
+     {
+      "top": "3000 m",
+      "bottom": "richtig"
+     },
+     {
+      "top": "3 km",
+      "bottom": "falsch"
+     }
+    ]
+   }
+  },
+  {
+   "id": "metar",
+   "voice": "trainer",
+   "text": "Schauen wir uns eine echte Routinewettermeldung an, einen METAR. [[0]]Zuerst kommt der Wind: 240 Grad, 8 Knoten. [[1]]Dann die Sicht: 9999 bedeutet 10 Kilometer oder mehr. [[2]]Danach die Wolken: SCT040, also drei bis vier Achtel in 4000 ft über Grund. [[3]]Dann Temperatur und Taupunkt, [[4]]der Luftdruck als QNH [[5]]und am Ende der Trend. Die Karte zum Download entschlüsselt dir das Beispiel Zeile für Zeile.",
+   "visual": {
+    "kind": "transform",
+    "headline": "Ein METAR,",
+    "highlight": "Zeile für Zeile",
+    "plate": "24008KT 9999 SCT040",
+    "tiles": [
+     {
+      "top": "24008KT",
+      "bottom": "Wind"
+     },
+     {
+      "top": "9999",
+      "bottom": "Sicht"
+     },
+     {
+      "top": "SCT040",
+      "bottom": "Wolken"
+     },
+     {
+      "top": "18/09",
+      "bottom": "Temperatur"
+     },
+     {
+      "top": "Q1015",
+      "bottom": "QNH"
+     },
+     {
+      "top": "NOSIG",
+      "bottom": "Trend"
+     }
+    ]
+   }
+  },
+  {
+   "id": "services",
+   "voice": "trainer",
+   "text": "Woher bekommst du das Wetter? Es gibt drei wichtige Quellen. [[0]]Die ATIS sendet Lande- und Startinformationen für einen Flugplatz. [[1]]VOLMET sind Wetterrundsendungen mit Flughafenwettermeldungen. [[2]]Und SIGMET warnt vor besonderen Wettererscheinungen wie Gewitter, Turbulenzen und Vereisung.",
+   "visual": {
+    "kind": "transform",
+    "headline": "Woher kommt",
+    "highlight": "das Wetter?",
+    "tiles": [
+     {
+      "top": "ATIS",
+      "bottom": "Start- und Landeinfos"
+     },
+     {
+      "top": "VOLMET",
+      "bottom": "Wetterrundsendungen"
+     },
+     {
+      "top": "SIGMET",
+      "bottom": "Warnung vor Gefahren"
+     }
+    ]
+   }
+  },
+  {
+   "id": "outro",
+   "voice": "trainer",
+   "text": "Damit kannst du das Wetter im Funk lesen: [[0]]Bewölkung, [[1]]CAVOK [[2]]und die Wetterdienste. Übe das Beispiel-METAR ruhig laut. Danach folgen 14 Fragen aus dem offiziellen Katalog. Los geht's.",
+   "visual": {
+    "kind": "outro",
+    "pills": [
+     "Bewölkung",
+     "CAVOK",
+     "Wetterdienste"
+    ]
+   }
+  }
+ ]
+}

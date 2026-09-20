@@ -1,0 +1,143 @@
+{
+ "id": "1.3-hook-video",
+ "language": "de",
+ "scenes": [
+  {
+   "id": "intro",
+   "voice": "trainer",
+   "text": "Wenn du mit einem Piloten sprichst, fällt dir schnell etwas auf: Er rechnet nicht in Metern und Kilometern, sondern in [[0]]Fuß, [[1]]Knoten und [[2]]Seemeilen. Das ist keine Marotte, sondern weltweiter Standard. Und weil im Cockpit nichts wichtiger ist als eindeutige Angaben, schauen wir uns die Einheiten jetzt in Ruhe an.",
+   "visual": {
+    "kind": "headline",
+    "headline": "Andere Fliegerwelt,",
+    "highlight": "andere Einheiten",
+    "tiles": [
+     "ft",
+     "kt",
+     "NM"
+    ]
+   }
+  },
+  {
+   "id": "units",
+   "voice": "trainer",
+   "text": "Höhen misst du in [[0]]Fuß, die horizontale Geschwindigkeit in [[1]]Knoten. Wie schnell du steigst oder sinkst, gibst du in [[2]]Fuß pro Minute an. Entfernungen zur Navigation nennst du in [[3]]Seemeilen und Zehnteln. Und den Luftdruck in [[4]]Hektopascal. Zur Orientierung: Ein Fuß sind gut dreißig Zentimeter, und eine Seemeile sind knapp zwei Kilometer.",
+   "visual": {
+    "kind": "transform",
+    "headline": "Fünf Einheiten, die",
+    "highlight": "du kennen musst",
+    "tiles": [
+     {
+      "top": "ft",
+      "bottom": "Höhe"
+     },
+     {
+      "top": "kt",
+      "bottom": "Geschwindigkeit"
+     },
+     {
+      "top": "ft/min",
+      "bottom": "Steigen und Sinken"
+     },
+     {
+      "top": "NM",
+      "bottom": "Entfernung"
+     },
+     {
+      "top": "hPa",
+      "bottom": "Luftdruck"
+     }
+    ]
+   }
+  },
+  {
+   "id": "barometer",
+   "voice": "trainer",
+   "text": "Der Luftdruck spielt eine besondere Rolle, denn dein Höhenmesser ist im Grunde ein Barometer. Er misst den [[0]]Luftdruck und rechnet ihn in eine [[1]]Höhe um. Damit das stimmt, stellst du einen Referenzwert ein.",
+   "visual": {
+    "kind": "transform",
+    "headline": "Der Höhenmesser ist",
+    "highlight": "ein Barometer",
+    "tiles": [
+     {
+      "top": "Luftdruck",
+      "bottom": "wird gemessen"
+     },
+     {
+      "top": "Höhe",
+      "bottom": "wird angezeigt"
+     }
+    ]
+   }
+  },
+  {
+   "id": "altimeter",
+   "voice": "trainer",
+   "text": "Welchen Referenzwert du einstellst, entscheidet, was du abliest. [[0]]Mit QNH liest du die Höhe über Normalnull ab, also über dem Meeresspiegel. [[1]]Mit QFE zeigt dir der Höhenmesser die Höhe über dem Flugplatz. Nach der Landung steht er dann auf null. [[2]]Und mit dem Standarddruck 1013,2 hPa liest du Flugflächen ab.",
+   "visual": {
+    "kind": "transform",
+    "headline": "Drei Einstellungen,",
+    "highlight": "drei Höhen",
+    "tiles": [
+     {
+      "top": "QNH",
+      "bottom": "Höhe über NN"
+     },
+     {
+      "top": "QFE",
+      "bottom": "Höhe über dem Platz"
+     },
+     {
+      "top": "1013,2",
+      "bottom": "Flugfläche"
+     }
+    ]
+   }
+  },
+  {
+   "id": "example",
+   "voice": "trainer",
+   "text": "Ein Beispiel: Dein Höhenmesser ist auf 1013,2 hPa eingestellt und zeigt 7500 ft an. Die Bodenstelle fragt nach deiner Höhe. Dann nennst du nicht die Höhe in Fuß, sondern [[0]]FL 75.",
+   "visual": {
+    "kind": "transform",
+    "headline": "So meldest du",
+    "highlight": "deine Höhe",
+    "plate": "7500 ft",
+    "tiles": [
+     {
+      "top": "FL 75",
+      "bottom": "deine Meldung"
+     }
+    ]
+   }
+  },
+  {
+   "id": "time",
+   "voice": "trainer",
+   "text": "Bleibt noch die Zeit. Die Luftfahrt rechnet weltweit mit [[0]]UTC, der koordinierten Weltzeit. Deine Ortszeit spielt dabei keine Rolle.",
+   "visual": {
+    "kind": "transform",
+    "headline": "Eine Zeit für",
+    "highlight": "alle",
+    "tiles": [
+     {
+      "top": "UTC",
+      "bottom": "immer und überall"
+     }
+    ]
+   }
+  },
+  {
+   "id": "outro",
+   "voice": "trainer",
+   "text": "Damit hast du alles beisammen: [[0]]die Einheiten, [[1]]die Zeit [[2]]und die Höhenmessereinstellung. Jetzt folgen die Fragen. Los geht's.",
+   "visual": {
+    "kind": "outro",
+    "pills": [
+     "Einheiten",
+     "Zeit",
+     "QNH und QFE"
+    ]
+   }
+  }
+ ]
+}

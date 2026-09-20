@@ -1,0 +1,201 @@
+{
+ "id": "0.1-hook-video",
+ "language": "de",
+ "scenes": [
+  {
+   "id": "hello",
+   "voice": "trainer",
+   "text": "Herzlich willkommen bei funkraus! Schön, dass du dich für diesen Kurs entschieden hast. In den nächsten Minuten zeige ich dir, was dich erwartet und wie du Schritt für Schritt zu deinem Sprechfunkzeugnis kommst.",
+   "visual": {
+    "kind": "headline",
+    "headline": "Herzlich willkommen bei",
+    "highlight": "funkraus",
+    "tiles": []
+   }
+  },
+  {
+   "id": "goal",
+   "voice": "trainer",
+   "text": "Am Ende bist du bereit für die Prüfung zum [[0]]BZF Zwei, dem Sprechfunk in deutscher Sprache, und [[1]]zum BZF Eins, das dir zusätzlich den Sprechfunk auf Englisch erlaubt.",
+   "visual": {
+    "kind": "headline",
+    "headline": "Dein Ziel:",
+    "highlight": "das Sprechfunkzeugnis",
+    "tiles": [
+     "BZF II",
+     "BZF I"
+    ]
+   }
+  },
+  {
+   "id": "nozero",
+   "voice": "trainer",
+   "text": "Und das Beste: Du brauchst kein Vorwissen. Du musst kein Pilot sein und keine Flugstunden haben. [[0]]Wir fangen ganz vorne an und bauen alles Schritt für Schritt aufeinander auf.",
+   "visual": {
+    "kind": "headline",
+    "headline": "Kein Vorwissen",
+    "highlight": "nötig",
+    "tiles": [
+     "Von null"
+    ]
+   }
+  },
+  {
+   "id": "route",
+   "voice": "trainer",
+   "text": "Der Kurs ist wie eine Reise mit sechs Etappen. [[0]]Zuerst lernst du das Basiswissen: Recht, Luftraum und Wetter. [[1]]Dann die Sprache des Funks: Buchstabieralphabet, Zahlen und Redewendungen. [[2]]Danach den Platzverkehr, also alles rund um Start und Landung. [[3]]Auf dem Streckenflug kommen Meldungen und Navigation dazu. [[4]]Dann folgen die Notverfahren. [[5]]Und zum Schluss trainierst du mit Prüfungssimulationen unter echten Bedingungen.",
+   "visual": {
+    "kind": "transform",
+    "headline": "Deine Reise in",
+    "highlight": "sechs Etappen",
+    "tiles": [
+     {
+      "top": "1",
+      "bottom": "Basiswissen"
+     },
+     {
+      "top": "2",
+      "bottom": "Sprechfunk"
+     },
+     {
+      "top": "3",
+      "bottom": "Platzverkehr"
+     },
+     {
+      "top": "4",
+      "bottom": "Streckenflug"
+     },
+     {
+      "top": "5",
+      "bottom": "Notverfahren"
+     },
+     {
+      "top": "6",
+      "bottom": "Prüfung"
+     }
+    ]
+   }
+  },
+  {
+   "id": "english",
+   "voice": "trainer",
+   "text": "Wenn du das BZF Eins anstrebst, geht die Reise weiter. [[0]]Du lernst den Funkverkehr auf Englisch, [[1]]übersetzt Texte und lernst das Fachvokabular, [[2]]übst am Ende mit einer eigenen Prüfungssimulation [[3]]und bekommst in einem Bonusmodul Tipps zur Prüfungsanmeldung und zum Prüfungstag.",
+   "visual": {
+    "kind": "transform",
+    "headline": "Für das BZF Eins",
+    "highlight": "kommt Englisch dazu",
+    "tiles": [
+     {
+      "top": "EN",
+      "bottom": "Englischer Funkverkehr"
+     },
+     {
+      "top": "Text",
+      "bottom": "Übersetzung und Vokabeln"
+     },
+     {
+      "top": "BZF I",
+      "bottom": "Prüfungssimulation"
+     },
+     {
+      "top": "Bonus",
+      "bottom": "Anmeldung und Tipps"
+     }
+    ]
+   }
+  },
+  {
+   "id": "lessons",
+   "voice": "trainer",
+   "text": "So läuft jede Lektion ab. [[0]]Ein kurzes Video führt dich ins Thema ein. [[1]]Dann liest du die Erklärung in Ruhe, so oft du willst. [[2]]Bei vielen Themen hörst du Audioübungen und sprichst laut mit, denn Funk bedeutet Sprechen und Hören. [[3]]Und du beantwortest Fragen aus dem offiziellen Prüfungsfragenkatalog der Bundesnetzagentur. Den ganzen Katalog findest du im Kurs, immer genau dort, wo du das passende Wissen gerade gelernt hast.",
+   "visual": {
+    "kind": "transform",
+    "headline": "So läuft",
+    "highlight": "jede Lektion ab",
+    "tiles": [
+     {
+      "top": "Video",
+      "bottom": "Einstieg"
+     },
+     {
+      "top": "Text",
+      "bottom": "Erklärung"
+     },
+     {
+      "top": "Audio",
+      "bottom": "Zuhören und Mitsprechen"
+     },
+     {
+      "top": "Fragen",
+      "bottom": "Offizieller Katalog"
+     }
+    ]
+   }
+  },
+  {
+   "id": "audience",
+   "voice": "trainer",
+   "text": "Für wen ist dieser Kurs perfekt? [[0]]Für alle, die Pilotin oder Pilot werden wollen, zum Beispiel auf dem Weg zur Privatpilotenlizenz. [[1]]Für alle, die ohne Vorkenntnisse starten und trotzdem einen klaren Fahrplan wollen. [[2]]Und für alle, die neben Schule, Studium oder Beruf lernen und sich ihre Zeit selbst einteilen möchten. Übrigens: Das BZF kannst du schon ab fünfzehn Jahren machen.",
+   "visual": {
+    "kind": "transform",
+    "headline": "Dieser Kurs ist",
+    "highlight": "perfekt für dich",
+    "tiles": [
+     {
+      "top": "Pilot",
+      "bottom": "auf dem Weg zum Pilotenschein"
+     },
+     {
+      "top": "Start",
+      "bottom": "ohne Vorkenntnisse"
+     },
+     {
+      "top": "Flexibel",
+      "bottom": "neben Schule und Beruf"
+     }
+    ]
+   }
+  },
+  {
+   "id": "why",
+   "voice": "trainer",
+   "text": "Warum ist das die richtige Entscheidung? [[0]]Erstens lernst du flexibel: wann du willst, wo du willst und in deinem eigenen Tempo, ohne feste Kurstermine. [[1]]Zweitens lernst du auf einer modernen Lernplattform, die dir jederzeit zeigt, wo du stehst und was als Nächstes kommt. [[2]]Und drittens bist du nie allein. Wenn dir etwas unklar ist, kannst du eine Lehrkraft fragen und bekommst Klarheit und Hilfe von echten Menschen. [[3]]Dazu zahlst du nur einmal und hast lebenslangen Zugriff auf alles.",
+   "visual": {
+    "kind": "transform",
+    "headline": "Deshalb ist es die",
+    "highlight": "richtige Entscheidung",
+    "tiles": [
+     {
+      "top": "Flexibel",
+      "bottom": "Eigenes Tempo, jederzeit"
+     },
+     {
+      "top": "Modern",
+      "bottom": "Fortschritt immer im Blick"
+     },
+     {
+      "top": "Hilfe",
+      "bottom": "Von echten Menschen"
+     },
+     {
+      "top": "Einmalig",
+      "bottom": "Lebenslanger Zugriff"
+     }
+    ]
+   }
+  },
+  {
+   "id": "outro",
+   "voice": "trainer",
+   "text": "Das war der Überblick. Ich wünsche dir viel Erfolg und vor allem Freude beim Lernen. Jetzt geht es los mit der ersten Lektion: [[0]]von null, [[1]]in deinem Tempo, [[2]]bis du prüfungsreif bist.",
+   "visual": {
+    "kind": "outro",
+    "pills": [
+     "Von null",
+     "Eigenes Tempo",
+     "Prüfungsreif"
+    ]
+   }
+  }
+ ]
+}

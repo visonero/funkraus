@@ -1,0 +1,24 @@
+{
+  "questions": [
+    {
+      "catalogue_number": 83,
+      "explanation": "Ein Einleitungsanruf nennt zuerst die gerufene Funkstelle und dann die rufende: „AACHEN RADIO DELID“. Die anderen Beispiele sind Antworten, Rückfragen oder Anrufe in falscher Reihenfolge."
+    },
+    {
+      "catalogue_number": 60,
+      "explanation": "Das abgekürzte Rufzeichen besteht aus dem ersten Zeichen des Eintragungszeichens und mindestens den letzten zwei Zeichen. Aus D-EJFC wird D-FC."
+    },
+    {
+      "catalogue_number": 66,
+      "explanation": "„POSITIV“ ist die Redewendung für Ja. Das Gegenstück ist „NEGATIV“."
+    },
+    {
+      "catalogue_number": 68,
+      "explanation": "„VERSTANDEN“ sagst du, wenn du die letzte Meldung vollständig erhalten hast. „WILCO“ geht einen Schritt weiter: verstanden und ich handle danach."
+    },
+    {
+      "catalogue_number": 71,
+      "explanation": "Bei einem Fehler sagst du „BERICHTIGUNG“, wiederholst die letzte richtige Sprechgruppe und nennst dann den richtigen Wortlaut: „QNH 1003 BERICHTIGUNG QNH 1002“."
+    }
+  ]
+}

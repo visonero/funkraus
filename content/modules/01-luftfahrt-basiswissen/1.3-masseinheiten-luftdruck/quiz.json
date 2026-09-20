@@ -1,0 +1,48 @@
+{
+  "questions": [
+    {
+      "catalogue_number": 25,
+      "explanation": "QFE ist der Luftdruck in Flugplatzhöhe oder an der Schwelle der Start- und Landebahn. Mit QFE eingestellt zeigt der Höhenmesser die Höhe über dem Flugplatz an."
+    },
+    {
+      "catalogue_number": 26,
+      "explanation": "QNH ist die Höhenmessereinstellung, bei der der Höhenmesser nach der Landung die Flugplatzhöhe anzeigt. Im Flug zeigt er damit die Höhe über NN an."
+    },
+    {
+      "catalogue_number": 27,
+      "explanation": "Mit QNH eingestellt liest du die Höhe über NN (Normalnull) ab. QFE dagegen liefert die Höhe über dem Flugplatz."
+    },
+    {
+      "catalogue_number": 28,
+      "explanation": "Mit QFE eingestellt zeigt der Höhenmesser die Höhe über dem Flugplatz an. QNH liefert die Höhe über NN."
+    },
+    {
+      "catalogue_number": 70,
+      "explanation": "Bei der Standardeinstellung 1013,2 hPa nennst du keine Höhe in Fuß, sondern die Flugfläche. 7500 Fuß entsprechen FL 75."
+    },
+    {
+      "catalogue_number": 170,
+      "explanation": "Zeitangaben in der Luftfahrt beziehen sich auf die koordinierte Weltzeit (UTC), nicht auf Ortszeit, MEZ oder MESZ."
+    },
+    {
+      "catalogue_number": 171,
+      "explanation": "Die horizontale Geschwindigkeit gibst du in Knoten an. Ein Knoten ist eine Seemeile pro Stunde."
+    },
+    {
+      "catalogue_number": 172,
+      "explanation": "Die vertikale Geschwindigkeit, also Steig- und Sinkrate, gibst du in Fuß je Minute an."
+    },
+    {
+      "catalogue_number": 173,
+      "explanation": "Höhen gibst du in der Luftfahrt in Fuß an."
+    },
+    {
+      "catalogue_number": 174,
+      "explanation": "Entfernungen zur Navigation gibst du in Seemeilen und Zehnteln an."
+    },
+    {
+      "catalogue_number": 175,
+      "explanation": "Der Luftdruck wird in Hektopascal (hPa) angegeben. Die Zahlenwerte entsprechen Millibar, die offizielle Einheit ist aber Hektopascal."
+    }
+  ]
+}

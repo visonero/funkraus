@@ -1,0 +1,14 @@
+{
+  "id": "1.7",
+  "title": "Wetterinformationen verstehen",
+  "content_type": "text",
+  "sort_order": 6,
+  "assets": {
+    "video": "1.7-hook-video/hook-video.mp4",
+    "pdf": "1.7-metar-decoder-karte/metar-decoder-karte.pdf"
+  },
+  "sources": [
+    "BNetzA-Prüfungsfragenkatalog 2024, Nr. 122 bis 135",
+    "ICAO-Standardformat METAR und TAF"
+  ]
+}

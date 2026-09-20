@@ -1,0 +1,14 @@
+{
+  "id": "1.4",
+  "title": "Luftraumstruktur",
+  "content_type": "video",
+  "sort_order": 3,
+  "assets": {
+    "video": "1.4-hook-video/hook-video.mp4",
+    "pdf": "1.4-luftraum-uebersicht/luftraum-uebersicht.pdf"
+  },
+  "sources": [
+    "Durchführungsverordnung (EU) Nr. 923/2012 (SERA.6001, Anlage 4)",
+    "BNetzA-Prüfungsfragenkatalog 2024, Nr. 212 und 218 bis 226"
+  ]
+}

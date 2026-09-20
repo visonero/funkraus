@@ -1,0 +1,44 @@
+{
+  "questions": [
+    {
+      "catalogue_number": 212,
+      "explanation": "Sonderflüge nach Sichtflugregeln (Special VFR) sind im Luftraum D möglich, also in der Kontrollzone (CTR). Das ist die Regel in Deutschland, weil Kontrollzonen Luftraum D sind."
+    },
+    {
+      "catalogue_number": 218,
+      "explanation": "Im unteren Luftraum gibt es unter deutscher Zuständigkeit die Fluginformationsgebiete Bremen, Langen und München."
+    },
+    {
+      "catalogue_number": 219,
+      "explanation": "Eine RMZ (Zone mit Funkkommunikationspflicht) reicht vom Boden bis 1000 ft AGL. AGL heißt über Grund."
+    },
+    {
+      "catalogue_number": 220,
+      "explanation": "Die RMZ reicht vom Boden bis 1000 ft AGL, nicht höher."
+    },
+    {
+      "catalogue_number": 221,
+      "explanation": "In Deutschland sind Kontrollzonen ausnahmslos als Luftraum D klassifiziert."
+    },
+    {
+      "catalogue_number": 222,
+      "explanation": "Ist eine mit HX gekennzeichnete Kontrollzone nicht in Betrieb, darfst du sie ohne Freigabe durchfliegen. Zuvor lässt du dir die Nichtwirksamkeit bestätigen: von der Flugplatzkontrolle, außerhalb der Turmbetriebszeiten vom Flugplatzinformationsdienst oder vom Fluginformationsdienst."
+    },
+    {
+      "catalogue_number": 223,
+      "explanation": "Kontrollierter Luftraum sind die Klassen C, D und E. Die Klassen F und G sind es nicht."
+    },
+    {
+      "catalogue_number": 224,
+      "explanation": "Der Luftraum E beginnt ab 1000 ft AGL und 1700 ft AGL, ansonsten ab 2500 ft AGL, und reicht bis FL 100. Das gilt, soweit der Raum nicht anders klassifiziert ist."
+    },
+    {
+      "catalogue_number": 225,
+      "explanation": "ED-R kennzeichnet ein Gebiet mit Flugbeschränkungen (R für „restricted“). ED ist das Präfix für Deutschland."
+    },
+    {
+      "catalogue_number": 226,
+      "explanation": "ED-D kennzeichnet ein Gefahrengebiet (D für „danger“). Verwechsle es nicht mit ED-R, dem Gebiet mit Flugbeschränkungen."
+    }
+  ]
+}

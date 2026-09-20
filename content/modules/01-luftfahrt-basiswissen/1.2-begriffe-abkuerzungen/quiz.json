@@ -1,0 +1,48 @@
+{
+  "questions": [
+    {
+      "catalogue_number": 14,
+      "explanation": "Ein Rollhalt ist ein bezeichneter Ort zum Schutz einer Piste oder einer Hindernisbegrenzungsfläche. Dort müssen rollende Luftfahrzeuge und Fahrzeuge anhalten und warten, sofern die Flugplatzkontrollstelle nichts anderes genehmigt hat."
+    },
+    {
+      "catalogue_number": 15,
+      "explanation": "CTR steht für Control Zone, auf Deutsch Kontrollzone."
+    },
+    {
+      "catalogue_number": 16,
+      "explanation": "IMC steht für Instrument Meteorological Conditions, also Instrumentenwetterbedingungen. Das Gegenstück sind die Sichtwetterbedingungen (VMC)."
+    },
+    {
+      "catalogue_number": 17,
+      "explanation": "FIR steht für Flight Information Region, das Fluginformationsgebiet."
+    },
+    {
+      "catalogue_number": 18,
+      "explanation": "H24 bedeutet ununterbrochener Betrieb bei Tag und Nacht, also 24 Stunden."
+    },
+    {
+      "catalogue_number": 19,
+      "explanation": "HX bedeutet: keine festgelegte Betriebszeit."
+    },
+    {
+      "catalogue_number": 20,
+      "explanation": "HJ bedeutet Sonnenaufgang bis Sonnenuntergang, also Betrieb bei Tag. Das Gegenstück HN steht für Sonnenuntergang bis Sonnenaufgang."
+    },
+    {
+      "catalogue_number": 21,
+      "explanation": "AIS steht für Aeronautical Information Service, den Flugberatungsdienst."
+    },
+    {
+      "catalogue_number": 22,
+      "explanation": "SAR steht für Search and Rescue, den Such- und Rettungsdienst."
+    },
+    {
+      "catalogue_number": 23,
+      "explanation": "Die koordinierte Weltzeit wird mit UTC abgekürzt. Sie ist die Zeitbasis der Luftfahrt."
+    },
+    {
+      "catalogue_number": 24,
+      "explanation": "ATIS ist die automatische Ausstrahlung von Lande- und Startinformationen (Automatic Terminal Information Service)."
+    }
+  ]
+}

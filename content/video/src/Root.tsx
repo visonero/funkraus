@@ -1,17 +1,13 @@
 import { Composition } from "remotion";
-import alphabet from "../../data/alphabet.json";
 import { HookVideo, type HookVideoProps } from "./HookVideo";
 
 const defaultProps: HookVideoProps = {
   audio: "2.1-hook-video.mp3",
   totalSeconds: 31.2,
   scenes: [
-    { id: "problem", start: 0, end: 5.8 },
-    { id: "alphabet", start: 6.3, end: 16 },
-    { id: "callsign", start: 16.5, end: 23.8 },
-    { id: "outro", start: 24.3, end: 31.2 },
+    { id: "problem", start: 0, end: 5.8, visual: { kind: "headline", headline: "Am Funk klingen diese Buchstaben", highlight: "fast gleich", tiles: ["B", "D", "P", "T"], wave: true } },
+    { id: "outro", start: 6.3, end: 31.2, visual: { kind: "outro", pills: ["Hören", "Nachsprechen", "Üben"] } },
   ],
-  letters: alphabet.letters,
   lessonLabel: "Lektion 2.1",
   lessonTitle: "Die Buchstabiertafel",
 };

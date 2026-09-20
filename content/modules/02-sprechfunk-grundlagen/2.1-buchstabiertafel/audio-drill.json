@@ -4,229 +4,374 @@
  "segments": [
   {
    "voice": "trainer",
-   "text": "Willkommen zur Hörübung. Ich nenne dir zuerst den Buchstaben und dann das Wort. Sprich das Wort nach jeder kurzen Pause laut nach."
+   "text": "Willkommen zur Hörübung. Ich nenne dir den Buchstaben und danach das Wort. Sprich das Wort in der Pause laut nach."
   },
   {
-   "pause": 1.2
-  },
-  {
-   "voice": "trainer",
-   "text": "Block eins, A bis F."
-  },
-  {
-   "pause": 0.6
+   "pause": 1.5
   },
   {
    "voice": "trainer",
-   "text": "A. ALFA."
+   "text": "A."
   },
   {
-   "pause": 1.7
-  },
-  {
-   "voice": "trainer",
-   "text": "B. BRAVO."
-  },
-  {
-   "pause": 1.7
+   "pause": 0.55
   },
   {
    "voice": "trainer",
-   "text": "C. CHARLIE."
+   "text": "ALFA."
   },
   {
-   "pause": 1.7
-  },
-  {
-   "voice": "trainer",
-   "text": "D. DELTA."
-  },
-  {
-   "pause": 1.7
+   "pause": 1.9
   },
   {
    "voice": "trainer",
-   "text": "E. ECHO."
+   "text": "B."
   },
   {
-   "pause": 1.7
-  },
-  {
-   "voice": "trainer",
-   "text": "F. FOXTROT."
-  },
-  {
-   "pause": 1.7
-  },
-  {
-   "pause": 0.6
+   "pause": 0.55
   },
   {
    "voice": "trainer",
-   "text": "Block zwei, G bis L."
+   "text": "BRAVO."
   },
   {
-   "pause": 0.6
-  },
-  {
-   "voice": "trainer",
-   "text": "G. GOLF."
-  },
-  {
-   "pause": 1.7
+   "pause": 1.9
   },
   {
    "voice": "trainer",
-   "text": "H. HOTEL."
+   "text": "C."
   },
   {
-   "pause": 1.7
-  },
-  {
-   "voice": "trainer",
-   "text": "I. INDIA."
-  },
-  {
-   "pause": 1.7
+   "pause": 0.55
   },
   {
    "voice": "trainer",
-   "text": "J. JULIETT."
+   "text": "CHARLIE."
   },
   {
-   "pause": 1.7
-  },
-  {
-   "voice": "trainer",
-   "text": "K. KILO."
-  },
-  {
-   "pause": 1.7
+   "pause": 1.9
   },
   {
    "voice": "trainer",
-   "text": "L. LIMA."
+   "text": "D."
   },
   {
-   "pause": 1.7
-  },
-  {
-   "pause": 0.6
+   "pause": 0.55
   },
   {
    "voice": "trainer",
-   "text": "Block drei, M bis R."
+   "text": "DELTA."
   },
   {
-   "pause": 0.6
-  },
-  {
-   "voice": "trainer",
-   "text": "M. MIKE."
-  },
-  {
-   "pause": 1.7
+   "pause": 1.9
   },
   {
    "voice": "trainer",
-   "text": "N. NOVEMBER."
+   "text": "E."
   },
   {
-   "pause": 1.7
-  },
-  {
-   "voice": "trainer",
-   "text": "O. OSCAR."
-  },
-  {
-   "pause": 1.7
+   "pause": 0.55
   },
   {
    "voice": "trainer",
-   "text": "P. PAPA."
+   "text": "ECHO."
   },
   {
-   "pause": 1.7
-  },
-  {
-   "voice": "trainer",
-   "text": "Q. QUEBEC."
-  },
-  {
-   "pause": 1.7
+   "pause": 1.9
   },
   {
    "voice": "trainer",
-   "text": "R. ROMEO."
+   "text": "F."
   },
   {
-   "pause": 1.7
-  },
-  {
-   "pause": 0.6
+   "pause": 0.55
   },
   {
    "voice": "trainer",
-   "text": "Block vier, S bis Z."
+   "text": "FOXTROT."
   },
   {
-   "pause": 0.6
-  },
-  {
-   "voice": "trainer",
-   "text": "S. SIERRA."
-  },
-  {
-   "pause": 1.7
+   "pause": 1.9
   },
   {
    "voice": "trainer",
-   "text": "T. TANGO."
+   "text": "G."
   },
   {
-   "pause": 1.7
-  },
-  {
-   "voice": "trainer",
-   "text": "U. UNIFORM."
-  },
-  {
-   "pause": 1.7
+   "pause": 0.55
   },
   {
    "voice": "trainer",
-   "text": "V. VICTOR."
+   "text": "GOLF."
   },
   {
-   "pause": 1.7
-  },
-  {
-   "voice": "trainer",
-   "text": "W. WHISKEY."
-  },
-  {
-   "pause": 1.7
+   "pause": 1.9
   },
   {
    "voice": "trainer",
-   "text": "X. X-RAY."
+   "text": "H."
   },
   {
-   "pause": 1.7
-  },
-  {
-   "voice": "trainer",
-   "text": "Y. YANKEE."
-  },
-  {
-   "pause": 1.7
+   "pause": 0.55
   },
   {
    "voice": "trainer",
-   "text": "Z. ZULU."
+   "text": "HOTEL."
   },
   {
-   "pause": 1.7
+   "pause": 1.9
+  },
+  {
+   "voice": "trainer",
+   "text": "I."
+  },
+  {
+   "pause": 0.55
+  },
+  {
+   "voice": "trainer",
+   "text": "INDIA."
+  },
+  {
+   "pause": 1.9
+  },
+  {
+   "voice": "trainer",
+   "text": "J."
+  },
+  {
+   "pause": 0.55
+  },
+  {
+   "voice": "trainer",
+   "text": "JULIETT."
+  },
+  {
+   "pause": 1.9
+  },
+  {
+   "voice": "trainer",
+   "text": "K."
+  },
+  {
+   "pause": 0.55
+  },
+  {
+   "voice": "trainer",
+   "text": "KILO."
+  },
+  {
+   "pause": 1.9
+  },
+  {
+   "voice": "trainer",
+   "text": "L."
+  },
+  {
+   "pause": 0.55
+  },
+  {
+   "voice": "trainer",
+   "text": "LIMA."
+  },
+  {
+   "pause": 1.9
+  },
+  {
+   "voice": "trainer",
+   "text": "M."
+  },
+  {
+   "pause": 0.55
+  },
+  {
+   "voice": "trainer",
+   "text": "MIKE."
+  },
+  {
+   "pause": 1.9
+  },
+  {
+   "voice": "trainer",
+   "text": "N."
+  },
+  {
+   "pause": 0.55
+  },
+  {
+   "voice": "trainer",
+   "text": "NOVEMBER."
+  },
+  {
+   "pause": 1.9
+  },
+  {
+   "voice": "trainer",
+   "text": "O."
+  },
+  {
+   "pause": 0.55
+  },
+  {
+   "voice": "trainer",
+   "text": "OSCAR."
+  },
+  {
+   "pause": 1.9
+  },
+  {
+   "voice": "trainer",
+   "text": "P."
+  },
+  {
+   "pause": 0.55
+  },
+  {
+   "voice": "trainer",
+   "text": "PAPA."
+  },
+  {
+   "pause": 1.9
+  },
+  {
+   "voice": "trainer",
+   "text": "Q."
+  },
+  {
+   "pause": 0.55
+  },
+  {
+   "voice": "trainer",
+   "text": "QUEBEC."
+  },
+  {
+   "pause": 1.9
+  },
+  {
+   "voice": "trainer",
+   "text": "R."
+  },
+  {
+   "pause": 0.55
+  },
+  {
+   "voice": "trainer",
+   "text": "ROMEO."
+  },
+  {
+   "pause": 1.9
+  },
+  {
+   "voice": "trainer",
+   "text": "S."
+  },
+  {
+   "pause": 0.55
+  },
+  {
+   "voice": "trainer",
+   "text": "SIERRA."
+  },
+  {
+   "pause": 1.9
+  },
+  {
+   "voice": "trainer",
+   "text": "T."
+  },
+  {
+   "pause": 0.55
+  },
+  {
+   "voice": "trainer",
+   "text": "TANGO."
+  },
+  {
+   "pause": 1.9
+  },
+  {
+   "voice": "trainer",
+   "text": "U."
+  },
+  {
+   "pause": 0.55
+  },
+  {
+   "voice": "trainer",
+   "text": "UNIFORM."
+  },
+  {
+   "pause": 1.9
+  },
+  {
+   "voice": "trainer",
+   "text": "V."
+  },
+  {
+   "pause": 0.55
+  },
+  {
+   "voice": "trainer",
+   "text": "VICTOR."
+  },
+  {
+   "pause": 1.9
+  },
+  {
+   "voice": "trainer",
+   "text": "W."
+  },
+  {
+   "pause": 0.55
+  },
+  {
+   "voice": "trainer",
+   "text": "WHISKEY."
+  },
+  {
+   "pause": 1.9
+  },
+  {
+   "voice": "trainer",
+   "text": "X."
+  },
+  {
+   "pause": 0.55
+  },
+  {
+   "voice": "trainer",
+   "text": "X-RAY."
+  },
+  {
+   "pause": 1.9
+  },
+  {
+   "voice": "trainer",
+   "text": "Y."
+  },
+  {
+   "pause": 0.55
+  },
+  {
+   "voice": "trainer",
+   "text": "YANKEE."
+  },
+  {
+   "pause": 1.9
+  },
+  {
+   "voice": "trainer",
+   "text": "Z."
+  },
+  {
+   "pause": 0.55
+  },
+  {
+   "voice": "trainer",
+   "text": "ZULU."
+  },
+  {
+   "pause": 1.9
   },
   {
    "pause": 0.6
@@ -236,7 +381,7 @@
    "text": "Jetzt buchstabierst du selbst. Ich nenne dir ein Rufzeichen, und du buchstabierst es nach der Pause. Danach höre ich die richtige Lösung."
   },
   {
-   "pause": 1.0
+   "pause": 1.2
   },
   {
    "voice": "trainer",
@@ -250,7 +395,7 @@
    "text": "DELTA. ECHO. JULIETT. FOXTROT. CHARLIE."
   },
   {
-   "pause": 1.5
+   "pause": 1.8
   },
   {
    "voice": "trainer",
@@ -264,7 +409,7 @@
    "text": "DELTA. INDIA. JULIETT. YANKEE. FOXTROT."
   },
   {
-   "pause": 1.5
+   "pause": 1.8
   },
   {
    "voice": "trainer",
@@ -278,7 +423,7 @@
    "text": "ECHO. DELTA. DELTA. FOXTROT."
   },
   {
-   "pause": 1.5
+   "pause": 1.8
   },
   {
    "voice": "trainer",

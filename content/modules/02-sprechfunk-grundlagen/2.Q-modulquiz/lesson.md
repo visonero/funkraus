@@ -1,0 +1,1 @@
+Zeig, was du in Modul 2 gelernt hast. Die 15 Fragen stammen aus dem offiziellen Prüfungsfragenkatalog und decken Rufzeichen, Anrufe, Redewendungen und den Funktest ab. Nach jeder Antwort siehst du eine kurze Erklärung. Du kannst jede Frage beliebig oft wiederholen.

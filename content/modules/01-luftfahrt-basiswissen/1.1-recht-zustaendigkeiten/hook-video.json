@@ -1,0 +1,104 @@
+{
+ "id": "1.1-hook-video",
+ "language": "de",
+ "scenes": [
+  {
+   "id": "intro",
+   "voice": "trainer",
+   "text": "Stell dir vor, du sitzt zum ersten Mal im Cockpit und willst die Sprechtaste drücken. Bevor es losgeht, gibt es eine Frage, die viele Einsteiger überrascht: Darfst du das überhaupt? In Deutschland brauchst du für den Flugfunk nämlich ein gültiges [[0]]Flugfunkzeugnis. Und genau darum geht es in dieser Lektion.",
+   "visual": {
+    "kind": "headline",
+    "headline": "Wer darf im Flugfunk",
+    "highlight": "sprechen?",
+    "tiles": [
+     "Zeugnis"
+    ]
+   }
+  },
+  {
+   "id": "levels",
+   "voice": "trainer",
+   "text": "Die Regeln stehen in der Verordnung über Flugfunkzeugnisse. Für Flüge nach Sichtflugregeln sind zwei Zeugnisse wichtig. [[0]]Das BZF Zwei erlaubt dir den Sprechfunk innerhalb Deutschlands, aber nur in deutscher Sprache. [[1]]Das BZF Eins geht einen Schritt weiter: Damit funkst du in Deutsch und in Englisch. [[2]]Und wer später auch nach Instrumentenflugregeln fliegen will, braucht das AZF. Dafür musst du mindestens achtzehn sein und schon ein BZF besitzen.",
+   "visual": {
+    "kind": "transform",
+    "headline": "Die Zeugnisse im",
+    "highlight": "Überblick",
+    "tiles": [
+     {
+      "top": "BZF II",
+      "bottom": "Deutsch, in Deutschland"
+     },
+     {
+      "top": "BZF I",
+      "bottom": "Deutsch und Englisch"
+     },
+     {
+      "top": "AZF",
+      "bottom": "auch Instrumentenflug"
+     }
+    ]
+   }
+  },
+  {
+   "id": "exceptions",
+   "voice": "trainer",
+   "text": "Gibt es Ausnahmen? Ja, ein paar. [[0]]Wer Segelflugzeug, Freiballon oder ein Luftsportgerät fliegt, braucht kein Zeugnis, solange er nicht in den Lufträumen B, C oder D unterwegs ist. [[1]]Auch an Bord von Ausbildungsflugzeugen brauchen Flugschüler keines. [[2]]Und der Rückholer, der vom Auto aus mit dem Segelflugzeug funkt, ebenfalls nicht. Achte aber auf den Haken: Im Luftraum D gilt die Ausnahme für Luftsportgeräte nicht mehr.",
+   "visual": {
+    "kind": "transform",
+    "headline": "Wer braucht",
+    "highlight": "kein Zeugnis?",
+    "tiles": [
+     {
+      "top": "Segelflug",
+      "bottom": "außerhalb von B, C und D"
+     },
+     {
+      "top": "Flugschüler",
+      "bottom": "im Ausbildungsflugzeug"
+     },
+     {
+      "top": "Rückholer",
+      "bottom": "Funk vom Auto"
+     }
+    ]
+   }
+  },
+  {
+   "id": "authorities",
+   "voice": "trainer",
+   "text": "Und wer steckt eigentlich hinter all diesen Regeln? [[0]]Die Bundesnetzagentur ist die Prüfungsbehörde. Sie prüft dich, stellt dein Zeugnis aus und teilt die Frequenzen zu. [[1]]Die rechtliche Grundlage für Funkanlagen in Deutschland ist das Telekommunikationsgesetz. [[2]]Und weltweit gibt die Internationale Fernmeldeunion, kurz ITU, den Rahmen für den Funkdienst vor.",
+   "visual": {
+    "kind": "transform",
+    "headline": "Wer ist",
+    "highlight": "zuständig?",
+    "tiles": [
+     {
+      "top": "BNetzA",
+      "bottom": "Prüfung, Zeugnis und Frequenzen"
+     },
+     {
+      "top": "TKG",
+      "bottom": "Gesetz für Funkanlagen"
+     },
+     {
+      "top": "ITU",
+      "bottom": "weltweiter Funkdienst"
+     }
+    ]
+   }
+  },
+  {
+   "id": "outro",
+   "voice": "trainer",
+   "text": "Das war der Überblick. In dieser Lektion lernst du [[0]]die Zeugnisse, [[1]]die Ausnahmen [[2]]und die Behörden dahinter. Am Ende beantwortest du elf Fragen aus dem offiziellen Katalog. Los geht's.",
+   "visual": {
+    "kind": "outro",
+    "pills": [
+     "Zeugnisse",
+     "Ausnahmen",
+     "Behörden"
+    ]
+   }
+  }
+ ]
+}

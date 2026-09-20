@@ -1,0 +1,163 @@
+{
+ "id": "1.4-hook-video",
+ "language": "de",
+ "scenes": [
+  {
+   "id": "intro",
+   "voice": "trainer",
+   "text": "Stell dir den Luftraum wie ein großes Haus mit mehreren Stockwerken vor. Jedes Stockwerk hat seine eigenen Hausregeln: In manchen darfst du einfach hineinfliegen, in anderen musst du vorher anklopfen und um Erlaubnis fragen. Diese Stockwerke heißen [[0]]Luftraumklassen. Für dich als VFR-Pilot sind vor allem vier wichtig: C, D, E und G. In dieser Lektion lernst du, was in welchem Stockwerk gilt.",
+   "visual": {
+    "kind": "headline",
+    "headline": "Der Luftraum: ein",
+    "highlight": "Haus mit Stockwerken",
+    "tiles": [
+     "C",
+     "D",
+     "E",
+     "G"
+    ]
+   }
+  },
+  {
+   "id": "layers",
+   "voice": "trainer",
+   "text": "Schauen wir uns die Stockwerke von oben nach unten an. [[0]]Ganz oben, oberhalb von FL 100, liegt der Luftraum C. [[1]]Darunter folgt der Luftraum E, der bis FL 100 reicht. Wie tief er nach unten geht, hängt vom Gebiet ab: Er beginnt bei 1000, bei 1700 oder bei 2500 ft über Grund. [[2]]Und alles darunter ist der Luftraum G.",
+   "visual": {
+    "kind": "layers",
+    "headline": "Die Stockwerke von",
+    "highlight": "oben nach unten",
+    "layers": [
+     {
+      "label": "Luftraum C",
+      "sub": "oberhalb FL 100"
+     },
+     {
+      "label": "Luftraum E",
+      "sub": "bis FL 100, ab 1000 / 1700 / 2500 ft AGL"
+     },
+     {
+      "label": "Luftraum G",
+      "sub": "darunter"
+     }
+    ]
+   }
+  },
+  {
+   "id": "rules",
+   "voice": "trainer",
+   "text": "Jetzt die entscheidende Frage: Was musst du in welchem Stockwerk tun? C, D und E gehören zum kontrollierten Luftraum, dort gibt es Flugverkehrskontrolle. Für dich als VFR-Pilot gelten aber unterschiedliche Regeln. [[0]]In C brauchst du eine Freigabe und dauernden Funkkontakt. [[1]]In D ist es genauso. [[2]]In E brauchst du weder Freigabe noch Funk. [[3]]Und in G bist du ebenfalls frei. Merk dir also: C und D verlangen Funk und Freigabe, E und G nicht. Ausnahmen entstehen nur durch besondere Zonen, die wir gleich kennenlernen.",
+   "visual": {
+    "kind": "transform",
+    "headline": "Freigabe und Funk",
+    "highlight": "für VFR-Piloten",
+    "tiles": [
+     {
+      "top": "C",
+      "bottom": "Freigabe und Funk"
+     },
+     {
+      "top": "D",
+      "bottom": "Freigabe und Funk"
+     },
+     {
+      "top": "E",
+      "bottom": "weder noch"
+     },
+     {
+      "top": "G",
+      "bottom": "weder noch"
+     }
+    ]
+   }
+  },
+  {
+   "id": "ctr",
+   "voice": "trainer",
+   "text": "Bleibt noch der Luftraum D. Er ist der Luftraum der Kontrollzonen. Eine [[0]]Kontrollzone, kurz CTR, liegt um einen Flugplatz mit Flugverkehrskontrolle. [[1]]In Deutschland sind alle Kontrollzonen Luftraum D. [[2]]Und nur dort sind Sonderflüge nach Sichtflugregeln möglich, wenn das Wetter für normalen Sichtflug nicht reicht.",
+   "visual": {
+    "kind": "transform",
+    "headline": "Die Kontrollzone:",
+    "highlight": "Luftraum D",
+    "tiles": [
+     {
+      "top": "CTR",
+      "bottom": "Kontrollzone"
+     },
+     {
+      "top": "D",
+      "bottom": "alle Kontrollzonen"
+     },
+     {
+      "top": "SVFR",
+      "bottom": "Sonderflug nur hier"
+     }
+    ]
+   }
+  },
+  {
+   "id": "zones",
+   "voice": "trainer",
+   "text": "Neben den Klassen gibt es besondere Gebiete, die du kennen musst. [[0]]In einer RMZ, der Zone mit Funkkommunikationspflicht, musst du vom Boden bis 1000 ft über Grund Funkkontakt halten. [[1]]In einer TMZ brauchst du einen Transponder. [[2]]ED-R bezeichnet ein Gebiet mit Flugbeschränkungen [[3]]und ED-D ein Gefahrengebiet.",
+   "visual": {
+    "kind": "transform",
+    "headline": "Besondere",
+    "highlight": "Gebiete",
+    "tiles": [
+     {
+      "top": "RMZ",
+      "bottom": "Funkpflicht"
+     },
+     {
+      "top": "TMZ",
+      "bottom": "Transponderpflicht"
+     },
+     {
+      "top": "ED-R",
+      "bottom": "Flugbeschränkung"
+     },
+     {
+      "top": "ED-D",
+      "bottom": "Gefahrengebiet"
+     }
+    ]
+   }
+  },
+  {
+   "id": "details",
+   "voice": "trainer",
+   "text": "Zwei Details noch. Im unteren Luftraum gibt es unter deutscher Zuständigkeit drei Fluginformationsgebiete: [[0]]Bremen, [[1]]Langen [[2]]und München. Und trägt eine Kontrollzone den Zusatz HX, dann hat sie keine feste Betriebszeit. Ist sie gerade nicht in Betrieb, darfst du sie durchfliegen, nachdem du dir die Nichtwirksamkeit hast bestätigen lassen.",
+   "visual": {
+    "kind": "transform",
+    "headline": "Drei Fluginformations-",
+    "highlight": "gebiete",
+    "tiles": [
+     {
+      "top": "Bremen",
+      "bottom": "FIR"
+     },
+     {
+      "top": "Langen",
+      "bottom": "FIR"
+     },
+     {
+      "top": "München",
+      "bottom": "FIR"
+     }
+    ]
+   }
+  },
+  {
+   "id": "outro",
+   "voice": "trainer",
+   "text": "Damit kennst du das ganze Haus: [[0]]die Klassen, [[1]]die besonderen Zonen [[2]]und die Regeln für Freigabe und Funk. Lade dir gern die Luftraum-Übersicht als PDF herunter, sie fasst alles auf einer Seite zusammen. Danach warten die Fragen. Los geht's.",
+   "visual": {
+    "kind": "outro",
+    "pills": [
+     "Klassen",
+     "Zonen",
+     "Freigabe und Funk"
+    ]
+   }
+  }
+ ]
+}

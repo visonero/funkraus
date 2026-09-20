@@ -1,0 +1,132 @@
+{
+ "id": "1.5-hook-video",
+ "language": "de",
+ "scenes": [
+  {
+   "id": "intro",
+   "voice": "trainer",
+   "text": "Sobald du zum ersten Mal die Sprechtaste drückst, stellt sich eine einfache Frage: [[0]]Mit wem spreche ich eigentlich? Denn am anderen Ende sitzt nicht immer dieselbe Stelle. Mal ist es ein Fluglotse im Tower, mal ein Mitarbeiter im Fluginformationsdienst, mal jemand auf einem kleinen Landeplatz. Damit du weißt, wen du rufst und was du von ihm erwarten kannst, sortieren wir jetzt die Dienste und ihre Rufzeichen.",
+   "visual": {
+    "kind": "headline",
+    "headline": "Mit wem",
+    "highlight": "sprichst du?",
+    "tiles": [
+     "?"
+    ]
+   }
+  },
+  {
+   "id": "services",
+   "voice": "trainer",
+   "text": "Es gibt insgesamt vier Flugverkehrsdienste. [[0]]Der Flugverkehrskontrolldienst führt den Verkehr und erteilt Freigaben. Im Luftraum C sprichst du mit ihm. [[1]]Der Fluginformationsdienst steht dir während des ganzen Fluges zur Verfügung und nimmt zum Beispiel Flugpläne entgegen. [[2]]Der Flugalarmdienst schlägt Alarm, wenn ein Luftfahrzeug Hilfe braucht. [[3]]Und der Flugverkehrsberatungsdienst berät dich, erteilt aber keine Freigaben.",
+   "visual": {
+    "kind": "transform",
+    "headline": "Vier Dienste für",
+    "highlight": "den Flugverkehr",
+    "tiles": [
+     {
+      "top": "KONTROLLE",
+      "bottom": "führt und erteilt Freigaben"
+     },
+     {
+      "top": "INFORMATION",
+      "bottom": "während des Fluges"
+     },
+     {
+      "top": "ALARM",
+      "bottom": "bei Notlagen"
+     },
+     {
+      "top": "BERATUNG",
+      "bottom": "ohne Freigaben"
+     }
+    ]
+   }
+  },
+  {
+   "id": "calls",
+   "voice": "trainer",
+   "text": "Und wie erreichst du diese Stellen? Jede meldet sich mit einem festen Rufzeichen. [[0]]Am kontrollierten Flugplatz ist der Turm für die Platzrunde zuständig. [[1]]Die Rollkontrolle lenkt alles, was auf dem Rollfeld unterwegs ist. [[2]]Am unkontrollierten Landeplatz nennst du den Ortsnamen und das Wort Radio, zum Beispiel Aachen Radio. [[3]]Bei einem Segelfluggelände heißt es der Name des Geländes und Segelflug. [[4]]Und den Fluginformationsdienst erreichst du unter dem Rufzeichen Information.",
+   "visual": {
+    "kind": "transform",
+    "headline": "Feste",
+    "highlight": "Rufzeichen",
+    "tiles": [
+     {
+      "top": "TURM",
+      "bottom": "Platzrunde"
+     },
+     {
+      "top": "ROLLKONTROLLE",
+      "bottom": "Rollfeld"
+     },
+     {
+      "top": "RADIO",
+      "bottom": "Ortsname + Radio"
+     },
+     {
+      "top": "SEGELFLUG",
+      "bottom": "Name + Segelflug"
+     },
+     {
+      "top": "INFORMATION",
+      "bottom": "Fluginformation"
+     }
+    ]
+   }
+  },
+  {
+   "id": "difference",
+   "voice": "trainer",
+   "text": "Ein Beispiel, das gern für Verwirrung sorgt: [[0]]Von Information bekommst du Fluginformationen, zum Beispiel das Flugplatzwetter. Eine Start- oder Landefreigabe bekommst du dort nie. [[1]]Die erteilen nur Kontrollstellen wie der Turm.",
+   "visual": {
+    "kind": "transform",
+    "headline": "Information ist nicht",
+    "highlight": "Turm",
+    "tiles": [
+     {
+      "top": "INFORMATION",
+      "bottom": "gibt Wetter und Infos"
+     },
+     {
+      "top": "TURM",
+      "bottom": "gibt Freigaben"
+     }
+    ]
+   }
+  },
+  {
+   "id": "preparation",
+   "voice": "trainer",
+   "text": "Und noch etwas gehört dazu, bevor du überhaupt startest: die Flugvorbereitung. [[0]]Sie ist für alle Luftfahrzeugführer Pflicht, nicht nur für Überlandflieger. [[1]]Eine Wetterberatung musst du einholen, wenn dein Flug über die Umgebung des Startflugplatzes hinausführt, und vor jedem Flug nach Instrumentenflugregeln.",
+   "visual": {
+    "kind": "transform",
+    "headline": "Vorbereitung ist",
+    "highlight": "Pflicht",
+    "tiles": [
+     {
+      "top": "Flugvorbereitung",
+      "bottom": "für alle Luftfahrzeugführer"
+     },
+     {
+      "top": "Wetterberatung",
+      "bottom": "über die Platzumgebung hinaus"
+     }
+    ]
+   }
+  },
+  {
+   "id": "outro",
+   "voice": "trainer",
+   "text": "Merke dir also: [[0]]die vier Dienste, [[1]]die festen Rufzeichen [[2]]und die Pflicht zur Flugvorbereitung. Danach folgen 14 Fragen aus dem offiziellen Katalog. Los geht's.",
+   "visual": {
+    "kind": "outro",
+    "pills": [
+     "Dienste",
+     "Rufzeichen",
+     "Vorbereitung"
+    ]
+   }
+  }
+ ]
+}

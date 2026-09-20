@@ -23,7 +23,8 @@ const BUCKET = "course-media";
 const readJson = (file) => JSON.parse(readFileSync(file, "utf8"));
 const moduleMeta = readJson(path.join(chapterDir, "..", "module.json"));
 const chapter = readJson(path.join(chapterDir, "chapter.json"));
-const quiz = readJson(path.join(chapterDir, "quiz.json"));
+const quizFile = path.join(chapterDir, "quiz.json");
+const quiz = existsSync(quizFile) ? readJson(quizFile) : { questions: [] };
 const catalogue = new Map(readJson(path.join(contentDir, "questions", "fragenkatalog-2024.json")).questions.map((q) => [q.id, q]));
 const alphabet = readJson(path.join(contentDir, "data", "alphabet.json")).letters;
 
@@ -32,7 +33,8 @@ const alphabetTable = [
   "|---|---|---|",
   ...alphabet.map((l) => `| ${l.letter} | ${l.word} | ${l.pronunciation} |`),
 ].join("\n");
-const body = readFileSync(path.join(chapterDir, "lesson.md"), "utf8").replace("{{ALPHABET_TABLE}}", alphabetTable).trim();
+const lessonFile = path.join(chapterDir, "lesson.md");
+const body = (existsSync(lessonFile) ? readFileSync(lessonFile, "utf8") : "").replace("{{ALPHABET_TABLE}}", alphabetTable).trim();
 
 // Deterministic shuffle so the correct answer is not always option A (as it is in the official catalogue).
 function seededShuffle(items, seed) {
@@ -70,17 +72,17 @@ const questions = quiz.questions.map((q, index) => {
 });
 
 const assetTargets = [
-  ["video", "media_url", "hook-video.mp4", "video/mp4"],
-  ["audio", "audio_url", "audio-drill.mp3", "audio/mpeg"],
-  ["pdf", "pdf_url", "alphabet-karte.pdf", "application/pdf"],
+  ["video", "media_url", "video/mp4"],
+  ["audio", "audio_url", "audio/mpeg"],
+  ["pdf", "pdf_url", "application/pdf"],
 ];
 const assets = assetTargets
   .filter(([key]) => chapter.assets?.[key])
-  .map(([key, column, fileName, contentType]) => ({
+  .map(([key, column, contentType]) => ({
     column,
     contentType,
     localPath: path.join(contentDir, "build", chapter.assets[key]),
-    storagePath: `${chapter.id}/${fileName}`,
+    storagePath: `${chapter.id}/${path.basename(chapter.assets[key])}`,
   }));
 
 console.log(`Module ${moduleMeta.num} "${moduleMeta.title}" (${moduleMeta.track})`);

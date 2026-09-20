@@ -1,0 +1,112 @@
+{
+ "label": "Lektion 1.7 · METAR-Decoder-Karte",
+ "title": "METAR &",
+ "highlight": "Wetterdienste",
+ "sections": [
+  {
+   "title": "Beispiel: EDDM 201250Z 24008KT 9999 SCT040 18/09 Q1015 NOSIG",
+   "rows": [
+    [
+     "EDDM",
+     "Flugplatz (ICAO-Kennung)"
+    ],
+    [
+     "201250Z",
+     "Tag 20, 12:50 Uhr UTC"
+    ],
+    [
+     "24008KT",
+     "Wind aus 240 Grad, 8 Knoten (G = Böen)"
+    ],
+    [
+     "9999",
+     "Sicht 10 km oder mehr"
+    ],
+    [
+     "SCT040",
+     "3 bis 4 Achtel Bewölkung in 4000 ft AGL"
+    ],
+    [
+     "18/09",
+     "Temperatur 18 °C, Taupunkt 9 °C"
+    ],
+    [
+     "Q1015",
+     "QNH 1015 hPa"
+    ],
+    [
+     "NOSIG",
+     "keine wesentliche Änderung erwartet"
+    ]
+   ]
+  },
+  {
+   "title": "Bewölkung",
+   "rows": [
+    [
+     "FEW",
+     "gering bewölkt: 1 bis 2 Achtel"
+    ],
+    [
+     "SCT",
+     "locker bewölkt: 3 bis 4 Achtel"
+    ],
+    [
+     "BKN",
+     "durchbrochen bewölkt: 5 bis 7 Achtel"
+    ],
+    [
+     "OVC",
+     "bedeckt: 8 Achtel"
+    ],
+    [
+     "NSC",
+     "keine markanten Wolken"
+    ],
+    [
+     "CAVOK",
+     "Sicht 10 km oder mehr, keine Bewölkung unter 5000 ft AGL"
+    ]
+   ]
+  },
+  {
+   "title": "Wetter im Funk",
+   "rows": [
+    [
+     "Sicht unter 5 km",
+     "in Metern: „SICHT DREI TAUSEND METER“"
+    ],
+    [
+     "Sicht ab 5 km",
+     "in Kilometern"
+    ],
+    [
+     "Erscheinungen",
+     "RA Regen · SN Schnee · TS Gewitter · FG Nebel · BR Dunst · − leicht · + stark"
+    ]
+   ]
+  },
+  {
+   "title": "Wetterdienste",
+   "rows": [
+    [
+     "ATIS",
+     "Lande- und Startinformationen für VFR und IFR"
+    ],
+    [
+     "VOLMET",
+     "Wetterrundsendungen für Flughafenwettermeldungen"
+    ],
+    [
+     "SIGMET",
+     "besondere Wettererscheinungen wie Gewitter, Turbulenzen, Vereisung; als Flugrundfunk auf den Frequenzen des Fluginformationsdienstes"
+    ],
+    [
+     "TAF",
+     "Flugplatzwettervorhersage"
+    ]
+   ]
+  }
+ ],
+ "footer": "Quellen: BNetzA-Prüfungsfragenkatalog 2024, Nr. 122 bis 135; ICAO-Standardformat METAR"
+}

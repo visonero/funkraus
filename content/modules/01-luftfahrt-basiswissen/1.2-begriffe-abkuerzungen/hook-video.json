@@ -1,0 +1,127 @@
+{
+ "id": "1.2-hook-video",
+ "language": "de",
+ "scenes": [
+  {
+   "id": "intro",
+   "voice": "trainer",
+   "text": "Hast du schon einmal einen Piloten im Funk gehört? Da fliegen dir Buchstabenfolgen um die Ohren: [[0]]CTR, [[1]]ATIS, [[2]]HX. Für Einsteiger klingt das wie eine Geheimsprache. Für Piloten ist es Alltag. Und die gute Nachricht: Es sind gar nicht so viele. Genau die Kürzel, die der Prüfungskatalog abfragt, gehen wir jetzt in Ruhe durch.",
+   "visual": {
+    "kind": "headline",
+    "headline": "Die Luftfahrt liebt",
+    "highlight": "Abkürzungen",
+    "tiles": [
+     "CTR",
+     "ATIS",
+     "HX"
+    ]
+   }
+  },
+  {
+   "id": "places",
+   "voice": "trainer",
+   "text": "Fangen wir mit den Orten und Diensten an. [[0]]CTR steht für Control Zone, auf Deutsch Kontrollzone. [[1]]FIR ist das Fluginformationsgebiet, also der Bereich, für den der Fluginformationsdienst zuständig ist. [[2]]AIS ist der Flugberatungsdienst, [[3]]SAR der Such- und Rettungsdienst. [[4]]Und ATIS sendet automatisch Lande- und Startinformationen für einen Flugplatz.",
+   "visual": {
+    "kind": "transform",
+    "headline": "Orte und",
+    "highlight": "Dienste",
+    "tiles": [
+     {
+      "top": "CTR",
+      "bottom": "Kontrollzone"
+     },
+     {
+      "top": "FIR",
+      "bottom": "Fluginformations-gebiet"
+     },
+     {
+      "top": "AIS",
+      "bottom": "Flugberatungs-dienst"
+     },
+     {
+      "top": "SAR",
+      "bottom": "Such- und Rettungsdienst"
+     },
+     {
+      "top": "ATIS",
+      "bottom": "Lande- und Startinfos"
+     }
+    ]
+   }
+  },
+  {
+   "id": "weather",
+   "voice": "trainer",
+   "text": "Zwei weitere Kürzel begegnen dir ständig. [[0]]UTC ist die koordinierte Weltzeit, an der sich die gesamte Luftfahrt orientiert. [[1]]IMC bedeutet Instrumentenwetterbedingungen, also Wetter, in dem du nicht mehr nach Sicht fliegen kannst. Das Gegenstück dazu sind die Sichtwetterbedingungen, kurz VMC.",
+   "visual": {
+    "kind": "transform",
+    "headline": "Zeit und",
+    "highlight": "Wetter",
+    "tiles": [
+     {
+      "top": "UTC",
+      "bottom": "Koordinierte Weltzeit"
+     },
+     {
+      "top": "IMC",
+      "bottom": "Instrumenten-wetterbedingungen"
+     }
+    ]
+   }
+  },
+  {
+   "id": "hours",
+   "voice": "trainer",
+   "text": "Und dann gibt es die Betriebszeiten. Auf Karten steht hinter einem Flugplatz oft ein Kürzel, das dir sagt, wann dort jemand arbeitet. [[0]]H24 heißt: rund um die Uhr, Tag und Nacht. [[1]]HJ bedeutet von Sonnenaufgang bis Sonnenuntergang. [[2]]HN von Sonnenuntergang bis Sonnenaufgang. [[3]]Und HX heißt: keine festgelegte Betriebszeit.",
+   "visual": {
+    "kind": "transform",
+    "headline": "Wann ist",
+    "highlight": "jemand da?",
+    "tiles": [
+     {
+      "top": "H24",
+      "bottom": "Tag und Nacht"
+     },
+     {
+      "top": "HJ",
+      "bottom": "Sonnenauf- bis -untergang"
+     },
+     {
+      "top": "HN",
+      "bottom": "Sonnenunter- bis -aufgang"
+     },
+     {
+      "top": "HX",
+      "bottom": "keine feste Zeit"
+     }
+    ]
+   }
+  },
+  {
+   "id": "rollhalt",
+   "voice": "trainer",
+   "text": "Einen Begriff nehmen wir noch mit: den [[0]]Rollhalt. Das ist ein bezeichneter Ort vor einer Piste, an dem du anhalten und warten musst, bis die Flugplatzkontrolle dir etwas anderes genehmigt.",
+   "visual": {
+    "kind": "headline",
+    "headline": "Ein Begriff zum",
+    "highlight": "Mitnehmen",
+    "tiles": [
+     "Rollhalt"
+    ]
+   }
+  },
+  {
+   "id": "outro",
+   "voice": "trainer",
+   "text": "Damit hast du die wichtigsten Begriffe beisammen: [[0]]Kürzel für Orte und Dienste, [[1]]Zeit und Wetter [[2]]und Betriebszeiten. Jetzt bist du dran mit den Fragen. Los geht's.",
+   "visual": {
+    "kind": "outro",
+    "pills": [
+     "Orte und Dienste",
+     "Zeit und Wetter",
+     "Betriebszeiten"
+    ]
+   }
+  }
+ ]
+}
