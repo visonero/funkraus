@@ -2,7 +2,9 @@ import Link from "next/link";
 import Logo from "@/components/Logo";
 import AuthForm from "@/components/AuthForm";
 
-export default function LoginPage() {
+export default async function LoginPage({ searchParams }: PageProps<"/login">) {
+  const { mode } = await searchParams;
+  const signup = mode === "signup";
   return (
     <div
       style={{
@@ -19,13 +21,23 @@ export default function LoginPage() {
           <Logo />
         </div>
         <h1 style={{ fontSize: 22, fontWeight: 700, textAlign: "center" }}>
-          Willkommen bei <span className="grad">funkraus</span>
+          {signup ? (
+            <>
+              Heute <span className="grad">kostenlos</span> starten
+            </>
+          ) : (
+            <>
+              Willkommen bei <span className="grad">funkraus</span>
+            </>
+          )}
         </h1>
         <p style={{ marginTop: 8, fontSize: 14, color: "var(--text-dim)", textAlign: "center" }}>
-          Melde dich an oder erstelle ein Konto.
+          {signup
+            ? "Konto erstellen und sofort mit Modul 0 und 1 loslegen. Keine Zahlungsdaten nötig."
+            : "Melde dich an oder erstelle ein kostenloses Konto."}
         </p>
         <div style={{ marginTop: 28 }}>
-          <AuthForm />
+          <AuthForm initialMode={signup ? "signup" : "signin"} />
         </div>
         <Link
           href="/"

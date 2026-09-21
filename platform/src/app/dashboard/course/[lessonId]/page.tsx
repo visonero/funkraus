@@ -1,20 +1,20 @@
 import Link from "next/link";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 import AppIcon from "@/components/app/AppIcon";
 import CompleteButton from "@/components/app/CompleteButton";
 import LessonQuiz from "@/components/app/LessonQuiz";
+import UpgradeCard from "@/components/app/UpgradeCard";
 import { getCurrentUser } from "@/lib/auth/session";
-import { getCourseData, getLessonDetail, hasCourseAccess } from "@/lib/course/data";
+import { getCourseData, getLessonDetail } from "@/lib/course/data";
+import { moduleLabel } from "@/lib/course/format";
 
 const TYPE_LABEL = { video: "Video", audio: "Audio", text: "Lesetext", quiz: "Quiz" } as const;
 
 export default async function LessonPage({ params }: PageProps<"/dashboard/course/[lessonId]">) {
   const { lessonId } = await params;
   const user = (await getCurrentUser())!;
-
-  if (!(await hasCourseAccess(user.id))) redirect("/dashboard/course");
 
   const [lesson, course] = await Promise.all([getLessonDetail(lessonId, user.id), getCourseData(user.id)]);
   if (!lesson) notFound();
@@ -26,6 +26,57 @@ export default async function LessonPage({ params }: PageProps<"/dashboard/cours
   const next = index >= 0 && index < flat.length - 1 ? flat[index + 1] : null;
   const hasMedia = Boolean(lesson.mediaUrl || lesson.audioUrl);
 
+  if (lesson.locked) {
+    return (
+      <div style={{ maxWidth: 820 }}>
+        <nav aria-label="Brotkrumen" style={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: 6, fontSize: 13, color: "var(--text-faint)", fontWeight: 600 }}>
+          <Link href="/dashboard/course" style={{ color: "var(--sky-deep)" }}>Kurs</Link>
+          {current && (
+            <>
+              <span>›</span>
+              <span>Modul {moduleLabel(current.module.num)}</span>
+            </>
+          )}
+        </nav>
+        <div style={{ display: "flex", alignItems: "center", gap: 10, marginTop: 14 }}>
+          <span className="module-track" style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
+            <AppIcon name="lock" size={14} />
+            Vollzugang
+          </span>
+        </div>
+        <h1 style={{ marginTop: 12, fontSize: "clamp(24px,3vw,32px)", fontWeight: 800, lineHeight: 1.2 }}>{lesson.title}</h1>
+        {current && <p style={{ marginTop: 6, fontSize: 14, color: "var(--text-faint)" }}>{current.module.title}</p>}
+
+        <div className="glass" style={{ marginTop: 24, borderRadius: 20, aspectRatio: "16 / 9", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 12, color: "var(--text-faint)", position: "relative", overflow: "hidden" }}>
+          <div aria-hidden style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(47,155,234,0.10), rgba(34,211,238,0.14))" }} />
+          <span className="dash-icon" style={{ position: "relative", width: 60, height: 60, background: "rgba(255,255,255,0.8)", color: "var(--sky)" }}>
+            <AppIcon name="lock" size={28} />
+          </span>
+          <span style={{ position: "relative", fontSize: 15, fontWeight: 600, color: "var(--text-dim)" }}>Dieses Kapitel gehört zum vollen Zugang</span>
+        </div>
+
+        <div style={{ marginTop: 28 }}>
+          <UpgradeCard
+            catalog={course.catalog}
+            title={<>Bis hierhin war es <span className="grad">kostenlos</span></>}
+            text="Modul 0 und 1 gehören dir. Für alles ab Modul 2 schaltest du den Kurs einmalig frei."
+          />
+        </div>
+
+        <div style={{ display: "flex", gap: 10, marginTop: 28 }}>
+          {prev && !prev.chapter.locked && (
+            <Link href={`/dashboard/course/${prev.chapter.id}`} className="btn-ghost" style={{ padding: "11px 20px", borderRadius: 999, fontSize: 14, fontWeight: 600 }}>
+              ← Zurück zum letzten Kapitel
+            </Link>
+          )}
+          <Link href="/dashboard/course" className="btn-ghost" style={{ padding: "11px 20px", borderRadius: 999, fontSize: 14, fontWeight: 600 }}>
+            Zur Kursübersicht
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div style={{ maxWidth: 820 }}>
       <nav aria-label="Brotkrumen" style={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: 6, fontSize: 13, color: "var(--text-faint)", fontWeight: 600 }}>
@@ -33,7 +84,7 @@ export default async function LessonPage({ params }: PageProps<"/dashboard/cours
         {current && (
           <>
             <span>›</span>
-            <span>Modul {Number(current.module.num) || current.module.num}</span>
+            <span>Modul {moduleLabel(current.module.num)}</span>
           </>
         )}
       </nav>

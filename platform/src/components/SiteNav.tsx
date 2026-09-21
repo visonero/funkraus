@@ -7,6 +7,7 @@ import Logo from "./Logo";
 import { createClient } from "@/lib/supabase/client";
 
 const LINKS = [
+  { href: "#einblick", label: "Einblick" },
   { href: "#kurs", label: "Kurs" },
   { href: "#ablauf", label: "Ablauf" },
   { href: "#vorteile", label: "Vorteile" },
@@ -16,7 +17,7 @@ const LINKS = [
 
 export default function SiteNav({
   email,
-  ctaHref = "/kurs",
+  ctaHref = "/login?mode=signup",
 }: {
   email?: string | null;
   ctaHref?: string;
@@ -34,6 +35,8 @@ export default function SiteNav({
   }
 
   const initial = email ? email.charAt(0).toUpperCase() : "?";
+  const primaryHref = email ? "/dashboard" : ctaHref;
+  const primaryLabel = email ? "Zum Dashboard" : "Heute kostenlos starten";
 
   return (
     <div
@@ -68,8 +71,8 @@ export default function SiteNav({
           ))}
         </div>
         <div className="desktop-nav" style={{ display: "flex", alignItems: "center", gap: 14 }}>
-          <Link href={ctaHref} className="btn-accent" style={{ padding: "11px 22px", borderRadius: 999, fontSize: 14 }}>
-            Kurs freischalten
+          <Link href={primaryHref} className="btn-accent" style={{ padding: "11px 22px", borderRadius: 999, fontSize: 14 }}>
+            {primaryLabel}
           </Link>
 
           {email ? (
@@ -200,12 +203,12 @@ export default function SiteNav({
             </Link>
           )}
           <Link
-            href={ctaHref}
+            href={primaryHref}
             className="btn-accent"
             style={{ padding: "12px 20px", borderRadius: 999, fontSize: 14, textAlign: "center", marginTop: 8 }}
             onClick={() => setMenuOpen(false)}
           >
-            Kurs freischalten
+            {primaryLabel}
           </Link>
         </div>
       )}

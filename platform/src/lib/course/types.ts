@@ -9,6 +9,7 @@ export type RawModule = {
   description: string | null;
   duration_minutes: number | null;
   sort_order: number;
+  is_free: boolean;
 };
 export type RawLesson = {
   id: string;
@@ -37,6 +38,7 @@ export type Chapter = {
   questionCount: number;
   questionsAnswered: number;
   completed: boolean;
+  locked: boolean;
 };
 
 export type CourseModule = {
@@ -51,14 +53,21 @@ export type CourseModule = {
   questionsTotal: number;
   questionsAnswered: number;
   completed: boolean;
+  isFree: boolean;
+  locked: boolean;
 };
 
 export type ActivityDay = { key: string; label: string; questions: number; chapters: number };
 
 export type TrackStats = { modules: number; chapters: number; chaptersDone: number; percent: number };
 
+// Whole course, including locked modules (for showing what a full access adds).
+export type Catalog = { modules: number; chapters: number; questions: number; freeModules: number; freeChapters: number; freeQuestions: number };
+
 export type CourseData = {
   modules: CourseModule[];
+  hasFullAccess: boolean;
+  catalog: Catalog;
   totals: {
     modules: number;
     modulesDone: number;
@@ -87,4 +96,7 @@ export type LessonDetail = {
   pdfUrl: string | null;
   questions: { id: string; question: string; options: string[] }[];
   completed: boolean;
+  // Lesson of a module that needs the full access: only title and type are filled in.
+  locked: boolean;
+  moduleId: string;
 };

@@ -21,9 +21,9 @@ const inputStyle: React.CSSProperties = {
 
 const labelStyle: React.CSSProperties = { fontSize: 13, fontWeight: 600, color: "var(--text-dim)" };
 
-export default function AuthForm() {
+export default function AuthForm({ initialMode = "signin" }: { initialMode?: Mode }) {
   const router = useRouter();
-  const [mode, setMode] = useState<Mode>("signin");
+  const [mode, setMode] = useState<Mode>(initialMode);
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -156,7 +156,7 @@ export default function AuthForm() {
         )}
 
         <button type="submit" disabled={loading} className="btn-accent" style={{ padding: 14, borderRadius: 999, fontSize: 15, border: "none", opacity: loading ? 0.7 : 1 }}>
-          {loading ? "Einen Moment…" : mode === "signup" ? "Konto erstellen" : "Anmelden"}
+          {loading ? "Einen Moment…" : mode === "signup" ? "Kostenloses Konto erstellen" : "Anmelden"}
         </button>
       </form>
     </div>

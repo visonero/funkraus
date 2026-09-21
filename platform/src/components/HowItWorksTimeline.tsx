@@ -4,10 +4,10 @@ import { useRef } from "react";
 import { gsap, useGSAP } from "@/lib/gsap";
 
 const STEPS = [
-  { num: "1", title: "Kurs freischalten", desc: "Einmalig zahlen, sofort Zugriff auf alle Module — kein Warten auf einen Kurstermin." },
-  { num: "2", title: "Lernen in deinem Tempo", desc: "Video, Audio und Quizze im Wechsel — wann und wo du willst." },
-  { num: "3", title: "Prüfungssimulation bestehen", desc: "Der volle 100-Fragen-Test im echten Prüfungsformat, mit Zeitlimit." },
-  { num: "4", title: "Zur Prüfung antreten", desc: "Wir zeigen dir, wie und wo du dich bei der Bundesnetzagentur anmeldest." },
+  { num: "1", title: "Kostenlos registrieren", desc: "Konto in einer Minute erstellen, ohne Zahlungsdaten. Modul 0 und 1 sind sofort für dich offen." },
+  { num: "2", title: "Lernen in deinem Tempo", desc: "Video, Audio und Quizze im Wechsel, wann und wo du willst. Dein Fortschritt wird gespeichert." },
+  { num: "3", title: "Vollzugang freischalten", desc: "Gefällt dir der Kurs, schaltest du einmalig alle weiteren Module frei. Kein Abo, kein Verkaufsgespräch." },
+  { num: "4", title: "Prüfung bestehen", desc: "Prüfungssimulation im echten Format, dann melden wir dir den Weg zur Anmeldung bei der Bundesnetzagentur." },
 ];
 
 export default function HowItWorksTimeline() {
@@ -62,7 +62,7 @@ export default function HowItWorksTimeline() {
         <div className="reveal" style={{ maxWidth: 640 }}>
           <span className="label" style={{ color: "var(--sky)" }}>So einfach geht&apos;s</span>
           <h2 style={{ fontSize: "clamp(28px,3.4vw,42px)", marginTop: 14, fontWeight: 700, lineHeight: 1.2 }}>
-            Vom Kauf zur <span className="grad">bestandenen Prüfung.</span>
+            Von der Registrierung zur <span className="grad">bestandenen Prüfung.</span>
           </h2>
         </div>
 

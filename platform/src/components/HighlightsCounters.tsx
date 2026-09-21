@@ -4,10 +4,10 @@ import { useRef } from "react";
 import { gsap, ScrollTrigger, useGSAP } from "@/lib/gsap";
 
 const STATS = [
-  { target: 254, prefix: "", suffix: "", label: "Offizielle Prüfungsfragen komplett abgedeckt" },
+  { target: 261, prefix: "", suffix: "", label: "Offizielle Prüfungsfragen komplett abgedeckt" },
   { target: 15, prefix: "", suffix: "+", label: "Stunden Lernzeit im eigenen Tempo" },
-  { target: 349, prefix: "€", suffix: "", label: "Fester Preis — keine versteckten Kosten" },
-  { target: 0, prefix: "", suffix: "", label: "Verkaufsgespräche nötig" },
+  { target: 0, prefix: "€", suffix: "", label: "kostet der Start: Modul 0 und 1 gratis" },
+  { target: 349, prefix: "€", suffix: "", label: "Fester Preis für den Rest, ohne Verkaufsgespräch" },
 ];
 
 export default function HighlightsCounters() {

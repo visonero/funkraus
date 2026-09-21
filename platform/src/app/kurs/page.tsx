@@ -6,13 +6,15 @@ import CurriculumTabs from "@/components/CurriculumTabs";
 import FaqAccordion from "@/components/FaqAccordion";
 import CheckoutButton from "@/components/CheckoutButton";
 import TrustStamps from "@/components/TrustStamps";
+import PlatformShowcase from "@/components/PlatformShowcase";
+import Link from "next/link";
 import Footer from "@/components/Footer";
+import { ORIGINAL_PRICE, PRICE } from "@/lib/pricing";
 import { createClient } from "@/lib/supabase/server";
 
-const PRICE = "349";
-const ORIGINAL_PRICE = "799";
 
 const PRICE_FEATURES = [
+  "Alle Module ab Modul 2 (Modul 0 und 1 hast du schon kostenlos)",
   "BZF I & BZF II komplett, ein Kurs",
   "Kompletter offizieller Fragenkatalog als Übungsquiz",
   "Über 40 Audio-Funkbeispiele & interaktive Simulationen",
@@ -21,16 +23,10 @@ const PRICE_FEATURES = [
   "Lebenslanger Zugriff, kein Abo",
 ];
 
-const GALLERY_PLACEHOLDERS = [
-  "Video-Lektion: Luftraumstruktur",
-  "Interaktive Funksimulation",
-  "Offizieller Fragenkatalog als Quiz",
-  "Prüfungssimulation im echten Format",
-];
 
 export const metadata: Metadata = {
   title: "BZF I & II Kurs — funkraus",
-  description: "Der komplette Online-Kurs für dein Sprechfunkzeugnis. Jetzt zum Einführungspreis sichern.",
+  description: "Der komplette Online-Kurs für dein Sprechfunkzeugnis. Heute kostenlos starten, Vollzugang einmalig zum Einführungspreis.",
 };
 
 export default async function KursPage() {
@@ -42,7 +38,7 @@ export default async function KursPage() {
   return (
     <div style={{ width: "100%", background: "var(--bg)", overflowX: "hidden", position: "relative" }}>
       <ScrollRevealInit />
-      <SiteNav email={user?.email ?? null} ctaHref="#kaufen" />
+      <SiteNav email={user?.email ?? null} />
 
       {/* INTRO */}
       <div className="sky-wash section-pad" style={{ padding: "80px 32px 60px", position: "relative" }}>
@@ -52,15 +48,16 @@ export default async function KursPage() {
             Alles, was du für dein <span className="grad">Sprechfunkzeugnis</span> brauchst.
           </h1>
           <p style={{ marginTop: 18, fontSize: 17, color: "var(--text-dim)", maxWidth: 560, marginLeft: "auto", marginRight: "auto" }}>
-            Ein Kurs, ein fester Preis, sofortiger Zugang. Kein Verkaufsgespräch, keine versteckten Kosten.
+            Starte kostenlos mit Modul 0 und 1. Den Rest schaltest du einmalig frei, zum festen Preis und ohne Verkaufsgespräch.
           </p>
-          <a
-            href="#kaufen"
-            className="btn-accent"
-            style={{ display: "inline-block", marginTop: 28, padding: "16px 32px", borderRadius: 999, fontSize: 16 }}
-          >
-            Jetzt zum Einführungspreis sichern ↓
-          </a>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 14, justifyContent: "center", marginTop: 28 }}>
+            <Link href="/login?mode=signup" className="btn-accent" style={{ display: "inline-block", padding: "16px 32px", borderRadius: 999, fontSize: 16 }}>
+              Heute kostenlos starten
+            </Link>
+            <a href="#kaufen" className="btn-ghost" style={{ display: "inline-block", padding: "16px 32px", borderRadius: 999, fontSize: 16 }}>
+              Vollzugang ansehen ↓
+            </a>
+          </div>
         </div>
       </div>
 
@@ -86,37 +83,18 @@ export default async function KursPage() {
         <CurriculumTabs />
       </div>
 
-      {/* GALLERY PLACEHOLDER */}
+      {/* PLATFORM SHOWCASE */}
       <div className="section-pad" style={{ padding: "20px 32px 90px", maxWidth: 1180, margin: "0 auto" }}>
         <div className="reveal" style={{ maxWidth: 640 }}>
           <span className="label" style={{ color: "var(--sky)" }}>Einblick</span>
           <h2 style={{ fontSize: "clamp(26px,3.2vw,36px)", marginTop: 14, fontWeight: 700 }}>
             So sieht der Kurs <span className="grad">von innen aus.</span>
           </h2>
-          <p style={{ marginTop: 12, fontSize: 15, color: "var(--text-faint)" }}>
-            Screenshots und Beispielvideos folgen, sobald die Inhalte produziert sind.
+          <p style={{ marginTop: 12, fontSize: 15, color: "var(--text-dim)" }}>
+            Echte Ansichten aus der Plattform. Du kannst alles selbst ausprobieren, Modul 0 und 1 sind kostenlos.
           </p>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))", gap: 20, marginTop: 32 }}>
-          {GALLERY_PLACEHOLDERS.map((label) => (
-            <div
-              key={label}
-              style={{
-                aspectRatio: "4 / 3",
-                borderRadius: 16,
-                border: "2px dashed var(--line-strong)",
-                background: "rgba(255,255,255,0.4)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                textAlign: "center",
-                padding: 20,
-              }}
-            >
-              <span style={{ fontSize: 13, color: "var(--text-faint)", fontWeight: 600 }}>{label}<br />(folgt)</span>
-            </div>
-          ))}
-        </div>
+        <PlatformShowcase />
       </div>
 
       {/* BUY */}
@@ -125,10 +103,13 @@ export default async function KursPage() {
         <div className="deco blob hide-mobile" style={{ position: "absolute", bottom: "2%", right: "2%", width: 220, height: 220, opacity: 0.2, background: "var(--sky-2)" }} />
         <div className="section-pad" style={{ position: "relative", zIndex: 1, padding: "40px 32px 110px", maxWidth: 1180, margin: "0 auto" }}>
           <div className="reveal" style={{ maxWidth: 640, margin: "0 auto", textAlign: "center" }}>
-            <span className="label" style={{ color: "var(--sky)" }}>Jetzt sichern</span>
+            <span className="label" style={{ color: "var(--sky)" }}>Vollzugang</span>
             <h2 style={{ fontSize: "clamp(26px,3.2vw,36px)", marginTop: 14, fontWeight: 700 }}>
               Ein Preis. <span className="grad">Keine Überraschungen.</span>
             </h2>
+            <p style={{ marginTop: 12, fontSize: 15.5, color: "var(--text-dim)" }}>
+              Du hast Modul 0 und 1 schon kostenlos ausprobiert? Mit dem Vollzugang geht es weiter.
+            </p>
           </div>
 
           <div className="reveal glass-strong" style={{ maxWidth: 460, margin: "40px auto 0", borderRadius: 28, padding: 44, textAlign: "center" }}>

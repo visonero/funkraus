@@ -3,11 +3,10 @@ import type { ReactNode } from "react";
 import AppIcon, { type AppIconName } from "@/components/app/AppIcon";
 import PageHeader from "@/components/app/PageHeader";
 import { ColumnChart, DonutChart, ProgressBar, ProgressRing } from "@/components/app/charts";
-import CheckoutButton from "@/components/CheckoutButton";
+import UpgradeCard from "@/components/app/UpgradeCard";
 import { getCurrentProfile, getCurrentUser } from "@/lib/auth/session";
-import { getCourseData, hasCourseAccess } from "@/lib/course/data";
-
-const PRICE = "349";
+import { getCourseData } from "@/lib/course/data";
+import { moduleLabel } from "@/lib/course/format";
 
 function StatCard({
   icon,
@@ -51,12 +50,8 @@ function Legend({ color, label, value }: { color: string; label: string; value: 
 
 export default async function DashboardPage({ searchParams }: PageProps<"/dashboard">) {
   const user = (await getCurrentUser())!;
-  const [profile, hasAccess, course, params] = await Promise.all([
-    getCurrentProfile(user.id),
-    hasCourseAccess(user.id),
-    getCourseData(user.id),
-    searchParams,
-  ]);
+  const [profile, course, params] = await Promise.all([getCurrentProfile(user.id), getCourseData(user.id), searchParams]);
+  const hasAccess = course.hasFullAccess;
 
   const { totals, tracks, activity, next } = course;
   const firstName = (profile?.full_name || "").trim().split(/\s+/)[0];
@@ -68,22 +63,23 @@ export default async function DashboardPage({ searchParams }: PageProps<"/dashbo
   let heroTitle: ReactNode;
   let heroText: string;
   let heroAction: { href: string; label: string } | null = { href: "/dashboard/course", label: "Zum Kurs" };
-  if (!hasAccess) {
-    heroTitle = "Schalte deinen Kurs frei";
-    heroText = "Sobald dein Zugang aktiv ist, siehst du hier deinen Lernfortschritt und wo du weitermachen kannst.";
-  } else if (totals.chapters === 0) {
+  if (totals.chapters === 0) {
     heroTitle = "Deine Kursinhalte werden vorbereitet";
     heroText = "Sobald die ersten Module veröffentlicht sind, kannst du hier direkt loslegen.";
     heroAction = null;
+  } else if (course.allDone && !hasAccess) {
+    heroTitle = "Kostenlosen Bereich abgeschlossen";
+    heroText = "Stark! Mit dem Vollzugang geht es ab Modul 2 mit dem echten Sprechfunk weiter.";
+    heroAction = { href: "/dashboard/course", label: "Vollzugang ansehen" };
   } else if (course.allDone) {
     heroTitle = "Alle Kapitel abgeschlossen";
     heroText = "Stark! Wiederhole schwierige Fragen oder mach noch eine Prüfungssimulation, um sicher in den Prüfungstag zu gehen.";
   } else if (next) {
     heroTitle = next.chapter.title;
-    heroText = `Modul ${next.module.num} · ${next.module.title}`;
+    heroText = `Modul ${moduleLabel(next.module.num)} · ${next.module.title}`;
     heroAction = {
       href: `/dashboard/course/${next.chapter.id}`,
-      label: totals.chaptersDone > 0 ? "Weiterlernen" : "Kurs starten",
+      label: totals.chaptersDone > 0 ? "Weiterlernen" : "Kostenlos starten",
     };
   } else {
     heroTitle = "Weiterlernen";
@@ -118,16 +114,13 @@ export default async function DashboardPage({ searchParams }: PageProps<"/dashbo
       )}
 
       {!hasAccess && !justPaid && (
-        <div className="glass-strong dash-card" style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 20, justifyContent: "space-between", marginBottom: 20 }}>
-          <div style={{ maxWidth: 520 }}>
-            <p style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 17 }}>Du hast den Kurs noch nicht freigeschaltet</p>
-            <p style={{ marginTop: 6, fontSize: 14, color: "var(--text-dim)" }}>
-              Einmal zahlen, sofort starten, lebenslanger Zugriff. Dein Fortschritt wird ab dem ersten Kapitel hier erfasst.
-            </p>
-          </div>
-          <div style={{ width: 300, maxWidth: "100%" }}>
-            <CheckoutButton price={PRICE} marginTop={0} />
-          </div>
+        <div style={{ marginBottom: 20 }}>
+          <UpgradeCard
+            catalog={course.catalog}
+            title={<>Du lernst kostenlos: Modul 0 und 1 gehören <span className="grad">dir</span></>}
+            text="Starte ohne Risiko. Wenn du weitermachen möchtest, schaltest du ab Modul 2 den vollen Zugang einmalig frei."
+            compact
+          />
         </div>
       )}
 
@@ -138,10 +131,10 @@ export default async function DashboardPage({ searchParams }: PageProps<"/dashbo
               {totals.percent}
               <span style={{ fontSize: 20 }}>%</span>
             </span>
-            <span style={{ marginTop: 4, fontSize: 12, color: "var(--text-faint)", fontWeight: 600 }}>Gesamtfortschritt</span>
+            <span style={{ marginTop: 4, fontSize: 12, color: "var(--text-faint)", fontWeight: 600 }}>{hasAccess ? "Gesamtfortschritt" : "Kostenloser Bereich"}</span>
           </ProgressRing>
           <div style={{ flex: 1, minWidth: 220 }}>
-            <span className="label" style={{ color: "var(--sky)" }}>{next && hasAccess ? "Als Nächstes" : "Dein Kurs"}</span>
+            <span className="label" style={{ color: "var(--sky)" }}>{next ? "Als Nächstes" : "Dein Kurs"}</span>
             <h2 style={{ marginTop: 8, fontSize: 21, fontWeight: 700, lineHeight: 1.25 }}>{heroTitle}</h2>
             {heroText && <p style={{ marginTop: 6, fontSize: 14, color: "var(--text-dim)" }}>{heroText}</p>}
             {heroAction && (
@@ -231,16 +224,17 @@ export default async function DashboardPage({ searchParams }: PageProps<"/dashbo
               {course.modules.map((m) => {
                 const pct = m.chapters.length ? (m.chaptersDone / m.chapters.length) * 100 : 0;
                 return (
-                  <div key={m.id}>
+                  <div key={m.id} style={m.locked ? { opacity: 0.6 } : undefined}>
                     <div style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 13.5, marginBottom: 7 }}>
                       <span className={`app-num${m.completed ? " is-done" : ""}`}>
-                        {m.completed ? <AppIcon name="check" size={13} /> : Number(m.num) || m.num}
+                        {m.completed ? <AppIcon name="check" size={13} /> : moduleLabel(m.num)}
                       </span>
                       <span style={{ flex: 1, minWidth: 0, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", fontWeight: 600 }}>
                         {m.title}
+                        {m.isFree && !hasAccess && <span className="free-tag">Gratis</span>}
                       </span>
-                      <span style={{ flex: "none", fontSize: 12.5, color: "var(--text-faint)", fontWeight: 600 }}>
-                        {m.chaptersDone}/{m.chapters.length}
+                      <span style={{ flex: "none", fontSize: 12.5, color: "var(--text-faint)", fontWeight: 600, display: "inline-flex", alignItems: "center", gap: 5 }}>
+                        {m.locked ? <AppIcon name="lock" size={13} /> : `${m.chaptersDone}/${m.chapters.length}`}
                       </span>
                     </div>
                     <ProgressBar percent={pct} color={m.completed ? "#34d399" : undefined} />
@@ -278,28 +272,49 @@ export default async function DashboardPage({ searchParams }: PageProps<"/dashbo
             </div>
           </div>
 
-          <div className="glass dash-card">
-            <p className="dash-card-title">Deine Prüfungen</p>
-            <div style={{ display: "flex", flexDirection: "column", gap: 18, marginTop: 18 }}>
-              {(
-                [
-                  ["BZF II · Deutscher Luftraum", tracks.bzf2],
-                  ["BZF I · Englisch & International", tracks.bzf1],
-                ] as const
-              ).map(([title, t]) => (
-                <div key={title}>
-                  <div style={{ display: "flex", justifyContent: "space-between", fontSize: 13.5, marginBottom: 7 }}>
-                    <span style={{ fontWeight: 600 }}>{title}</span>
-                    <span style={{ color: "var(--text-faint)", fontWeight: 600 }}>{t.percent}%</span>
+          {hasAccess ? (
+            <div className="glass dash-card">
+              <p className="dash-card-title">Deine Prüfungen</p>
+              <div style={{ display: "flex", flexDirection: "column", gap: 18, marginTop: 18 }}>
+                {(
+                  [
+                    ["BZF II · Deutscher Luftraum", tracks.bzf2],
+                    ["BZF I · Englisch & International", tracks.bzf1],
+                  ] as const
+                ).map(([title, t]) => (
+                  <div key={title}>
+                    <div style={{ display: "flex", justifyContent: "space-between", fontSize: 13.5, marginBottom: 7 }}>
+                      <span style={{ fontWeight: 600 }}>{title}</span>
+                      <span style={{ color: "var(--text-faint)", fontWeight: 600 }}>{t.percent}%</span>
+                    </div>
+                    <ProgressBar percent={t.percent} />
+                    <p style={{ marginTop: 6, fontSize: 12, color: "var(--text-faint)" }}>
+                      {t.chaptersDone} von {t.chapters} Kapiteln · {t.modules} Module
+                    </p>
                   </div>
-                  <ProgressBar percent={t.percent} />
-                  <p style={{ marginTop: 6, fontSize: 12, color: "var(--text-faint)" }}>
-                    {t.chaptersDone} von {t.chapters} Kapiteln · {t.modules} Module
-                  </p>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
+          ) : (
+            <div className="glass dash-card">
+              <p className="dash-card-title">Das kommt mit dem Vollzugang</p>
+              <div style={{ display: "flex", flexDirection: "column", gap: 12, marginTop: 16, fontSize: 14, color: "var(--text-dim)" }}>
+                {[
+                  `${course.catalog.modules - course.catalog.freeModules} weitere Module: Sprechfunk, Platzverkehr, Streckenflug, Navigation und mehr`,
+                  `${course.catalog.questions - course.catalog.freeQuestions} weitere offizielle Prüfungsfragen`,
+                  "BZF I und BZF II, Prüfungssimulationen und PDF-Merkblätter",
+                ].map((line) => (
+                  <div key={line} style={{ display: "flex", gap: 9, alignItems: "flex-start" }}>
+                    <span style={{ color: "var(--sky)", fontWeight: 800, flex: "none" }}>✓</span>
+                    <span>{line}</span>
+                  </div>
+                ))}
+              </div>
+              <Link href="/dashboard/course" className="btn-ghost" style={{ display: "inline-block", marginTop: 18, padding: "10px 22px", borderRadius: 999, fontSize: 14, fontWeight: 600 }}>
+                Kursübersicht ansehen
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </div>

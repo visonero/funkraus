@@ -71,7 +71,7 @@ export default function AppShell({ name, email, isAdmin, hasAccess, progressPerc
         <nav style={{ display: "flex", flexDirection: "column", gap: 4 }}>
           <span className="app-nav-heading">Lernen</span>
           {navItem("/dashboard", "Dashboard", "dashboard", true)}
-          {navItem("/dashboard/course", "Kurs", "course", false, hasAccess && progressPercent > 0 ? `${progressPercent}%` : undefined)}
+          {navItem("/dashboard/course", "Kurs", "course", false, progressPercent > 0 ? `${progressPercent}%` : undefined)}
           <span className="app-nav-heading" style={{ marginTop: 14 }}>Konto</span>
           {navItem("/dashboard/payments", "Zahlungen & Rechnungen", "payment")}
           {isAdmin && navItem("/admin", "Admin-Bereich", "admin")}
@@ -83,7 +83,7 @@ export default function AppShell({ name, email, isAdmin, hasAccess, progressPerc
             <div style={{ minWidth: 0 }}>
               <p className="app-user-name">{name || email}</p>
               <p className="app-user-status" style={{ color: hasAccess ? "#0f9f6e" : "var(--text-faint)" }}>
-                {hasAccess ? "Kurs freigeschaltet" : "Noch nicht freigeschaltet"}
+                {hasAccess ? "Vollzugang aktiv" : "Kostenloser Zugang"}
               </p>
             </div>
           </div>

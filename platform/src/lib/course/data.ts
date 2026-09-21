@@ -1,11 +1,12 @@
 import { cache } from "react";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { createClient } from "@/lib/supabase/server";
-import { demoLessonDetail, demoRaw, isDemoMode } from "./demo";
+import { demoAccess, isDemoMode, withDemoProgress } from "./demo";
 import type {
   ActivityDay,
   Chapter,
   ChapterType,
+  Catalog,
   CourseData,
   CourseModule,
   LessonDetail,
@@ -24,8 +25,9 @@ function toChapterType(value: string): ChapterType {
   return value === "video" || value === "audio" || value === "quiz" ? value : "text";
 }
 
+// Full access = a paid purchase. Modules flagged is_free (Modules 0 and 1) are open to every account.
 export const hasCourseAccess = cache(async (userId: string) => {
-  if (isDemoMode()) return true;
+  if (isDemoMode()) return demoAccess() === "paid";
   const supabase = await createClient();
   const { data } = await supabase
     .from("purchases")
@@ -36,17 +38,19 @@ export const hasCourseAccess = cache(async (userId: string) => {
   return (data?.length ?? 0) > 0;
 });
 
+// Modules 0 and 1 are free even before migration 0006 (is_free column) has been applied.
+const FREE_MODULE_NUMS = new Set(["00", "01"]);
+
 async function fetchRawCourse(userId: string): Promise<RawCourse> {
   const supabase = await createClient();
-  // Missing tables (migration not run yet) or empty results both degrade to "no data".
+  // Course structure (titles and counts only) is read with the service role, because lesson and question
+  // tables are not publicly readable anymore. Progress rows are the user's own and go through row level security.
+  const admin = createAdminClient();
+  const moduleColumns = "id, track, num, title, description, duration_minutes, sort_order";
   const [modules, lessons, questions, attempts, completions] = await Promise.all([
-    supabase
-      .from("course_modules")
-      .select("id, track, num, title, description, duration_minutes, sort_order")
-      .order("sort_order")
-      .order("num"),
-    supabase.from("course_lessons").select("id, module_id, title, content_type, sort_order").order("sort_order"),
-    supabase.from("quiz_questions").select("id, lesson_id"),
+    admin.from("course_modules").select(`${moduleColumns}, is_free`).order("sort_order").order("num"),
+    admin.from("course_lessons").select("id, module_id, title, content_type, sort_order").order("sort_order"),
+    admin.from("quiz_questions").select("id, lesson_id"),
     supabase
       .from("question_attempts")
       .select("question_id, is_correct, answered_at")
@@ -56,8 +60,14 @@ async function fetchRawCourse(userId: string): Promise<RawCourse> {
     supabase.from("lesson_progress").select("lesson_id, completed_at").eq("user_id", userId),
   ]);
 
+  let moduleRows = (modules.data ?? []) as unknown as RawCourse["modules"];
+  if (modules.error) {
+    const fallback = await admin.from("course_modules").select(moduleColumns).order("sort_order").order("num");
+    moduleRows = ((fallback.data ?? []) as unknown as Omit<RawCourse["modules"][number], "is_free">[]).map((m) => ({ ...m, is_free: FREE_MODULE_NUMS.has(m.num) }));
+  }
+
   return {
-    modules: (modules.data ?? []) as RawCourse["modules"],
+    modules: moduleRows,
     lessons: (lessons.data ?? []) as RawCourse["lessons"],
     questions: (questions.data ?? []) as RawCourse["questions"],
     attempts: (attempts.data ?? []) as RawCourse["attempts"],
@@ -69,7 +79,7 @@ function percentOf(done: number, total: number) {
   return total > 0 ? Math.round((done / total) * 100) : 0;
 }
 
-function computeCourse(raw: RawCourse): CourseData {
+function computeCourse(raw: RawCourse, hasFullAccess: boolean): CourseData {
   // Latest attempt per question decides whether it currently counts as right or wrong.
   const latestCorrect = new Map<string, boolean>();
   for (const attempt of [...raw.attempts].sort((a, b) => b.answered_at.localeCompare(a.answered_at))) {
@@ -100,6 +110,7 @@ function computeCourse(raw: RawCourse): CourseData {
             questionCount: ids.length,
             questionsAnswered: ids.filter((id) => latestCorrect.has(id)).length,
             completed: completedIds.has(l.id),
+            locked: !hasFullAccess && !m.is_free,
           };
         });
       const chaptersDone = chapters.filter((c) => c.completed).length;
@@ -115,14 +126,27 @@ function computeCourse(raw: RawCourse): CourseData {
         questionsTotal: chapters.reduce((sum, c) => sum + c.questionCount, 0),
         questionsAnswered: chapters.reduce((sum, c) => sum + c.questionsAnswered, 0),
         completed: chapters.length > 0 && chaptersDone === chapters.length,
+        isFree: m.is_free,
+        locked: !hasFullAccess && !m.is_free,
       };
     });
 
-  const allChapters = modules.flatMap((m) => m.chapters);
+  // Everything below (progress, totals, next chapter) refers to what the user can open right now.
+  const catalog: Catalog = {
+    modules: modules.length,
+    chapters: modules.reduce((sum, m) => sum + m.chapters.length, 0),
+    questions: modules.reduce((sum, m) => sum + m.questionsTotal, 0),
+    freeModules: modules.filter((m) => m.isFree).length,
+    freeChapters: modules.filter((m) => m.isFree).reduce((sum, m) => sum + m.chapters.length, 0),
+    freeQuestions: modules.filter((m) => m.isFree).reduce((sum, m) => sum + m.questionsTotal, 0),
+  };
+  const openModules = modules.filter((m) => !m.locked);
+  const allChapters = openModules.flatMap((m) => m.chapters);
   const chaptersTotal = allChapters.length;
   const chaptersDone = allChapters.filter((c) => c.completed).length;
   const questionsTotal = modules.reduce((sum, m) => sum + m.questionsTotal, 0);
-  const questionIds = new Set(raw.questions.map((q) => q.id));
+  const openLessonIds = new Set(allChapters.map((c) => c.id));
+  const questionIds = new Set(raw.questions.filter((q) => openLessonIds.has(q.lesson_id)).map((q) => q.id));
   let questionsCorrect = 0;
   let questionsWrong = 0;
   for (const [id, correct] of latestCorrect) {
@@ -133,7 +157,7 @@ function computeCourse(raw: RawCourse): CourseData {
   const questionsAnswered = questionsCorrect + questionsWrong;
 
   const trackStats = (track: Track): TrackStats => {
-    const mods = modules.filter((m) => m.track === track);
+    const mods = openModules.filter((m) => m.track === track);
     const total = mods.reduce((sum, m) => sum + m.chapters.length, 0);
     const done = mods.reduce((sum, m) => sum + m.chaptersDone, 0);
     return { modules: mods.length, chapters: total, chaptersDone: done, percent: percentOf(done, total) };
@@ -155,13 +179,15 @@ function computeCourse(raw: RawCourse): CourseData {
   }
 
   const nextChapter = allChapters.find((c) => !c.completed);
-  const nextModule = nextChapter ? modules.find((m) => m.id === nextChapter.moduleId) : undefined;
+  const nextModule = nextChapter ? openModules.find((m) => m.id === nextChapter.moduleId) : undefined;
 
   return {
     modules,
+    hasFullAccess,
+    catalog,
     totals: {
-      modules: modules.length,
-      modulesDone: modules.filter((m) => m.completed).length,
+      modules: openModules.length,
+      modulesDone: openModules.filter((m) => m.completed).length,
       chapters: chaptersTotal,
       chaptersDone,
       questions: questionsTotal,
@@ -179,8 +205,17 @@ function computeCourse(raw: RawCourse): CourseData {
 }
 
 export const getCourseData = cache(async (userId: string): Promise<CourseData> => {
-  return computeCourse(isDemoMode() ? demoRaw() : await fetchRawCourse(userId));
+  const hasFullAccess = await hasCourseAccess(userId);
+  const raw = await fetchRawCourse(userId);
+  return computeCourse(isDemoMode() ? withDemoProgress(raw, hasFullAccess) : raw, hasFullAccess);
 });
+
+// True when the user may open this lesson (its module is free, or the full access has been bought).
+export async function isLessonOpen(userId: string, lessonId: string) {
+  const course = await getCourseData(userId);
+  const chapter = course.modules.flatMap((m) => m.chapters).find((c) => c.id === lessonId);
+  return chapter ? !chapter.locked : false;
+}
 
 // Files in the private course-media bucket are stored as paths and handed out as short-lived signed
 // URLs; full http(s) URLs (e.g. a video CDN) pass through unchanged.
@@ -195,16 +230,20 @@ async function resolveMediaUrl(path: string | null, downloadName?: string) {
 
 export async function getLessonDetail(lessonId: string, userId: string): Promise<LessonDetail | null> {
   const course = await getCourseData(userId);
-  const completed = course.modules.flatMap((m) => m.chapters).find((c) => c.id === lessonId)?.completed ?? false;
+  const chapter = course.modules.flatMap((m) => m.chapters).find((c) => c.id === lessonId);
+  if (!chapter) return null;
 
-  if (isDemoMode()) return demoLessonDetail(lessonId, completed);
+  if (chapter.locked) {
+    return { id: chapter.id, title: chapter.title, type: chapter.type, moduleId: chapter.moduleId, body: null, mediaUrl: null, audioUrl: null, pdfUrl: null, questions: [], completed: false, locked: true };
+  }
 
-  const supabase = await createClient();
-  const lessonQuery = (columns: string) => supabase.from("course_lessons").select(columns).eq("id", lessonId).maybeSingle();
+  // Access has been checked above, so the content itself is read with the service role.
+  const admin = createAdminClient();
+  const lessonQuery = (columns: string) => admin.from("course_lessons").select(columns).eq("id", lessonId).maybeSingle();
   const [fullLesson, questions] = await Promise.all([
     lessonQuery("id, title, content_type, body, media_url, audio_url, pdf_url"),
     // correct_index and explanation are deliberately not selected — answers are checked server-side.
-    supabase.from("quiz_questions").select("id, question, options").eq("lesson_id", lessonId).order("sort_order"),
+    admin.from("quiz_questions").select("id, question, options").eq("lesson_id", lessonId).order("sort_order"),
   ]);
   // Before migration 0005 the audio/pdf columns do not exist yet.
   const lesson = fullLesson.error ? await lessonQuery("id, title, content_type, body, media_url") : fullLesson;
@@ -221,6 +260,7 @@ export async function getLessonDetail(lessonId: string, userId: string): Promise
     id: row.id as string,
     title: row.title as string,
     type: toChapterType(row.content_type as string),
+    moduleId: chapter.moduleId,
     body: row.body ?? null,
     mediaUrl,
     audioUrl,
@@ -230,6 +270,7 @@ export async function getLessonDetail(lessonId: string, userId: string): Promise
       question: q.question,
       options: Array.isArray(q.options) ? q.options.map(String) : [],
     })),
-    completed,
+    completed: chapter.completed,
+    locked: false,
   };
 }

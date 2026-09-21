@@ -6,13 +6,14 @@ import FeaturesShowcase from "@/components/FeaturesShowcase";
 import CurriculumTabs from "@/components/CurriculumTabs";
 import HowItWorksTimeline from "@/components/HowItWorksTimeline";
 import TrustStamps from "@/components/TrustStamps";
-import PricingMockup from "@/components/PricingMockup";
 import FaqAccordion from "@/components/FaqAccordion";
+import PlatformShowcase from "@/components/PlatformShowcase";
 import Footer from "@/components/Footer";
+import { ORIGINAL_PRICE, PRICE } from "@/lib/pricing";
 import { createClient } from "@/lib/supabase/server";
 
-const PRICE = "349";
-const ORIGINAL_PRICE = "799";
+const SIGNUP_HREF = "/login?mode=signup";
+const FREE_CTA = "Heute kostenlos starten";
 
 const PROBLEMS = [
   {
@@ -38,14 +39,24 @@ const PROBLEMS = [
 ];
 
 const COMPARE_ROWS = [
-  { label: "Preis", them: "Erst nach Beratungsgespräch, oft vierstellig", us: `Sofort sichtbar, €${PRICE} einmalig` },
-  { label: "Zugang", them: "Wartezeit bis zum nächsten Kurstermin", us: "Sofort nach dem Kauf" },
+  { label: "Ausprobieren", them: "Erst zahlen oder ein Verkaufsgespräch führen", us: "Kostenloses Konto: Modul 0 und 1 sofort offen, ohne Zahlungsdaten" },
+  { label: "Preis", them: "Erst nach Beratungsgespräch, oft vierstellig", us: `Sofort sichtbar, €${PRICE} einmalig für den Rest` },
+  { label: "Zugang", them: "Wartezeit bis zum nächsten Kurstermin", us: "Sofort nach der Registrierung" },
   { label: "Lernformat", them: "Überwiegend Video", us: "Video, Audio-Funkübungen, interaktive Quizze" },
   { label: "Prüfungsfragen", them: "Separat zu besorgen", us: "Vollständig integriert, offizieller Fragenkatalog" },
   { label: "Tempo", them: "Feste Gruppentermine", us: "Komplett selbstbestimmt" },
 ];
 
+const FREE_FEATURES = [
+  "Kostenloses Konto mit persönlichem Dashboard",
+  "Modul 0 und 1 komplett: Videos, Lesetexte, PDF-Merkblätter",
+  "Rund 80 offizielle Prüfungsfragen mit Erklärung",
+  "Fortschritt und Trefferquote werden gespeichert",
+  "Keine Zahlungsdaten nötig, kein Ablaufdatum",
+];
+
 const PRICE_FEATURES = [
+  "Alles aus dem kostenlosen Start, plus:",
   "BZF I & BZF II komplett, ein Kurs",
   "Kompletter offizieller Fragenkatalog als Übungsquiz",
   "Über 40 Audio-Funkbeispiele & interaktive Simulationen",
@@ -55,6 +66,7 @@ const PRICE_FEATURES = [
 ];
 
 const MARQUEE_ITEMS = [
+  "🎁 Modul 0 & 1 kostenlos",
   "☁️ §5 UrhG geprüft",
   "📘 Offizieller Fragenkatalog",
   "💶 Fester Preis",
@@ -120,7 +132,7 @@ export default async function Home() {
           <p style={{ fontSize: 13, color: "var(--text-dim)", maxWidth: 180 }}>&quot;Startbahn 27, Startfreigabe.&quot;</p>
         </div>
         <div className="deco glass float hide-mobile" style={{ bottom: "14%", left: "7%", "--rot": "3deg", borderRadius: 16, padding: "16px 20px", animationDelay: "-3s" } as React.CSSProperties}>
-          <p className="grad" style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 22 }}>254</p>
+          <p className="grad" style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 22 }}>261</p>
           <p className="label" style={{ color: "var(--text-dim)" }}>offizielle Fragen</p>
         </div>
         <div className="deco glass float hide-mobile" style={{ top: "64%", left: "16%", "--rot": "-2deg", borderRadius: 14, padding: "10px 16px", animationDelay: "-5s", display: "flex", alignItems: "center", gap: 8 } as React.CSSProperties}>
@@ -136,25 +148,23 @@ export default async function Home() {
           <h1 className="h1-hero" style={{ fontSize: "clamp(40px,6.4vw,74px)", lineHeight: 1.05, fontWeight: 800, textShadow: "0 2px 30px rgba(255,255,255,0.9)" }}>
             Verstanden.<br />Und <span className="grad">bestanden.</span>
           </h1>
-          <p style={{ marginTop: 26, fontSize: 19, color: "var(--text-dim)", maxWidth: 560, marginLeft: "auto", marginRight: "auto" }}>
-            Der komplette Kurs für dein Sprechfunkzeugnis — fester Preis, sofortiger Zugang, echte Audio-Funkübungen statt endloser Videostunden.
+          <p style={{ marginTop: 26, fontSize: 19, color: "var(--text-dim)", maxWidth: 600, marginLeft: "auto", marginRight: "auto" }}>
+            Der komplette Kurs für dein Sprechfunkzeugnis. Starte heute kostenlos mit Modul 0 und 1, ganz ohne Zahlungsdaten, und schalte den Rest später einmalig frei.
           </p>
-          <div style={{ display: "inline-flex", alignItems: "center", gap: 10, marginTop: 22, padding: "8px 16px", borderRadius: 999, background: "rgba(255,143,179,0.16)", border: "1px solid rgba(255,143,179,0.35)" }}>
-            <span style={{ fontSize: 13 }}>🔥</span>
-            <span style={{ fontSize: 13, fontWeight: 700, color: "#c0447a" }}>
-              Einführungsangebot: <span style={{ textDecoration: "line-through", opacity: 0.7 }}>€{ORIGINAL_PRICE}</span> nur €{PRICE} — zeitlich begrenzt
-            </span>
+          <div style={{ display: "inline-flex", alignItems: "center", gap: 10, marginTop: 22, padding: "8px 16px", borderRadius: 999, background: "rgba(52,211,153,0.16)", border: "1px solid rgba(52,211,153,0.4)" }}>
+            <span style={{ fontSize: 13 }}>🎁</span>
+            <span style={{ fontSize: 13, fontWeight: 700, color: "#0b7a55" }}>Konto erstellen · Modul 0 und 1 sofort kostenlos nutzen</span>
           </div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 14, marginTop: 22, justifyContent: "center" }}>
-            <Link href="/kurs" className="btn-accent" style={{ padding: "17px 30px", borderRadius: 999, fontSize: 16, display: "inline-block" }}>
-              Kurs freischalten — €{PRICE}
+            <Link href={SIGNUP_HREF} className="btn-accent" style={{ padding: "17px 30px", borderRadius: 999, fontSize: 16, display: "inline-block" }}>
+              {FREE_CTA}
             </Link>
-            <a href="#kurs" className="btn-ghost" style={{ padding: "17px 30px", borderRadius: 999, fontSize: 16, display: "inline-block" }}>
-              Kursinhalte ansehen ↓
+            <a href="#einblick" className="btn-ghost" style={{ padding: "17px 30px", borderRadius: 999, fontSize: 16, display: "inline-block" }}>
+              So sieht der Kurs aus ↓
             </a>
           </div>
           <p style={{ marginTop: 24, fontSize: 12.5, color: "var(--text-faint)", fontWeight: 600 }}>
-            Einmalzahlung · Lebenslanger Zugriff · Basierend auf dem offiziellen Fragenkatalog der Bundesnetzagentur
+            Kostenlos starten · Vollzugang später einmalig €{PRICE} statt €{ORIGINAL_PRICE} · Basierend auf dem offiziellen Fragenkatalog der Bundesnetzagentur
           </p>
         </div>
       </div>
@@ -176,6 +186,26 @@ export default async function Home() {
       </div>
 
       <HighlightsCounters />
+
+      {/* PLATFORM SHOWCASE */}
+      <div id="einblick" style={{ position: "relative", overflow: "hidden" }}>
+        <Blob style={{ top: "6%", left: "-6%", width: 280, height: 280, opacity: 0.2 }} color="var(--sky-2)" />
+        <div className="section-pad" style={{ position: "relative", zIndex: 1, padding: "90px 32px 40px", maxWidth: 1180, margin: "0 auto" }}>
+          <div className="reveal" style={{ maxWidth: 700, margin: "0 auto", textAlign: "center" }}>
+            <span className="label" style={{ color: "var(--sky)" }}>Einblick</span>
+            <h2 style={{ fontSize: "clamp(28px,3.4vw,42px)", marginTop: 14, fontWeight: 700, lineHeight: 1.2 }}>
+              So sieht deine <span className="grad">Lernplattform</span> von innen aus.
+            </h2>
+            <p style={{ marginTop: 16, fontSize: 17, color: "var(--text-dim)" }}>
+              Keine Attrappe: Das sind echte Ansichten aus dem Kurs. Am Laptop, am Tablet und am Handy, mit Video, Quiz und Fortschritt.
+            </p>
+            <Link href={SIGNUP_HREF} className="btn-accent" style={{ display: "inline-block", marginTop: 26, padding: "15px 30px", borderRadius: 999, fontSize: 15.5 }}>
+              {FREE_CTA}
+            </Link>
+          </div>
+          <PlatformShowcase />
+        </div>
+      </div>
 
       {/* PROBLEM */}
       <div style={{ position: "relative", overflow: "hidden" }}>
@@ -304,74 +334,70 @@ export default async function Home() {
         <Blob style={{ top: "4%", left: "4%", width: 260, height: 260, opacity: 0.18 }} color="var(--sky)" />
         <Blob style={{ bottom: "2%", right: "2%", width: 220, height: 220, opacity: 0.2 }} color="var(--sky-2)" />
         <div className="section-pad" style={{ position: "relative", zIndex: 1, padding: "20px 32px 110px", maxWidth: 1180, margin: "0 auto" }}>
-          <div className="reveal" style={{ maxWidth: 640, margin: "0 auto", textAlign: "center" }}>
+          <div className="reveal" style={{ maxWidth: 700, margin: "0 auto", textAlign: "center" }}>
             <span className="label" style={{ color: "var(--sky)" }}>Preis</span>
             <h2 style={{ fontSize: "clamp(28px,3.4vw,42px)", marginTop: 14, fontWeight: 700, lineHeight: 1.2 }}>
-              Ein Preis. <span className="grad">Keine Überraschungen.</span>
+              Erst kostenlos testen. <span className="grad">Dann einmal zahlen.</span>
             </h2>
+            <p style={{ marginTop: 14, fontSize: 16.5, color: "var(--text-dim)" }}>
+              Du siehst den Preis von Anfang an und musst nichts bezahlen, um den Kurs kennenzulernen.
+            </p>
           </div>
 
-          <div
-            className="reveal"
-            style={{
-              marginTop: 56,
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit,minmax(340px,1fr))",
-              gap: 48,
-              alignItems: "center",
-            }}
-          >
-            <div className="glass-strong" style={{ maxWidth: 400, borderRadius: 24, padding: 32, textAlign: "center" }}>
-              <span
-                style={{
-                  display: "inline-block",
-                  padding: "5px 14px",
-                  borderRadius: 999,
-                  background: "rgba(255,143,179,0.16)",
-                  color: "#c0447a",
-                  fontFamily: "var(--font-display)",
-                  fontWeight: 700,
-                  fontSize: 11.5,
-                  marginBottom: 12,
-                }}
-              >
-                🔥 Zeitlich begrenztes Angebot
+          <div className="reveal" style={{ marginTop: 56, display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,340px),1fr))", gap: 28, maxWidth: 900, marginLeft: "auto", marginRight: "auto", alignItems: "stretch" }}>
+            <div className="glass-strong" style={{ borderRadius: 24, padding: 32, textAlign: "center", display: "flex", flexDirection: "column" }}>
+              <span style={{ display: "inline-block", alignSelf: "center", padding: "5px 14px", borderRadius: 999, background: "rgba(52,211,153,0.16)", color: "#0b7a55", fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 11.5, marginBottom: 12 }}>
+                🎁 Für alle mit Konto
               </span>
-              <div>
-                <span className="label" style={{ color: "var(--text-faint)" }}>BZF I &amp; II komplett</span>
-              </div>
-              <div style={{ marginTop: 8, fontSize: 16, color: "var(--text-faint)", textDecoration: "line-through" }}>
-                €{ORIGINAL_PRICE}
-              </div>
-              <div style={{ marginTop: 2, display: "flex", alignItems: "baseline", justifyContent: "center", gap: 5 }}>
+              <span className="label" style={{ color: "var(--text-faint)" }}>Kostenlos starten</span>
+              <div style={{ marginTop: 10, display: "flex", alignItems: "baseline", justifyContent: "center", gap: 5 }}>
                 <span className="grad" style={{ fontSize: 20, fontWeight: 800 }}>€</span>
-                <span className="grad" style={{ fontFamily: "var(--font-display)", fontSize: 52, fontWeight: 800 }}>{PRICE}</span>
+                <span className="grad" style={{ fontFamily: "var(--font-display)", fontSize: 52, fontWeight: 800 }}>0</span>
               </div>
-              <p style={{ marginTop: 2, fontSize: 12.5, color: "var(--text-faint)" }}>einmalig · kein Abo · lebenslanger Zugriff</p>
-              <div style={{ textAlign: "left", marginTop: 24, display: "flex", flexDirection: "column", gap: 11 }}>
-                {PRICE_FEATURES.map((text) => (
+              <p style={{ marginTop: 2, fontSize: 12.5, color: "var(--text-faint)" }}>ohne Zahlungsdaten · ohne Ablaufdatum</p>
+              <div style={{ textAlign: "left", marginTop: 24, display: "flex", flexDirection: "column", gap: 11, flex: 1 }}>
+                {FREE_FEATURES.map((text) => (
                   <div key={text} style={{ display: "flex", gap: 9, alignItems: "flex-start" }}>
                     <span style={{ color: "var(--sky)", fontWeight: 800, flex: "none" }}>✓</span>
                     <span style={{ fontSize: 13.5, color: "var(--text-dim)" }}>{text}</span>
                   </div>
                 ))}
               </div>
-              <Link
-                href="/kurs"
-                className="btn-accent"
-                style={{ display: "block", marginTop: 26, padding: 15, borderRadius: 999, fontSize: 15 }}
-              >
-                Kursdetails ansehen &amp; sichern
+              <Link href={SIGNUP_HREF} className="btn-accent" style={{ display: "block", marginTop: 26, padding: 15, borderRadius: 999, fontSize: 15 }}>
+                {FREE_CTA}
               </Link>
-              <p style={{ marginTop: 12, fontSize: 11.5, color: "var(--text-faint)" }}>
-                Angebot gültig für kurze Zeit — der Preis steigt danach auf €{ORIGINAL_PRICE}.
-              </p>
             </div>
 
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 32 }}>
-              <PricingMockup />
-              <TrustStamps />
+            <div className="glass-strong" style={{ borderRadius: 24, padding: 32, textAlign: "center", display: "flex", flexDirection: "column", border: "2px solid rgba(47,155,234,0.35)" }}>
+              <span style={{ display: "inline-block", alignSelf: "center", padding: "5px 14px", borderRadius: 999, background: "rgba(255,143,179,0.16)", color: "#c0447a", fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 11.5, marginBottom: 12 }}>
+                🔥 Zeitlich begrenztes Angebot
+              </span>
+              <span className="label" style={{ color: "var(--text-faint)" }}>Vollzugang · BZF I &amp; II komplett</span>
+              <div style={{ marginTop: 8, fontSize: 16, color: "var(--text-faint)", textDecoration: "line-through" }}>€{ORIGINAL_PRICE}</div>
+              <div style={{ marginTop: 2, display: "flex", alignItems: "baseline", justifyContent: "center", gap: 5 }}>
+                <span className="grad" style={{ fontSize: 20, fontWeight: 800 }}>€</span>
+                <span className="grad" style={{ fontFamily: "var(--font-display)", fontSize: 52, fontWeight: 800 }}>{PRICE}</span>
+              </div>
+              <p style={{ marginTop: 2, fontSize: 12.5, color: "var(--text-faint)" }}>einmalig · kein Abo · lebenslanger Zugriff</p>
+              <div style={{ textAlign: "left", marginTop: 24, display: "flex", flexDirection: "column", gap: 11, flex: 1 }}>
+                {PRICE_FEATURES.map((text, i) => (
+                  <div key={text} style={{ display: "flex", gap: 9, alignItems: "flex-start" }}>
+                    <span style={{ color: "var(--sky)", fontWeight: 800, flex: "none" }}>{i === 0 ? "" : "✓"}</span>
+                    <span style={{ fontSize: 13.5, color: i === 0 ? "var(--text)" : "var(--text-dim)", fontWeight: i === 0 ? 700 : 400 }}>{text}</span>
+                  </div>
+                ))}
+              </div>
+              <Link href="/kurs#kaufen" className="btn-ghost" style={{ display: "block", marginTop: 26, padding: 15, borderRadius: 999, fontSize: 15 }}>
+                Vollzugang ansehen
+              </Link>
+              <p style={{ marginTop: 12, fontSize: 11.5, color: "var(--text-faint)" }}>
+                Du schaltest ihn erst frei, wenn du nach Modul 1 weitermachen möchtest.
+              </p>
             </div>
+          </div>
+
+          <div style={{ display: "flex", justifyContent: "center", marginTop: 44 }}>
+            <TrustStamps />
           </div>
         </div>
       </div>
@@ -402,9 +428,9 @@ export default async function Home() {
           <h2 style={{ fontSize: "clamp(30px,4vw,48px)", fontWeight: 800, lineHeight: 1.15 }}>
             Bereit, <span className="grad">klar zu funken?</span>
           </h2>
-          <p style={{ marginTop: 16, fontSize: 17, color: "var(--text-dim)" }}>Sofortiger Zugang. Fester Preis. Kein Verkaufsgespräch.</p>
-          <Link href="/kurs" className="btn-accent" style={{ display: "inline-block", marginTop: 32, padding: "18px 38px", borderRadius: 999, fontSize: 17 }}>
-            Kurs freischalten — €{PRICE}
+          <p style={{ marginTop: 16, fontSize: 17, color: "var(--text-dim)" }}>Kostenlos starten. Fester Preis für den Rest. Kein Verkaufsgespräch.</p>
+          <Link href={SIGNUP_HREF} className="btn-accent" style={{ display: "inline-block", marginTop: 32, padding: "18px 38px", borderRadius: 999, fontSize: 17 }}>
+            {FREE_CTA}
           </Link>
         </div>
       </div>

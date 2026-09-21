@@ -5,23 +5,24 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import AppIcon from "./AppIcon";
 import { ProgressBar } from "./charts";
+import { moduleLabel } from "@/lib/course/format";
 import type { CourseModule } from "@/lib/course/types";
 
 const TRACK_LABEL = { bzf2: "BZF II · Deutscher Luftraum", bzf1: "BZF I · Englisch & International" } as const;
 
 export default function CourseSidebar({
   modules,
-  locked,
+  hasFullAccess,
   percent,
 }: {
   modules: CourseModule[];
-  locked: boolean;
+  hasFullAccess: boolean;
   percent: number;
 }) {
   const pathname = usePathname();
   const activeChapterId = pathname.startsWith("/dashboard/course/") ? pathname.split("/")[3] : null;
   const activeModule = modules.find((m) => m.chapters.some((c) => c.id === activeChapterId));
-  const defaultModule = activeModule ?? modules.find((m) => !m.completed) ?? modules[0];
+  const defaultModule = activeModule ?? modules.find((m) => !m.completed && !m.locked) ?? modules[0];
 
   // Manual toggles win; otherwise the module of the open chapter (or the next unfinished one) is expanded.
   const [toggled, setToggled] = useState<Record<string, boolean>>({});
@@ -29,8 +30,9 @@ export default function CourseSidebar({
   const mobileOpen = mobileOpenForPath === pathname;
   const isExpanded = (m: CourseModule) => toggled[m.id] ?? m.id === defaultModule?.id;
 
-  const chaptersTotal = modules.reduce((sum, m) => sum + m.chapters.length, 0);
-  const chaptersDone = modules.reduce((sum, m) => sum + m.chaptersDone, 0);
+  const openModules = modules.filter((m) => !m.locked);
+  const chaptersTotal = openModules.reduce((sum, m) => sum + m.chapters.length, 0);
+  const chaptersDone = openModules.reduce((sum, m) => sum + m.chaptersDone, 0);
 
   return (
     <aside className="glass course-side" aria-label="Kursinhalt">
@@ -53,7 +55,7 @@ export default function CourseSidebar({
             <ProgressBar percent={percent} height={7} />
           </div>
           <span style={{ display: "block", marginTop: 6, fontSize: 12, color: "var(--text-faint)", fontWeight: 600 }}>
-            {locked ? "Vorschau — Kurs noch nicht freigeschaltet" : `${chaptersDone} von ${chaptersTotal} Kapiteln abgeschlossen`}
+            {hasFullAccess ? `${chaptersDone} von ${chaptersTotal} Kapiteln abgeschlossen` : `Kostenlos: ${chaptersDone} von ${chaptersTotal} Kapiteln abgeschlossen`}
           </span>
         </Link>
 
@@ -74,12 +76,21 @@ export default function CourseSidebar({
                   aria-expanded={expanded}
                 >
                   <span className={`app-num${m.completed ? " is-done" : ""}`}>
-                    {m.completed ? <AppIcon name="check" size={13} /> : Number(m.num) || m.num}
+                    {m.completed ? <AppIcon name="check" size={13} /> : moduleLabel(m.num)}
                   </span>
-                  <span style={{ flex: 1, textAlign: "left", fontSize: 13.5, fontWeight: 600, lineHeight: 1.35 }}>{m.title}</span>
-                  <span style={{ fontSize: 11.5, color: "var(--text-faint)", fontWeight: 600 }}>
-                    {m.chaptersDone}/{m.chapters.length}
+                  <span style={{ flex: 1, textAlign: "left", fontSize: 13.5, fontWeight: 600, lineHeight: 1.35 }}>
+                    {m.title}
+                    {m.isFree && !hasFullAccess && <span className="free-tag">Gratis</span>}
                   </span>
+                  {m.locked ? (
+                    <span style={{ display: "inline-flex", color: "var(--text-faint)" }}>
+                      <AppIcon name="lock" size={14} />
+                    </span>
+                  ) : (
+                    <span style={{ fontSize: 11.5, color: "var(--text-faint)", fontWeight: 600 }}>
+                      {m.chaptersDone}/{m.chapters.length}
+                    </span>
+                  )}
                   <span style={{ display: "inline-flex", color: "var(--text-faint)", transform: expanded ? "rotate(90deg)" : "none", transition: "transform .2s" }}>
                     <AppIcon name="chevron" size={15} />
                   </span>
@@ -95,7 +106,7 @@ export default function CourseSidebar({
                       const inner = (
                         <>
                           <span style={{ color: c.completed ? "#0f9f6e" : "var(--text-faint)", display: "inline-flex" }}>
-                            <AppIcon name={locked ? "lock" : c.type} size={15} />
+                            <AppIcon name={c.locked ? "lock" : c.type} size={15} />
                           </span>
                           <span style={{ flex: 1, minWidth: 0, fontSize: 13, lineHeight: 1.35 }}>{c.title}</span>
                           {c.completed && (
@@ -105,10 +116,8 @@ export default function CourseSidebar({
                           )}
                         </>
                       );
-                      return locked ? (
-                        <span key={c.id} className="course-chapter is-locked">{inner}</span>
-                      ) : (
-                        <Link key={c.id} href={`/dashboard/course/${c.id}`} className={`course-chapter${active ? " is-active" : ""}`}>
+                      return (
+                        <Link key={c.id} href={`/dashboard/course/${c.id}`} className={`course-chapter${active ? " is-active" : ""}${c.locked ? " is-locked" : ""}`}>
                           {inner}
                         </Link>
                       );

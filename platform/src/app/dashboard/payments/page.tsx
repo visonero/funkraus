@@ -2,7 +2,7 @@ import AppIcon from "@/components/app/AppIcon";
 import PageHeader from "@/components/app/PageHeader";
 import CheckoutButton from "@/components/CheckoutButton";
 import { getCurrentUser } from "@/lib/auth/session";
-import { isDemoMode } from "@/lib/course/demo";
+import { demoAccess, isDemoMode } from "@/lib/course/demo";
 import { getStripe } from "@/lib/stripe";
 import { createClient } from "@/lib/supabase/server";
 
@@ -44,7 +44,7 @@ export default async function PaymentsPage() {
 
   let purchases: Purchase[] = [];
   if (isDemoMode()) {
-    purchases = [
+    purchases = demoAccess() === "free" ? [] : [
       { id: "demo", stripe_checkout_session_id: null, amount_cents: 34900, currency: "eur", status: "paid", created_at: new Date().toISOString() },
     ];
   } else {
