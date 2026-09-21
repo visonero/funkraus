@@ -1,0 +1,60 @@
+{
+  "questions": [
+    {
+      "catalogue_number": 13,
+      "explanation": "Ein allgemeiner Anruf richtet sich an alle Funkstellen, die auf der Frequenz hörbereit sind. Er beginnt mit „AN ALLE“."
+    },
+    {
+      "catalogue_number": 84,
+      "explanation": "Ein allgemeiner Anruf muss nicht bestätigt werden. Nur wenn einzelne Stationen anschließend aufgerufen werden, um den Empfang zu bestätigen, antworten diese."
+    },
+    {
+      "catalogue_number": 85,
+      "explanation": "Ein allgemeiner Anruf beginnt mit „AN ALLE“, zum Beispiel „AN ALLE HAMBURG TURM … ENDE“. Die anderen Beispiele richten sich an einzelne oder mehrere namentlich genannte Stationen."
+    },
+    {
+      "catalogue_number": 86,
+      "explanation": "Ein Mehrfachanruf ruft mehrere Stationen einzeln beim Namen, hier DEABC, DGIAL und DHHIA. „AN ALLE“ wäre dagegen ein allgemeiner Anruf."
+    },
+    {
+      "catalogue_number": 87,
+      "explanation": "Ein Mehrfachanruf muss bestätigt werden, und zwar der Reihe nach in der Reihenfolge, in der die rufende Funkstelle die Stationen genannt hat."
+    },
+    {
+      "catalogue_number": 101,
+      "explanation": "„HÖRE SIE VIER“ bedeutet verständlich. Die Skala reicht von eins (unverständlich) bis fünf (sehr gut verständlich)."
+    },
+    {
+      "catalogue_number": 103,
+      "explanation": "Ist der Funktest verständlich, lautet die Antwort „HÖRE SIE VIER“."
+    },
+    {
+      "catalogue_number": 104,
+      "explanation": "Ist der Funktest schwer verständlich, lautet die Antwort „HÖRE SIE DREI“. „HÖRE SIE ZWO“ hieße zeitweise verständlich."
+    },
+    {
+      "catalogue_number": 106,
+      "explanation": "Start- und Landefreigaben sind sicherheitsrelevant und müssen wiederholt werden. Hinweise auf Hubschrauber, Bauarbeiten oder Gewitter sind reine Informationen."
+    },
+    {
+      "catalogue_number": 107,
+      "explanation": "Höhenmessereinstellungen gehören zu den Angaben, die stets wiederholt werden müssen. Verkehrshinweise, Wettermeldungen und der Rollbahnzustand sind Informationen."
+    },
+    {
+      "catalogue_number": 108,
+      "explanation": "Bei einem Frequenzwechsel musst du die neu zugeteilte Frequenz wiederholen. Hinweise auf Bauarbeiten, Wetter und Wind sind Informationen."
+    },
+    {
+      "catalogue_number": 109,
+      "explanation": "Den Empfang einer Freigabe bestätigst du durch Wiederholung der sicherheitsrelevanten Teile. Ein Drücken der Mikrofontaste oder die Nennung des Rufzeichens allein genügt nicht."
+    },
+    {
+      "catalogue_number": 110,
+      "explanation": "Du wiederholst die sicherheitsrelevanten Teile: die Höhenanweisung, die Kurve, die Piste und die Startfreigabe. Der Wind ist eine reine Information und muss nicht wiederholt werden. „WILCO“ allein genügt bei einer Startfreigabe nicht."
+    },
+    {
+      "catalogue_number": 111,
+      "explanation": "Stets zu wiederholen sind Freigaben, Rollanweisungen, Betriebspiste, QNH, SSR-Codes, Höhenanweisungen, Steuerkurs- und Geschwindigkeitsanweisungen und die Frequenz bei Frequenzwechsel. Windangaben, Sicht und Taupunkt gehören nicht dazu."
+    }
+  ]
+}

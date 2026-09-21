@@ -5,7 +5,7 @@
   {
    "id": "intro",
    "voice": "trainer",
-   "text": "Stell dir den Luftraum wie ein großes Haus mit mehreren Stockwerken vor. Jedes Stockwerk hat seine eigenen Hausregeln: In manchen darfst du einfach hineinfliegen, in anderen musst du vorher anklopfen und um Erlaubnis fragen. Diese Stockwerke heißen [[0]]Luftraumklassen. Für dich als VFR-Pilot sind vor allem vier wichtig: C, D, E und G. In dieser Lektion lernst du, was in welchem Stockwerk gilt.",
+   "text": "Stell dir den Luftraum wie ein großes Haus mit mehreren Stockwerken vor. Jedes Stockwerk hat seine eigenen Hausregeln: In manchen darfst du einfach hineinfliegen, in anderen musst du vorher anklopfen und um Erlaubnis fragen. Diese Stockwerke heißen Luftraumklassen. Für dich als VFR-Pilot sind vor allem vier wichtig: [[0]]C, [[1]]D, [[2]]E und [[3]]G. In dieser Lektion lernst du, was in welchem Stockwerk gilt.",
    "visual": {
     "kind": "headline",
     "headline": "Der Luftraum: ein",

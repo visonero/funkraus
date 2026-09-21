@@ -1,0 +1,129 @@
+{
+  "id": "2.4-audio-drill",
+  "language": "de",
+  "segments": [
+    {
+      "voice": "trainer",
+      "text": "Willkommen zur Übung zu den Meldungsarten. Ich nenne dir eine Meldung. Du sagst nach der Pause, um welche Meldungsart es sich handelt. Danach höre ich dir die Lösung vor."
+    },
+    {
+      "pause": 1.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Ein Pilot meldet: Erbitte ein QDM."
+    },
+    {
+      "pause": 4.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Peilfunkmeldung."
+    },
+    {
+      "pause": 1.6
+    },
+    {
+      "voice": "trainer",
+      "text": "Der Tower sagt: Piste zwo vier, Start frei."
+    },
+    {
+      "pause": 4.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Flugsicherheitsmeldung."
+    },
+    {
+      "pause": 1.6
+    },
+    {
+      "voice": "trainer",
+      "text": "Ein Pilot braucht dringend ein Ersatzteil für sein Luftfahrzeug."
+    },
+    {
+      "pause": 4.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Flugbetriebsmeldung."
+    },
+    {
+      "pause": 1.6
+    },
+    {
+      "voice": "trainer",
+      "text": "Ein Pilot meldet eine Gefahr für einen Passagier an Bord."
+    },
+    {
+      "pause": 4.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Dringlichkeitsmeldung. Sie beginnt mit PAN PAN."
+    },
+    {
+      "pause": 1.6
+    },
+    {
+      "voice": "trainer",
+      "text": "Ein Pilot bittet den Tower, ein Taxi zu bestellen."
+    },
+    {
+      "pause": 4.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Eine unerlaubte Meldung."
+    },
+    {
+      "pause": 1.6
+    },
+    {
+      "voice": "trainer",
+      "text": "Ein Pilot bittet um Radarführung zum Umfliegen eines Gewitters."
+    },
+    {
+      "pause": 4.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Flugsicherheitsmeldung."
+    },
+    {
+      "pause": 1.6
+    },
+    {
+      "voice": "trainer",
+      "text": "Ein Pilot meldet: Schwere und unmittelbare Gefahr, wir brauchen sofort Hilfe."
+    },
+    {
+      "pause": 4.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Notmeldung. Sie beginnt mit MAYDAY."
+    },
+    {
+      "pause": 1.6
+    },
+    {
+      "voice": "trainer",
+      "text": "Jetzt die Rangfolge. Nenne die sechs Meldungsarten von oben nach unten."
+    },
+    {
+      "pause": 12.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Notmeldungen, Dringlichkeitsmeldungen, Peilfunkmeldungen, Flugsicherheitsmeldungen, Wettermeldungen und Flugbetriebsmeldungen."
+    },
+    {
+      "pause": 1.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Sehr gut. Wiederhole die Übung, bis du die Rangfolge im Schlaf aufsagen kannst."
+    }
+  ]
+}

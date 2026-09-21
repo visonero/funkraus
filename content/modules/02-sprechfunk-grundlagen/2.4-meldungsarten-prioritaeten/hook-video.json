@@ -1,0 +1,153 @@
+{
+  "id": "2.4-hook-video",
+  "language": "de",
+  "scenes": [
+    {
+      "id": "intro",
+      "voice": "trainer",
+      "text": "Stell dir vor, im Funk melden sich mehrere gleichzeitig: Ein Pilot braucht dringend Hilfe, ein anderer möchte das Wetter wissen, und der Tower erteilt eine Startfreigabe. [[0]]Wer kommt zuerst dran? Genau dafür gibt es eine feste Rangfolge der Meldungsarten. In dieser Lektion lernst du sie kennen und erfährst, warum sie so wichtig ist.",
+      "visual": {
+        "kind": "headline",
+        "headline": "Wer kommt im Funk",
+        "highlight": "zuerst dran?",
+        "tiles": [
+          "?"
+        ]
+      }
+    },
+    {
+      "id": "ladder",
+      "voice": "trainer",
+      "text": "Die Rangfolge hat sechs Stufen. [[0]]Ganz oben stehen die Notmeldungen. Sie beginnen mit MAYDAY. [[1]]Dann folgen die Dringlichkeitsmeldungen mit PAN PAN. [[2]]Danach die Peilfunkmeldungen, [[3]]dann die Flugsicherheitsmeldungen, [[4]]die Wettermeldungen [[5]]und ganz zum Schluss die Flugbetriebsmeldungen. Je weiter oben eine Meldung steht, desto eher kommt sie an die Reihe.",
+      "visual": {
+        "kind": "transform",
+        "headline": "Die Rangfolge in",
+        "highlight": "sechs Stufen",
+        "tiles": [
+          {
+            "top": "1",
+            "bottom": "Not (MAYDAY)"
+          },
+          {
+            "top": "2",
+            "bottom": "Dringlichkeit (PAN PAN)"
+          },
+          {
+            "top": "3",
+            "bottom": "Peilfunk"
+          },
+          {
+            "top": "4",
+            "bottom": "Flugsicherheit"
+          },
+          {
+            "top": "5",
+            "bottom": "Wetter"
+          },
+          {
+            "top": "6",
+            "bottom": "Flugbetrieb"
+          }
+        ]
+      }
+    },
+    {
+      "id": "safety",
+      "voice": "trainer",
+      "text": "Was gehört zu den Flugsicherheitsmeldungen? Vor allem alles, was bei der Flugverkehrskontrolle übermittelt wird. [[0]]Freigaben wie Start frei gehören dazu, [[1]]Bitten des Piloten wie die um Radarführung zum Umfliegen eines Gewitters [[2]]und Wetterhinweise, die für den Flug von unmittelbarer Bedeutung sind.",
+      "visual": {
+        "kind": "transform",
+        "headline": "Was ist eine",
+        "highlight": "Flugsicherheitsmeldung?",
+        "tiles": [
+          {
+            "top": "Start frei",
+            "bottom": "Freigabe der Kontrolle"
+          },
+          {
+            "top": "Radarführung",
+            "bottom": "Bitte des Piloten"
+          },
+          {
+            "top": "Wetterhinweis",
+            "bottom": "für den Flug wichtig"
+          }
+        ]
+      }
+    },
+    {
+      "id": "priority",
+      "voice": "trainer",
+      "text": "Ein Beispiel für die Rangfolge: Bittest du um ein [[0]]QDM, ist das eine Peilfunkmeldung. Sie steht in der Rangfolge vor einer [[1]]Freigabe wie Start frei, denn Freigaben sind Flugsicherheitsmeldungen. Zwei Rollanweisungen dagegen haben dieselbe Priorität, weil beide zur selben Meldungsart gehören.",
+      "visual": {
+        "kind": "transform",
+        "headline": "Wer hat",
+        "highlight": "Vorrang?",
+        "tiles": [
+          {
+            "top": "QDM",
+            "bottom": "Peilfunk: höher"
+          },
+          {
+            "top": "Start frei",
+            "bottom": "Flugsicherheit"
+          }
+        ]
+      }
+    },
+    {
+      "id": "forbidden",
+      "voice": "trainer",
+      "text": "Und noch etwas: Im Flugfunk sind nur bestimmte Meldungen erlaubt. Private Wünsche wie: Bestellen Sie mir bitte ein Taxi, [[0]]gehören nicht dazu. Das ist eine unerlaubte Meldung. [[1]]Dringend benötigte Ersatzteile für ein Luftfahrzeug dagegen sind eine Flugbetriebsmeldung.",
+      "visual": {
+        "kind": "transform",
+        "headline": "Erlaubt oder",
+        "highlight": "unerlaubt?",
+        "tiles": [
+          {
+            "top": "Taxi bestellen",
+            "bottom": "unerlaubt"
+          },
+          {
+            "top": "Ersatzteil",
+            "bottom": "Flugbetriebsmeldung"
+          }
+        ]
+      }
+    },
+    {
+      "id": "callsign",
+      "voice": "trainer",
+      "text": "Zum Schluss noch das Rufzeichen deines Luftfahrzeugs. Es wird aus den Zeichen des [[0]]Eintragungszeichens gebildet, also zum Beispiel Delta Echo Juliett Foxtrot Charlie. [[1]]Und dieses Rufzeichen darfst du während des Fluges nicht ändern. Nur auf Anweisung der Flugverkehrskontrolle ist das vorübergehend erlaubt, wenn es der Sicherheit dient.",
+      "visual": {
+        "kind": "transform",
+        "headline": "Dein",
+        "highlight": "Rufzeichen",
+        "plate": "D-EJFC",
+        "tiles": [
+          {
+            "top": "Eintragungs-zeichen",
+            "bottom": "bildet das Rufzeichen"
+          },
+          {
+            "top": "nicht ändern",
+            "bottom": "außer auf Anweisung"
+          }
+        ]
+      }
+    },
+    {
+      "id": "outro",
+      "voice": "trainer",
+      "text": "Damit hast du den Überblick: [[0]]die Rangfolge, [[1]]die Meldungsarten [[2]]und die Regeln fürs Rufzeichen. Hör dir jetzt die Übung an, und dann beantwortest du 13 Fragen aus dem offiziellen Katalog. Los geht's.",
+      "visual": {
+        "kind": "outro",
+        "pills": [
+          "Rangfolge",
+          "Meldungsarten",
+          "Rufzeichen"
+        ]
+      }
+    }
+  ]
+}

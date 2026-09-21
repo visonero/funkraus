@@ -1,0 +1,162 @@
+{
+  "id": "2.5-hook-video",
+  "language": "de",
+  "scenes": [
+    {
+      "id": "intro",
+      "voice": "trainer",
+      "text": "Bisher hast du gelernt, wie ein einzelner Funkspruch aufgebaut ist. Jetzt geht es um die Situationen drumherum. Was, wenn du [[0]]mehrere Stationen auf einmal rufen willst? Was, wenn der Tower dir eine Freigabe erteilt und du sie [[1]]bestätigen musst? Und woher weißt du, ob dich die Gegenstelle [[2]]gut versteht? Genau darum kümmern wir uns jetzt.",
+      "visual": {
+        "kind": "headline",
+        "headline": "Mehr als ein",
+        "highlight": "einzelner Funkspruch",
+        "tiles": [
+          "Anrufe",
+          "Read-back",
+          "Funktest"
+        ]
+      }
+    },
+    {
+      "id": "calls",
+      "voice": "trainer",
+      "text": "Zuerst die Anrufarten. [[0]]Ein allgemeiner Anruf richtet sich an alle Funkstellen, die auf der Frequenz hörbereit sind. Er beginnt mit: An alle. Zum Beispiel: An alle, Hamburg Turm, und dann die Mitteilung, am Ende Ende. Wichtig: Ein allgemeiner Anruf wird nicht bestätigt. [[1]]Beim Mehrfachanruf dagegen werden mehrere Stationen einzeln beim Namen gerufen. Sie müssen bestätigen, und zwar der Reihe nach, genau in der Reihenfolge, in der sie gerufen wurden.",
+      "visual": {
+        "kind": "transform",
+        "headline": "Zwei besondere",
+        "highlight": "Anrufarten",
+        "tiles": [
+          {
+            "top": "AN ALLE",
+            "bottom": "allgemeiner Anruf: keine Bestätigung"
+          },
+          {
+            "top": "MEHRFACH",
+            "bottom": "mehrere Stationen: der Reihe nach"
+          }
+        ]
+      }
+    },
+    {
+      "id": "readback",
+      "voice": "trainer",
+      "text": "Jetzt zum Read-back, dem Wiederholen von Freigaben. Es ist eine der wichtigsten Sicherheitsroutinen im Funk. Der Lotse gibt dir eine Anweisung, du wiederholst die sicherheitsrelevanten Teile, und er hört zu, ob du alles richtig verstanden hast. Was gehört dazu? [[0]]Freigaben und Rollanweisungen, [[1]]die Betriebspiste, [[2]]das QNH, [[3]]Squawk-Codes, [[4]]Höhen-, Kurs- und Geschwindigkeitsanweisungen [[5]]und die Frequenz bei einem Frequenzwechsel.",
+      "visual": {
+        "kind": "transform",
+        "headline": "Das gehört zum",
+        "highlight": "Read-back",
+        "tiles": [
+          {
+            "top": "Freigaben",
+            "bottom": "Start, Landung, Rollen"
+          },
+          {
+            "top": "Piste",
+            "bottom": "Betriebspiste"
+          },
+          {
+            "top": "QNH",
+            "bottom": "Höhenmesser"
+          },
+          {
+            "top": "Squawk",
+            "bottom": "Transponder"
+          },
+          {
+            "top": "Anweisungen",
+            "bottom": "Höhe, Kurs, Tempo"
+          },
+          {
+            "top": "Frequenz",
+            "bottom": "bei Wechsel"
+          }
+        ]
+      }
+    },
+    {
+      "id": "noinfo",
+      "voice": "trainer",
+      "text": "Was musst du dagegen nicht wiederholen? Reine Informationen. [[0]]Das Wetter, [[1]]Verkehrshinweise [[2]]und Hinweise auf Bauarbeiten hörst du dir an, aber du musst sie nicht zurücksprechen. Und den Empfang einer Freigabe bestätigst du immer durch Wiederholen, niemals nur durch Drücken der Mikrofontaste.",
+      "visual": {
+        "kind": "transform",
+        "headline": "Das musst du",
+        "highlight": "nicht wiederholen",
+        "tiles": [
+          {
+            "top": "Wetter",
+            "bottom": "nur Information"
+          },
+          {
+            "top": "Verkehr",
+            "bottom": "nur Information"
+          },
+          {
+            "top": "Bauarbeiten",
+            "bottom": "nur Information"
+          }
+        ]
+      }
+    },
+    {
+      "id": "example",
+      "voice": "trainer",
+      "text": "Ein Beispiel. Der Tower sagt zu Delta Echo Lima India Delta: Nach dem Abheben steigen Sie geradeaus auf dreitausend Fuß, machen dann eine Rechtskurve, Wind zwo fünf null Grad, sieben Knoten, Piste zwo zwo, Start frei. Deine Bestätigung lautet: [[0]]Geradeaus steigen auf dreitausend Fuß, [[1]]dann Rechtskurve, [[2]]Piste zwo zwo, [[3]]Start frei. Den Wind musst du nicht wiederholen.",
+      "visual": {
+        "kind": "transform",
+        "headline": "Ein Beispiel",
+        "highlight": "aus der Praxis",
+        "tiles": [
+          {
+            "top": "Steigen",
+            "bottom": "3000 Fuß"
+          },
+          {
+            "top": "Kurve",
+            "bottom": "rechts"
+          },
+          {
+            "top": "Piste",
+            "bottom": "zwo zwo"
+          },
+          {
+            "top": "Start",
+            "bottom": "frei"
+          }
+        ]
+      }
+    },
+    {
+      "id": "check",
+      "voice": "trainer",
+      "text": "Und noch einmal kurz der Funktest. [[0]]Höre Sie vier heißt: verständlich. [[1]]Höre Sie drei heißt: schwer verständlich. Merke dir die Skala von eins bis fünf, sie kommt in der Prüfung öfter vor.",
+      "visual": {
+        "kind": "transform",
+        "headline": "Der Funktest",
+        "highlight": "noch einmal",
+        "tiles": [
+          {
+            "top": "4",
+            "bottom": "verständlich"
+          },
+          {
+            "top": "3",
+            "bottom": "schwer verständlich"
+          }
+        ]
+      }
+    },
+    {
+      "id": "outro",
+      "voice": "trainer",
+      "text": "Damit hast du alles beisammen: [[0]]die Anrufarten, [[1]]das Read-back [[2]]und den Funktest. Hör dir jetzt die Übung an, und wiederhole die Freigaben laut. Danach warten 14 Fragen aus dem offiziellen Katalog. Los geht's.",
+      "visual": {
+        "kind": "outro",
+        "pills": [
+          "Anrufarten",
+          "Read-back",
+          "Funktest"
+        ]
+      }
+    }
+  ]
+}

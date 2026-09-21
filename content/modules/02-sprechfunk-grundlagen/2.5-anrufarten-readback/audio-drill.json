@@ -1,0 +1,136 @@
+{
+  "id": "2.5-audio-drill",
+  "language": "de",
+  "segments": [
+    {
+      "voice": "trainer",
+      "text": "Willkommen zur Übung. Zuerst die Anrufarten. Ich nenne einen Anruf. Du sagst nach der Pause, um welche Art es sich handelt."
+    },
+    {
+      "pause": 1.5
+    },
+    {
+      "voice": "trainer",
+      "text": "An alle, Hamburg Turm, Piste zwo vier ist gesperrt, Ende."
+    },
+    {
+      "pause": 5.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Ein allgemeiner Anruf. Er wird nicht bestätigt."
+    },
+    {
+      "pause": 1.6
+    },
+    {
+      "voice": "trainer",
+      "text": "Delta Echo Alfa Bravo Charlie, Delta Golf India Alfa Lima, Delta Hotel Hotel India Alfa, rufen Sie Leipzig Turm."
+    },
+    {
+      "pause": 5.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Ein Mehrfachanruf. Er wird der Reihe nach bestätigt."
+    },
+    {
+      "pause": 1.6
+    },
+    {
+      "voice": "trainer",
+      "text": "Jetzt das Read-back. Ich bin der Tower und gebe dir eine Freigabe. Du sprichst danach die sicherheitsrelevanten Teile nach. Dein Rufzeichen ist Delta Echo Lima India Delta."
+    },
+    {
+      "pause": 1.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Delta Echo Lima India Delta, Piste zwo vier, Wind zwo vier null Grad, acht Knoten, Start frei."
+    },
+    {
+      "pause": 8.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Delta Echo Lima India Delta, Piste zwo vier, Start frei."
+    },
+    {
+      "pause": 1.8
+    },
+    {
+      "voice": "trainer",
+      "text": "Delta Echo Lima India Delta, QNH eins null eins fünf."
+    },
+    {
+      "pause": 8.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Delta Echo Lima India Delta, QNH eins null eins fünf."
+    },
+    {
+      "pause": 1.8
+    },
+    {
+      "voice": "trainer",
+      "text": "Delta Echo Lima India Delta, Squawk eins zwo null null."
+    },
+    {
+      "pause": 8.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Delta Echo Lima India Delta, Squawk eins zwo null null."
+    },
+    {
+      "pause": 1.8
+    },
+    {
+      "voice": "trainer",
+      "text": "Delta Echo Lima India Delta, rufen Sie Leipzig Turm auf eins eins eins Komma drei."
+    },
+    {
+      "pause": 8.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Delta Echo Lima India Delta, Leipzig Turm auf eins eins eins Komma drei."
+    },
+    {
+      "pause": 1.8
+    },
+    {
+      "voice": "trainer",
+      "text": "Delta Echo Lima India Delta, nach dem Abheben geradeaus steigen auf dreitausend Fuß, dann Rechtskurve, Piste zwo zwo, Start frei."
+    },
+    {
+      "pause": 8.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Delta Echo Lima India Delta, geradeaus steigen auf dreitausend Fuß, dann Rechtskurve, Piste zwo zwo, Start frei."
+    },
+    {
+      "pause": 1.8
+    },
+    {
+      "voice": "trainer",
+      "text": "Zum Schluss der Funktest. Die Station versteht dich schwer. Wie lautet ihre Antwort?"
+    },
+    {
+      "pause": 4.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Höre Sie drei."
+    },
+    {
+      "pause": 1.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Sehr gut. Wiederhole die Übung, bis das Read-back ganz von allein kommt."
+    }
+  ]
+}

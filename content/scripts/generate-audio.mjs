@@ -24,6 +24,7 @@ import { createHash } from "node:crypto";
 import { existsSync, mkdirSync, readFileSync, unlinkSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { createTextPreparer } from "./voice-text.mjs";
 
 const contentDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const videoDir = path.join(contentDir, "video");
@@ -32,6 +33,8 @@ const SCENE_GAP_SECONDS = 0.8;
 
 const args = process.argv.slice(2);
 const scriptPath = args.find((a) => !a.startsWith("--"));
+const planOnly = args.includes("--plan");
+let plannedChars = 0;
 const engine = args.includes("--engine") ? args[args.indexOf("--engine") + 1] : "say";
 if (!scriptPath || !["say", "elevenlabs"].includes(engine)) {
   console.error("Usage: generate-audio.mjs <script.json> [--engine say|elevenlabs]");
@@ -41,28 +44,11 @@ if (!scriptPath || !["say", "elevenlabs"].includes(engine)) {
 const script = JSON.parse(readFileSync(scriptPath, "utf8"));
 const voiceConfig = JSON.parse(readFileSync(path.join(contentDir, "voices.json"), "utf8"));
 const voices = voiceConfig.voices;
-const pronunciations = Object.entries(voiceConfig.pronunciations ?? {}).filter(([word]) => !word.startsWith("_"));
+const { applyPronunciations, lintSpoken } = createTextPreparer(voiceConfig);
 const outDir = path.join(contentDir, "build", script.id);
 const cacheDir = path.join(contentDir, "build", "cache");
 mkdirSync(outDir, { recursive: true });
 mkdirSync(cacheDir, { recursive: true });
-
-// Replaces whole words (case-insensitive), keeping ALL CAPS / Capitalised style of the original.
-// Keys may contain spaces, digits and commas (e.g. "117,975"); matching is bounded by letters and digits.
-const escapeRegExp = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-function applyPronunciations(text) {
-  return pronunciations.reduce(
-    (result, [word, replacement]) =>
-      result.replace(new RegExp(`(?<![\\p{L}\\p{N}])${escapeRegExp(word)}(?![\\p{L}\\p{N}])`, "giu"), (match) =>
-        match === match.toUpperCase() && /\p{L}/u.test(match)
-          ? replacement.toUpperCase()
-          : /^\p{Lu}/u.test(match)
-            ? replacement[0].toUpperCase() + replacement.slice(1)
-            : replacement,
-      ),
-    text,
-  );
-}
 
 function wavToPcm(buf) {
   let offset = 12;
@@ -108,11 +94,19 @@ async function synthesizeElevenLabs(voice, text, { timestamps, speed }) {
   if (!voice_id) throw new Error("No elevenlabs.voice_id in voices.json");
   const url = `https://api.elevenlabs.io/v1/text-to-speech/${voice_id}${timestamps ? "/with-timestamps" : ""}?output_format=pcm_${SAMPLE_RATE}`;
   const voice_settings = { stability, similarity_boost, ...(speed ? { speed } : {}) };
-  const res = await fetch(url, {
-    method: "POST",
-    headers: { "xi-api-key": apiKey, "Content-Type": "application/json" },
-    body: JSON.stringify({ text, model_id, voice_settings }),
-  });
+  // ElevenLabs answers 429 ("system busy") or 5xx under load; waiting and retrying is safe and not billed.
+  let res;
+  for (let attempt = 1; ; attempt++) {
+    res = await fetch(url, {
+      method: "POST",
+      headers: { "xi-api-key": apiKey, "Content-Type": "application/json" },
+      body: JSON.stringify({ text, model_id, voice_settings }),
+    });
+    if (res.ok || (res.status !== 429 && res.status < 500) || attempt >= 6) break;
+    const wait = 4 * 2 ** (attempt - 1);
+    console.warn(`  ElevenLabs ${res.status}, retrying in ${wait}s (attempt ${attempt}/5)`);
+    await new Promise((resolve) => setTimeout(resolve, wait * 1000));
+  }
   if (!res.ok) throw new Error(`ElevenLabs ${res.status}: ${await res.text()}`);
   if (!timestamps) return { pcm: Buffer.from(await res.arrayBuffer()) };
   const json = await res.json();
@@ -122,12 +116,18 @@ async function synthesizeElevenLabs(voice, text, { timestamps, speed }) {
 // Plain clip (audio drills): no alignment needed.
 async function speak(voiceName, rawText) {
   const text = applyPronunciations(rawText);
+  const risky = lintSpoken(text);
+  if (risky.length) console.warn(`  lint: risky tokens in drill text (add them to the glossary): ${[...new Set(risky)].join(", ")}`);
   const voice = voiceFor(voiceName);
   // Drill clips keep their original cache key (video-only settings such as video_speed must not invalidate them).
   const { video_speed: _ignored, ...baseSettings } = voice.elevenlabs ?? {};
   const key = createHash("sha1").update(JSON.stringify([engine, engine === "elevenlabs" ? baseSettings : voice[engine], text])).digest("hex");
   const cacheFile = path.join(cacheDir, `${key}.pcm`);
   if (existsSync(cacheFile)) return readFileSync(cacheFile);
+  if (planOnly) {
+    plannedChars += text.length;
+    return Buffer.alloc(2);
+  }
 
   let pcm;
   if (engine === "say") {
@@ -173,6 +173,9 @@ async function speakScene(voiceName, displayTextWithCues) {
     }
   }
 
+  const risky = lintSpoken(spoken);
+  if (risky.length) console.warn(`  lint: risky tokens in scene text (add them to the glossary): ${[...new Set(risky)].join(", ")}`);
+
   const speed = voice.elevenlabs?.video_speed ?? voice.elevenlabs?.speed;
   const key = createHash("sha1").update(JSON.stringify(["scene", engine, voice[engine], speed, spoken])).digest("hex");
   const pcmFile = path.join(cacheDir, `${key}.pcm`);
@@ -180,6 +183,10 @@ async function speakScene(voiceName, displayTextWithCues) {
 
   let pcm;
   let alignment = null;
+  if (planOnly && !(existsSync(pcmFile) && (engine === "say" || existsSync(alignFile)))) {
+    plannedChars += spoken.length;
+    return { pcm: Buffer.alloc(2), cues: [], sentences: [] };
+  }
   if (existsSync(pcmFile) && (engine === "say" || existsSync(alignFile))) {
     pcm = readFileSync(pcmFile);
     if (engine === "elevenlabs") alignment = JSON.parse(readFileSync(alignFile, "utf8"));
@@ -249,6 +256,10 @@ if (script.scenes) {
   }
 }
 
+if (planOnly) {
+  console.log(`${script.id}: would generate ${plannedChars} characters`);
+  process.exit(0);
+}
 const wavPath = path.join(outDir, `${script.id}.wav`);
 const mp3Path = path.join(outDir, `${script.id}.mp3`);
 writeFileSync(wavPath, pcmToWav(Buffer.concat(clips)));

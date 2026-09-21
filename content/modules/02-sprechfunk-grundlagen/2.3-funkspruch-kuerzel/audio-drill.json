@@ -210,14 +210,14 @@
   },
   {
    "voice": "trainer",
-   "text": "Zum Schluss eine Berichtigung. Du hast Q N H eins null null drei gesagt, gemeint war eins null null zwo. Wie berichtigst du?"
+   "text": "Zum Schluss eine Berichtigung. Du hast QNH eins null null drei gesagt, gemeint war eins null null zwo. Wie berichtigst du?"
   },
   {
    "pause": 7.0
   },
   {
    "voice": "trainer",
-   "text": "Q N H eins null null drei, Berichtigung, Q N H eins null null zwo."
+   "text": "QNH eins null null drei, Berichtigung, QNH eins null null zwo."
   },
   {
    "pause": 1.5

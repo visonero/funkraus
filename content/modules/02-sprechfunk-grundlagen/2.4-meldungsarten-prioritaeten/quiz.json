@@ -1,0 +1,56 @@
+{
+  "questions": [
+    {
+      "catalogue_number": 33,
+      "explanation": "Peilfunkmeldungen dienen der Übermittlung von Peilwerten zur navigatorischen Unterstützung. Mit Ausfällen von Funknavigationsanlagen haben sie nichts zu tun."
+    },
+    {
+      "catalogue_number": 34,
+      "explanation": "In der Rangfolge steht die Peilfunkmeldung vor den Flugsicherheitsmeldungen. Die Reihenfolge lautet: Notmeldungen, Dringlichkeitsmeldungen, Peilfunkmeldungen, Flugsicherheitsmeldungen, Wettermeldungen, Flugbetriebsmeldungen."
+    },
+    {
+      "catalogue_number": 35,
+      "explanation": "Meldungen, die bei der Durchführung der Flugverkehrskontrolle übermittelt werden, sind Bewegungs- und Kontrollmeldungen und damit Flugsicherheitsmeldungen."
+    },
+    {
+      "catalogue_number": 36,
+      "explanation": "Eine Meldung, die die Sicherheit eines Luftfahrzeugs, eines anderen Fahrzeugs oder einer Person an Bord betrifft, ist eine Dringlichkeitsmeldung (PAN PAN). Eine Notmeldung (MAYDAY) ist für schwere und unmittelbare Gefahr."
+    },
+    {
+      "catalogue_number": 37,
+      "explanation": "Eine Meldung über dringend benötigte Luftfahrzeugteile betrifft den Betrieb und ist eine Flugbetriebsmeldung. Sie steht in der Rangfolge ganz unten."
+    },
+    {
+      "catalogue_number": 38,
+      "explanation": "Zulässig sind unter den genannten Meldungen die Peilfunkmeldungen. Verwaltungsmeldungen der Luftfahrtbehörden, Meldungen von Luftfahrzeughaltern und Fernschreibmeldungen sind im beweglichen Flugfunkdienst nicht vorgesehen."
+    },
+    {
+      "catalogue_number": 39,
+      "explanation": "Ein Taxi zu bestellen ist ein privater Wunsch und keine der zulässigen Meldungsarten. Es ist deshalb eine unerlaubte Meldung im beweglichen Flugfunkdienst."
+    },
+    {
+      "catalogue_number": 40,
+      "explanation": "Die Bitte um Radarführung zum Umfliegen eines Gewitters ist eine Meldung, die für das Luftfahrzeug im Flug von unmittelbarer Bedeutung ist. Sie ist eine Flugsicherheitsmeldung."
+    },
+    {
+      "catalogue_number": 41,
+      "explanation": "Eine Freigabe der Flugverkehrskontrolle wie „START FREI“ ist eine Kontrollmeldung und damit eine Flugsicherheitsmeldung."
+    },
+    {
+      "catalogue_number": 42,
+      "explanation": "„ERBITTE QDM“ ist eine Peilfunkmeldung. Sie steht in der Rangfolge vor den Flugsicherheitsmeldungen, zu denen Freigaben wie „START FREI“ gehören."
+    },
+    {
+      "catalogue_number": 43,
+      "explanation": "Beide Anweisungen sind Rollanweisungen und gehören damit zur selben Meldungsart, den Flugsicherheitsmeldungen. Sie haben deshalb die gleiche Priorität."
+    },
+    {
+      "catalogue_number": 58,
+      "explanation": "Das Rufzeichen deutscher Luftfunkstellen wird aus den Zeichen des Eintragungszeichens des Luftfahrzeugs gebildet, zum Beispiel D-EJFC."
+    },
+    {
+      "catalogue_number": 59,
+      "explanation": "Den Typ des Rufzeichens darfst du während des Fluges nicht ändern. Die einzige Ausnahme ist eine vorübergehende Änderung auf Anweisung einer Flugverkehrskontrollstelle im Interesse der Sicherheit."
+    }
+  ]
+}

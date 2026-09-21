@@ -1,0 +1,14 @@
+{
+  "id": "2.4",
+  "title": "Meldungsarten und Prioritäten",
+  "content_type": "audio",
+  "sort_order": 3,
+  "assets": {
+    "video": "2.4-hook-video/hook-video.mp4",
+    "audio": "2.4-audio-drill/2.4-audio-drill.mp3"
+  },
+  "sources": [
+    "NfL 2024-1-3266, Nr. 3 Meldungsarten (SERA.14005), Nr. 4 Flugsicherheitsmeldungen (SERA.14010), Nr. 14 Sprechfunkverfahren (SERA.14055)",
+    "BNetzA-Prüfungsfragenkatalog 2024, Nr. 33 bis 43, 58, 59"
+  ]
+}
