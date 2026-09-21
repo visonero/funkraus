@@ -1,0 +1,83 @@
+{
+  "label": "Lektion 3.2 · Platzrunden-Karte",
+  "title": "Platzrunde und",
+  "highlight": "Landung",
+  "sections": [
+    {
+      "title": "Die Platzrunde",
+      "rows": [
+        [
+          "Gegenanflug",
+          "parallel zur Landebahn, in Gegenrichtung (Gegenanflug 16 = Kurs 340°, Platz links)"
+        ],
+        [
+          "Queranflug",
+          "Kurve auf die Landebahn zu"
+        ],
+        [
+          "Endanflug",
+          "gerade auf die Piste zu, Meldung 7 km (4 NM) vor dem Aufsetzen"
+        ],
+        [
+          "Kurven",
+          "normalerweise Linkskurven, auch beim An- und Abflug"
+        ],
+        [
+          "Vorflugrecht",
+          "im Endanflug hat das tiefer fliegende Luftfahrzeug Vorflugrecht"
+        ]
+      ]
+    },
+    {
+      "title": "Der Ablauf",
+      "rows": [
+        [
+          "1 Einflug",
+          "(Typ) (Position) (Höhe) ZUR LANDUNG [INFORMATION (ATIS-Buchstabe)]"
+        ],
+        [
+          "2 Anweisung",
+          "FLIEGEN SIE IN DEN GEGENANFLUG, PISTE (Nr), WIND …, QNH …"
+        ],
+        [
+          "3 Meldungen",
+          "MELDEN SIE QUERANFLUG / ENDANFLUG, NUMMER (Zahl) FOLGEN SIE (Typ)"
+        ],
+        [
+          "4 Landung",
+          "PISTE (Nr), LANDUNG FREI: wiederholen"
+        ],
+        [
+          "5 Danach",
+          "RUFEN SIE ROLLKONTROLLE (Frequenz), PISTE VERLASSEN melden"
+        ]
+      ]
+    },
+    {
+      "title": "Sonderfälle",
+      "rows": [
+        [
+          "FREI ZUM AUFSETZEN UND DURCHSTARTEN",
+          "Touch and go"
+        ],
+        [
+          "MACHEN SIE ABSCHLUSSLANDUNG",
+          "aufsetzen und anhalten"
+        ],
+        [
+          "STARTEN SIE DURCH → STARTE DURCH",
+          "Fehlanflug"
+        ],
+        [
+          "FLIEGEN SIE EINE WEITERE PLATZRUNDE",
+          "Verzögerung"
+        ],
+        [
+          "KREISEN SIE ÜBER DEM FLUGPLATZ",
+          "Verzögerung"
+        ]
+      ]
+    }
+  ],
+  "footer": "Quellen: NfL 2024-1-3266 (DFS), Anlage 1 Nr. 1.4.13 bis 1.4.20; BNetzA-Prüfungsfragenkatalog 2024, Nr. 76, 181, 200 bis 203"
+}

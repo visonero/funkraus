@@ -1,0 +1,199 @@
+{
+  "id": "3.3-audio-drill",
+  "language": "de",
+  "segments": [
+    {
+      "voice": "trainer",
+      "text": "Willkommen zur Signalübung. Ich beschreibe ein Signal. Du sagst nach der Pause, was es bedeutet. Danach höre ich dir die Lösung vor."
+    },
+    {
+      "pause": 1.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Grünes Dauerlicht auf ein Luftfahrzeug im Flug."
+    },
+    {
+      "pause": 4.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Landung freigegeben."
+    },
+    {
+      "pause": 1.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Rotes Dauerlicht auf ein Luftfahrzeug im Flug."
+    },
+    {
+      "pause": 4.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Anderes Luftfahrzeug hat Vorflug, Platzrunde fortsetzen."
+    },
+    {
+      "pause": 1.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Grünes Blinklicht auf ein Luftfahrzeug im Flug."
+    },
+    {
+      "pause": 4.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Zwecks Landung zurückkehren."
+    },
+    {
+      "pause": 1.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Rotes Blinklicht auf ein Luftfahrzeug im Flug."
+    },
+    {
+      "pause": 4.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Nicht landen, Flugplatz unbenutzbar."
+    },
+    {
+      "pause": 1.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Weißes Blinklicht auf ein Luftfahrzeug im Flug."
+    },
+    {
+      "pause": 4.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Auf diesem Flugplatz landen und zum Vorfeld rollen."
+    },
+    {
+      "pause": 1.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Ein roter Feuerwerkskörper auf ein Luftfahrzeug im Flug."
+    },
+    {
+      "pause": 4.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Zur Zeit nicht landen, ungeachtet aller früheren Freigaben."
+    },
+    {
+      "pause": 1.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Grünes Dauerlicht auf ein Luftfahrzeug am Boden."
+    },
+    {
+      "pause": 4.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Start freigegeben."
+    },
+    {
+      "pause": 1.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Rotes Dauerlicht auf ein Luftfahrzeug am Boden."
+    },
+    {
+      "pause": 4.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Halt."
+    },
+    {
+      "pause": 1.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Grünes Blinklicht auf ein Luftfahrzeug am Boden."
+    },
+    {
+      "pause": 4.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Rollerlaubnis erteilt."
+    },
+    {
+      "pause": 1.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Rotes Blinklicht auf ein Luftfahrzeug am Boden."
+    },
+    {
+      "pause": 4.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Benutzte Landefläche freimachen."
+    },
+    {
+      "pause": 1.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Weißes Blinklicht auf ein Luftfahrzeug am Boden."
+    },
+    {
+      "pause": 4.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Zum Ausgangspunkt zurückkehren."
+    },
+    {
+      "pause": 1.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Ein rotes Feld mit zwei gelben Diagonalstreifen in der Signalfläche."
+    },
+    {
+      "pause": 4.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Landeverbot für längere Zeit."
+    },
+    {
+      "pause": 1.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Eine weiße Hantel in der Signalfläche."
+    },
+    {
+      "pause": 4.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Nur Start- und Landebahnen und Rollbahnen benutzen."
+    },
+    {
+      "pause": 1.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Sehr gut. Wiederhole die Übung, bis du jedes Signal sofort erkennst."
+    }
+  ]
+}

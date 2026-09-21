@@ -1,0 +1,14 @@
+{
+  "id": "3.3",
+  "title": "Licht- und Bodensignale",
+  "content_type": "audio",
+  "sort_order": 2,
+  "assets": {
+    "video": "3.3-hook-video/hook-video.mp4",
+    "audio": "3.3-audio-drill/3.3-audio-drill.mp3",
+    "pdf": "3.3-signal-karte/signal-karte.pdf"
+  },
+  "sources": [
+    "BNetzA-Prüfungsfragenkatalog 2024, Nr. 150 bis 152, 184 bis 199, 204"
+  ]
+}

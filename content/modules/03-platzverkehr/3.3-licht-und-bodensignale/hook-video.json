@@ -1,0 +1,181 @@
+{
+  "id": "3.3-hook-video",
+  "language": "de",
+  "scenes": [
+    {
+      "id": "intro",
+      "voice": "trainer",
+      "text": "Was passiert, wenn dein Funkgerät ausfällt oder du gar keines an Bord hast? Dann übernimmt ein zweites Verständigungssystem, das seit den Anfängen der Fliegerei funktioniert: [[0]]Lichtsignale und [[1]]Zeichen am Boden. Der Turm hat dafür eine Signallampe, die grün, rot und weiß leuchten oder blinken kann. Diese Signale musst du kennen, und die Prüfung fragt sie gern ab.",
+      "visual": {
+        "kind": "headline",
+        "headline": "Wenn das Funkgerät",
+        "highlight": "schweigt",
+        "tiles": [
+          "Licht",
+          "Zeichen"
+        ]
+      }
+    },
+    {
+      "id": "priority",
+      "voice": "trainer",
+      "text": "Zuerst die wichtigste Regel: Wer hat Vorrang? [[0]]Funkanweisungen haben Vorrang vor Licht- und Bodensignalen. [[1]]Signale stehen also hinter dem Funk. [[2]]Es gibt genau eine Ausnahme: den roten Feuerwerkskörper, der auf ein Luftfahrzeug im Flug gerichtet ist. Auf dem Vorfeld gelten übrigens die Signale des Flugplatzunternehmers, nicht die des Kontrollturms.",
+      "visual": {
+        "kind": "transform",
+        "headline": "Wer hat",
+        "highlight": "Vorrang?",
+        "tiles": [
+          {
+            "top": "Funk",
+            "bottom": "hat Vorrang"
+          },
+          {
+            "top": "Signale",
+            "bottom": "stehen dahinter"
+          },
+          {
+            "top": "Roter Feuerwerkskörper",
+            "bottom": "einzige Ausnahme",
+            "tone": "red"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ground",
+      "voice": "trainer",
+      "text": "Fangen wir mit den Zeichen am Boden an, in der Signalfläche des Flugplatzes. [[0]]Ein rotes Feld mit zwei gelben Diagonalstreifen bedeutet: Landeverbot für längere Zeit. [[1]]Eine weiße Hantel heißt: Zum Starten, Landen und Rollen nur die Bahnen benutzen. [[2]]Beim Lande-T startest und landest du parallel zum Längsbalken in Richtung des Querbalkens. [[3]]Eine zweistellige Zahl am Turm zeigt die Startrichtung, auf zehn Grad gerundet. [[4]]Und ein nach rechts abgewinkelter Pfeil bedeutet: Kurven nach dem Start und vor der Landung nur nach rechts.",
+      "visual": {
+        "kind": "transform",
+        "headline": "Zeichen in der",
+        "highlight": "Signalfläche",
+        "tiles": [
+          {
+            "top": "Rot-Gelb",
+            "bottom": "Landeverbot"
+          },
+          {
+            "top": "Hantel",
+            "bottom": "nur Bahnen benutzen"
+          },
+          {
+            "top": "Lande-T",
+            "bottom": "zum Querbalken"
+          },
+          {
+            "top": "Zahl",
+            "bottom": "Startrichtung"
+          },
+          {
+            "top": "Pfeil",
+            "bottom": "nur nach rechts"
+          }
+        ]
+      }
+    },
+    {
+      "id": "air",
+      "voice": "trainer",
+      "text": "Jetzt die Lichtsignale an ein Luftfahrzeug im Flug. Hier hilft eine einfache Logik: Grün heißt Weiter, Rot heißt Nein, Weiß heißt Zurück. [[0]]Grünes Dauerlicht heißt: Landung freigegeben. [[1]]Rotes Dauerlicht heißt: Ein anderes Luftfahrzeug hat Vorflug, setze die Platzrunde fort. [[2]]Grünes Blinken heißt: Kehre zur Landung zurück, die Freigaben folgen später. [[3]]Rotes Blinken heißt: Nicht landen, der Flugplatz ist unbenutzbar. [[4]]Und weißes Blinken heißt: Lande auf diesem Flugplatz und rolle zum Vorfeld.",
+      "visual": {
+        "kind": "transform",
+        "headline": "Lichtsignale an",
+        "highlight": "Luftfahrzeuge im Flug",
+        "tiles": [
+          {
+            "top": "Grün",
+            "bottom": "Landung frei",
+            "tone": "green"
+          },
+          {
+            "top": "Rot",
+            "bottom": "Platzrunde fortsetzen",
+            "tone": "red"
+          },
+          {
+            "top": "Grün blinkt",
+            "bottom": "zurückkehren",
+            "tone": "green"
+          },
+          {
+            "top": "Rot blinkt",
+            "bottom": "nicht landen",
+            "tone": "red"
+          },
+          {
+            "top": "Weiß blinkt",
+            "bottom": "landen, zum Vorfeld",
+            "tone": "white"
+          }
+        ]
+      }
+    },
+    {
+      "id": "flare",
+      "voice": "trainer",
+      "text": "Und dann ist da noch der [[0]]rote Feuerwerkskörper. Er bedeutet: Ungeachtet aller früheren Anweisungen und Freigaben landest du zur Zeit nicht. Er ist das einzige Signal, das sogar Funkanweisungen übertrifft.",
+      "visual": {
+        "kind": "transform",
+        "headline": "Der rote",
+        "highlight": "Feuerwerkskörper",
+        "tiles": [
+          {
+            "top": "Nicht landen",
+            "bottom": "ungeachtet aller Freigaben",
+            "tone": "red"
+          }
+        ]
+      }
+    },
+    {
+      "id": "groundlights",
+      "voice": "trainer",
+      "text": "Zum Schluss die Signale an ein Luftfahrzeug am Boden. [[0]]Grünes Dauerlicht: Start freigegeben. [[1]]Rotes Dauerlicht: Halt. [[2]]Grünes Blinken: Rollerlaubnis erteilt. [[3]]Rotes Blinken: Benutzte Landefläche freimachen. [[4]]Und weißes Blinken: Zum Ausgangspunkt auf dem Flughafen zurückkehren.",
+      "visual": {
+        "kind": "transform",
+        "headline": "Lichtsignale am",
+        "highlight": "Boden",
+        "tiles": [
+          {
+            "top": "Grün",
+            "bottom": "Start frei",
+            "tone": "green"
+          },
+          {
+            "top": "Rot",
+            "bottom": "Halt",
+            "tone": "red"
+          },
+          {
+            "top": "Grün blinkt",
+            "bottom": "Rollerlaubnis",
+            "tone": "green"
+          },
+          {
+            "top": "Rot blinkt",
+            "bottom": "Fläche freimachen",
+            "tone": "red"
+          },
+          {
+            "top": "Weiß blinkt",
+            "bottom": "zurück zum Start",
+            "tone": "white"
+          }
+        ]
+      }
+    },
+    {
+      "id": "outro",
+      "voice": "trainer",
+      "text": "Damit hast du alles beisammen: [[0]]den Vorrang, [[1]]die Zeichen am Boden [[2]]und die Lichtsignale. Lade dir die Signal-Karte herunter und hör dir die Übung an. Danach folgen 20 Fragen. Los geht's.",
+      "visual": {
+        "kind": "outro",
+        "pills": [
+          "Vorrang",
+          "Bodenzeichen",
+          "Lichtsignale"
+        ]
+      }
+    }
+  ]
+}

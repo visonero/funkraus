@@ -1,0 +1,151 @@
+{
+  "id": "3.2-hook-video",
+  "language": "de",
+  "scenes": [
+    {
+      "id": "intro",
+      "voice": "trainer",
+      "text": "Stell dir einen Flugplatz an einem schönen Sommertag vor. Ein Flugzeug startet, ein anderes will landen, ein drittes fliegt gerade eine Runde nach der anderen. Damit daraus kein Durcheinander wird, gibt es die Platzrunde. Sie sorgt dafür, dass sich alle wie an einer Perlenkette hintereinander einreihen. In dieser Lektion lernst du ihre Teile: den [[0]]Gegenanflug, den [[1]]Queranflug und den [[2]]Endanflug.",
+      "visual": {
+        "kind": "headline",
+        "headline": "Die Platzrunde:",
+        "highlight": "Ordnung am Himmel",
+        "tiles": [
+          "Gegenanflug",
+          "Queranflug",
+          "Endanflug"
+        ]
+      }
+    },
+    {
+      "id": "circuit",
+      "voice": "trainer",
+      "text": "Schauen wir uns die Platzrunde genauer an. [[0]]Im Gegenanflug fliegst du parallel zur Landebahn, aber in die Gegenrichtung. Beim Gegenanflug für Piste eins sechs fliegst du also einen Kurs von dreihundertvierzig Grad. [[1]]Im Queranflug drehst du auf die Landebahn zu. [[2]]Und im Endanflug fliegst du gerade auf die Piste zu. Wichtig: Kurven in der Platzrunde sind normalerweise Linkskurven. Und im Endanflug hat das tiefer fliegende Luftfahrzeug Vorflugrecht.",
+      "visual": {
+        "kind": "transform",
+        "headline": "Die Teile der",
+        "highlight": "Platzrunde",
+        "tiles": [
+          {
+            "top": "Gegenanflug",
+            "bottom": "parallel, Gegenrichtung"
+          },
+          {
+            "top": "Queranflug",
+            "bottom": "Kurve zur Bahn"
+          },
+          {
+            "top": "Endanflug",
+            "bottom": "7 km vor dem Aufsetzen"
+          }
+        ]
+      }
+    },
+    {
+      "id": "entry",
+      "voice": "trainer",
+      "text": "Wie kommst du in die Platzrunde hinein? Mit einem klaren Ablauf. [[0]]Du meldest dich beim Turm mit Luftfahrzeugtyp, Position, Höhe und den Worten: zur Landung. [[1]]Der Turm weist dich ein, zum Beispiel: Fliegen Sie in den Gegenanflug, Piste zwo sieben, Wind, QNH. [[2]]Du bestätigst Piste und QNH und nennst dein Rufzeichen.",
+      "visual": {
+        "kind": "transform",
+        "headline": "Einflug in die",
+        "highlight": "Platzrunde",
+        "tiles": [
+          {
+            "top": "Dein Anruf",
+            "bottom": "Typ, Position, Höhe, zur Landung"
+          },
+          {
+            "top": "Die Anweisung",
+            "bottom": "Piste, Wind, QNH"
+          },
+          {
+            "top": "Deine Antwort",
+            "bottom": "Piste und QNH wiederholen"
+          }
+        ]
+      }
+    },
+    {
+      "id": "reports",
+      "voice": "trainer",
+      "text": "In der Platzrunde kann der Turm Meldungen von dir verlangen. [[0]]Melden Sie Queranflug heißt: Sag mir, wenn du im Queranflug bist. [[1]]Den Endanflug meldest du sieben Kilometer vor dem Aufsetzen. [[2]]Und Nummer zwo, folgen Sie der Cessna heißt: Du bist als Zweiter an der Reihe und sollst dem Flugzeug vor dir folgen.",
+      "visual": {
+        "kind": "transform",
+        "headline": "In der Platzrunde",
+        "highlight": "melden",
+        "tiles": [
+          {
+            "top": "QUERANFLUG",
+            "bottom": "melden auf Aufforderung"
+          },
+          {
+            "top": "ENDANFLUG",
+            "bottom": "7 km vor dem Aufsetzen"
+          },
+          {
+            "top": "NUMMER ZWO",
+            "bottom": "Folgen Sie dem Vordermann"
+          }
+        ]
+      }
+    },
+    {
+      "id": "landing",
+      "voice": "trainer",
+      "text": "Dann kommt der große Moment: die Landefreigabe. [[0]]Sie lautet: Piste zwo sieben, Landung frei. [[1]]Du wiederholst sie mit deinem Rufzeichen. Eine Landung ohne diese Freigabe gibt es nicht. Nach der Landung verlässt du die Piste und rufst auf Anweisung die Rollkontrolle. Sobald das ganze Luftfahrzeug hinter dem Rollhalt ist, meldest du: Piste verlassen.",
+      "visual": {
+        "kind": "transform",
+        "headline": "Die",
+        "highlight": "Landefreigabe",
+        "plate": "PISTE 27",
+        "tiles": [
+          {
+            "top": "LANDUNG FREI",
+            "bottom": "die Freigabe"
+          },
+          {
+            "top": "Wiederholen",
+            "bottom": "Piste, Landung frei"
+          }
+        ]
+      }
+    },
+    {
+      "id": "special",
+      "voice": "trainer",
+      "text": "Zum Schluss ein paar Sonderfälle. [[0]]Bei der Freigabe zum Aufsetzen und Durchstarten setzt du auf und startest sofort wieder durch. [[1]]Bei Machen Sie Abschlusslandung setzt du auf und kommst zum Stillstand. [[2]]Und ruft der Turm: Starten Sie durch, weil zum Beispiel die Piste blockiert ist, antwortest du: Starte durch.",
+      "visual": {
+        "kind": "transform",
+        "headline": "Besondere",
+        "highlight": "Fälle",
+        "tiles": [
+          {
+            "top": "Touch and go",
+            "bottom": "Aufsetzen und Durchstarten"
+          },
+          {
+            "top": "Abschlusslandung",
+            "bottom": "aufsetzen und anhalten"
+          },
+          {
+            "top": "STARTE DURCH",
+            "bottom": "Fehlanflug"
+          }
+        ]
+      }
+    },
+    {
+      "id": "outro",
+      "voice": "trainer",
+      "text": "Damit kennst du den ganzen Weg: [[0]]die Platzrunde, [[1]]die Landung [[2]]und das Durchstarten. Lade dir die Platzrunden-Karte herunter, hör dir die Übung an und beantworte danach neun Fragen. Los geht's.",
+      "visual": {
+        "kind": "outro",
+        "pills": [
+          "Platzrunde",
+          "Landung",
+          "Durchstarten"
+        ]
+      }
+    }
+  ]
+}

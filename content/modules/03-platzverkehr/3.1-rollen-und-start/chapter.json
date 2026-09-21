@@ -1,0 +1,16 @@
+{
+  "id": "3.1",
+  "title": "Kontrollierter Flugplatz: Rollen und Start",
+  "content_type": "audio",
+  "sort_order": 0,
+  "assets": {
+    "video": "3.1-hook-video/hook-video.mp4",
+    "audio": "3.1-audio-drill/3.1-audio-drill.mp3",
+    "pdf": "3.1-rollen-start-karte/rollen-start-karte.pdf"
+  },
+  "sources": [
+    "NfL 2024-1-3266, Anlage 1 Nr. 1.4.3 bis 1.4.12 (Sprechgruppen am und in der Nähe vom Flugplatz)",
+    "NfL 2024-1-3266, Nr. 25 Freigaben (Wiederholung von Freigaben)",
+    "BNetzA-Prüfungsfragenkatalog 2024, Nr. 77 bis 79, 89, 97, 98"
+  ]
+}

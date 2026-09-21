@@ -1,0 +1,101 @@
+{
+  "id": "3.2-audio-drill",
+  "language": "de",
+  "segments": [
+    {
+      "voice": "trainer",
+      "text": "Willkommen zur Platzrunden-Übung. Du bist Delta Echo Hotel Oscar Lima in einer Cessna und näherst dich dem Flugplatz Leipzig. Ich bin der Tower. Sprich nach jeder Pause deine Meldung oder Bestätigung. Danach höre ich dir die Lösung vor."
+    },
+    {
+      "pause": 1.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Zuerst der Einflug. Du bist fünf Kilometer südlich des Platzes in eintausendfünfhundert Fuß und willst landen. Melde dich beim Turm."
+    },
+    {
+      "pause": 9.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Leipzig Turm, Delta Echo Hotel Oscar Lima, Cessna, fünf Kilometer südlich, eintausendfünfhundert Fuß, zur Landung."
+    },
+    {
+      "pause": 1.8
+    },
+    {
+      "voice": "trainer",
+      "text": "Der Tower antwortet: Delta Echo Hotel Oscar Lima, fliegen Sie in den Gegenanflug Piste zwo sieben, Wind zwo sieben null Grad, sieben Knoten, QNH eins null eins fünf."
+    },
+    {
+      "pause": 8.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Delta Echo Hotel Oscar Lima, Gegenanflug Piste zwo sieben, QNH eins null eins fünf."
+    },
+    {
+      "pause": 1.8
+    },
+    {
+      "voice": "trainer",
+      "text": "Im Gegenanflug sagt der Tower: Delta Echo Hotel Oscar Lima, melden Sie Endanflug."
+    },
+    {
+      "pause": 5.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Melde Endanflug, Delta Echo Hotel Oscar Lima."
+    },
+    {
+      "pause": 1.8
+    },
+    {
+      "voice": "trainer",
+      "text": "Jetzt bist du im Endanflug. Der Tower: Delta Echo Hotel Oscar Lima, Piste zwo sieben, Landung frei."
+    },
+    {
+      "pause": 6.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Delta Echo Hotel Oscar Lima, Piste zwo sieben, Landung frei."
+    },
+    {
+      "pause": 1.8
+    },
+    {
+      "voice": "trainer",
+      "text": "Eine andere Lage. Die Piste wird blockiert. Der Tower ruft: Delta Echo Hotel Oscar Lima, starten Sie durch, Piste blockiert."
+    },
+    {
+      "pause": 5.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Starte durch, Delta Echo Hotel Oscar Lima."
+    },
+    {
+      "pause": 1.8
+    },
+    {
+      "voice": "trainer",
+      "text": "Nach der Landung sagt der Tower: Nach Verlassen der Piste rufen Sie Rollkontrolle auf eins eins eins Komma eins."
+    },
+    {
+      "pause": 7.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Nach Verlassen der Piste Rollkontrolle auf eins eins eins Komma eins, Delta Echo Hotel Oscar Lima."
+    },
+    {
+      "pause": 1.8
+    },
+    {
+      "voice": "trainer",
+      "text": "Sehr gut. Wiederhole die Übung, bis der Ablauf sitzt."
+    }
+  ]
+}

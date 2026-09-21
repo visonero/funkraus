@@ -1,0 +1,61 @@
+{
+  "questions": [
+    {
+      "catalogue_number": 76,
+      "explanation": "Auf „STARTEN SIE DURCH, PISTE BLOCKIERT“ antwortest du mit „STARTE DURCH“. VERSTANDEN, WILCO oder POSITIV reichen bei einem Durchstartbefehl nicht aus."
+    },
+    {
+      "catalogue_number": 181,
+      "explanation": "Im Endanflug hat das tiefer fliegende Luftfahrzeug Vorflugrecht. Die Größe oder Sitzzahl des Luftfahrzeugs spielt keine Rolle."
+    },
+    {
+      "catalogue_number": 200,
+      "explanation": "Der Flugplatzverkehr umfasst den gesamten Verkehr auf dem Rollfeld und alle Luftfahrzeuge in der Nähe des Flugplatzes. Dazu zählt, wer sich in der Platzrunde befindet, in sie einfliegt oder sie verlässt."
+    },
+    {
+      "catalogue_number": 201,
+      "explanation": "Im Gegenanflug für Piste 16 fliegst du entgegen der Landerichtung 160 Grad, also mit einem Kurs von 340 Grad. Bei der üblichen Linksplatzrunde liegt der Flugplatz dabei links von dir."
+    },
+    {
+      "catalogue_number": 202,
+      "explanation": "Richtungsänderungen in der Platzrunde werden normalerweise als Linkskurven ausgeführt."
+    },
+    {
+      "catalogue_number": 203,
+      "explanation": "Auch Richtungsänderungen beim An- und Abflug werden normalerweise in Linkskurven ausgeführt."
+    },
+    {
+      "source_ref": "funkraus Übungsfrage",
+      "question": "Der Turm sagt: „DELTA ECHO HOTEL OSCAR LIMA, PISTE 27, LANDUNG FREI.“ Wie bestätigst du?",
+      "options": [
+        "DELTA ECHO HOTEL OSCAR LIMA, PISTE 27, LANDUNG FREI",
+        "DELTA ECHO HOTEL OSCAR LIMA, VERSTANDEN",
+        "DELTA ECHO HOTEL OSCAR LIMA, WILCO",
+        "DELTA ECHO HOTEL OSCAR LIMA, ICH LANDE"
+      ],
+      "explanation": "Freigaben zum Landen auf Pisten wiederholst du. Du nennst also Piste und „LANDUNG FREI“ mit deinem Rufzeichen. VERSTANDEN oder WILCO allein genügen nicht."
+    },
+    {
+      "source_ref": "funkraus Übungsfrage",
+      "question": "In welcher Entfernung vor dem Aufsetzen meldest du „ENDANFLUG“?",
+      "options": [
+        "7 km (4 NM)",
+        "2 km (1 NM)",
+        "15 km (8 NM)",
+        "20 km (11 NM)"
+      ],
+      "explanation": "Der Endanflug wird 7 km (4 NM) vor dem Aufsetzen gemeldet. „LANGER ENDANFLUG“ meldest du, wenn du in mehr als 7 km Entfernung auf den Endanflug einbiegst."
+    },
+    {
+      "source_ref": "funkraus Übungsfrage",
+      "question": "Was bedeutet „FREI ZUM AUFSETZEN UND DURCHSTARTEN“?",
+      "options": [
+        "Du darfst aufsetzen und ohne anzuhalten wieder starten",
+        "Du darfst landen und musst zum Vorfeld rollen",
+        "Du musst durchstarten, ohne aufzusetzen",
+        "Du darfst nur einen Überflug durchführen"
+      ],
+      "explanation": "Mit dieser Freigabe darfst du aufsetzen und ohne anzuhalten wieder durchstarten, also einen Touch and go fliegen. Für eine Landung mit Anhalten gilt „MACHEN SIE ABSCHLUSSLANDUNG“."
+    }
+  ]
+}

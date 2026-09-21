@@ -1,0 +1,91 @@
+{
+  "label": "Lektion 3.1 · Rollen-und-Start-Karte",
+  "title": "Rollen und",
+  "highlight": "Start",
+  "sections": [
+    {
+      "title": "Das meldest du selbst",
+      "rows": [
+        [
+          "ERBITTE ANLASSEN",
+          "Rufzeichen, Standort (wenn üblich)"
+        ],
+        [
+          "ERBITTE ROLLEN",
+          "Rufzeichen, Typ, Standort"
+        ],
+        [
+          "ERBITTE ÜBERQUEREN PISTE (Nr)",
+          "Piste überqueren"
+        ],
+        [
+          "ABFLUGBEREIT",
+          "Startvorbereitungen beendet"
+        ],
+        [
+          "PISTE VERLASSEN",
+          "ganzes Luftfahrzeug hinter dem Rollhalt"
+        ],
+        [
+          "ABGEHOBEN (Zeit)",
+          "nach dem Start, wenn gefordert"
+        ]
+      ]
+    },
+    {
+      "title": "Anweisung der Kontrolle → deine Bestätigung",
+      "rows": [
+        [
+          "HALTEN SIE POSITION",
+          "HALTE POSITION"
+        ],
+        [
+          "HALTEN SIE KURZ VOR (Position)",
+          "HALTE KURZ VOR (Position)"
+        ],
+        [
+          "STARTFREIGABE AUFGEHOBEN",
+          "HALTE"
+        ],
+        [
+          "SOFORT ANHALTEN",
+          "HALTE AN"
+        ],
+        [
+          "PISTE (Nr) START FREI",
+          "PISTE (Nr) START FREI"
+        ]
+      ]
+    },
+    {
+      "title": "Der Weg zum Start",
+      "rows": [
+        [
+          "1",
+          "ERBITTE ROLLEN → ROLLEN SIE ZUM ROLLHALT PISTE (Nr)"
+        ],
+        [
+          "2",
+          "Am Rollhalt halten, bis die Kontrolle etwas anderes genehmigt"
+        ],
+        [
+          "3",
+          "ABFLUGBEREIT melden"
+        ],
+        [
+          "4",
+          "ROLLEN SIE ZUM ABFLUGPUNKT PISTE (Nr) [DORT HALTEN]"
+        ],
+        [
+          "5",
+          "PISTE (Nr) START FREI, dann bestätigen und starten"
+        ]
+      ],
+      "example": {
+        "say": "Merke: VERSTANDEN und WILCO reichen bei HALTEN nicht.",
+        "note": "Immer HALTE"
+      }
+    }
+  ],
+  "footer": "Quellen: NfL 2024-1-3266 (DFS), Anlage 1 Nr. 1.4; BNetzA-Prüfungsfragenkatalog 2024, Nr. 77 bis 79"
+}

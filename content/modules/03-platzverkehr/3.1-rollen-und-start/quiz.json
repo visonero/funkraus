@@ -1,0 +1,61 @@
+{
+  "questions": [
+    {
+      "catalogue_number": 77,
+      "explanation": "Bei „HALTEN SIE POSITION, STARTFREIGABE AUFGEHOBEN“ antwortest du mit deinem Rufzeichen und „HALTE“. VERSTANDEN, POSITIV oder nur das Rufzeichen reichen bei Haltanweisungen nicht."
+    },
+    {
+      "catalogue_number": 78,
+      "explanation": "Die Startfreigabe bestätigst du, indem du die Piste und „START FREI“ mit deinem Rufzeichen wiederholst: „DEHOL PISTE 24 START FREI“. WILCO oder „ICH STARTE“ genügen nicht."
+    },
+    {
+      "catalogue_number": 79,
+      "explanation": "Sind die Startvorbereitungen beendet, meldest du dem Turm „ABFLUGBEREIT“ mit deinem Rufzeichen. „START FREI“ ist dagegen die Freigabe der Kontrolle."
+    },
+    {
+      "catalogue_number": 89,
+      "explanation": "Bevor du funkst, stellst du die richtige Frequenz ein und stellst sicher, dass du keinen laufenden Funkverkehr störst. Eine Funkprobe oder ein Flug in der Luft sind keine Voraussetzung."
+    },
+    {
+      "catalogue_number": 97,
+      "explanation": "Auf einem Flugplatz mit Flugverkehrskontrolle holst du per Funk oder durch Zeichen die vorherige Genehmigung für alle Bewegungen ein, die Rollen, Starten und Landen einleiten oder damit zusammenhängen."
+    },
+    {
+      "catalogue_number": 98,
+      "explanation": "Als VFR-Pilot auf einem Flugplatz mit Flugverkehrskontrolle oder in dessen Umgebung hältst du dauernde Hörbereitschaft auf der vorgesehenen Frequenz. Geht das nicht, achtest du auf Licht- und Bodensignale sowie Zeichen."
+    },
+    {
+      "source_ref": "funkraus Übungsfrage",
+      "question": "Der Turm sagt: „DELTA ECHO HOTEL OSCAR LIMA, HALTEN SIE POSITION.“ Wie bestätigst du?",
+      "options": [
+        "HALTE POSITION",
+        "VERSTANDEN",
+        "WILCO",
+        "POSITIV"
+      ],
+      "explanation": "Bei einer Haltanweisung antwortest du mit „HALTE POSITION“, genauso wie du sie erhalten hast. VERSTANDEN und WILCO reichen dafür nicht aus."
+    },
+    {
+      "source_ref": "funkraus Übungsfrage",
+      "question": "Wann meldest du „PISTE VERLASSEN“?",
+      "options": [
+        "Wenn sich das ganze Luftfahrzeug hinter dem betreffenden Rollhalt befindet",
+        "Sobald das Bugrad die Pistenmarkierung überrollt hat",
+        "Wenn du die Landefreigabe erhalten hast",
+        "Nach dem Abstellen der Triebwerke"
+      ],
+      "explanation": "Die Besatzung meldet „PISTE VERLASSEN“ erst, wenn das ganze Luftfahrzeug hinter dem betreffenden Rollhalt ist."
+    },
+    {
+      "source_ref": "funkraus Übungsfrage",
+      "question": "Du hast mit dem Startlauf begonnen, der Turm ruft: „SOFORT ANHALTEN.“ Was antwortest du?",
+      "options": [
+        "HALTE AN",
+        "HALTE POSITION",
+        "VERSTANDEN",
+        "WILCO"
+      ],
+      "explanation": "Auf „SOFORT ANHALTEN“ antwortest du „HALTE AN“. „HALTE POSITION“ gehört zur Anweisung „HALTEN SIE POSITION“."
+    }
+  ]
+}

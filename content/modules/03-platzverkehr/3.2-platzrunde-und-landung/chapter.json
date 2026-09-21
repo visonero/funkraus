@@ -1,0 +1,15 @@
+{
+  "id": "3.2",
+  "title": "Platzrunde und Landung",
+  "content_type": "audio",
+  "sort_order": 1,
+  "assets": {
+    "video": "3.2-hook-video/hook-video.mp4",
+    "audio": "3.2-audio-drill/3.2-audio-drill.mp3",
+    "pdf": "3.2-platzrunde-karte/platzrunde-karte.pdf"
+  },
+  "sources": [
+    "NfL 2024-1-3266, Anlage 1 Nr. 1.4.13 bis 1.4.20 (Platzrunde, Anflug, Landefreigabe, Fehlanflug)",
+    "BNetzA-Prüfungsfragenkatalog 2024, Nr. 76, 181, 200 bis 203"
+  ]
+}

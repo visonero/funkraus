@@ -1,0 +1,129 @@
+{
+  "id": "3.1-audio-drill",
+  "language": "de",
+  "segments": [
+    {
+      "voice": "trainer",
+      "text": "Willkommen zur Rollen-und-Start-Übung. Ich bin der Tower und gebe dir Anweisungen. Du bist Delta Echo Hotel Oscar Lima. Sprich nach der Pause deine Bestätigung. Danach höre ich dir die richtige Antwort vor."
+    },
+    {
+      "pause": 1.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Delta Echo Hotel Oscar Lima, rollen Sie zum Rollhalt Piste zwo vier."
+    },
+    {
+      "pause": 7.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Rollen zum Rollhalt Piste zwo vier, Delta Echo Hotel Oscar Lima."
+    },
+    {
+      "pause": 1.8
+    },
+    {
+      "voice": "trainer",
+      "text": "Delta Echo Hotel Oscar Lima, halten Sie Position."
+    },
+    {
+      "pause": 7.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Delta Echo Hotel Oscar Lima, halte Position."
+    },
+    {
+      "pause": 1.8
+    },
+    {
+      "voice": "trainer",
+      "text": "Delta Echo Hotel Oscar Lima, rollen Sie zum Abflugpunkt Piste zwo vier, dort halten."
+    },
+    {
+      "pause": 7.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Rollen zum Abflugpunkt Piste zwo vier, dort halten, Delta Echo Hotel Oscar Lima."
+    },
+    {
+      "pause": 1.8
+    },
+    {
+      "voice": "trainer",
+      "text": "Delta Echo Hotel Oscar Lima, Piste zwo vier, Start frei."
+    },
+    {
+      "pause": 7.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Delta Echo Hotel Oscar Lima, Piste zwo vier, Start frei."
+    },
+    {
+      "pause": 1.8
+    },
+    {
+      "voice": "trainer",
+      "text": "Delta Echo Hotel Oscar Lima, halten Sie Position, Startfreigabe aufgehoben, ich wiederhole, Startfreigabe aufgehoben."
+    },
+    {
+      "pause": 7.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Delta Echo Hotel Oscar Lima, halte."
+    },
+    {
+      "pause": 1.8
+    },
+    {
+      "voice": "trainer",
+      "text": "Delta Echo Hotel Oscar Lima, sofort anhalten."
+    },
+    {
+      "pause": 7.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Delta Echo Hotel Oscar Lima, halte an."
+    },
+    {
+      "pause": 1.8
+    },
+    {
+      "voice": "trainer",
+      "text": "Jetzt eine Meldung von dir. Deine Startvorbereitungen sind beendet. Was meldest du dem Turm?"
+    },
+    {
+      "pause": 4.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Delta Echo Hotel Oscar Lima, abflugbereit."
+    },
+    {
+      "pause": 1.8
+    },
+    {
+      "voice": "trainer",
+      "text": "Und zum Schluss: Du hast gerade die Piste vollständig geräumt. Was meldest du?"
+    },
+    {
+      "pause": 4.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Piste verlassen."
+    },
+    {
+      "pause": 1.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Sehr gut. Wiederhole die Übung, bis die Bestätigungen ohne Nachdenken kommen."
+    }
+  ]
+}

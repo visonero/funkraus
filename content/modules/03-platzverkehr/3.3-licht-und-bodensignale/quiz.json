@@ -1,0 +1,84 @@
+{
+  "questions": [
+    {
+      "catalogue_number": 150,
+      "explanation": "Anweisungen über Funk haben Vorrang vor Signalen und Zeichen. Die einzige Ausnahme sind rote Feuerwerkskörper."
+    },
+    {
+      "catalogue_number": 151,
+      "explanation": "Funkanweisungen haben Vorrang vor Licht- und Bodensignalen sowie Zeichen. Das gilt nicht gegenüber roten Feuerwerkskörpern, die auf ein Luftfahrzeug im Flug gerichtet sind."
+    },
+    {
+      "catalogue_number": 152,
+      "explanation": "Ein Pilot befolgt vorrangig Funkanweisungen. Nur bei roten Feuerwerkskörpern gilt die Ausnahme."
+    },
+    {
+      "catalogue_number": 184,
+      "explanation": "Ein rotes quadratisches Feld mit zwei gelben Diagonalstreifen bedeutet Landeverbot für längere Zeit. Der Flugplatz ist nicht insgesamt gesperrt, es geht nur um die Landung."
+    },
+    {
+      "catalogue_number": 185,
+      "explanation": "Die weiße Hantel in der Signalfläche bedeutet: Zum Starten, Landen und Rollen dürfen nur Start- und Landebahnen und Rollbahnen benutzt werden."
+    },
+    {
+      "catalogue_number": 186,
+      "explanation": "Beim Lande-T führst du Starts und Landungen parallel zum Längsbalken in Richtung Querbalken durch. Bei Nacht ist es beleuchtet oder durch weiße Lichter dargestellt."
+    },
+    {
+      "catalogue_number": 187,
+      "explanation": "Eine zweistellige Zahl an einer Tafel am Kontrollturm nennt die Startrichtung, gerundet auf die nächsten 10° der missweisenden Kompassrose."
+    },
+    {
+      "catalogue_number": 188,
+      "explanation": "Ein nach rechts abgewinkelter Pfeil bedeutet: Nach dem Start und vor der Landung sind Richtungsänderungen nur nach rechts erlaubt."
+    },
+    {
+      "catalogue_number": 189,
+      "explanation": "Grünes Dauerlicht auf ein Luftfahrzeug im Flug bedeutet: Landung freigegeben."
+    },
+    {
+      "catalogue_number": 190,
+      "explanation": "Rotes Dauerlicht auf ein Luftfahrzeug im Flug bedeutet: anderes Luftfahrzeug hat Vorflug, Platzrunde fortsetzen."
+    },
+    {
+      "catalogue_number": 191,
+      "explanation": "Grünes Blinklicht auf ein Luftfahrzeug im Flug bedeutet: zwecks Landung zurückkehren. Lande- und Rollfreigaben werden zum gegebenen Zeitpunkt erteilt."
+    },
+    {
+      "catalogue_number": 192,
+      "explanation": "Rotes Blinklicht auf ein Luftfahrzeug im Flug bedeutet: nicht landen, Flugplatz unbenutzbar."
+    },
+    {
+      "catalogue_number": 193,
+      "explanation": "Weißes Blinklicht auf ein Luftfahrzeug im Flug bedeutet: auf diesem Flugplatz landen und zum Vorfeld rollen. Lande- und Rollfreigaben werden zum gegebenen Zeitpunkt erteilt."
+    },
+    {
+      "catalogue_number": 194,
+      "explanation": "Ein roter Feuerwerkskörper bedeutet: ungeachtet aller früheren Anweisungen und Freigaben zur Zeit nicht landen. Er ist das einzige Signal, das Funkanweisungen übertrifft."
+    },
+    {
+      "catalogue_number": 195,
+      "explanation": "Grünes Dauerlicht auf ein Luftfahrzeug am Boden bedeutet: Start freigegeben."
+    },
+    {
+      "catalogue_number": 196,
+      "explanation": "Rotes Dauerlicht auf ein Luftfahrzeug am Boden bedeutet: Halt!"
+    },
+    {
+      "catalogue_number": 197,
+      "explanation": "Grünes Blinklicht auf ein Luftfahrzeug am Boden bedeutet: Rollerlaubnis erteilt."
+    },
+    {
+      "catalogue_number": 198,
+      "explanation": "Rotes Blinklicht auf ein Luftfahrzeug am Boden bedeutet: benutzte Landefläche freimachen."
+    },
+    {
+      "catalogue_number": 199,
+      "explanation": "Weißes Blinklicht auf ein Luftfahrzeug am Boden bedeutet: zum Ausgangspunkt auf dem Flughafen zurückkehren."
+    },
+    {
+      "catalogue_number": 204,
+      "explanation": "Auf dem Vorfeld und den Abstellflächen befolgst du die Signale und Zeichen des Flugplatzunternehmers, nicht die des Kontrollturms."
+    }
+  ]
+}

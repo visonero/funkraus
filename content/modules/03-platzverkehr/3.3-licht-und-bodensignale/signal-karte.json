@@ -1,0 +1,104 @@
+{
+  "label": "Lektion 3.3 · Signal-Karte",
+  "title": "Licht- und",
+  "highlight": "Bodensignale",
+  "sections": [
+    {
+      "title": "Vorrang",
+      "rows": [
+        [
+          "Funk",
+          "hat Vorrang vor Licht- und Bodensignalen und Zeichen"
+        ],
+        [
+          "Ausnahme",
+          "roter Feuerwerkskörper (auf ein Luftfahrzeug im Flug gerichtet)"
+        ],
+        [
+          "Vorfeld",
+          "Signale und Zeichen des Flugplatzunternehmers"
+        ]
+      ]
+    },
+    {
+      "title": "Im Flug",
+      "rows": [
+        [
+          "grün, Dauer",
+          "Landung freigegeben"
+        ],
+        [
+          "rot, Dauer",
+          "anderes Luftfahrzeug hat Vorflug, Platzrunde fortsetzen"
+        ],
+        [
+          "grün, blinkend",
+          "zwecks Landung zurückkehren"
+        ],
+        [
+          "rot, blinkend",
+          "nicht landen, Flugplatz unbenutzbar"
+        ],
+        [
+          "weiß, blinkend",
+          "auf diesem Flugplatz landen und zum Vorfeld rollen"
+        ],
+        [
+          "roter Feuerwerkskörper",
+          "zur Zeit nicht landen, ungeachtet aller Freigaben"
+        ]
+      ]
+    },
+    {
+      "title": "Am Boden",
+      "rows": [
+        [
+          "grün, Dauer",
+          "Start freigegeben"
+        ],
+        [
+          "rot, Dauer",
+          "Halt!"
+        ],
+        [
+          "grün, blinkend",
+          "Rollerlaubnis erteilt"
+        ],
+        [
+          "rot, blinkend",
+          "benutzte Landefläche freimachen"
+        ],
+        [
+          "weiß, blinkend",
+          "zum Ausgangspunkt zurückkehren"
+        ]
+      ]
+    },
+    {
+      "title": "Zeichen in der Signalfläche",
+      "rows": [
+        [
+          "rot mit gelben Streifen",
+          "Landeverbot für längere Zeit"
+        ],
+        [
+          "weiße Hantel",
+          "nur Start-, Lande- und Rollbahnen benutzen"
+        ],
+        [
+          "Lande-T",
+          "parallel zum Längsbalken zum Querbalken"
+        ],
+        [
+          "Zahl am Turm",
+          "Startrichtung, auf 10° gerundet"
+        ],
+        [
+          "Pfeil nach rechts",
+          "nur Kurven nach rechts"
+        ]
+      ]
+    }
+  ],
+  "footer": "Quellen: BNetzA-Prüfungsfragenkatalog 2024, Nr. 150 bis 152, 184 bis 199, 204"
+}

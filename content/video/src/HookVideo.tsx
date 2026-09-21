@@ -2,7 +2,8 @@ import type { CSSProperties, ReactNode } from "react";
 import { AbsoluteFill, Audio, Sequence, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { colors, jakarta, poppins } from "./theme";
 
-type Tile2 = { top: string; bottom: string };
+type Tile2 = { top: string; bottom: string; tone?: "green" | "red" | "white" };
+const TONE_COLORS = { green: "#0f9f6e", red: "#d6336c", white: "#6b8296" } as const;
 export type Visual =
   | { kind: "headline"; headline: string; highlight?: string; tiles: string[]; wave?: boolean }
   | { kind: "grid"; headline: string; highlight?: string; items: Tile2[]; columns?: number }
@@ -264,8 +265,8 @@ function TransformScene({ duration, visual, cues }: SceneProps<"transform">) {
         {visual.tiles.map((tile, i) => {
           const s = useReveal(useCueFrame(cues, i, Math.round(duration * (0.22 + i * (0.6 / count)))));
           return (
-            <Tile key={`${tile.top}-${i}`} size={[width, 240]} style={{ opacity: Math.min(1, s * 1.4), transform: `translateY(${(1 - s) * 40}px)`, padding: "0 12px", textAlign: "center" }}>
-              <span style={{ fontFamily: poppins, fontWeight: 800, fontSize: topFontSize(tile.top), color: colors.skyDeep, lineHeight: 1 }}>{tile.top}</span>
+            <Tile key={`${tile.top}-${i}`} size={[width, 240]} style={{ opacity: Math.min(1, s * 1.4), transform: `translateY(${(1 - s) * 40}px)`, padding: "0 12px", textAlign: "center", borderTop: tile.tone ? `10px solid ${TONE_COLORS[tile.tone]}` : undefined }}>
+              <span style={{ fontFamily: poppins, fontWeight: 800, fontSize: topFontSize(tile.top), color: tile.tone ? TONE_COLORS[tile.tone] : colors.skyDeep, lineHeight: 1 }}>{tile.top}</span>
               <span style={{ fontFamily: jakarta, fontWeight: 600, fontSize: bottomFontSize(tile.bottom), color: colors.text, marginTop: 14 }}>{tile.bottom}</span>
             </Tile>
           );
