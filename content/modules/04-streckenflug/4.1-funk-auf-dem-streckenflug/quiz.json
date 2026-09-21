@@ -1,0 +1,77 @@
+{
+  "questions": [
+    {
+      "catalogue_number": 90,
+      "explanation": "Vor dem Einflug in den Luftraum D nimmst du die Funkverbindung mit der zuständigen Flugverkehrskontrollstelle spätestens 5 Minuten vor Erreichen des Pflichtmeldepunktes auf. Erst beim Einflug ist es zu spät."
+    },
+    {
+      "catalogue_number": 91,
+      "explanation": "Bei VFR-Flügen in und oberhalb Flugfläche 100 wird der Sprechfunkverkehr in englischer Sprache geführt."
+    },
+    {
+      "catalogue_number": 92,
+      "explanation": "Bei der Anweisung, eine Stelle auf einer Frequenz zu rufen, bestätigst du mit Rufzeichen, „RUFE“ und der Frequenz: „DGIGA RUFE 121,280“. „WECHSELE FREQUENZ“ genügt nicht."
+    },
+    {
+      "catalogue_number": 93,
+      "explanation": "Dauernde Hörbereitschaft gilt bei VFR-Flügen in den Lufträumen C und D."
+    },
+    {
+      "catalogue_number": 94,
+      "explanation": "In der Platzrunde eines Flugplatzes mit Flugverkehrskontrolle hörst du ständig die Frequenz der Flugplatzkontrollstelle. Standortmeldungen in jedem Teil der Platzrunde oder ein Flugplan sind dafür nicht nötig."
+    },
+    {
+      "catalogue_number": 95,
+      "explanation": "Nur nachts im Luftraum G außerhalb einer RMZ entfällt die ständige Hörbereitschaft. In C und D bleibt sie Pflicht."
+    },
+    {
+      "catalogue_number": 96,
+      "explanation": "Von den genannten Lufträumen verlangt nur der Luftraum C ständige Hörbereitschaft auf der zugewiesenen Frequenz."
+    },
+    {
+      "catalogue_number": 80,
+      "explanation": "SQUAWK ist die Anweisung, den Transponder auf einen bestimmten Code zu schalten. „SQUAWK 1352“ heißt: Code 1352 einstellen. Mit einer Frequenz oder Peilung hat das nichts zu tun."
+    },
+    {
+      "catalogue_number": 81,
+      "explanation": "Die Uhrzeigerstellung legst du um dein Flugzeug: 12 Uhr ist genau voraus, 3 Uhr rechts, 6 Uhr hinten, 9 Uhr links. 10 Uhr liegt also links voraus."
+    },
+    {
+      "catalogue_number": 73,
+      "explanation": "Mit „SQUAWK“ wird ein Pilot angewiesen, mit dem Transponder einen bestimmten Modus oder Code zu senden."
+    },
+    {
+      "source_ref": "funkraus Übungsfrage",
+      "question": "Nach einem Verkehrshinweis suchst du den Verkehr noch. Welche Redewendung nutzt du?",
+      "options": [
+        "HALTE AUSSCHAU",
+        "VERKEHR IN SICHT",
+        "HALTE POSITION",
+        "NEGATIV"
+      ],
+      "explanation": "„HALTE AUSSCHAU“ bestätigt einen Verkehrshinweis, solange du den Verkehr noch suchst. „VERKEHR IN SICHT“ sagst du erst, wenn du ihn wirklich siehst."
+    },
+    {
+      "source_ref": "funkraus Übungsfrage",
+      "question": "Die Flugsicherung meldet: „UNBEKANNTES FLUGZIEL ZWÖLF UHR.“ Wo befindet sich das Flugziel?",
+      "options": [
+        "Genau voraus",
+        "Genau hinter dir",
+        "Rechts querab",
+        "Links querab"
+      ],
+      "explanation": "Die Uhrzeigerstellung ist um dein Flugzeug gelegt. 12 Uhr ist die Richtung genau voraus."
+    },
+    {
+      "source_ref": "funkraus Übungsfrage",
+      "question": "Die Flugsicherung sagt: „DGIGA, SQUAWK 1352.“ Wie bestätigst du?",
+      "options": [
+        "SQUAWK 1352, DGIGA",
+        "VERSTANDEN",
+        "WILCO",
+        "DGIGA, RUFE 1352"
+      ],
+      "explanation": "SSR-Codes gehören zu den Angaben, die du immer wiederholst: „SQUAWK 1352, DGIGA“. VERSTANDEN oder WILCO reichen dafür nicht."
+    }
+  ]
+}

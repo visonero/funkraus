@@ -63,8 +63,15 @@ function spellAbbreviations(text) {
   });
 }
 
+// Case-sensitive whole-word replacements (voices.json "pronunciationsExact"): for capitalised abbreviations that
+// must not touch the ordinary word, e.g. "VOR" (spelled out) versus "vor" (before).
+const exact = Object.entries(voiceConfig.pronunciationsExact ?? {}).filter(([word]) => !word.startsWith("_"));
+function applyExact(text) {
+  return exact.reduce((result, [word, replacement]) => result.replace(new RegExp(`(?<![\\p{L}\\p{N}])${escapeRegExp(word)}(?![\\p{L}\\p{N}])`, "gu"), replacement), text);
+}
+
 function applyPronunciations(text) {
-  return spellAbbreviations(spellNumbers(applyGlossary(text)));
+  return spellAbbreviations(spellNumbers(applyExact(applyGlossary(text))));
 }
 
 // Anything left that the voice could misread: digits glued to letters, unknown mixed tokens.

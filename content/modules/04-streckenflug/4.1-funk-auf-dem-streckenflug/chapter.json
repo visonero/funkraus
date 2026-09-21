@@ -1,0 +1,15 @@
+{
+  "id": "4.1",
+  "title": "Funk auf dem Streckenflug",
+  "content_type": "audio",
+  "sort_order": 0,
+  "assets": {
+    "video": "4.1-hook-video/hook-video.mp4",
+    "audio": "4.1-audio-drill/4.1-audio-drill.mp3",
+    "pdf": "4.1-streckenfunk-karte/streckenfunk-karte.pdf"
+  },
+  "sources": [
+    "NfL 2024-1-3266, Nr. 5 (Sprache), Nr. 1.1.4 (Frequenzwechsel), Nr. 1.1.7 (Verkehrsinformation), Nr. 2.3 (SSR-Sprechgruppen), Nr. 25 (Wiederholung von Freigaben)",
+    "BNetzA-Prüfungsfragenkatalog 2024, Nr. 73, 80, 81, 90 bis 96"
+  ]
+}

@@ -62,7 +62,7 @@ const questions = quiz.questions.map((q, index) => {
   const options = seededShuffle([correct, ...wrong], externalId);
   return {
     external_id: externalId,
-    question: official ? official.question : q.question,
+    question: q.question_text ?? (official ? official.question : q.question),
     options,
     correct_index: options.indexOf(correct),
     explanation: q.explanation ?? null,
@@ -125,11 +125,15 @@ async function upsertBy(table, match, values) {
   return inserted.data.id;
 }
 
-const moduleId = await upsertBy(
-  "course_modules",
-  { track: moduleMeta.track, num: moduleMeta.num },
-  { title: moduleMeta.title, description: moduleMeta.description, duration_minutes: moduleMeta.duration_minutes, sort_order: moduleMeta.sort_order },
-);
+const moduleValues = { title: moduleMeta.title, description: moduleMeta.description, duration_minutes: moduleMeta.duration_minutes, sort_order: moduleMeta.sort_order };
+let moduleId;
+try {
+  moduleId = await upsertBy("course_modules", { track: moduleMeta.track, num: moduleMeta.num }, { ...moduleValues, ...(moduleMeta.is_free === undefined ? {} : { is_free: moduleMeta.is_free }) });
+} catch (error) {
+  if (!/is_free/.test(String(error.message))) throw error;
+  console.warn("  note: column is_free is missing, run migration 0006 (free modules). Importing without it.");
+  moduleId = await upsertBy("course_modules", { track: moduleMeta.track, num: moduleMeta.num }, moduleValues);
+}
 const lessonId = await upsertBy(
   "course_lessons",
   { external_id: chapter.id },

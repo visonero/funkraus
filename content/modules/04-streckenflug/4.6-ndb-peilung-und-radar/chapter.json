@@ -1,0 +1,13 @@
+{
+  "id": "4.6",
+  "title": "Funknavigation: NDB, Peilung und Radar",
+  "content_type": "text",
+  "sort_order": 5,
+  "assets": {
+    "video": "4.6-hook-video/hook-video.mp4",
+    "pdf": "4.6-peilung-karte/peilung-karte.pdf"
+  },
+  "sources": [
+    "BNetzA-Prüfungsfragenkatalog 2024, Nr. 29 bis 32, 234, 248 bis 258"
+  ]
+}

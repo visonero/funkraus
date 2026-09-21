@@ -1,0 +1,79 @@
+{
+  "questions": [
+    {
+      "catalogue_number": 234,
+      "explanation": "Fremdpeilung führt eine UKW-Peilstelle (VDF) am Boden durch. NDB, VOR/DME und TACAN sind Anlagen zur Eigennavigation."
+    },
+    {
+      "catalogue_number": 248,
+      "explanation": "Die Kennung eines NDB besteht aus zwei oder drei Buchstaben im Morsecode."
+    },
+    {
+      "catalogue_number": 249,
+      "explanation": "Ungerichtete Funkfeuer haben eine festgelegte Betriebsentfernung von 15 NM bis 100 NM."
+    },
+    {
+      "catalogue_number": 250,
+      "explanation": "NDBs arbeiten im Lang- und Mittelwellenbereich (LW und MW)."
+    },
+    {
+      "catalogue_number": 251,
+      "explanation": "Ein NDB empfängst du mit dem Funkkompass (ADF)."
+    },
+    {
+      "catalogue_number": 252,
+      "explanation": "Das Anzeigegerät (RBI) des ADF zeigt den Winkel zwischen der Flugzeuglängsachse und der Richtung zum eingestellten NDB."
+    },
+    {
+      "catalogue_number": 253,
+      "explanation": "QDM = missweisender Steuerkurs + Bezugspeilung: 155° + 025° = 180°."
+    },
+    {
+      "catalogue_number": 254,
+      "explanation": "Für die Navigation mit Hilfe von Peilfunkstellen brauchst du an Bord nur ein UKW-Sprechfunkgerät."
+    },
+    {
+      "catalogue_number": 255,
+      "explanation": "QDR 180° heißt: Du befindest dich südlich der Station, sie liegt also nördlich von dir. Bei Steuerkurs 090° (Ost) liegt Norden links vom Flugweg."
+    },
+    {
+      "catalogue_number": 256,
+      "explanation": "Ein QDM von 225° ist der Kurs zur Station (Südwest). Du befindest dich also nordöstlich der Station."
+    },
+    {
+      "catalogue_number": 29,
+      "explanation": "QDM bedeutet „missweisender Kurs zur Station“."
+    },
+    {
+      "catalogue_number": 30,
+      "explanation": "Der missweisende Kurs zur Station heißt QDM."
+    },
+    {
+      "catalogue_number": 31,
+      "explanation": "QDR bedeutet „missweisende Peilung von der Station“."
+    },
+    {
+      "catalogue_number": 32,
+      "explanation": "Die missweisende Peilung von der Station heißt QDR."
+    },
+    {
+      "catalogue_number": 257,
+      "explanation": "Das Sekundärradar dient der Identifizierung von Luftfahrzeugen und der Erlangung zusätzlicher Informationen über VFR-Flüge."
+    },
+    {
+      "catalogue_number": 258,
+      "explanation": "Eine Flugverkehrskontrollstelle mit Radar kann dir Angaben über deinen Standort geben."
+    },
+    {
+      "source_ref": "funkraus Übungsfrage",
+      "question": "Dein missweisender Steuerkurs beträgt 270°, die Bezugspeilung zum NDB 090°. Wie groß ist das QDM?",
+      "options": [
+        "360°",
+        "180°",
+        "090°",
+        "270°"
+      ],
+      "explanation": "QDM = Steuerkurs + Bezugspeilung: 270° + 090° = 360°. Das NDB liegt also genau im Norden."
+    }
+  ]
+}

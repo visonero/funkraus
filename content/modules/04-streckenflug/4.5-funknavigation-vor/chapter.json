@@ -1,0 +1,13 @@
+{
+  "id": "4.5",
+  "title": "Funknavigation: VOR",
+  "content_type": "text",
+  "sort_order": 4,
+  "assets": {
+    "video": "4.5-hook-video/hook-video.mp4",
+    "pdf": "4.5-vor-karte/vor-karte.pdf"
+  },
+  "sources": [
+    "BNetzA-Prüfungsfragenkatalog 2024, Nr. 233, 235 bis 247"
+  ]
+}

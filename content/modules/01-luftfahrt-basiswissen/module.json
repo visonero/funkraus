@@ -4,5 +4,6 @@
   "title": "Luftfahrt-Basiswissen für Einsteiger",
   "description": "Recht, Begriffe, Luftraum, Flugverkehrsdienste, Funkwellen und Wetter: das Grundwissen für deinen Sprechfunk.",
   "duration_minutes": 90,
-  "sort_order": 0
+  "sort_order": 0,
+  "is_free": true
 }

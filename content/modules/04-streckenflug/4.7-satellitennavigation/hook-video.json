@@ -1,0 +1,120 @@
+{
+  "id": "4.7-hook-video",
+  "language": "de",
+  "scenes": [
+    {
+      "id": "intro",
+      "voice": "trainer",
+      "text": "Zum Abschluss der Navigation schauen wir nach oben. Dort kreisen Satelliten, die Signale zur Erde senden. Drei Begriffe brauchst du dafür: [[0]]GPS, [[1]]GNSS [[2]]und den Empfänger an Bord.",
+      "visual": {
+        "kind": "diagram",
+        "diagram": "gnss",
+        "headline": "Navigation aus dem",
+        "highlight": "Weltraum",
+        "steps": [
+          {
+            "label": "GPS",
+            "sub": "Global Positioning System"
+          },
+          {
+            "label": "GNSS",
+            "sub": "Oberbegriff für Satellitennavigation"
+          },
+          {
+            "label": "Empfänger",
+            "sub": "an Bord des Luftfahrzeuges"
+          }
+        ]
+      }
+    },
+    {
+      "id": "terms",
+      "voice": "trainer",
+      "text": "Die Abkürzungen kennst du bestimmt. [[0]]GPS steht in der Luftfahrt für Global Positioning System. [[1]]GNSS bedeutet Globales Satellitennavigationssystem. Das ist der Oberbegriff für die Satellitennavigation.",
+      "visual": {
+        "kind": "transform",
+        "headline": "Die",
+        "highlight": "Begriffe",
+        "tiles": [
+          {
+            "top": "GPS",
+            "bottom": "Global Positioning System"
+          },
+          {
+            "top": "GNSS",
+            "bottom": "Globales Satellitennavigationssystem"
+          }
+        ]
+      }
+    },
+    {
+      "id": "receiver",
+      "voice": "trainer",
+      "text": "Und wozu dient der Empfänger an Bord? Er wertet die Satellitensignale aus und zeigt sie dir zu navigatorischen Zwecken an. Zum Beispiel deine [[0]]Position, deinen [[1]]Kurs, deine [[2]]Geschwindigkeit [[3]]und die Entfernung.",
+      "visual": {
+        "kind": "diagram",
+        "diagram": "gpsDisplay",
+        "headline": "Was der Empfänger",
+        "highlight": "dir zeigt",
+        "steps": [
+          {
+            "label": "Position",
+            "sub": "wo du bist"
+          },
+          {
+            "label": "Kurs",
+            "sub": "wohin du fliegst"
+          },
+          {
+            "label": "Geschwindigkeit",
+            "sub": "wie schnell"
+          },
+          {
+            "label": "Entfernung",
+            "sub": "wie weit noch"
+          }
+        ]
+      }
+    },
+    {
+      "id": "not",
+      "voice": "trainer",
+      "text": "Dabei ist er nicht alles. [[0]]Er ist kein Bordradar. [[1]]Er misst nicht den Abstand zu anderen Luftfahrzeugen. [[2]]Und er wertet keine Signale von Funknavigationsanlagen am Boden aus, denn er arbeitet mit Satelliten.",
+      "visual": {
+        "kind": "transform",
+        "headline": "Was er",
+        "highlight": "nicht ist",
+        "tiles": [
+          {
+            "top": "Kein Radar",
+            "bottom": "an Bord",
+            "tone": "red"
+          },
+          {
+            "top": "Kein Abstandsmesser",
+            "bottom": "zu anderen Luftfahrzeugen",
+            "tone": "red"
+          },
+          {
+            "top": "Kein Bodenempfänger",
+            "bottom": "für Funknavigationsanlagen",
+            "tone": "red"
+          }
+        ]
+      }
+    },
+    {
+      "id": "outro",
+      "voice": "trainer",
+      "text": "Damit sind die Navigationsverfahren geschafft: [[0]]GPS, [[1]]GNSS [[2]]und der Empfänger. Beantworte jetzt die drei Fragen zum Abschluss. Los geht's.",
+      "visual": {
+        "kind": "outro",
+        "pills": [
+          "GPS",
+          "GNSS",
+          "Empfänger"
+        ]
+      }
+    }
+  ]
+}

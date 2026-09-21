@@ -42,7 +42,7 @@ if (!scriptPath || !["say", "elevenlabs"].includes(engine)) {
 }
 
 const script = JSON.parse(readFileSync(scriptPath, "utf8"));
-const voiceConfig = JSON.parse(readFileSync(path.join(contentDir, "voices.json"), "utf8"));
+const voiceConfig = JSON.parse(readFileSync(process.env.VOICES_JSON ?? path.join(contentDir, "voices.json"), "utf8"));
 const voices = voiceConfig.voices;
 const { applyPronunciations, lintSpoken } = createTextPreparer(voiceConfig);
 const outDir = path.join(contentDir, "build", script.id);
@@ -113,6 +113,50 @@ async function synthesizeElevenLabs(voice, text, { timestamps, speed }) {
   return { pcm: Buffer.from(json.audio_base64, "base64"), alignment: json.alignment };
 }
 
+
+// Words the voice is known to say inconsistently (voices.json "verifyWords", e.g. "zwo"): each generated clip is run
+// through ElevenLabs speech-to-text, and the clip is regenerated (up to 4 takes) until every such word is heard.
+// The best take is cached, so verified audio is never paid for twice. Disable with --no-verify.
+const verifyWords = (voiceConfig.verifyWords ?? []).map((w) => w.toLowerCase());
+let verifyDisabled = args.includes("--no-verify") || engine !== "elevenlabs";
+const wordPattern = (word) => new RegExp(`(?<![\\p{L}\\p{N}])${word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(?![\\p{L}\\p{N}])`, "giu");
+const countWords = (text) => verifyWords.reduce((n, w) => n + (text.match(wordPattern(w))?.length ?? 0), 0);
+
+async function transcribe(pcm) {
+  const form = new FormData();
+  form.append("model_id", "scribe_v1");
+  form.append("language_code", "deu");
+  form.append("file", new Blob([pcmToWav(pcm)], { type: "audio/wav" }), "clip.wav");
+  const res = await fetch("https://api.elevenlabs.io/v1/speech-to-text", { method: "POST", headers: { "xi-api-key": process.env.ELEVENLABS_API_KEY }, body: form });
+  if (!res.ok) throw new Error(`speech-to-text ${res.status}`);
+  return (await res.json()).text ?? "";
+}
+
+async function synthesizeVerified(voice, spoken, options) {
+  const expected = verifyDisabled ? 0 : countWords(spoken);
+  let best = null;
+  let bestHits = -1;
+  for (let attempt = 1; attempt <= (expected ? 4 : 1); attempt++) {
+    const take = await synthesizeElevenLabs(voice, spoken, options);
+    if (!expected) return take;
+    let hits;
+    try {
+      hits = countWords(await transcribe(take.pcm));
+    } catch (error) {
+      console.warn(`  pronunciation check skipped (${error.message}); use --no-verify to silence this`);
+      verifyDisabled = true;
+      return take;
+    }
+    if (hits > bestHits) {
+      best = take;
+      bestHits = hits;
+    }
+    if (hits >= expected) break;
+    console.warn(`  heard ${hits} of ${expected} expected "${verifyWords.join('", "')}" in "${spoken.slice(0, 48)}…", taking another take (${attempt}/4)`);
+  }
+  return best;
+}
+
 // Plain clip (audio drills): no alignment needed.
 async function speak(voiceName, rawText) {
   const text = applyPronunciations(rawText);
@@ -136,7 +180,7 @@ async function speak(voiceName, rawText) {
     pcm = wavToPcm(readFileSync(tmp));
     unlinkSync(tmp);
   } else {
-    ({ pcm } = await synthesizeElevenLabs(voice, text, { timestamps: false, speed: voice.elevenlabs?.speed }));
+    ({ pcm } = await synthesizeVerified(voice, text, { timestamps: false, speed: voice.elevenlabs?.speed }));
   }
   writeFileSync(cacheFile, pcm);
   return pcm;
@@ -197,7 +241,7 @@ async function speakScene(voiceName, displayTextWithCues) {
     unlinkSync(tmp);
     writeFileSync(pcmFile, pcm);
   } else {
-    ({ pcm, alignment } = await synthesizeElevenLabs(voice, spoken, { timestamps: true, speed }));
+    ({ pcm, alignment } = await synthesizeVerified(voice, spoken, { timestamps: true, speed }));
     writeFileSync(pcmFile, pcm);
     writeFileSync(alignFile, JSON.stringify(alignment));
   }

@@ -1,0 +1,129 @@
+{
+  "id": "4.3-audio-drill",
+  "language": "de",
+  "segments": [
+    {
+      "voice": "trainer",
+      "text": "Willkommen zur Flughöhen-Blitzrunde. Ich nenne dir einen missweisenden Kurs über Grund, du nennst nach der Pause die passenden Flugflächen. Danach höre ich dir die richtige Antwort vor."
+    },
+    {
+      "pause": 1.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Kurs null vier fünf Grad."
+    },
+    {
+      "pause": 5.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Flugfläche fünf fünf, sieben fünf, neun fünf."
+    },
+    {
+      "pause": 1.8
+    },
+    {
+      "voice": "trainer",
+      "text": "Kurs zwei sieben null Grad."
+    },
+    {
+      "pause": 5.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Flugfläche sechs fünf, acht fünf, eins null fünf."
+    },
+    {
+      "pause": 1.8
+    },
+    {
+      "voice": "trainer",
+      "text": "Kurs eins drei fünf Grad."
+    },
+    {
+      "pause": 5.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Flugfläche fünf fünf, sieben fünf, neun fünf."
+    },
+    {
+      "pause": 1.8
+    },
+    {
+      "voice": "trainer",
+      "text": "Kurs drei eins fünf Grad."
+    },
+    {
+      "pause": 5.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Flugfläche sechs fünf, acht fünf, eins null fünf."
+    },
+    {
+      "pause": 1.8
+    },
+    {
+      "voice": "trainer",
+      "text": "Kurs eins acht null Grad."
+    },
+    {
+      "pause": 5.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Flugfläche sechs fünf, acht fünf, eins null fünf."
+    },
+    {
+      "pause": 1.8
+    },
+    {
+      "voice": "trainer",
+      "text": "Jetzt drei Fragen zur Höhenmessereinstellung und zum Wetter. Du fliegst in dreitausend Fuß. Was stellst du am Höhenmesser ein?"
+    },
+    {
+      "pause": 4.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Das QNH des nächstgelegenen Flugplatzes mit Flugverkehrskontrolle."
+    },
+    {
+      "pause": 1.8
+    },
+    {
+      "voice": "trainer",
+      "text": "Du fliegst in sechstausend Fuß über Meeresniveau. Was stellst du ein?"
+    },
+    {
+      "pause": 4.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Standard, eins null eins drei Komma zwei Hektopascal."
+    },
+    {
+      "pause": 1.8
+    },
+    {
+      "voice": "trainer",
+      "text": "Welche Flugsicht und welchen Wolkenabstand brauchst du im Luftraum E unterhalb von Flugfläche eins null null?"
+    },
+    {
+      "pause": 6.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Fünf Kilometer Flugsicht, waagerecht fünfzehnhundert Meter und senkrecht dreihundert Meter von den Wolken."
+    },
+    {
+      "pause": 1.8
+    },
+    {
+      "voice": "trainer",
+      "text": "Sehr gut. Wiederhole die Übung, bis alles sitzt."
+    }
+  ]
+}

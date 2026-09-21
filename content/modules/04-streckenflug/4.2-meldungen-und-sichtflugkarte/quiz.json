@@ -1,0 +1,46 @@
+{
+  "questions": [
+    {
+      "catalogue_number": 112,
+      "explanation": "Standortmeldungen sind bei VFR-Flügen in der Regel bei Einflügen in den Luftraum D erforderlich, nicht bei allen Flügen in E oder in G bei Nacht."
+    },
+    {
+      "catalogue_number": 113,
+      "explanation": "Die Standortmeldungen über den Pflichtmeldepunkten sendest du unabhängig von der erteilten Freigabe, sofern nicht ausdrücklich darauf verzichtet wird. Auch die Anweisung, in die Platzrunde einzufliegen, ersetzt sie nicht von selbst."
+    },
+    {
+      "catalogue_number": 114,
+      "explanation": "Am Tag meldest du deinen Standort beim Überflug von Pflichtmeldepunkten. Funknavigationsanlagen wie VOR oder NDB lösen keine Meldepflicht aus."
+    },
+    {
+      "catalogue_number": 115,
+      "explanation": "Erfolgt die Meldung zum Zeitpunkt des Überfluges, kann die Zeitangabe entfallen. Standort, Höhe und Rufzeichen bleiben."
+    },
+    {
+      "catalogue_number": 116,
+      "explanation": "In der Platzrunde besteht die Standortmeldung nur aus Rufzeichen und Standort, zum Beispiel „DGIGA, GEGENANFLUG“."
+    },
+    {
+      "catalogue_number": 117,
+      "explanation": "Ein ausgefülltes Dreieck in einem gestrichelten Kreis ist das Symbol für einen Pflichtmeldepunkt.",
+      "question_text": "Welche Bedeutung hat auf der Sichtflugkarte ein ausgefülltes Dreieck in einem gestrichelten Kreis?"
+    },
+    {
+      "catalogue_number": 118,
+      "explanation": "Ein leeres Dreieck in einem gestrichelten Kreis ist das Symbol für einen Meldepunkt auf Anforderung, den Bedarfsmeldepunkt.",
+      "question_text": "Welche Bedeutung hat auf der Sichtflugkarte ein leeres (nicht ausgefülltes) Dreieck in einem gestrichelten Kreis?"
+    },
+    {
+      "catalogue_number": 119,
+      "explanation": "Befindest du dich in der Platzrunde und die Landung erscheint sichergestellt, kannst du der Flugverkehrskontrollstelle statt der Landemeldung die voraussichtliche Landezeit durchgeben."
+    },
+    {
+      "catalogue_number": 120,
+      "explanation": "Die Startmeldung geht an die zuständige Flugverkehrskontrollstelle oder an den zuständigen FIS, die sie an den AIS-C weiterleiten."
+    },
+    {
+      "catalogue_number": 121,
+      "explanation": "Die Startmeldung enthält Luftfahrzeugkennung, Startflugplatz, Startzeit und Zielflugplatz."
+    }
+  ]
+}

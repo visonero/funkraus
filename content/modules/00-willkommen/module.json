@@ -4,5 +4,6 @@
   "title": "Willkommen",
   "description": "Dein Start in den Kurs: Was dich erwartet und wie du am besten lernst.",
   "duration_minutes": 4,
-  "sort_order": -1
+  "sort_order": -1,
+  "is_free": true
 }

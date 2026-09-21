@@ -1,0 +1,84 @@
+{
+  "label": "Lektion 4.4 · Ausrüstungs-Karte",
+  "title": "Ausweichen, Lichter und",
+  "highlight": "Ausrüstung",
+  "sections": [
+    {
+      "title": "Mindesthöhen",
+      "rows": [
+        [
+          "Über Städten",
+          "300 m (1000 ft) über dem höchsten Hindernis im Umkreis von 600 m"
+        ],
+        [
+          "Sonst",
+          "150 m (500 ft) um das Luftfahrzeug"
+        ]
+      ]
+    },
+    {
+      "title": "Ausweichen",
+      "rows": [
+        [
+          "Gegenflug",
+          "beide nach rechts"
+        ],
+        [
+          "Kreuzen, andere von rechts",
+          "du weichst aus"
+        ],
+        [
+          "Kreuzen, andere von links",
+          "der andere weicht aus (Motorsegler mit Motor = Motorflugzeug)"
+        ],
+        [
+          "Schleppende Luftfahrzeuge",
+          "Vorflugrecht vor motorgetriebenen Luftfahrzeugen"
+        ]
+      ]
+    },
+    {
+      "title": "Lichter und Funkausrüstung",
+      "rows": [
+        [
+          "Positionslichter",
+          "nachts"
+        ],
+        [
+          "Zusammenstoß-Warnlichter",
+          "am Tag und in der Nacht (im Flug)"
+        ],
+        [
+          "UKW-Funkgerät",
+          "bei Überlandflügen stets"
+        ],
+        [
+          "Über geschlossener Wolkendecke",
+          "UKW-Funkgerät plus VOR oder ADF"
+        ]
+      ]
+    },
+    {
+      "title": "Transponder",
+      "rows": [
+        [
+          "Pflicht bei VFR",
+          "Luftraum C und D (nicht Kontrollzone)"
+        ],
+        [
+          "A/C 7000",
+          "über 5000 ft AMSL oder 3500 ft AGL (der höhere Wert), unaufgefordert"
+        ],
+        [
+          "Sinkflug",
+          "QNH einstellen, Code 7000 beibehalten"
+        ],
+        [
+          "TMZ",
+          "Höhenübermittlung, Code laut Veröffentlichung oder Zuweisung unaufgefordert"
+        ]
+      ]
+    }
+  ],
+  "footer": "Quellen: BNetzA-Prüfungsfragenkatalog 2024, Nr. 176 bis 180, 182, 183, 227 bis 232; SERA (VO (EU) Nr. 923/2012)"
+}

@@ -1,0 +1,92 @@
+{
+  "label": "Lektion 4.1 · Streckenfunk-Karte",
+  "title": "Funk auf der",
+  "highlight": "Strecke",
+  "sections": [
+    {
+      "title": "Hörbereitschaft (VFR)",
+      "rows": [
+        [
+          "Platzrunde",
+          "Flugplatz mit Flugverkehrskontrolle: ständig auf der Platzfrequenz"
+        ],
+        [
+          "Luftraum C und D",
+          "dauernde Hörbereitschaft"
+        ],
+        [
+          "Nachts in G",
+          "außerhalb einer RMZ nicht vorgeschrieben"
+        ],
+        [
+          "Sprache",
+          "Englisch oder Sprache der Bodenstelle; in und über FL 100 Englisch"
+        ]
+      ]
+    },
+    {
+      "title": "Anweisung → deine Bestätigung",
+      "rows": [
+        [
+          "RUFEN SIE (Stelle) (Frequenz)",
+          "RUFE (Frequenz), Rufzeichen"
+        ],
+        [
+          "SQUAWK (Code)",
+          "SQUAWK (Code), Rufzeichen"
+        ],
+        [
+          "SQUAWK IDENT",
+          "Ident-Taste drücken"
+        ],
+        [
+          "Verkehrshinweis",
+          "HALTE AUSSCHAU / VERKEHR IN SICHT / KEIN KONTAKT"
+        ]
+      ],
+      "example": {
+        "say": "„DGIGA, RUFE 121,280“",
+        "note": "richtig, nicht „WECHSELE FREQUENZ“"
+      }
+    },
+    {
+      "title": "Verkehr nach der Uhr",
+      "rows": [
+        [
+          "12 Uhr",
+          "genau voraus"
+        ],
+        [
+          "3 Uhr / 9 Uhr",
+          "rechts / links"
+        ],
+        [
+          "6 Uhr",
+          "hinten"
+        ],
+        [
+          "10 Uhr",
+          "links voraus"
+        ]
+      ],
+      "example": {
+        "say": "„UNBEKANNTES FLUGZIEL ZEHN UHR, ENTFERNUNG 4 MEILEN“",
+        "note": "= links voraus"
+      }
+    },
+    {
+      "title": "Merke",
+      "rows": [
+        [
+          "Kontrollzone D",
+          "Funkverbindung spätestens 5 Minuten vor dem Pflichtmeldepunkt"
+        ],
+        [
+          "SQUAWK",
+          "immer Transpondercode, keine Frequenz, keine Peilung"
+        ]
+      ]
+    }
+  ],
+  "footer": "Quellen: NfL 2024-1-3266 (DFS), Nr. 1.1.4, 1.1.7, 2.3; BNetzA-Prüfungsfragenkatalog 2024, Nr. 73, 80, 81, 90 bis 96"
+}

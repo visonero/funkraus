@@ -1,0 +1,88 @@
+{
+  "label": "Lektion 4.6 · Peilungs-Karte",
+  "title": "NDB, Peilung und",
+  "highlight": "Radar",
+  "sections": [
+    {
+      "title": "NDB und Funkkompass",
+      "rows": [
+        [
+          "Bereich",
+          "LW und MW"
+        ],
+        [
+          "Kennung",
+          "zwei oder drei Buchstaben im Morsecode"
+        ],
+        [
+          "Betriebsentfernung",
+          "15 NM bis 100 NM"
+        ],
+        [
+          "Empfang an Bord",
+          "Funkkompass (ADF)"
+        ],
+        [
+          "RBI zeigt",
+          "Winkel zwischen Flugzeuglängsachse und Richtung zum NDB (Bezugspeilung)"
+        ]
+      ],
+      "example": {
+        "say": "QDM = Steuerkurs + Bezugspeilung",
+        "note": "155° + 025° = 180°"
+      }
+    },
+    {
+      "title": "Q-Gruppen",
+      "rows": [
+        [
+          "QDM",
+          "missweisender Kurs zur Station"
+        ],
+        [
+          "QDR",
+          "missweisende Peilung von der Station"
+        ],
+        [
+          "Unterschied",
+          "QDM und QDR unterscheiden sich um 180°"
+        ]
+      ]
+    },
+    {
+      "title": "Fremdpeilung (VDF)",
+      "rows": [
+        [
+          "Station",
+          "UKW-Peilstelle, Bodenfunkstelle mit UKW-Peiler"
+        ],
+        [
+          "An Bord nötig",
+          "nur UKW-Sprechfunkgerät"
+        ],
+        [
+          "QDM 225°",
+          "Kurs zur Station SW, du bist nordöstlich der Station"
+        ],
+        [
+          "QDR 180°, Steuerkurs 090°",
+          "Station liegt links vom Flugweg"
+        ]
+      ]
+    },
+    {
+      "title": "Radar",
+      "rows": [
+        [
+          "Sekundärradar",
+          "Identifizierung von Luftfahrzeugen, Zusatzinformationen über VFR-Flüge"
+        ],
+        [
+          "Radarkontrolle",
+          "kann dir deinen Standort nennen"
+        ]
+      ]
+    }
+  ],
+  "footer": "Quellen: BNetzA-Prüfungsfragenkatalog 2024, Nr. 29 bis 32, 234, 248 bis 258"
+}

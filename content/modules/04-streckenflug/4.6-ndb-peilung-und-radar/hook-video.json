@@ -1,0 +1,157 @@
+{
+  "id": "4.6-hook-video",
+  "language": "de",
+  "scenes": [
+    {
+      "id": "intro",
+      "voice": "trainer",
+      "text": "Ein Radial vom VOR ist nicht der einzige Weg, deinen Standort herauszufinden. Wenn du auf der Karte suchst, stößt du noch auf drei weitere Hilfsmittel: das [[0]]NDB, die [[1]]Peilung durch eine Bodenstelle [[2]]und das Radar der Flugsicherung.",
+      "visual": {
+        "kind": "headline",
+        "headline": "Weitere Wege zum",
+        "highlight": "Standort",
+        "tiles": [
+          "NDB",
+          "Peilung",
+          "Radar"
+        ]
+      }
+    },
+    {
+      "id": "ndb",
+      "voice": "trainer",
+      "text": "Beginnen wir mit dem ungerichteten Funkfeuer, kurz NDB. [[0]]Es arbeitet im Lang- und Mittelwellenbereich. [[1]]Seine Kennung besteht aus zwei oder drei Buchstaben im Morsecode. [[2]]Die festgelegte Betriebsentfernung liegt zwischen fünfzehn und hundert Seemeilen.",
+      "visual": {
+        "kind": "diagram",
+        "diagram": "ndb",
+        "headline": "Das",
+        "highlight": "NDB",
+        "steps": [
+          {
+            "label": "LW und MW",
+            "sub": "Lang- und Mittelwelle"
+          },
+          {
+            "label": "Kennung",
+            "sub": "zwei oder drei Buchstaben, Morsecode"
+          },
+          {
+            "label": "15 bis 100 NM",
+            "sub": "Betriebsentfernung"
+          }
+        ]
+      }
+    },
+    {
+      "id": "adf",
+      "voice": "trainer",
+      "text": "An Bord empfängst du ein NDB mit dem Funkkompass, dem ADF. Sein Anzeigegerät zeigt dir einen Winkel: den Winkel zwischen [[0]]der Flugzeuglängsachse [[1]]und der Richtung zum eingestellten NDB. [[2]]Zählst du diesen Winkel zu deinem missweisenden Steuerkurs, erhältst du das QDM. Bei einem Steuerkurs von einhundertfünfundfünfzig Grad und einer Bezugspeilung von null zwei fünf sind das genau einhundertachtzig Grad.",
+      "visual": {
+        "kind": "diagram",
+        "diagram": "adf",
+        "headline": "Der",
+        "highlight": "Funkkompass",
+        "steps": [
+          {
+            "label": "Flugzeuglängsachse",
+            "sub": "die Nase deines Flugzeuges"
+          },
+          {
+            "label": "Richtung zum NDB",
+            "sub": "das zeigt der Zeiger"
+          },
+          {
+            "label": "Steuerkurs + Bezugspeilung",
+            "sub": "ergibt das QDM"
+          }
+        ]
+      }
+    },
+    {
+      "id": "qcodes",
+      "voice": "trainer",
+      "text": "Zwei Q-Gruppen musst du dabei unbedingt auseinanderhalten. [[0]]QDM ist der missweisende Kurs zur Station. [[1]]QDR ist die missweisende Peilung von der Station. [[2]]Die beiden unterscheiden sich um einhundertachtzig Grad.",
+      "visual": {
+        "kind": "diagram",
+        "diagram": "qdmQdr",
+        "headline": "Die zwei",
+        "highlight": "Q-Gruppen",
+        "steps": [
+          {
+            "label": "QDM",
+            "sub": "missweisender Kurs zur Station",
+            "tone": "green"
+          },
+          {
+            "label": "QDR",
+            "sub": "missweisende Peilung von der Station"
+          },
+          {
+            "label": "Unterschied",
+            "sub": "180°",
+            "tone": "white"
+          }
+        ]
+      }
+    },
+    {
+      "id": "vdf",
+      "voice": "trainer",
+      "text": "Bei der Fremdpeilung hilft dir eine Station am Boden. [[0]]Eine UKW-Peilstelle, kurz VDF, peilt deinen Funkspruch an. [[1]]Dafür brauchst du an Bord nur dein UKW-Sprechfunkgerät. [[2]]Erhältst du von der Peilstelle ein QDM von zweihundertfünfundzwanzig Grad, ist der Kurs zur Station Südwest. Du befindest dich also nordöstlich der Station.",
+      "visual": {
+        "kind": "diagram",
+        "diagram": "vdf",
+        "headline": "Die",
+        "highlight": "Fremdpeilung",
+        "steps": [
+          {
+            "label": "VDF-Peilstelle",
+            "sub": "peilt deinen Funkspruch"
+          },
+          {
+            "label": "UKW-Funkgerät",
+            "sub": "mehr brauchst du nicht"
+          },
+          {
+            "label": "QDM 225°",
+            "sub": "du bist nordöstlich der Station"
+          }
+        ]
+      }
+    },
+    {
+      "id": "radar",
+      "voice": "trainer",
+      "text": "Und schließlich das Radar. [[0]]Das Sekundärradar dient dazu, Luftfahrzeuge zu identifizieren und zusätzliche Informationen über VFR-Flüge zu erlangen. [[1]]Eine Flugverkehrskontrollstelle mit Radar kann dir zum Beispiel deinen Standort nennen.",
+      "visual": {
+        "kind": "diagram",
+        "diagram": "radar",
+        "headline": "Die Flugsicherung",
+        "highlight": "sieht dich",
+        "steps": [
+          {
+            "label": "Sekundärradar",
+            "sub": "identifiziert und liefert Zusatzinformationen"
+          },
+          {
+            "label": "Radarkontrolle",
+            "sub": "kann dir deinen Standort nennen"
+          }
+        ]
+      }
+    },
+    {
+      "id": "outro",
+      "voice": "trainer",
+      "text": "So hast du drei weitere Wege zum Standort kennengelernt: [[0]]das NDB, [[1]]die Peilung [[2]]und das Radar. Lade dir die Peilungs-Karte herunter und beantworte danach siebzehn Fragen. Los geht's.",
+      "visual": {
+        "kind": "outro",
+        "pills": [
+          "NDB",
+          "Peilung",
+          "Radar"
+        ]
+      }
+    }
+  ]
+}

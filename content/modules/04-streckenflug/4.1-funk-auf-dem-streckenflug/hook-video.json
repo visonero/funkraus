@@ -1,0 +1,185 @@
+{
+  "id": "4.1-hook-video",
+  "language": "de",
+  "scenes": [
+    {
+      "id": "intro",
+      "voice": "trainer",
+      "text": "Stell dir vor, du hast den Flugplatz hinter dir gelassen. Unter dir zieht die Landschaft vorbei, und der Funk wird zu deinem Begleiter. Auch auf dem Streckenflug gelten klare Regeln: wann du zuhören musst, in welcher Sprache du sprichst und wie dich die Flugsicherung von Stelle zu Stelle weiterreicht. Wir sprechen über drei Dinge: [[0]]die Hörbereitschaft, [[1]]den Frequenzwechsel [[2]]und den Transponder.",
+      "visual": {
+        "kind": "headline",
+        "headline": "Funk auf der",
+        "highlight": "Strecke",
+        "tiles": [
+          "Hörbereitschaft",
+          "Frequenzwechsel",
+          "Transponder"
+        ]
+      }
+    },
+    {
+      "id": "listen",
+      "voice": "trainer",
+      "text": "Zuerst die Hörbereitschaft. [[0]]In der Platzrunde eines Flugplatzes mit Flugverkehrskontrolle hörst du ständig die Frequenz der Platzkontrolle. [[1]]Auch in den Lufträumen C und D musst du als VFR-Pilot dauernd zuhören. [[2]]Nur nachts im Luftraum G, außerhalb einer RMZ, ist die ständige Hörbereitschaft nicht vorgeschrieben.",
+      "visual": {
+        "kind": "transform",
+        "headline": "Wann du",
+        "highlight": "zuhören musst",
+        "tiles": [
+          {
+            "top": "Platzrunde",
+            "bottom": "Frequenz der Platzkontrolle"
+          },
+          {
+            "top": "Luftraum C und D",
+            "bottom": "dauernd zuhören"
+          },
+          {
+            "top": "Nachts in G",
+            "bottom": "ohne RMZ keine Pflicht",
+            "tone": "white"
+          }
+        ]
+      }
+    },
+    {
+      "id": "language",
+      "voice": "trainer",
+      "text": "Und in welcher Sprache funkst du? Die Regel lautet: Englisch, oder die Sprache, die die Bodenfunkstelle normalerweise verwendet. [[0]]Bei VFR-Flügen in und oberhalb von Flugfläche eins null null wird der Funkverkehr in englischer Sprache geführt. [[1]]Darunter sprichst du Englisch oder die Sprache der Bodenstelle, meist also Deutsch.",
+      "visual": {
+        "kind": "transform",
+        "headline": "In welcher",
+        "highlight": "Sprache",
+        "tiles": [
+          {
+            "top": "FL 100 und darüber",
+            "bottom": "immer Englisch"
+          },
+          {
+            "top": "Darunter",
+            "bottom": "Englisch oder Sprache der Bodenstelle"
+          }
+        ]
+      }
+    },
+    {
+      "id": "contact",
+      "voice": "trainer",
+      "text": "Auf dem Streckenflug wirst du immer wieder an neue Stellen übergeben. [[0]]Die Flugsicherung sagt zum Beispiel: Rufen Sie Hamburg Turm auf eins zwo eins Komma zwei acht. [[1]]Du bestätigst mit deinem Rufzeichen, dem Wort rufe und der Frequenz: Rufe eins zwo eins Komma zwei acht. [[2]]Ein bloßes Wechsele Frequenz reicht nicht, denn die Frequenz muss in deiner Bestätigung stehen.",
+      "visual": {
+        "kind": "dialog",
+        "headline": "Der",
+        "highlight": "Frequenzwechsel",
+        "lines": [
+          {
+            "who": "tower",
+            "text": "RUFEN SIE HAMBURG TURM 121,280",
+            "note": "die Anweisung"
+          },
+          {
+            "who": "pilot",
+            "text": "DGIGA, RUFE 121,280",
+            "note": "deine Bestätigung",
+            "tone": "green"
+          },
+          {
+            "who": "pilot",
+            "text": "WECHSELE FREQUENZ",
+            "note": "reicht nicht",
+            "tone": "red"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ctr",
+      "voice": "trainer",
+      "text": "Eine Regel solltest du dir besonders merken, wenn du eine Kontrollzone im Luftraum D anfliegst. [[0]]Die Funkverbindung muss spätestens fünf Minuten vor Erreichen des Pflichtmeldepunktes stehen. [[1]]Wer erst beim Einflug in den Luftraum anruft, ist zu spät dran.",
+      "visual": {
+        "kind": "diagram",
+        "diagram": "route",
+        "headline": "Vor der",
+        "highlight": "Kontrollzone D",
+        "steps": [
+          {
+            "label": "5 Minuten davor",
+            "sub": "Funkverbindung spätestens vor dem Pflichtmeldepunkt",
+            "tone": "green"
+          },
+          {
+            "label": "Erst beim Einflug",
+            "sub": "ist zu spät",
+            "tone": "red"
+          }
+        ],
+        "params": {
+          "mode": "ctr5"
+        }
+      }
+    },
+    {
+      "id": "squawk",
+      "voice": "trainer",
+      "text": "Jetzt zum Transponder. [[0]]Sagt die Flugsicherung: Delta Golf India Golf Alfa, squawk eins drei fünf zwo, dann stellst du an deinem Transponder genau diesen Code ein. [[1]]Und weil es ein Code ist, wiederholst du ihn: Squawk eins drei fünf zwo, mit deinem Rufzeichen. [[2]]Das Wort Squawk hat also nichts mit einer Frequenz oder einer Peilung zu tun.",
+      "visual": {
+        "kind": "transform",
+        "headline": "Der",
+        "highlight": "Transponder",
+        "plate": "SQUAWK 1352",
+        "tiles": [
+          {
+            "top": "SQUAWK",
+            "bottom": "Code einstellen"
+          },
+          {
+            "top": "Wiederholen",
+            "bottom": "SQUAWK 1352, Rufzeichen"
+          },
+          {
+            "top": "Keine Frequenz",
+            "bottom": "und keine Peilung",
+            "tone": "red"
+          }
+        ]
+      }
+    },
+    {
+      "id": "traffic",
+      "voice": "trainer",
+      "text": "Zum Schluss ein Verkehrshinweis von der Radarkontrolle: Unbekanntes Flugziel, zehn Uhr, Entfernung vier Meilen. Dazu legst du dir ein Zifferblatt um dein Flugzeug. [[0]]Zwölf Uhr ist genau voraus. [[1]]Zehn Uhr liegt links voraus. [[2]]Und vier Meilen sagt dir, wie weit das Flugziel entfernt ist. Du antwortest mit: Halte Ausschau, solange du es noch nicht siehst.",
+      "visual": {
+        "kind": "diagram",
+        "diagram": "clock",
+        "headline": "Verkehr nach",
+        "highlight": "der Uhr",
+        "steps": [
+          {
+            "label": "12 Uhr",
+            "sub": "genau voraus"
+          },
+          {
+            "label": "10 Uhr",
+            "sub": "links voraus"
+          },
+          {
+            "label": "4 Meilen",
+            "sub": "die Entfernung"
+          }
+        ]
+      }
+    },
+    {
+      "id": "outro",
+      "voice": "trainer",
+      "text": "Damit weißt du, wie du auf der Strecke funkst: [[0]]du hörst zu, [[1]]wechselst die Frequenz richtig [[2]]und stellst den Transponder ein. Lade dir die Streckenfunk-Karte herunter, übe mit dem Audio und beantworte danach dreizehn Fragen. Los geht's.",
+      "visual": {
+        "kind": "outro",
+        "pills": [
+          "Zuhören",
+          "Frequenz",
+          "Transponder"
+        ]
+      }
+    }
+  ]
+}

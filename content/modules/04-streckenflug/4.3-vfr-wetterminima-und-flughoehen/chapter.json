@@ -1,0 +1,15 @@
+{
+  "id": "4.3",
+  "title": "VFR-Regeln: Wetterminima und Flughöhen",
+  "content_type": "audio",
+  "sort_order": 2,
+  "assets": {
+    "video": "4.3-hook-video/hook-video.mp4",
+    "audio": "4.3-audio-drill/4.3-audio-drill.mp3",
+    "pdf": "4.3-vfr-karte/vfr-karte.pdf"
+  },
+  "sources": [
+    "BNetzA-Prüfungsfragenkatalog 2024, Nr. 207 bis 211, 213 bis 217",
+    "SERA (Verordnung (EU) Nr. 923/2012): Sichtflugregeln, Halbkreisflughöhen"
+  ]
+}

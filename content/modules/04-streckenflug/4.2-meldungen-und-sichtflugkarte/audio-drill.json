@@ -1,0 +1,101 @@
+{
+  "id": "4.2-audio-drill",
+  "language": "de",
+  "segments": [
+    {
+      "voice": "trainer",
+      "text": "Willkommen zur Meldungen-Übung. Du bist Delta Golf India Golf Alfa. Ich sage dir, was du meldest. Sprich nach der Pause deine Meldung. Danach höre ich dir die richtige vor."
+    },
+    {
+      "pause": 1.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Du überfliegst gerade den Pflichtmeldepunkt Sierra in dreitausendfünfhundert Fuß. Gib deine Standortmeldung durch."
+    },
+    {
+      "pause": 8.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Delta Golf India Golf Alfa, über Sierra, dreitausendfünfhundert Fuß."
+    },
+    {
+      "pause": 1.8
+    },
+    {
+      "voice": "trainer",
+      "text": "Du fliegst in der Platzrunde und bist im Gegenanflug. Melde deinen Standort."
+    },
+    {
+      "pause": 6.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Delta Golf India Golf Alfa, Gegenanflug."
+    },
+    {
+      "pause": 1.8
+    },
+    {
+      "voice": "trainer",
+      "text": "Du startest in Bautzen zum Flug nach Leipzig, Startzeit eins zwo drei fünf. Gib deine Startmeldung durch."
+    },
+    {
+      "pause": 9.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Delta Golf India Golf Alfa, Startflugplatz Bautzen, Startzeit eins zwo drei fünf, Zielflugplatz Leipzig."
+    },
+    {
+      "pause": 1.8
+    },
+    {
+      "voice": "trainer",
+      "text": "Du bist in der Platzrunde und die Landung ist sichergestellt. Was kannst du statt der Landemeldung durchgeben?"
+    },
+    {
+      "pause": 5.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Die voraussichtliche Landezeit."
+    },
+    {
+      "pause": 1.8
+    },
+    {
+      "voice": "trainer",
+      "text": "Jetzt zwei Fragen zur Wiederholung. Welche Angabe darfst du in der Standortmeldung weglassen, wenn du genau beim Überflug meldest?"
+    },
+    {
+      "pause": 4.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Die Zeitangabe."
+    },
+    {
+      "pause": 1.8
+    },
+    {
+      "voice": "trainer",
+      "text": "Was bedeutet ein ausgefülltes Dreieck auf der Sichtflugkarte?"
+    },
+    {
+      "pause": 4.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Ein Pflichtmeldepunkt."
+    },
+    {
+      "pause": 1.8
+    },
+    {
+      "voice": "trainer",
+      "text": "Sehr gut. Wiederhole die Übung, bis der Ablauf sitzt."
+    }
+  ]
+}

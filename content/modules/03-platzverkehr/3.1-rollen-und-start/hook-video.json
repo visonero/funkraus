@@ -46,23 +46,27 @@
       "voice": "trainer",
       "text": "Los geht es mit dem Rollen. [[0]]Du rufst die Rollkontrolle und bittest um Rollen. Die Kontrolle antwortet zum Beispiel: Rollen Sie zum Rollhalt Piste zwo vier. [[1]]Der Rollhalt ist ein Ort, der die Piste schützt. Dort hältst du an, bis die Kontrolle dir etwas anderes genehmigt. [[2]]Sind deine Startvorbereitungen beendet, meldest du dem Turm: Abflugbereit.",
       "visual": {
-        "kind": "transform",
+        "kind": "diagram",
+        "diagram": "airfield",
         "headline": "Der Weg zum",
         "highlight": "Rollhalt",
-        "tiles": [
+        "steps": [
           {
-            "top": "ERBITTE ROLLEN",
-            "bottom": "dein Anruf"
+            "label": "ERBITTE ROLLEN",
+            "sub": "dein Anruf an die Rollkontrolle"
           },
           {
-            "top": "ROLLHALT",
-            "bottom": "Piste bleibt geschützt"
+            "label": "ROLLHALT",
+            "sub": "hier hältst du, die Piste bleibt geschützt"
           },
           {
-            "top": "ABFLUGBEREIT",
-            "bottom": "du meldest dich fertig"
+            "label": "ABFLUGBEREIT",
+            "sub": "Startvorbereitungen beendet"
           }
-        ]
+        ],
+        "params": {
+          "phase": "taxi"
+        }
       }
     },
     {
@@ -70,21 +74,26 @@
       "voice": "trainer",
       "text": "Jetzt kommt ein Punkt, den viele unterschätzen: das Halten. [[0]]Sagt die Kontrolle: Halten Sie Position, [[1]]antwortest du mit den Worten: Halte Position. [[2]]Verstanden oder Wilco reichen dabei nicht aus. Bei jeder Haltanweisung antwortest du mit Halte, so bleibt kein Zweifel, dass du wirklich stehst.",
       "visual": {
-        "kind": "transform",
+        "kind": "dialog",
         "headline": "Halten heißt:",
         "highlight": "HALTE",
-        "tiles": [
+        "lines": [
           {
-            "top": "HALTEN SIE POSITION",
-            "bottom": "Anweisung"
+            "who": "tower",
+            "text": "HALTEN SIE POSITION",
+            "note": "die Anweisung"
           },
           {
-            "top": "HALTE POSITION",
-            "bottom": "deine Antwort"
+            "who": "pilot",
+            "text": "HALTE POSITION",
+            "note": "deine Antwort",
+            "tone": "green"
           },
           {
-            "top": "VERSTANDEN",
-            "bottom": "reicht hier nicht"
+            "who": "pilot",
+            "text": "VERSTANDEN",
+            "note": "reicht bei Halten nicht",
+            "tone": "red"
           }
         ]
       }
@@ -94,23 +103,28 @@
       "voice": "trainer",
       "text": "Dann geht es zur Piste. Die Kontrolle schickt dich mit den Worten: [[0]]Rollen Sie zum Abflugpunkt Piste zwo vier, dort halten. Wenn du so weit bist, kommt die Freigabe: [[1]]Piste zwo vier, Start frei. Ohne diese Freigabe startest du nicht. Du bestätigst sie, indem du sie wiederholst: [[2]]Piste zwo vier, Start frei, mit deinem Rufzeichen.",
       "visual": {
-        "kind": "transform",
+        "kind": "diagram",
+        "diagram": "airfield",
         "headline": "Ohne Freigabe",
         "highlight": "kein Start",
-        "tiles": [
+        "steps": [
           {
-            "top": "ABFLUGPUNKT",
-            "bottom": "Rollen zum Start"
+            "label": "ABFLUGPUNKT",
+            "sub": "Rollen zum Start, dort halten"
           },
           {
-            "top": "START FREI",
-            "bottom": "die Freigabe"
+            "label": "START FREI",
+            "sub": "die Freigabe des Turms",
+            "tone": "green"
           },
           {
-            "top": "PISTE 24 START FREI",
-            "bottom": "deine Bestätigung"
+            "label": "PISTE 24 START FREI",
+            "sub": "deine Bestätigung"
           }
-        ]
+        ],
+        "params": {
+          "phase": "start"
+        }
       }
     },
     {
@@ -118,17 +132,21 @@
       "voice": "trainer",
       "text": "Und was, wenn sich die Lage ändert? Der Turm kann eine Startfreigabe widerrufen: [[0]]Halten Sie Position, Startfreigabe aufgehoben. Dann antwortest du einfach: Halte. [[1]]Hast du schon mit dem Startlauf begonnen und hörst: Sofort anhalten, antwortest du: Halte an.",
       "visual": {
-        "kind": "transform",
+        "kind": "dialog",
         "headline": "Wenn sich",
         "highlight": "etwas ändert",
-        "tiles": [
+        "lines": [
           {
-            "top": "Startfreigabe aufgehoben",
-            "bottom": "du antwortest: HALTE"
+            "who": "tower",
+            "text": "HALTEN SIE POSITION, STARTFREIGABE AUFGEHOBEN",
+            "note": "deine Antwort: HALTE",
+            "tone": "red"
           },
           {
-            "top": "SOFORT ANHALTEN",
-            "bottom": "du antwortest: HALTE AN"
+            "who": "tower",
+            "text": "SOFORT ANHALTEN",
+            "note": "deine Antwort: HALTE AN",
+            "tone": "red"
           }
         ]
       }

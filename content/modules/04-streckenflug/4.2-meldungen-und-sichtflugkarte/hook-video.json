@@ -1,0 +1,182 @@
+{
+  "id": "4.2-hook-video",
+  "language": "de",
+  "scenes": [
+    {
+      "id": "intro",
+      "voice": "trainer",
+      "text": "Auf einem Streckenflug fliegst du nicht im Verborgenen. Die Flugsicherung möchte wissen, wo du gerade bist, wann du gestartet bist und wann du landest. Dafür gibt es drei kleine Meldungen: die [[0]]Standortmeldung, die [[1]]Startmeldung [[2]]und die Landemeldung.",
+      "visual": {
+        "kind": "headline",
+        "headline": "Wo du bist,",
+        "highlight": "weiß die Flugsicherung",
+        "tiles": [
+          "Standort",
+          "Start",
+          "Landung"
+        ]
+      }
+    },
+    {
+      "id": "when",
+      "voice": "trainer",
+      "text": "Beginnen wir mit dem Standort. Wann meldest du ihn? [[0]]Bei VFR-Flügen am Tag beim Überflug von Pflichtmeldepunkten. [[1]]In der Regel auch beim Einflug in den Luftraum D. [[2]]Und Achtung: Bei einem Flug zu einem Flughafen mit Flugverkehrskontrolle meldest du dich über den Pflichtmeldepunkten unabhängig von deiner Freigabe, außer die Kontrolle verzichtet ausdrücklich darauf.",
+      "visual": {
+        "kind": "diagram",
+        "diagram": "route",
+        "headline": "Wann du deinen",
+        "highlight": "Standort meldest",
+        "steps": [
+          {
+            "label": "Pflichtmeldepunkt",
+            "sub": "beim Überflug"
+          },
+          {
+            "label": "Einflug in D",
+            "sub": "in der Regel"
+          },
+          {
+            "label": "Auch mit Freigabe",
+            "sub": "außer man verzichtet ausdrücklich"
+          }
+        ],
+        "params": {
+          "mode": "report"
+        }
+      }
+    },
+    {
+      "id": "symbols",
+      "voice": "trainer",
+      "text": "Wie erkennst du diese Punkte auf deiner Sichtflugkarte? An ihrem Symbol. [[0]]Ein ausgefülltes Dreieck bedeutet: Pflichtmeldepunkt. [[1]]Ein leeres Dreieck steht für einen Meldepunkt auf Anforderung, auch Bedarfsmeldepunkt genannt. Dort meldest du dich nur, wenn die Flugsicherung es verlangt.",
+      "visual": {
+        "kind": "glyphs",
+        "headline": "Die Symbole auf der",
+        "highlight": "Sichtflugkarte",
+        "items": [
+          {
+            "glyph": "chart-mandatory",
+            "top": "Pflichtmeldepunkt",
+            "bottom": "ausgefülltes Dreieck",
+            "tone": "green"
+          },
+          {
+            "glyph": "chart-request",
+            "top": "Meldepunkt auf Anforderung",
+            "bottom": "leeres Dreieck",
+            "tone": "white"
+          }
+        ]
+      }
+    },
+    {
+      "id": "content",
+      "voice": "trainer",
+      "text": "Was gehört in eine Standortmeldung? Normalerweise vier Dinge. [[0]]Dein Rufzeichen, [[1]]der Standort, [[2]]die Überflugzeit [[3]]und deine Flughöhe. Meldest du genau im Moment des Überfluges, darfst du die Zeit weglassen.",
+      "visual": {
+        "kind": "transform",
+        "headline": "Die",
+        "highlight": "Standortmeldung",
+        "tiles": [
+          {
+            "top": "Rufzeichen",
+            "bottom": "wer du bist"
+          },
+          {
+            "top": "Standort",
+            "bottom": "wo du bist"
+          },
+          {
+            "top": "Zeit",
+            "bottom": "beim Überflug entfällt sie"
+          },
+          {
+            "top": "Höhe",
+            "bottom": "in welcher Höhe"
+          }
+        ]
+      }
+    },
+    {
+      "id": "circuit",
+      "voice": "trainer",
+      "text": "In der Platzrunde ist es noch kürzer. Es genügen [[0]]dein Rufzeichen [[1]]und dein Standort in der Runde, zum Beispiel: Gegenanflug.",
+      "visual": {
+        "kind": "transform",
+        "headline": "In der",
+        "highlight": "Platzrunde",
+        "tiles": [
+          {
+            "top": "Rufzeichen",
+            "bottom": "wer du bist"
+          },
+          {
+            "top": "Standort",
+            "bottom": "wo du in der Runde bist"
+          }
+        ]
+      }
+    },
+    {
+      "id": "start",
+      "voice": "trainer",
+      "text": "Jetzt zum Start. Gibst du einen Flugplan ab und startest von einem unkontrollierten Flugplatz, kannst du die Startmeldung per Funk durchgeben, an die zuständige Kontrollstelle oder den Fluginformationsdienst. Sie leiten sie weiter. Die Meldung enthält vier Angaben: [[0]]die Kennung deines Luftfahrzeuges, [[1]]den Startflugplatz, [[2]]die Startzeit [[3]]und den Zielflugplatz.",
+      "visual": {
+        "kind": "transform",
+        "headline": "Die",
+        "highlight": "Startmeldung",
+        "tiles": [
+          {
+            "top": "Kennung",
+            "bottom": "des Luftfahrzeuges"
+          },
+          {
+            "top": "Startflugplatz",
+            "bottom": "von wo"
+          },
+          {
+            "top": "Startzeit",
+            "bottom": "wann"
+          },
+          {
+            "top": "Zielflugplatz",
+            "bottom": "wohin"
+          }
+        ]
+      }
+    },
+    {
+      "id": "landing",
+      "voice": "trainer",
+      "text": "Und die Landung? [[0]]Normalerweise meldest du sie nach dem Aufsetzen. [[1]]Bist du aber schon in der Platzrunde und die Landung ist sichergestellt, kannst du stattdessen die voraussichtliche Landezeit durchgeben.",
+      "visual": {
+        "kind": "transform",
+        "headline": "Die",
+        "highlight": "Landemeldung",
+        "tiles": [
+          {
+            "top": "Landemeldung",
+            "bottom": "normalerweise"
+          },
+          {
+            "top": "Landezeit",
+            "bottom": "voraussichtlich, in der Platzrunde"
+          }
+        ]
+      }
+    },
+    {
+      "id": "outro",
+      "voice": "trainer",
+      "text": "So behältst du den Überblick: [[0]]die Standortmeldung, [[1]]die Startmeldung [[2]]und die Landemeldung. Lade dir die Meldungen-Karte herunter, höre die Übung und beantworte danach zehn Fragen. Los geht's.",
+      "visual": {
+        "kind": "outro",
+        "pills": [
+          "Standort",
+          "Start",
+          "Landung"
+        ]
+      }
+    }
+  ]
+}

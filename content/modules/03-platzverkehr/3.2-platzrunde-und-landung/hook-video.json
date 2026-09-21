@@ -22,21 +22,23 @@
       "voice": "trainer",
       "text": "Schauen wir uns die Platzrunde genauer an. [[0]]Im Gegenanflug fliegst du parallel zur Landebahn, aber in die Gegenrichtung. Beim Gegenanflug für Piste eins sechs fliegst du also einen Kurs von dreihundertvierzig Grad. [[1]]Im Queranflug drehst du auf die Landebahn zu. [[2]]Und im Endanflug fliegst du gerade auf die Piste zu. Wichtig: Kurven in der Platzrunde sind normalerweise Linkskurven. Und im Endanflug hat das tiefer fliegende Luftfahrzeug Vorflugrecht.",
       "visual": {
-        "kind": "transform",
+        "kind": "diagram",
+        "diagram": "circuit",
         "headline": "Die Teile der",
         "highlight": "Platzrunde",
-        "tiles": [
+        "steps": [
           {
-            "top": "Gegenanflug",
-            "bottom": "parallel, Gegenrichtung"
+            "label": "Gegenanflug",
+            "sub": "parallel zur Piste, in Gegenrichtung"
           },
           {
-            "top": "Queranflug",
-            "bottom": "Kurve zur Bahn"
+            "label": "Queranflug",
+            "sub": "Kurve auf die Piste zu"
           },
           {
-            "top": "Endanflug",
-            "bottom": "7 km vor dem Aufsetzen"
+            "label": "Endanflug",
+            "sub": "gerade auf die Piste zu",
+            "tone": "green"
           }
         ]
       }
@@ -46,21 +48,25 @@
       "voice": "trainer",
       "text": "Wie kommst du in die Platzrunde hinein? Mit einem klaren Ablauf. [[0]]Du meldest dich beim Turm mit Luftfahrzeugtyp, Position, Höhe und den Worten: zur Landung. [[1]]Der Turm weist dich ein, zum Beispiel: Fliegen Sie in den Gegenanflug, Piste zwo sieben, Wind, QNH. [[2]]Du bestätigst Piste und QNH und nennst dein Rufzeichen.",
       "visual": {
-        "kind": "transform",
+        "kind": "dialog",
         "headline": "Einflug in die",
         "highlight": "Platzrunde",
-        "tiles": [
+        "lines": [
           {
-            "top": "Dein Anruf",
-            "bottom": "Typ, Position, Höhe, zur Landung"
+            "who": "pilot",
+            "text": "LEIPZIG TURM, DEHOL, CESSNA, 5 KM SÜDLICH, 1500 FT, ZUR LANDUNG",
+            "note": "dein Anruf"
           },
           {
-            "top": "Die Anweisung",
-            "bottom": "Piste, Wind, QNH"
+            "who": "tower",
+            "text": "FLIEGEN SIE IN DEN GEGENANFLUG PISTE 27, QNH 1015",
+            "note": "die Anweisung"
           },
           {
-            "top": "Deine Antwort",
-            "bottom": "Piste und QNH wiederholen"
+            "who": "pilot",
+            "text": "GEGENANFLUG PISTE 27, QNH 1015, DEHOL",
+            "note": "deine Antwort",
+            "tone": "green"
           }
         ]
       }
@@ -94,18 +100,20 @@
       "voice": "trainer",
       "text": "Dann kommt der große Moment: die Landefreigabe. [[0]]Sie lautet: Piste zwo sieben, Landung frei. [[1]]Du wiederholst sie mit deinem Rufzeichen. Eine Landung ohne diese Freigabe gibt es nicht. Nach der Landung verlässt du die Piste und rufst auf Anweisung die Rollkontrolle. Sobald das ganze Luftfahrzeug hinter dem Rollhalt ist, meldest du: Piste verlassen.",
       "visual": {
-        "kind": "transform",
+        "kind": "dialog",
         "headline": "Die",
         "highlight": "Landefreigabe",
-        "plate": "PISTE 27",
-        "tiles": [
+        "lines": [
           {
-            "top": "LANDUNG FREI",
-            "bottom": "die Freigabe"
+            "who": "tower",
+            "text": "PISTE 27, LANDUNG FREI",
+            "note": "die Freigabe"
           },
           {
-            "top": "Wiederholen",
-            "bottom": "Piste, Landung frei"
+            "who": "pilot",
+            "text": "PISTE 27, LANDUNG FREI, DEHOL",
+            "note": "du wiederholst sie",
+            "tone": "green"
           }
         ]
       }

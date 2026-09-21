@@ -1,0 +1,171 @@
+{
+  "id": "4.5-hook-video",
+  "language": "de",
+  "scenes": [
+    {
+      "id": "intro",
+      "voice": "trainer",
+      "text": "Stell dir einen Leuchtturm vor, der nicht Licht, sondern Funkwellen aussendet, und zwar in jede Himmelsrichtung einen eigenen Strahl. Genau das ist ein UKW-Drehfunkfeuer, kurz VOR. [[0]]Am Boden steht der Sender, [[1]]bei dir an Bord der Empfänger. Wenn du damit deinen Standort selbst bestimmst, nennt man das [[2]]Eigenpeilung.",
+      "visual": {
+        "kind": "diagram",
+        "diagram": "vorIntro",
+        "headline": "Dein Leuchtturm aus",
+        "highlight": "Funkwellen",
+        "steps": [
+          {
+            "label": "Der Sender",
+            "sub": "steht am Boden"
+          },
+          {
+            "label": "Der Empfänger",
+            "sub": "sitzt bei dir an Bord"
+          },
+          {
+            "label": "Eigenpeilung",
+            "sub": "du bestimmst deinen Standort selbst"
+          }
+        ]
+      }
+    },
+    {
+      "id": "station",
+      "voice": "trainer",
+      "text": "Schauen wir uns die Station an. [[0]]Ein VOR arbeitet im UKW-Bereich von einhundertacht bis einhundertsiebzehn Komma neun sieben fünf Megahertz. [[1]]Seine Kennung besteht aus drei Buchstaben im Morsecode. [[2]]Und die Reichweite hängt von deiner Flughöhe ab: Je höher du fliegst, desto weiter empfängst du die Station.",
+      "visual": {
+        "kind": "photo",
+        "image": "vor-station.jpg",
+        "headline": "So sieht ein",
+        "highlight": "VOR am Boden aus",
+        "steps": [
+          {
+            "label": "108 bis 117,975 MHz",
+            "sub": "UKW-Bereich"
+          },
+          {
+            "label": "Kennung",
+            "sub": "drei Buchstaben, Morsecode"
+          },
+          {
+            "label": "Reichweite",
+            "sub": "hängt von der Flughöhe ab"
+          }
+        ],
+        "credit": "Foto: Huhu Uet, CC BY 3.0, Wikimedia Commons",
+        "focus": "55% 60%"
+      }
+    },
+    {
+      "id": "radial",
+      "voice": "trainer",
+      "text": "Von der Station gehen die Strahlen in alle Richtungen aus. [[0]]Jeden dieser Strahlen nennt man ein Radial. [[1]]Es bezieht sich auf missweisend Nord. [[2]]Ein Radial entspricht damit dem QDR, also der missweisenden Peilung von der Station.",
+      "visual": {
+        "kind": "diagram",
+        "diagram": "vorRadial",
+        "headline": "Das",
+        "highlight": "Radial",
+        "steps": [
+          {
+            "label": "Radial",
+            "sub": "Strahl von der Station weg"
+          },
+          {
+            "label": "Bezug",
+            "sub": "missweisend Nord"
+          },
+          {
+            "label": "Radial = QDR",
+            "sub": "Peilung von der Station"
+          }
+        ]
+      }
+    },
+    {
+      "id": "instrument",
+      "voice": "trainer",
+      "text": "Im Cockpit siehst du das Anzeigegerät. [[0]]Am Knopf mit der Aufschrift OBS stellst du den Kurs ein, er ist der Kurswähler. [[1]]Die Nadel, der Ablageanzeiger, zeigt dir, ob du links oder rechts vom gewählten Kurs fliegst. [[2]]Ein Punkt auf der Skala entspricht zwei Grad Ablage.",
+      "visual": {
+        "kind": "diagram",
+        "diagram": "vorInstrument",
+        "headline": "Das",
+        "highlight": "Anzeigegerät",
+        "steps": [
+          {
+            "label": "OBS",
+            "sub": "Kurswähler"
+          },
+          {
+            "label": "CDI",
+            "sub": "Ablage-Nadel"
+          },
+          {
+            "label": "1 Punkt",
+            "sub": "2° Ablage"
+          }
+        ]
+      }
+    },
+    {
+      "id": "tofrom",
+      "voice": "trainer",
+      "text": "Dazu kommt die Anzeige TO oder FROM. [[0]]TO heißt: Mit diesem Kurs fliegst du zur Station hin. [[1]]FROM heißt: Du fliegst von ihr weg. [[2]]Beim Überfliegen der Station wechselt die Anzeige von TO auf FROM. Kurz davor erscheint oft die OFF-Flagge. Das ist kein Defekt, denn du bist wahrscheinlich gerade über der Station.",
+      "visual": {
+        "kind": "diagram",
+        "diagram": "vorToFrom",
+        "headline": "TO und",
+        "highlight": "FROM",
+        "steps": [
+          {
+            "label": "TO",
+            "sub": "zur Station hin"
+          },
+          {
+            "label": "FROM",
+            "sub": "von der Station weg"
+          },
+          {
+            "label": "Überflug",
+            "sub": "TO wird zu FROM"
+          }
+        ]
+      }
+    },
+    {
+      "id": "approach",
+      "voice": "trainer",
+      "text": "Und so fliegst du eine Station an. [[0]]Du drehst den Kurswähler, bis die Nadel in der Mitte steht und TO angezeigt wird. [[1]]Die Zahl am Kurswähler ist dann dein direkter Kurs zur Station. [[2]]Wandert die Nadel bei einer TO-Anzeige nach links aus, liegt die Kurslinie links von dir. Du bist also rechts vom Radial.",
+      "visual": {
+        "kind": "diagram",
+        "diagram": "vorApproach",
+        "headline": "So fliegst du",
+        "highlight": "die Station an",
+        "steps": [
+          {
+            "label": "Nadel in der Mitte",
+            "sub": "und TO angezeigt"
+          },
+          {
+            "label": "Zahl am Kurswähler",
+            "sub": "direkter Kurs zur Station"
+          },
+          {
+            "label": "Nadel links bei TO",
+            "sub": "du bist rechts vom Radial"
+          }
+        ]
+      }
+    },
+    {
+      "id": "outro",
+      "voice": "trainer",
+      "text": "Damit hast du das VOR verstanden: [[0]]die Station, [[1]]das Radial [[2]]und die Anzeige TO und FROM. Lade dir die VOR-Karte herunter und beantworte danach vierzehn Fragen. Los geht's.",
+      "visual": {
+        "kind": "outro",
+        "pills": [
+          "VOR",
+          "Radial",
+          "TO und FROM"
+        ]
+      }
+    }
+  ]
+}

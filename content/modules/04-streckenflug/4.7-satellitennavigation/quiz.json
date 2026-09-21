@@ -1,0 +1,16 @@
+{
+  "questions": [
+    {
+      "catalogue_number": 259,
+      "explanation": "GPS steht in der Luftfahrt für Global Positioning System."
+    },
+    {
+      "catalogue_number": 260,
+      "explanation": "GNSS steht für Globales Satellitennavigationssystem, den Oberbegriff für Satellitennavigation."
+    },
+    {
+      "catalogue_number": 261,
+      "explanation": "Ein GPS-Empfänger wertet Satellitensignale aus und zeigt sie zu navigatorischen Zwecken an, zum Beispiel Position, Kurs, Geschwindigkeit und Entfernung."
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "questions": [
+    {
+      "catalogue_number": 233,
+      "explanation": "Eigenpeilung ist die Standortbestimmung durch bordeigene Navigationsempfangsanlagen, zum Beispiel VOR oder ADF. Fremdpeilung übernimmt dagegen eine Bodenstelle."
+    },
+    {
+      "catalogue_number": 235,
+      "explanation": "Die Kennung eines VOR besteht in der Regel aus drei Buchstaben im Morsecode."
+    },
+    {
+      "catalogue_number": 236,
+      "explanation": "Bei FROM-Anzeige und Abflug von der Station arbeitet das VOR-Anzeigegerät als Kommandogerät: Die Nadel zeigt die Richtung, in die du steuerst."
+    },
+    {
+      "catalogue_number": 237,
+      "explanation": "UKW-Wellen breiten sich fast geradlinig aus. Die Reichweite eines VOR hängt darum von deiner Flughöhe ab."
+    },
+    {
+      "catalogue_number": 238,
+      "explanation": "OBS steht für den Kurswähler, mit dem du das gewünschte Radial oder den Kurs einstellst."
+    },
+    {
+      "catalogue_number": 239,
+      "explanation": "Ein Radial ist auf missweisend Nord bezogen."
+    },
+    {
+      "catalogue_number": 240,
+      "explanation": "Ein VOR arbeitet im Bereich von 108 MHz bis 117,975 MHz. Ab 118 MHz beginnt der Sprechfunkbereich."
+    },
+    {
+      "catalogue_number": 241,
+      "explanation": "Beim Überfliegen der VOR-Station wechselt die Anzeige von TO auf FROM."
+    },
+    {
+      "catalogue_number": 242,
+      "explanation": "Bei 320° TO wandert die Nadel nach links, wenn die Kurslinie links von dir liegt. Du befindest dich also rechts vom Radial."
+    },
+    {
+      "catalogue_number": 243,
+      "explanation": "Zum Anfliegen drehst du den Kurswähler, bis die vertikale Nadel mittig steht und TO angezeigt wird. Die Zahl am Kurswähler ist dann der direkte Kurs zur Station."
+    },
+    {
+      "catalogue_number": 244,
+      "explanation": "Ein Punkt (dot) auf der Skala des VOR-Anzeigegerätes entspricht 2° Kursablage."
+    },
+    {
+      "catalogue_number": 245,
+      "explanation": "Die Angabe „TRENT 108,45 TRT“ nennt Name, Frequenz (im VOR-Bereich) und Kennung eines UKW-Drehfunkfeuers (VOR)."
+    },
+    {
+      "catalogue_number": 246,
+      "explanation": "Kurz vor der Überflugzeit erscheint die OFF-Flagge, weil du dich direkt über der Station befindest. Es ist kein Defekt."
+    },
+    {
+      "catalogue_number": 247,
+      "explanation": "Die Richtung eines VOR-Radials entspricht dem QDR, der missweisenden Peilung von der Station."
+    }
+  ]
+}

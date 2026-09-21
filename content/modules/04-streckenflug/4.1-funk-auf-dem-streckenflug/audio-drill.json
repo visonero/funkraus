@@ -1,0 +1,108 @@
+{
+  "id": "4.1-audio-drill",
+  "language": "de",
+  "segments": [
+    {
+      "voice": "trainer",
+      "text": "Willkommen zur Streckenfunk-Übung. Du bist Delta Golf India Golf Alfa auf einem Überlandflug. Ich bin die Flugverkehrskontrolle. Sprich nach jeder Pause deine Antwort. Danach höre ich dir die richtige vor."
+    },
+    {
+      "pause": 1.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Delta Golf India Golf Alfa, rufen Sie Hamburg Turm auf eins zwo eins Komma zwei acht."
+    },
+    {
+      "pause": 7.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Delta Golf India Golf Alfa, rufe eins zwo eins Komma zwei acht."
+    },
+    {
+      "pause": 1.8
+    },
+    {
+      "voice": "trainer",
+      "text": "Delta Golf India Golf Alfa, squawk eins drei fünf zwo."
+    },
+    {
+      "pause": 6.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Squawk eins drei fünf zwo, Delta Golf India Golf Alfa."
+    },
+    {
+      "pause": 1.8
+    },
+    {
+      "voice": "trainer",
+      "text": "Delta Golf India Golf Alfa, unbekanntes Flugziel zehn Uhr, Entfernung vier Meilen."
+    },
+    {
+      "pause": 6.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Halte Ausschau, Delta Golf India Golf Alfa."
+    },
+    {
+      "pause": 1.2
+    },
+    {
+      "voice": "trainer",
+      "text": "Zehn Uhr liegt links voraus."
+    },
+    {
+      "pause": 1.8
+    },
+    {
+      "voice": "trainer",
+      "text": "Delta Golf India Golf Alfa, rufen Sie Bremen Information auf eins ein neun Komma eins."
+    },
+    {
+      "pause": 7.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Delta Golf India Golf Alfa, rufe eins eins neun Komma eins."
+    },
+    {
+      "pause": 1.8
+    },
+    {
+      "voice": "trainer",
+      "text": "Jetzt zwei Fragen zur Wiederholung. In welcher Sprache funkst du bei VFR-Flügen in und oberhalb von Flugfläche eins null null?"
+    },
+    {
+      "pause": 4.0
+    },
+    {
+      "voice": "trainer",
+      "text": "In englischer Sprache."
+    },
+    {
+      "pause": 1.8
+    },
+    {
+      "voice": "trainer",
+      "text": "Wie viele Minuten vor dem Pflichtmeldepunkt muss die Verbindung zu einer Kontrollzone im Luftraum D spätestens stehen?"
+    },
+    {
+      "pause": 4.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Spätestens fünf Minuten davor."
+    },
+    {
+      "pause": 1.8
+    },
+    {
+      "voice": "trainer",
+      "text": "Sehr gut. Wiederhole die Übung, bis der Ablauf sitzt."
+    }
+  ]
+}

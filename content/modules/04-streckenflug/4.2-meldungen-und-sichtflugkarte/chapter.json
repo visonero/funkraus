@@ -1,0 +1,14 @@
+{
+  "id": "4.2",
+  "title": "Standort-, Start- und Landemeldungen",
+  "content_type": "audio",
+  "sort_order": 1,
+  "assets": {
+    "video": "4.2-hook-video/hook-video.mp4",
+    "audio": "4.2-audio-drill/4.2-audio-drill.mp3",
+    "pdf": "4.2-meldungen-karte/meldungen-karte.pdf"
+  },
+  "sources": [
+    "BNetzA-Prüfungsfragenkatalog 2024, Nr. 112 bis 121 (Verfahren nach Luftfahrthandbuch VFR)"
+  ]
+}

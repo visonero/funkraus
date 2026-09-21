@@ -7,13 +7,22 @@
       "voice": "trainer",
       "text": "Was passiert, wenn dein Funkgerät ausfällt oder du gar keines an Bord hast? Dann übernimmt ein zweites Verständigungssystem, das seit den Anfängen der Fliegerei funktioniert: [[0]]Lichtsignale und [[1]]Zeichen am Boden. Der Turm hat dafür eine Signallampe, die grün, rot und weiß leuchten oder blinken kann. Diese Signale musst du kennen, und die Prüfung fragt sie gern ab.",
       "visual": {
-        "kind": "headline",
+        "kind": "photo",
+        "image": "light-gun.jpg",
         "headline": "Wenn das Funkgerät",
         "highlight": "schweigt",
-        "tiles": [
-          "Licht",
-          "Zeichen"
-        ]
+        "steps": [
+          {
+            "label": "Lichtsignale",
+            "sub": "die Signallampe des Turms"
+          },
+          {
+            "label": "Zeichen am Boden",
+            "sub": "in der Signalfläche des Flugplatzes"
+          }
+        ],
+        "credit": "Foto: Senior Airman Kentavist P. Brackin, U.S. Air Force (gemeinfrei), Wikimedia Commons",
+        "focus": "62% 45%"
       }
     },
     {
@@ -46,29 +55,35 @@
       "voice": "trainer",
       "text": "Fangen wir mit den Zeichen am Boden an, in der Signalfläche des Flugplatzes. [[0]]Ein rotes Feld mit zwei gelben Diagonalstreifen bedeutet: Landeverbot für längere Zeit. [[1]]Eine weiße Hantel heißt: Zum Starten, Landen und Rollen nur die Bahnen benutzen. [[2]]Beim Lande-T startest und landest du parallel zum Längsbalken in Richtung des Querbalkens. [[3]]Eine zweistellige Zahl am Turm zeigt die Startrichtung, auf zehn Grad gerundet. [[4]]Und ein nach rechts abgewinkelter Pfeil bedeutet: Kurven nach dem Start und vor der Landung nur nach rechts.",
       "visual": {
-        "kind": "transform",
+        "kind": "glyphs",
         "headline": "Zeichen in der",
         "highlight": "Signalfläche",
-        "tiles": [
+        "items": [
           {
+            "glyph": "sq-red-yellow",
             "top": "Rot-Gelb",
-            "bottom": "Landeverbot"
+            "bottom": "Landeverbot für längere Zeit",
+            "tone": "red"
           },
           {
+            "glyph": "dumbbell",
             "top": "Hantel",
             "bottom": "nur Bahnen benutzen"
           },
           {
+            "glyph": "landing-t",
             "top": "Lande-T",
-            "bottom": "zum Querbalken"
+            "bottom": "zum Querbalken starten und landen"
           },
           {
+            "glyph": "number-board",
             "top": "Zahl",
-            "bottom": "Startrichtung"
+            "bottom": "Startrichtung, auf 10° gerundet"
           },
           {
+            "glyph": "bent-arrow",
             "top": "Pfeil",
-            "bottom": "nur nach rechts"
+            "bottom": "Kurven nur nach rechts"
           }
         ]
       }
@@ -78,34 +93,42 @@
       "voice": "trainer",
       "text": "Jetzt die Lichtsignale an ein Luftfahrzeug im Flug. Hier hilft eine einfache Logik: Grün heißt Weiter, Rot heißt Nein, Weiß heißt Zurück. [[0]]Grünes Dauerlicht heißt: Landung freigegeben. [[1]]Rotes Dauerlicht heißt: Ein anderes Luftfahrzeug hat Vorflug, setze die Platzrunde fort. [[2]]Grünes Blinken heißt: Kehre zur Landung zurück, die Freigaben folgen später. [[3]]Rotes Blinken heißt: Nicht landen, der Flugplatz ist unbenutzbar. [[4]]Und weißes Blinken heißt: Lande auf diesem Flugplatz und rolle zum Vorfeld.",
       "visual": {
-        "kind": "transform",
+        "kind": "glyphs",
         "headline": "Lichtsignale an",
         "highlight": "Luftfahrzeuge im Flug",
-        "tiles": [
+        "items": [
           {
+            "glyph": "lamp-green",
             "top": "Grün",
             "bottom": "Landung frei",
             "tone": "green"
           },
           {
+            "glyph": "lamp-red",
             "top": "Rot",
             "bottom": "Platzrunde fortsetzen",
             "tone": "red"
           },
           {
+            "glyph": "lamp-green",
             "top": "Grün blinkt",
             "bottom": "zurückkehren",
-            "tone": "green"
+            "tone": "green",
+            "flash": true
           },
           {
+            "glyph": "lamp-red",
             "top": "Rot blinkt",
             "bottom": "nicht landen",
-            "tone": "red"
+            "tone": "red",
+            "flash": true
           },
           {
+            "glyph": "lamp-white",
             "top": "Weiß blinkt",
-            "bottom": "landen, zum Vorfeld",
-            "tone": "white"
+            "bottom": "landen, zum Vorfeld rollen",
+            "tone": "white",
+            "flash": true
           }
         ]
       }
@@ -115,11 +138,12 @@
       "voice": "trainer",
       "text": "Und dann ist da noch der [[0]]rote Feuerwerkskörper. Er bedeutet: Ungeachtet aller früheren Anweisungen und Freigaben landest du zur Zeit nicht. Er ist das einzige Signal, das sogar Funkanweisungen übertrifft.",
       "visual": {
-        "kind": "transform",
+        "kind": "glyphs",
         "headline": "Der rote",
         "highlight": "Feuerwerkskörper",
-        "tiles": [
+        "items": [
           {
+            "glyph": "flare",
             "top": "Nicht landen",
             "bottom": "ungeachtet aller Freigaben",
             "tone": "red"
@@ -132,34 +156,42 @@
       "voice": "trainer",
       "text": "Zum Schluss die Signale an ein Luftfahrzeug am Boden. [[0]]Grünes Dauerlicht: Start freigegeben. [[1]]Rotes Dauerlicht: Halt. [[2]]Grünes Blinken: Rollerlaubnis erteilt. [[3]]Rotes Blinken: Benutzte Landefläche freimachen. [[4]]Und weißes Blinken: Zum Ausgangspunkt auf dem Flughafen zurückkehren.",
       "visual": {
-        "kind": "transform",
+        "kind": "glyphs",
         "headline": "Lichtsignale am",
         "highlight": "Boden",
-        "tiles": [
+        "items": [
           {
+            "glyph": "lamp-green",
             "top": "Grün",
             "bottom": "Start frei",
             "tone": "green"
           },
           {
+            "glyph": "lamp-red",
             "top": "Rot",
             "bottom": "Halt",
             "tone": "red"
           },
           {
+            "glyph": "lamp-green",
             "top": "Grün blinkt",
             "bottom": "Rollerlaubnis",
-            "tone": "green"
+            "tone": "green",
+            "flash": true
           },
           {
+            "glyph": "lamp-red",
             "top": "Rot blinkt",
             "bottom": "Fläche freimachen",
-            "tone": "red"
+            "tone": "red",
+            "flash": true
           },
           {
+            "glyph": "lamp-white",
             "top": "Weiß blinkt",
-            "bottom": "zurück zum Start",
-            "tone": "white"
+            "bottom": "zurück zum Ausgangspunkt",
+            "tone": "white",
+            "flash": true
           }
         ]
       }

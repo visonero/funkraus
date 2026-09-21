@@ -1,0 +1,149 @@
+{
+  "id": "4.4-hook-video",
+  "language": "de",
+  "scenes": [
+    {
+      "id": "intro",
+      "voice": "trainer",
+      "text": "Im Sichtflug schaust du selbst, wohin du fliegst, und du bist auch dafür verantwortlich, anderen auszuweichen. Dafür gibt es klare Regeln. Wir gehen drei Bereiche durch: das [[0]]Ausweichen, die [[1]]Lichter [[2]]und die Ausrüstung.",
+      "visual": {
+        "kind": "headline",
+        "headline": "Regeln für den",
+        "highlight": "Sichtflug",
+        "tiles": [
+          "Ausweichen",
+          "Lichter",
+          "Ausrüstung"
+        ]
+      }
+    },
+    {
+      "id": "height",
+      "voice": "trainer",
+      "text": "Beginnen wir mit der Frage: Wie tief darfst du fliegen? [[0]]Über Städten hältst du mindestens dreihundert Meter, tausend Fuß, über dem höchsten Hindernis in einem Umkreis von sechshundert Metern. [[1]]Sonst hältst du mindestens hundertfünfzig Meter, fünfhundert Fuß, Abstand um dein Luftfahrzeug.",
+      "visual": {
+        "kind": "diagram",
+        "diagram": "minheight",
+        "headline": "Wie tief",
+        "highlight": "darfst du fliegen?",
+        "steps": [
+          {
+            "label": "Über Städten",
+            "sub": "300 m (1000 ft) über dem höchsten Hindernis im Umkreis von 600 m"
+          },
+          {
+            "label": "Sonst",
+            "sub": "150 m (500 ft) Abstand um dein Flugzeug"
+          }
+        ]
+      }
+    },
+    {
+      "id": "giveway",
+      "voice": "trainer",
+      "text": "Nun begegnen sich zwei Luftfahrzeuge. Wer weicht aus? [[0]]Im Gegenflug weichen beide nach rechts aus. Das gilt auch, wenn eines ein Segelflugzeug ist. [[1]]Kommt ein Luftfahrzeug von rechts, hast du ihm auszuweichen. [[2]]Kommt ein Motorsegler mit laufendem Motor von links, muss er dir ausweichen, denn er zählt als Motorflugzeug. [[3]]Und Luftfahrzeuge, die Gegenstände schleppen, haben Vorflugrecht vor motorgetriebenen Luftfahrzeugen.",
+      "visual": {
+        "kind": "diagram",
+        "diagram": "giveway",
+        "headline": "Wer weicht",
+        "highlight": "aus?",
+        "steps": [
+          {
+            "label": "Im Gegenflug",
+            "sub": "beide nach rechts"
+          },
+          {
+            "label": "Von rechts",
+            "sub": "du weichst aus"
+          },
+          {
+            "label": "Motorsegler von links",
+            "sub": "er weicht aus"
+          },
+          {
+            "label": "Schleppflug",
+            "sub": "hat Vorflugrecht"
+          }
+        ]
+      }
+    },
+    {
+      "id": "lights",
+      "voice": "trainer",
+      "text": "Damit man dich sieht, gibt es Lichter. [[0]]Positionslichter schalten alle Luftfahrzeuge nachts ein. [[1]]Zusammenstoß-Warnlichter, die Anti-Collision-Lights, führst du dagegen am Tag und in der Nacht, solange du fliegst.",
+      "visual": {
+        "kind": "transform",
+        "headline": "Die",
+        "highlight": "Lichter",
+        "tiles": [
+          {
+            "top": "Positionslichter",
+            "bottom": "nachts"
+          },
+          {
+            "top": "Zusammenstoß-Warnlichter",
+            "bottom": "am Tag und in der Nacht"
+          }
+        ]
+      }
+    },
+    {
+      "id": "radio",
+      "voice": "trainer",
+      "text": "Jetzt zur Funkausrüstung. [[0]]Für Überlandflüge nach Sichtflugregeln brauchst du stets ein UKW-Sende- und Empfangsgerät. [[1]]Möchtest du über einer geschlossenen Wolkendecke fliegen, brauchst du zusätzlich eine VOR-Empfangsanlage oder einen Funkkompass, kurz ADF.",
+      "visual": {
+        "kind": "transform",
+        "headline": "Die",
+        "highlight": "Funkausrüstung",
+        "tiles": [
+          {
+            "top": "UKW-Funkgerät",
+            "bottom": "bei Überlandflügen immer"
+          },
+          {
+            "top": "Über Wolkendecke",
+            "bottom": "zusätzlich VOR oder ADF"
+          }
+        ]
+      }
+    },
+    {
+      "id": "transponder",
+      "voice": "trainer",
+      "text": "Und der Transponder? [[0]]In den Lufträumen C und D, außerhalb der Kontrollzone, ist er bei VFR-Flügen Pflicht. [[1]]Oberhalb von fünftausend Fuß über Meeresniveau oder dreitausendfünfhundert Fuß über Grund, es zählt der höhere Wert, stellst du als Pilot eines motorgetriebenen Luftfahrzeuges unaufgefordert den Code sieben null null null ein. [[2]]In einem Gebiet mit Transponderpflicht, kurz TMZ, sendest du den veröffentlichten oder zugewiesenen Code von selbst.",
+      "visual": {
+        "kind": "transform",
+        "headline": "Der",
+        "highlight": "Transponder",
+        "plate": "CODE 7000",
+        "tiles": [
+          {
+            "top": "Luftraum C und D",
+            "bottom": "nicht in der Kontrollzone"
+          },
+          {
+            "top": "Über 5000 ft AMSL",
+            "bottom": "oder 3500 ft AGL, der höhere Wert"
+          },
+          {
+            "top": "TMZ",
+            "bottom": "veröffentlichter oder zugewiesener Code"
+          }
+        ]
+      }
+    },
+    {
+      "id": "outro",
+      "voice": "trainer",
+      "text": "Damit hast du die Spielregeln für den Sichtflug: [[0]]das Ausweichen, [[1]]die Lichter [[2]]und die Ausrüstung. Lade dir die Ausrüstungs-Karte herunter und beantworte danach dreizehn Fragen. Los geht's.",
+      "visual": {
+        "kind": "outro",
+        "pills": [
+          "Ausweichen",
+          "Lichter",
+          "Ausrüstung"
+        ]
+      }
+    }
+  ]
+}

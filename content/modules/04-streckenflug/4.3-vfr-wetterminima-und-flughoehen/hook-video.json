@@ -1,0 +1,134 @@
+{
+  "id": "4.3-hook-video",
+  "language": "de",
+  "scenes": [
+    {
+      "id": "intro",
+      "voice": "trainer",
+      "text": "Stell dir vor, du planst einen Flug am Morgen. Die Sonne scheint, aber am Horizont sammeln sich Wolken. Darfst du starten? Und in welcher Höhe fliegst du? Die Sichtflugregeln geben dir klare Zahlen. Wir schauen uns drei Dinge an: die [[0]]Sicht, den [[1]]Abstand zu den Wolken [[2]]und die Flughöhe.",
+      "visual": {
+        "kind": "headline",
+        "headline": "Wie gut muss",
+        "highlight": "das Wetter sein?",
+        "tiles": [
+          "Sicht",
+          "Wolkenabstand",
+          "Flughöhe"
+        ]
+      }
+    },
+    {
+      "id": "visibility",
+      "voice": "trainer",
+      "text": "Erst zur Sicht. Sie heißt Flugsicht und ist die Sicht in Flugrichtung aus dem Cockpit eines Luftfahrzeuges im Flug. Im Luftraum E unterhalb von Flugfläche eins null null brauchst du [[0]]mindestens fünf Kilometer Flugsicht. [[1]]Von den Wolken hältst du waagerecht fünfzehnhundert Meter Abstand [[2]]und senkrecht dreihundert Meter, das sind tausend Fuß. Auch in der Kontrollzone im Luftraum D gelten waagerecht fünfzehnhundert Meter.",
+      "visual": {
+        "kind": "diagram",
+        "diagram": "cloud",
+        "headline": "Luftraum E unter",
+        "highlight": "Flugfläche 100",
+        "steps": [
+          {
+            "label": "Flugsicht",
+            "sub": "mindestens 5 km"
+          },
+          {
+            "label": "Waagerecht",
+            "sub": "1500 m zu Wolken",
+            "tone": "green"
+          },
+          {
+            "label": "Senkrecht",
+            "sub": "300 m (1000 ft) zu Wolken",
+            "tone": "white"
+          }
+        ]
+      }
+    },
+    {
+      "id": "lowG",
+      "voice": "trainer",
+      "text": "Ganz unten im Luftraum G ist es anders. In und unter dreitausend Fuß über Meeresniveau, oder tausend Fuß über Grund, und bei höchstens hundertvierzig Knoten brauchst du [[0]]Erdsicht, du siehst also den Boden. [[1]]Die Flugsicht muss mindestens fünfzehnhundert Meter betragen. [[2]]Und du musst frei von Wolken bleiben. Einen festen Wolkenabstand gibt es dort nicht.",
+      "visual": {
+        "kind": "transform",
+        "headline": "Ganz unten in",
+        "highlight": "Luftraum G",
+        "tiles": [
+          {
+            "top": "Erdsicht",
+            "bottom": "der Boden bleibt im Blick"
+          },
+          {
+            "top": "Flugsicht",
+            "bottom": "mindestens 1500 m"
+          },
+          {
+            "top": "Frei von Wolken",
+            "bottom": "kein fester Abstand"
+          }
+        ]
+      }
+    },
+    {
+      "id": "altimeter",
+      "voice": "trainer",
+      "text": "Jetzt zur Höhe. Was stellst du an deinem Höhenmesser ein? [[0]]Bis fünftausend Fuß über Meeresniveau, oder zweitausend Fuß über Grund, wenn diese Höhe fünftausend Fuß überschreitet, stellst du das QNH des nächstgelegenen Flugplatzes mit Flugverkehrskontrolle ein. [[1]]Darüber fliegst du mit der Standardeinstellung, eins null eins drei Komma zwei Hektopascal.",
+      "visual": {
+        "kind": "diagram",
+        "diagram": "altimeter",
+        "headline": "Die",
+        "highlight": "Höhenmessereinstellung",
+        "steps": [
+          {
+            "label": "Bis 5000 ft AMSL",
+            "sub": "QNH des nächsten Flugplatzes mit Kontrolle",
+            "tone": "green"
+          },
+          {
+            "label": "Darüber",
+            "sub": "Standard 1013,2 hPa"
+          }
+        ]
+      }
+    },
+    {
+      "id": "hemi",
+      "voice": "trainer",
+      "text": "Und in welcher Höhe fliegst du? Das hängt von deinem Kurs ab. [[0]]Maßgeblich ist der missweisende Kurs über Grund. [[1]]Fliegst du zum Beispiel einen Kurs von einhundertfünfunddreißig Grad, sind deine Flugflächen fünf fünf, sieben fünf und neun fünf. [[2]]Bei westlichen Kursen, etwa zweihundertsiebzig Grad, sind es die Flugflächen sechs fünf, acht fünf und eins null fünf.",
+      "visual": {
+        "kind": "diagram",
+        "diagram": "hemi",
+        "headline": "Die",
+        "highlight": "Flughöhe",
+        "steps": [
+          {
+            "label": "Kurs über Grund",
+            "sub": "missweisend, nicht rechtweisend"
+          },
+          {
+            "label": "Kurs 135°",
+            "sub": "FL 55, 75, 95",
+            "tone": "green"
+          },
+          {
+            "label": "Kurs 270°",
+            "sub": "FL 65, 85, 105",
+            "tone": "white"
+          }
+        ]
+      }
+    },
+    {
+      "id": "outro",
+      "voice": "trainer",
+      "text": "Damit kennst du die Spielregeln für Sichtflug: [[0]]die Sicht, [[1]]den Wolkenabstand [[2]]und die Flughöhe. Lade dir die VFR-Karte herunter, mach die Blitzrunde und beantworte danach elf Fragen. Los geht's.",
+      "visual": {
+        "kind": "outro",
+        "pills": [
+          "Sicht",
+          "Wolkenabstand",
+          "Flughöhe"
+        ]
+      }
+    }
+  ]
+}

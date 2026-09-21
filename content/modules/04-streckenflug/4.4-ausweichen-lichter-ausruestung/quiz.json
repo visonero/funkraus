@@ -1,0 +1,56 @@
+{
+  "questions": [
+    {
+      "catalogue_number": 176,
+      "explanation": "Über Städten hältst du mindestens 300 m (1000 ft) über dem höchsten Hindernis innerhalb eines Umkreises von 600 m um das Luftfahrzeug."
+    },
+    {
+      "catalogue_number": 177,
+      "explanation": "Über Boden oder Wasser hältst du 150 m (500 ft) Mindestabstand um das Luftfahrzeug zum höchsten Hindernis."
+    },
+    {
+      "catalogue_number": 178,
+      "explanation": "Im Gegenflug weichen beide Luftfahrzeuge nach rechts aus, auch wenn eines davon ein Segelflugzeug ist."
+    },
+    {
+      "catalogue_number": 179,
+      "explanation": "Luftfahrzeuge, die Gegenstände schleppen, haben Vorflugrecht vor motorgetriebenen Luftfahrzeugen."
+    },
+    {
+      "catalogue_number": 180,
+      "explanation": "Ein Motorsegler mit laufendem Motor gilt als motorgetriebenes Luftfahrzeug. Kommt er von links, sieht er dich von rechts und muss dir ausweichen."
+    },
+    {
+      "catalogue_number": 182,
+      "explanation": "Positionslichter müssen alle Luftfahrzeuge nachts einschalten."
+    },
+    {
+      "catalogue_number": 183,
+      "explanation": "Zusammenstoß-Warnlichter (Anti-Collision-Lights) werden während des Fluges am Tag und in der Nacht geführt."
+    },
+    {
+      "catalogue_number": 227,
+      "explanation": "Für Überlandflüge nach Sichtflugregeln brauchst du stets ein UKW-Sende- und Empfangsgerät."
+    },
+    {
+      "catalogue_number": 228,
+      "explanation": "Über geschlossener Wolkendecke darfst du fliegen, wenn du unter anderem ein UKW-Funkgerät und eine VOR-Empfangsanlage oder einen Funkkompass (ADF) an Bord hast."
+    },
+    {
+      "catalogue_number": 229,
+      "explanation": "Bei VFR-Flügen ist ein Transponder in den Lufträumen C sowie D (nicht in der Kontrollzone) vorgeschrieben."
+    },
+    {
+      "catalogue_number": 230,
+      "explanation": "Oberhalb 5000 ft AMSL oder 3500 ft AGL (der höhere Wert zählt) stellen motorgetriebene Luftfahrzeuge unaufgefordert A/C 7000 ein."
+    },
+    {
+      "catalogue_number": 231,
+      "explanation": "Beim Sinkflug stellst du das QNH ein und behältst den Code 7000 bei."
+    },
+    {
+      "catalogue_number": 232,
+      "explanation": "In einer TMZ brauchst du einen Transponder mit automatischer Höhenübermittlung und sendest den veröffentlichten oder zugewiesenen Code unaufgefordert."
+    }
+  ]
+}

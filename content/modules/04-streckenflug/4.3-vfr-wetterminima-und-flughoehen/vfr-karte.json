@@ -1,0 +1,63 @@
+{
+  "label": "Lektion 4.3 · VFR-Karte",
+  "title": "Wetterminima und",
+  "highlight": "Flughöhen",
+  "sections": [
+    {
+      "title": "Wetterminima",
+      "rows": [
+        [
+          "Luftraum E unter FL 100",
+          "Flugsicht 5 km, Wolken waagerecht 1500 m, senkrecht 300 m (1000 ft)"
+        ],
+        [
+          "Luftraum D (CTR)",
+          "Wolken waagerecht 1500 m"
+        ],
+        [
+          "Luftraum G, in und unter 3000 ft AMSL / 1000 ft AGL, bis 140 kt IAS",
+          "Erdsicht, Flugsicht 1500 m, frei von Wolken (kein fester Abstand)"
+        ],
+        [
+          "Flugsicht",
+          "Sicht in Flugrichtung aus dem Cockpit eines Luftfahrzeuges im Flug"
+        ]
+      ]
+    },
+    {
+      "title": "Höhenmesser",
+      "rows": [
+        [
+          "Bis 5000 ft AMSL oder 2000 ft AGL (falls > 5000 AMSL)",
+          "QNH des zur Strecke nächstgelegenen Flugplatzes mit Flugverkehrskontrolle"
+        ],
+        [
+          "Darüber",
+          "Standard 1013,2 hPa"
+        ]
+      ]
+    },
+    {
+      "title": "Halbkreisflughöhen (VFR)",
+      "rows": [
+        [
+          "Maßgeblich",
+          "missweisender Kurs über Grund"
+        ],
+        [
+          "000° bis 179°",
+          "FL 35, 55, 75, 95, 115 (ungerade Tausender + 500 ft)"
+        ],
+        [
+          "180° bis 359°",
+          "FL 45, 65, 85, 105, 125 (gerade Tausender + 500 ft)"
+        ]
+      ],
+      "example": {
+        "say": "Kurs 135° → FL 55, 75, 95",
+        "note": "Kurs 270° → FL 65, 85, 105"
+      }
+    }
+  ],
+  "footer": "Quellen: BNetzA-Prüfungsfragenkatalog 2024, Nr. 207 bis 211, 213 bis 217; SERA (VO (EU) Nr. 923/2012)"
+}

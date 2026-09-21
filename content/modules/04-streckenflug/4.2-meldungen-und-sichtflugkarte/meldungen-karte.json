@@ -1,0 +1,80 @@
+{
+  "label": "Lektion 4.2 · Meldungen-Karte",
+  "title": "Standort, Start und",
+  "highlight": "Landung",
+  "sections": [
+    {
+      "title": "Standortmeldung",
+      "rows": [
+        [
+          "Wann",
+          "Pflichtmeldepunkte (Tag), in der Regel Einflug in D"
+        ],
+        [
+          "Inhalt",
+          "Rufzeichen, Standort, Zeit, Höhe"
+        ],
+        [
+          "Zeit entfällt",
+          "wenn du genau beim Überflug meldest"
+        ],
+        [
+          "Platzrunde",
+          "nur Rufzeichen und Standort"
+        ],
+        [
+          "Freigabe",
+          "unabhängig davon melden, außer ausdrücklicher Verzicht"
+        ]
+      ],
+      "example": {
+        "say": "„DGIGA, ÜBER SIERRA, 3500 FUSS“",
+        "note": "Zeit entfällt"
+      }
+    },
+    {
+      "title": "Symbole auf der Sichtflugkarte",
+      "rows": [
+        [
+          "▲ ausgefülltes Dreieck",
+          "Pflichtmeldepunkt"
+        ],
+        [
+          "△ leeres Dreieck",
+          "Meldepunkt auf Anforderung (Bedarfsmeldepunkt)"
+        ]
+      ]
+    },
+    {
+      "title": "Startmeldung (per Funk)",
+      "rows": [
+        [
+          "Wann",
+          "Flugplanabgabe, Abflug von unkontrolliertem Flugplatz"
+        ],
+        [
+          "An wen",
+          "Flugverkehrskontrollstelle oder FIS, Weiterleitung an AIS-C"
+        ],
+        [
+          "Inhalt",
+          "Luftfahrzeugkennung, Startflugplatz, Startzeit, Zielflugplatz"
+        ]
+      ]
+    },
+    {
+      "title": "Landemeldung",
+      "rows": [
+        [
+          "Normal",
+          "Landemeldung nach der Landung"
+        ],
+        [
+          "Alternative",
+          "voraussichtliche Landezeit, wenn du in der Platzrunde bist und die Landung sichergestellt erscheint"
+        ]
+      ]
+    }
+  ],
+  "footer": "Quellen: BNetzA-Prüfungsfragenkatalog 2024, Nr. 112 bis 121 (Luftfahrthandbuch VFR)"
+}

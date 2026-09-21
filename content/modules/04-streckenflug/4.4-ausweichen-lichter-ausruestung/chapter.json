@@ -1,0 +1,14 @@
+{
+  "id": "4.4",
+  "title": "VFR-Regeln: Ausweichen, Lichter und Ausrüstung",
+  "content_type": "text",
+  "sort_order": 3,
+  "assets": {
+    "video": "4.4-hook-video/hook-video.mp4",
+    "pdf": "4.4-ausruestung-karte/ausruestung-karte.pdf"
+  },
+  "sources": [
+    "BNetzA-Prüfungsfragenkatalog 2024, Nr. 176 bis 180, 182, 183, 227 bis 232",
+    "SERA (Verordnung (EU) Nr. 923/2012): Ausweichregeln, Mindesthöhen, Lichter"
+  ]
+}

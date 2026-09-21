@@ -1,0 +1,96 @@
+{
+  "label": "Lektion 4.5 · VOR-Karte",
+  "title": "Das",
+  "highlight": "Drehfunkfeuer",
+  "sections": [
+    {
+      "title": "Die Station",
+      "rows": [
+        [
+          "Frequenz",
+          "108 MHz bis 117,975 MHz (UKW)"
+        ],
+        [
+          "Kennung",
+          "drei Buchstaben im Morsecode"
+        ],
+        [
+          "Reichweite",
+          "hängt von der Flughöhe ab"
+        ],
+        [
+          "Radial",
+          "Strahl von der Station weg, bezogen auf missweisend Nord; entspricht dem QDR"
+        ],
+        [
+          "Auf der Karte",
+          "„TRENT 108,45 TRT“: Name, Frequenz, Kennung"
+        ]
+      ]
+    },
+    {
+      "title": "Das Anzeigegerät",
+      "rows": [
+        [
+          "OBS",
+          "Kurswähler"
+        ],
+        [
+          "Vertikale Nadel (CDI)",
+          "Ablage vom gewählten Kurs"
+        ],
+        [
+          "1 Punkt (dot)",
+          "2° Ablage"
+        ],
+        [
+          "TO",
+          "englisch „nach“: Kurs führt zur Station hin"
+        ],
+        [
+          "FROM",
+          "englisch „von“: Kurs führt von der Station weg"
+        ],
+        [
+          "OFF-Flagge",
+          "kurz vor dem Überflug: wahrscheinlich über der Station"
+        ]
+      ]
+    },
+    {
+      "title": "Station anfliegen",
+      "rows": [
+        [
+          "1",
+          "Kurswähler drehen, bis Nadel mittig und TO angezeigt wird"
+        ],
+        [
+          "2",
+          "Zahl am Kurswähler = direkter Kurs zur Station"
+        ],
+        [
+          "3",
+          "Überflug: TO wechselt auf FROM"
+        ]
+      ],
+      "example": {
+        "say": "320° TO, Nadel links",
+        "note": "Du bist rechts vom Radial"
+      }
+    },
+    {
+      "title": "Begriffe",
+      "rows": [
+        [
+          "Eigenpeilung",
+          "Standortbestimmung durch bordeigene Navigationsempfangsanlagen"
+        ],
+        [
+          "Kommandogerät",
+          "bei FROM-Anzeige von der Station abfliegen"
+        ]
+      ]
+    }
+  ],
+  "footer": "Quellen: BNetzA-Prüfungsfragenkatalog 2024, Nr. 233, 235 bis 247"
+}

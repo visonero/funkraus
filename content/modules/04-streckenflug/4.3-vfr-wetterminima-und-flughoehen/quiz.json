@@ -1,0 +1,55 @@
+{
+  "questions": [
+    {
+      "catalogue_number": 207,
+      "explanation": "Die Flugsicht ist die Sicht in Flugrichtung aus dem Cockpit eines im Flug befindlichen Luftfahrzeuges."
+    },
+    {
+      "catalogue_number": 208,
+      "explanation": "Im Luftraum D (CTR) beträgt der horizontale Mindestabstand zu Wolken bei einem VFR-Flug 1500 m."
+    },
+    {
+      "catalogue_number": 209,
+      "explanation": "Im Luftraum E unterhalb FL 100 brauchst du eine Flugsicht von mindestens 5 km. Zu den Wolken hältst du waagerecht 1500 m und senkrecht 300 m (1000 ft) Abstand."
+    },
+    {
+      "catalogue_number": 210,
+      "explanation": "Im Luftraum G in und unter 3000 ft AMSL / 1000 ft AGL und bei höchstens 140 kt IAS reichen Erdsicht, Flugsicht von mindestens 1500 m und die Freiheit von Wolken."
+    },
+    {
+      "catalogue_number": 211,
+      "explanation": "In diesem Teil des Luftraumes G ist kein bestimmter Wolkenabstand vorgeschrieben. Du musst nur frei von Wolken bleiben."
+    },
+    {
+      "catalogue_number": 213,
+      "explanation": "Die Standard-Höhenmessereinstellung gilt oberhalb 5000 ft AMSL oder 2000 ft AGL, sofern diese Flughöhe 5000 ft AMSL überschreitet."
+    },
+    {
+      "catalogue_number": 214,
+      "explanation": "Oberhalb dieser Grenze stellst du den Standarddruck 1013,2 hPa ein. QNH, QFE und QFF sind hier nicht richtig."
+    },
+    {
+      "catalogue_number": 215,
+      "explanation": "Bis zu dieser Höhe stellst du das QNH des zur Flugstrecke nächstgelegenen Flugplatzes mit Flugverkehrskontrolle ein."
+    },
+    {
+      "catalogue_number": 216,
+      "explanation": "Für die Halbkreisflughöhen zählt der missweisende Kurs über Grund."
+    },
+    {
+      "catalogue_number": 217,
+      "explanation": "Bei einem Kurs von 135° (östliche Richtung) fliegst du ungerade Tausender plus 500 Fuß, also FL 55, 75 und 95."
+    },
+    {
+      "source_ref": "funkraus Übungsfrage",
+      "question": "Welche Flugflächen sind bei einem missweisenden Kurs über Grund von 270° einzuhalten?",
+      "options": [
+        "FL 65, 85, 105",
+        "FL 55, 75, 95",
+        "FL 60, 80, 100",
+        "FL 50, 70, 90"
+      ],
+      "explanation": "Kurse von 180° bis 359° gehören zu den westlichen Richtungen: gerade Tausender plus 500 Fuß, also FL 65, 85 und 105."
+    }
+  ]
+}
