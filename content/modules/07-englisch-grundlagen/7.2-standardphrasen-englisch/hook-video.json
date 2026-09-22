@@ -124,7 +124,7 @@
     {
       "id": "example",
       "voice": "trainer",
-      "text": "So klingt ein kompletter englischer Funkspruch. [[0]]Der Turm gibt die Startfreigabe: Wind ruhig, Bahn zwei sieben, cleared for take-off. [[1]]Der Pilot liest zurück: cleared for take-off, Bahn zwei sieben, Delta Echo Hotel Oscar Lima. [[2]]Der Turm bestätigt: read back correct, das Read-back war korrekt.",
+      "text": "So klingt ein kompletter englischer Funkspruch. [[0]]Der Turm gibt die Startfreigabe: wind calm, runway two seven, cleared for take-off. [[1]]Der Pilot liest zurück: cleared for take-off, runway two seven, Delta Echo Hotel Oscar Lima. [[2]]Der Turm bestätigt: read back correct, das Read-back war korrekt.",
       "visual": {
         "kind": "dialog",
         "headline": "Ein Funkspruch,",

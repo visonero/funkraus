@@ -129,7 +129,7 @@
     {
       "id": "examples",
       "voice": "trainer",
-      "text": "So klingt das im echten Funkspruch. [[0]]Die Frequenz 118,025 wird zu One One Eight Decimal Zero Two Fife. [[1]]Eine Höhe von 3500 Fuß wird zu Tree Thousand Fife Hundred Feet. [[2]]Und der Notlage-Code A7700 wird Ziffer für Ziffer zu Seven Seven Zero Zero.",
+      "text": "So klingt das im echten Funkspruch. [[0]]Die Frequenz 118,025 wird zu One One Eight Decimal Zero Two Fife. [[1]]Eine Höhe von 3500 Fuß wird zu Tree Thousand Fife Hundred Feet. [[2]]Und der Notlage-Code wird Ziffer für Ziffer zu Seven Seven Zero Zero.",
       "visual": {
         "kind": "dialog",
         "headline": "Zahlen im",
