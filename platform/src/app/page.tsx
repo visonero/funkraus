@@ -7,7 +7,6 @@ import PlatformShowcase from "@/components/PlatformShowcase";
 import ShowcaseSection from "@/components/ShowcaseSection";
 import CurriculumTabs from "@/components/CurriculumTabs";
 import HowItWorksTimeline from "@/components/HowItWorksTimeline";
-import TrustStamps from "@/components/TrustStamps";
 import FaqAccordion from "@/components/FaqAccordion";
 import Footer from "@/components/Footer";
 import { FAQS } from "@/lib/faq";
@@ -353,9 +352,6 @@ export default async function Home() {
             </div>
           </div>
 
-          <div style={{ display: "flex", justifyContent: "center", marginTop: 44 }}>
-            <TrustStamps />
-          </div>
         </div>
       </div>
 
@@ -364,7 +360,7 @@ export default async function Home() {
         <div className="reveal" style={{ textAlign: "center", marginBottom: 20 }}>
           <span className="label" style={{ color: "var(--sky)" }}>FAQ</span>
           <h2 style={{ fontSize: "clamp(26px,3.2vw,36px)", marginTop: 14, fontWeight: 700 }}>
-            Häufige <span className="grad">Fragen</span>
+            Alle Fragen zum BZF-Kurs, <span className="grad">beantwortet.</span>
           </h2>
         </div>
         <FaqAccordion />

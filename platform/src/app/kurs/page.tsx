@@ -5,7 +5,6 @@ import FeaturesShowcase from "@/components/FeaturesShowcase";
 import CurriculumTabs from "@/components/CurriculumTabs";
 import FaqAccordion from "@/components/FaqAccordion";
 import CheckoutButton from "@/components/CheckoutButton";
-import TrustStamps from "@/components/TrustStamps";
 import PlatformShowcase from "@/components/PlatformShowcase";
 import Link from "next/link";
 import Footer from "@/components/Footer";
@@ -149,7 +148,6 @@ export default async function KursPage() {
               ))}
             </div>
             <CheckoutButton price={PRICE} />
-            <TrustStamps style={{ marginTop: 24 }} />
           </div>
         </div>
       </div>
@@ -159,7 +157,7 @@ export default async function KursPage() {
         <div className="reveal" style={{ textAlign: "center", marginBottom: 20 }}>
           <span className="label" style={{ color: "var(--sky)" }}>FAQ</span>
           <h2 style={{ fontSize: "clamp(24px,3vw,32px)", marginTop: 14, fontWeight: 700 }}>
-            Häufige <span className="grad">Fragen</span>
+            Alle Fragen zum BZF-Kurs, <span className="grad">beantwortet.</span>
           </h2>
         </div>
         <FaqAccordion />

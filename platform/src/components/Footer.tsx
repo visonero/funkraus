@@ -4,7 +4,7 @@ import Logo from "./Logo";
 export default function Footer() {
   return (
     <div style={{ borderTop: "1px solid var(--line)", padding: "64px 32px 32px", background: "var(--bg-soft)" }}>
-      <div style={{ maxWidth: 1180, margin: "0 auto", display: "grid", gridTemplateColumns: "1.4fr 1fr 1fr 1fr", gap: 32 }}>
+      <div className="footer-grid" style={{ maxWidth: 1180, margin: "0 auto", display: "grid", gridTemplateColumns: "1.4fr 1fr 1fr 1fr", gap: 32 }}>
         <div>
           <Logo size={26} />
           <p style={{ marginTop: 14, fontSize: 13.5, color: "var(--text-faint)", maxWidth: 280 }}>
