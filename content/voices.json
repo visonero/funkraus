@@ -40,11 +40,13 @@
   "SCT040": "scattered null vier null",
   "9999": "neun neun neun neun",
   "PAN": "Pann",
-  "NINER": "Nainer",
+  "NINER": "Neiner",
   "BZF I": "BZF eins",
   "BZF II": "BZF zwei",
   "RWY": "Runway",
-  "TWY": "Taxiway"
+  "TWY": "Taxiway",
+  "QNH": "Ku En Ha",
+  "DEHOL": "Delta Echo Hotel Oscar Lima"
  },
  "abbreviationStyle": "plain",
  "keepAsWord": [

@@ -16,7 +16,7 @@ Beim lauten Vorlesen sprichst du die Abkürzungen als **volle englische Wörter*
 
 ## Die Übersetzung
 
-„NOTAM. Flugplatz EDXX (Echo Delta X-Ray X-Ray). Gültig vom ersten bis zum einunddreißigsten Januar. Piste null neun, zwei sieben ist wegen Fahrbahnsanierungsarbeiten gesperrt. Luftfahrzeuge können während des genannten Zeitraums weder landen noch starten. Die Arbeiten finden täglich zwischen sechs und achtzehn Uhr UTC statt. Der Ausweichflugplatz EDYY steht zur Umleitung zur Verfügung, eine vorherige telefonische Genehmigung ist erforderlich. Die Rollbahn Alfa bleibt ausschließlich für Bodenbewegungen verfügbar, mit einer Höchstrollgeschwindigkeit von zehn Knoten. Der Kraftstoffservice ist für die Dauer der Arbeiten ausgesetzt. Weitere Informationen erhältst du beim Flugplatzbetreiber."
+„NOTAM. Flugplatz EDXX (Echo Delta X-Ray X-Ray). Gültig vom ersten bis zum einunddreißigsten Januar. Piste null neun, zwo sieben ist wegen Fahrbahnsanierungsarbeiten gesperrt. Luftfahrzeuge können während des genannten Zeitraums weder landen noch starten. Die Arbeiten finden täglich zwischen sechs und achtzehn Uhr UTC statt. Der Ausweichflugplatz EDYY steht zur Umleitung zur Verfügung, eine vorherige telefonische Genehmigung ist erforderlich. Die Rollbahn Alfa bleibt ausschließlich für Bodenbewegungen verfügbar, mit einer Höchstrollgeschwindigkeit von zehn Knoten. Der Kraftstoffservice ist für die Dauer der Arbeiten ausgesetzt. Weitere Informationen erhältst du beim Flugplatzbetreiber."
 
 ## So übst du es
 

@@ -98,7 +98,7 @@
     {
       "id": "ahead",
       "voice": "trainer",
-      "text": "Das ist wichtig, denn die praktische BZF I Prüfung verlangt genau das. [[0]]Du liest einen kurzen englischen Text aus den Luftfahrthandbüchern laut vor. [[1]]Und übersetzt ihn anschließend mündlich ins Deutsche. Genau das übst du in Modul neun.",
+      "text": "Das ist wichtig, denn die praktische BZF I Prüfung verlangt genau das. [[0]]Du liest einen kurzen englischen Text aus den Luftfahrthandbüchern laut vor. [[1]]Und übersetzt ihn anschließend mündlich ins Deutsche. Genau das übst du in einem späteren Modul.",
       "visual": {
         "kind": "layers",
         "headline": "Als Nächstes:",
