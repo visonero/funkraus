@@ -9,7 +9,7 @@ export default function UpgradeCard({ catalog, title, text, compact = false }: {
   const points = [
     `Alle ${catalog.modules} Module bis zur Prüfungssimulation`,
     `${catalog.questions} offizielle Prüfungsfragen als Übungsquiz`,
-    "Einmal zahlen, lebenslanger Zugriff, kein Abo",
+    "Einmal zahlen, 12 Monate Zugriff, kein Abo",
   ];
   return (
     <div className="glass-strong dash-card" style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 24, justifyContent: "space-between" }}>

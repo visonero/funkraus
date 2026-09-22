@@ -20,7 +20,7 @@ const PRICE_FEATURES = [
   "Über 40 Audio-Funkbeispiele & interaktive Simulationen",
   "Vollständige Prüfungssimulationen (BZF I & II)",
   "PDF-Merkblätter & Spickzettel zum Download",
-  "Lebenslanger Zugriff, kein Abo",
+  "12 Monate Zugriff, kein Abo",
 ];
 
 
@@ -138,7 +138,7 @@ export default async function KursPage() {
               <span className="grad" style={{ fontSize: 24, fontWeight: 800 }}>€</span>
               <span className="grad" style={{ fontFamily: "var(--font-display)", fontSize: 66, fontWeight: 800 }}>{PRICE}</span>
             </div>
-            <p style={{ marginTop: 4, fontSize: 13.5, color: "var(--text-faint)" }}>einmalig · kein Abo · lebenslanger Zugriff</p>
+            <p style={{ marginTop: 4, fontSize: 13.5, color: "var(--text-faint)" }}>einmalig · kein Abo · 12 Monate Zugriff</p>
             <div style={{ textAlign: "left", marginTop: 32, display: "flex", flexDirection: "column", gap: 14 }}>
               {PRICE_FEATURES.map((text) => (
                 <div key={text} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>

@@ -75,8 +75,8 @@ export default async function PaymentsPage() {
           </p>
           <p style={{ marginTop: 4, fontSize: 14, color: "var(--text-dim)" }}>
             {paid
-              ? `Gekauft am ${dateFormat.format(new Date(paid.created_at))} · lebenslanger Zugriff, kein Abo.`
-              : "Einmal zahlen, sofort starten, lebenslanger Zugriff."}
+              ? `Gekauft am ${dateFormat.format(new Date(paid.created_at))} · 12 Monate Zugriff, kein Abo.`
+              : "Einmal zahlen, sofort starten, 12 Monate Zugriff."}
           </p>
         </div>
         {!paid && (

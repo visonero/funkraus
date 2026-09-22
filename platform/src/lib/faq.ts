@@ -30,7 +30,7 @@ export const FAQS = [
   },
   {
     q: "Sind die Inhalte fachlich geprüft?",
-    a: "Ja — alle Prüfungsfragen basieren auf dem aktuellen, offiziellen Fragenkatalog der Bundesnetzagentur, und alle Inhalte werden vor Veröffentlichung von einem Fluglehrer bzw. BZF-Inhaber geprüft.",
+    a: "Alle Prüfungsfragen und Kursinhalte basieren auf dem aktuellen, offiziellen Fragenkatalog der Bundesnetzagentur sowie weiteren amtlichen Quellen (u. a. NfL der DFS, FlugfunkV) und werden sorgfältig danach erstellt.",
   },
   {
     q: "Was passiert direkt nach dem Kauf des Vollzugangs?",

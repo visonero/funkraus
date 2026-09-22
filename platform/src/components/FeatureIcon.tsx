@@ -1,4 +1,4 @@
-export type FeatureIconType = "book" | "audio" | "radio" | "check" | "badge" | "infinity";
+export type FeatureIconType = "book" | "audio" | "radio" | "check" | "badge" | "infinity" | "calendar";
 
 export default function FeatureIcon({ type, size = 34 }: { type: FeatureIconType; size?: number }) {
   const common = { width: size, height: size, viewBox: "0 0 48 48", fill: "none" };
@@ -59,6 +59,16 @@ export default function FeatureIcon({ type, size = 34 }: { type: FeatureIconType
             strokeLinecap="round"
             fill="none"
           />
+        </svg>
+      );
+    case "calendar":
+      return (
+        <svg {...common}>
+          <rect x="9" y="12" width="30" height="26" rx="4" stroke="var(--sky-deep)" strokeWidth="2.5" fill="none" />
+          <line x1="9" y1="20" x2="39" y2="20" stroke="var(--sky-deep)" strokeWidth="2.5" />
+          <line x1="16" y1="8" x2="16" y2="16" stroke="var(--sky)" strokeWidth="3" strokeLinecap="round" />
+          <line x1="32" y1="8" x2="32" y2="16" stroke="var(--sky)" strokeWidth="3" strokeLinecap="round" />
+          <circle className="icon-badge-shine" cx="24" cy="29" r="3.5" fill="var(--sky)" opacity="0.85" />
         </svg>
       );
   }

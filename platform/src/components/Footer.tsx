@@ -29,9 +29,9 @@ export default function Footer() {
         <div>
           <p className="label" style={{ color: "var(--text-faint)", marginBottom: 14 }}>Rechtliches</p>
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-            <a className="nav-link" style={{ fontSize: 13.5 }} href="#">Impressum</a>
-            <a className="nav-link" style={{ fontSize: 13.5 }} href="#">Datenschutz</a>
-            <a className="nav-link" style={{ fontSize: 13.5 }} href="#">AGB</a>
+            <Link className="nav-link" style={{ fontSize: 13.5 }} href="/impressum">Impressum</Link>
+            <Link className="nav-link" style={{ fontSize: 13.5 }} href="/datenschutz">Datenschutz</Link>
+            <Link className="nav-link" style={{ fontSize: 13.5 }} href="/agb">AGB</Link>
           </div>
         </div>
       </div>

@@ -39,17 +39,15 @@ const PRICE_FEATURES = [
   "Über 40 Audio-Funkbeispiele & interaktive Simulationen",
   "Vollständige Prüfungssimulationen (BZF I & II)",
   "PDF-Merkblätter & Spickzettel zum Download",
-  "Lebenslanger Zugriff, kein Abo",
+  "12 Monate Zugriff, kein Abo",
 ];
 
 const MARQUEE_ITEMS = [
   "🎁 Modul 0 & 1 kostenlos",
-  "☁️ §5 UrhG geprüft",
   "📘 Offizieller Fragenkatalog",
   "💶 Fester Preis",
   "⚡ Sofortiger Zugang",
   "🎧 Audio-first Training",
-  "🧑‍✈️ Fachlich geprüft",
 ];
 
 const jsonLd = [
@@ -337,7 +335,7 @@ export default async function Home() {
                 <span className="grad" style={{ fontSize: 20, fontWeight: 800 }}>€</span>
                 <span className="grad" style={{ fontFamily: "var(--font-display)", fontSize: 52, fontWeight: 800 }}>{PRICE}</span>
               </div>
-              <p style={{ marginTop: 2, fontSize: 12.5, color: "var(--text-faint)" }}>einmalig · kein Abo · lebenslanger Zugriff</p>
+              <p style={{ marginTop: 2, fontSize: 12.5, color: "var(--text-faint)" }}>einmalig · kein Abo · 12 Monate Zugriff</p>
               <div style={{ textAlign: "left", marginTop: 24, display: "flex", flexDirection: "column", gap: 11, flex: 1 }}>
                 {PRICE_FEATURES.map((text, i) => (
                   <div key={text} style={{ display: "flex", gap: 9, alignItems: "flex-start" }}>

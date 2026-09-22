@@ -25,14 +25,9 @@ const FEATURES: { icon: FeatureIconType; title: string; desc: string }[] = [
     desc: "100 Fragen, 60 Minuten, exakt im Format der echten BZF-Prüfung.",
   },
   {
-    icon: "badge",
-    title: "Fachlich geprüft",
-    desc: "Alle Inhalte wurden vor Veröffentlichung von einem Fluglehrer bzw. BZF-Inhaber geprüft.",
-  },
-  {
-    icon: "infinity",
-    title: "Lebenslanger Zugriff",
-    desc: "Kein Abo, keine Frist. Lerne in deinem eigenen Tempo, so lange du willst.",
+    icon: "calendar",
+    title: "12 Monate Zugriff",
+    desc: "Kein Abo, einmal zahlen. Ein volles Jahr Zeit, in deinem eigenen Tempo zu lernen.",
   },
 ];
 
