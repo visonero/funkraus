@@ -13,43 +13,21 @@ const STEPS = [
 export default function HowItWorksTimeline() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const fillRef = useRef<HTMLDivElement>(null);
-  const milestoneRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useGSAP(
     () => {
       const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      if (prefersReduced) return;
+      if (prefersReduced || !fillRef.current) return;
 
-      if (fillRef.current) {
-        gsap.to(fillRef.current, {
-          scaleX: 1,
-          ease: "none",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 75%",
-            end: "bottom 55%",
-            scrub: 0.6,
-          },
-        });
-      }
-
-      milestoneRefs.current.forEach((el, i) => {
-        if (!el) return;
-        const dir = i % 2 === 0 ? 1 : -1;
-        gsap.fromTo(
-          el,
-          { y: 18 * dir },
-          {
-            y: -12 * dir,
-            ease: "none",
-            scrollTrigger: {
-              trigger: sectionRef.current,
-              start: "top bottom",
-              end: "bottom top",
-              scrub: 0.6,
-            },
-          },
-        );
+      gsap.to(fillRef.current, {
+        scaleX: 1,
+        ease: "none",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 75%",
+          end: "bottom 55%",
+          scrub: 0.6,
+        },
       });
     },
     { scope: sectionRef },
@@ -67,8 +45,8 @@ export default function HowItWorksTimeline() {
         </div>
 
         {/* Desktop: horizontal timeline */}
-        <div className="timeline-row" style={{ position: "relative", marginTop: 90, alignItems: "flex-start", justifyContent: "space-between", gap: 12 }}>
-          <div style={{ position: "absolute", top: 24, left: 24, right: 24, height: 4, borderRadius: 999, background: "var(--line)" }}>
+        <div className="timeline-row" style={{ position: "relative", marginTop: 32, alignItems: "flex-start", justifyContent: "space-between", gap: 12 }}>
+          <div style={{ position: "absolute", top: 72, left: 24, right: 24, height: 4, borderRadius: 999, background: "var(--line)" }}>
             <div
               ref={fillRef}
               style={{
@@ -81,34 +59,11 @@ export default function HowItWorksTimeline() {
               }}
             />
           </div>
-          {STEPS.map((s, i) => (
-            <div
-              key={s.num}
-              ref={(el) => {
-                milestoneRefs.current[i] = el;
-              }}
-              style={{ position: "relative", flex: 1, textAlign: "center", padding: "0 8px" }}
-            >
-              <div
-                className="glass"
-                style={{
-                  width: 48,
-                  height: 48,
-                  borderRadius: "50%",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontFamily: "var(--font-display)",
-                  fontWeight: 800,
-                  color: "var(--sky-deep)",
-                  margin: "0 auto",
-                  position: "relative",
-                  zIndex: 1,
-                }}
-              >
-                {s.num}
-              </div>
-              <h3 style={{ marginTop: 18, fontSize: 16.5, fontWeight: 700 }}>{s.title}</h3>
+          {STEPS.map((s) => (
+            <div key={s.num} className="reveal" style={{ position: "relative", flex: 1, textAlign: "center", padding: "0 8px" }}>
+              <div className="glass timeline-num">{s.num}</div>
+              <div className="timeline-diamond" />
+              <h3 style={{ marginTop: 26, fontSize: 16.5, fontWeight: 700 }}>{s.title}</h3>
               <p style={{ marginTop: 8, fontSize: 13.5, color: "var(--text-dim)" }}>{s.desc}</p>
             </div>
           ))}

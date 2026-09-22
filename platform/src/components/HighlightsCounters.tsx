@@ -4,10 +4,9 @@ import { useRef } from "react";
 import { gsap, ScrollTrigger, useGSAP } from "@/lib/gsap";
 
 const STATS = [
-  { target: 261, prefix: "", suffix: "", label: "Offizielle Prüfungsfragen komplett abgedeckt" },
-  { target: 15, prefix: "", suffix: "+", label: "Stunden Lernzeit im eigenen Tempo" },
-  { target: 0, prefix: "€", suffix: "", label: "kostet der Start: Modul 0 und 1 gratis" },
-  { target: 349, prefix: "€", suffix: "", label: "Fester Preis für den Rest, ohne Verkaufsgespräch" },
+  { target: 261, prefix: "", suffix: "", label: "offizielle Prüfungsfragen der Bundesnetzagentur, komplett integriert" },
+  { target: 8.5, prefix: "", suffix: "h", label: "Gesamtlernzeit vom Einsteiger bis zum Sprechfunkzeugnis" },
+  { target: 0, prefix: "€", suffix: "", label: "kostet der Start: Modul 0 und 1 gratis, ohne Zahlungsdaten" },
 ];
 
 export default function HighlightsCounters() {
@@ -18,12 +17,15 @@ export default function HighlightsCounters() {
       const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       const numberEls = gsap.utils.toArray<HTMLElement>(".stat-number");
 
+      const format = (value: number, decimals: number) => value.toLocaleString("de-DE", { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
+
       if (prefersReduced) {
         numberEls.forEach((el) => {
           const target = Number(el.dataset.target);
+          const decimals = el.dataset.target?.includes(".") ? 1 : 0;
           const prefix = el.dataset.prefix ?? "";
           const suffix = el.dataset.suffix ?? "";
-          el.textContent = `${prefix}${target}${suffix}`;
+          el.textContent = `${prefix}${format(target, decimals)}${suffix}`;
         });
         return;
       }
@@ -35,6 +37,7 @@ export default function HighlightsCounters() {
         onEnter: () => {
           numberEls.forEach((el) => {
             const target = Number(el.dataset.target);
+            const decimals = el.dataset.target?.includes(".") ? 1 : 0;
             const prefix = el.dataset.prefix ?? "";
             const suffix = el.dataset.suffix ?? "";
             const counter = { val: 0 };
@@ -43,7 +46,7 @@ export default function HighlightsCounters() {
               duration: 1.6,
               ease: "power2.out",
               onUpdate: () => {
-                el.textContent = `${prefix}${Math.round(counter.val)}${suffix}`;
+                el.textContent = `${prefix}${format(counter.val, decimals)}${suffix}`;
               },
             });
           });
@@ -54,7 +57,7 @@ export default function HighlightsCounters() {
   );
 
   return (
-    <div ref={sectionRef} className="section-pad" style={{ padding: "0 32px 90px", maxWidth: 1180, margin: "0 auto" }}>
+    <div ref={sectionRef} className="section-pad" style={{ padding: "64px 32px", maxWidth: 1180, margin: "0 auto" }}>
       <div
         className="glass reveal"
         style={{

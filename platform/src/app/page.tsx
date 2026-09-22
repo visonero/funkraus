@@ -2,49 +2,26 @@ import Link from "next/link";
 import SiteNav from "@/components/SiteNav";
 import ScrollRevealInit from "@/components/ScrollRevealInit";
 import HighlightsCounters from "@/components/HighlightsCounters";
-import FeaturesShowcase from "@/components/FeaturesShowcase";
+import HeroNetwork from "@/components/HeroNetwork";
+import PlatformShowcase from "@/components/PlatformShowcase";
+import ShowcaseSection from "@/components/ShowcaseSection";
 import CurriculumTabs from "@/components/CurriculumTabs";
 import HowItWorksTimeline from "@/components/HowItWorksTimeline";
 import TrustStamps from "@/components/TrustStamps";
 import FaqAccordion from "@/components/FaqAccordion";
-import PlatformShowcase from "@/components/PlatformShowcase";
 import Footer from "@/components/Footer";
+import { FAQS } from "@/lib/faq";
 import { ORIGINAL_PRICE, PRICE } from "@/lib/pricing";
 import { createClient } from "@/lib/supabase/server";
 
 const SIGNUP_HREF = "/login?mode=signup";
 const FREE_CTA = "Heute kostenlos starten";
 
-const PROBLEMS = [
-  {
-    icon: "💸",
-    title: "Der Preis bleibt ein Geheimnis",
-    desc: "Viele Anbieter zeigen dir erst nach einem 30-minütigen Verkaufsgespräch, was du eigentlich zahlst.",
-  },
-  {
-    icon: "🎥",
-    title: "Stundenlange Videos, wenig Übung",
-    desc: "Sprechfunk ist eine Hörfähigkeit — trotzdem bestehen viele Kurse aus reinem Zusehen statt Zuhören und Antworten.",
-  },
-  {
-    icon: "⏰",
-    title: "Starre Kurstermine",
-    desc: "Feste Zoom-Slots mehrmals die Woche passen selten in einen vollen Alltag neben Job oder Studium.",
-  },
-  {
-    icon: "🧩",
-    title: "Fragenkatalog irgendwo, Kurs woanders",
-    desc: "Die offiziellen Prüfungsfragen und die eigentliche Lernstrecke sind selten wirklich miteinander verzahnt.",
-  },
-];
-
-const COMPARE_ROWS = [
-  { label: "Ausprobieren", them: "Erst zahlen oder ein Verkaufsgespräch führen", us: "Kostenloses Konto: Modul 0 und 1 sofort offen, ohne Zahlungsdaten" },
-  { label: "Preis", them: "Erst nach Beratungsgespräch, oft vierstellig", us: `Sofort sichtbar, €${PRICE} einmalig für den Rest` },
-  { label: "Zugang", them: "Wartezeit bis zum nächsten Kurstermin", us: "Sofort nach der Registrierung" },
-  { label: "Lernformat", them: "Überwiegend Video", us: "Video, Audio-Funkübungen, interaktive Quizze" },
-  { label: "Prüfungsfragen", them: "Separat zu besorgen", us: "Vollständig integriert, offizieller Fragenkatalog" },
-  { label: "Tempo", them: "Feste Gruppentermine", us: "Komplett selbstbestimmt" },
+const CMP_ROWS = [
+  { label: "Einstieg", them: "Erst zahlen oder ein Verkaufsgespräch führen", us: "Kostenloses Konto: Modul 0 & 1 sofort offen" },
+  { label: "Preis für den Rest", them: "Oft vierstellig, erst nach Beratung sichtbar", us: `€${PRICE} einmalig, von Anfang an sichtbar` },
+  { label: "Lernformat", them: "Meist nur Video", us: "Video, Audio, Text, PDF und Quiz mit Fragenkatalog" },
+  { label: "Tempo & Zugang", them: "Feste Kurstermine, Wartezeit", us: "Sofort startklar, komplett selbstbestimmt" },
 ];
 
 const FREE_FEATURES = [
@@ -75,20 +52,31 @@ const MARQUEE_ITEMS = [
   "🧑‍✈️ Fachlich geprüft",
 ];
 
-function Cloud({ style, duration = "22s", direction = "alternate" }: { style: React.CSSProperties; duration?: string; direction?: string }) {
-  return (
-    <svg
-      className="deco cloud"
-      style={{ ...style, animationDuration: duration, animationDirection: direction as React.CSSProperties["animationDirection"] }}
-      viewBox="0 0 200 90"
-      fill="none"
-    >
-      <ellipse cx="60" cy="55" rx="55" ry="28" fill="#ffffff" opacity="0.8" />
-      <ellipse cx="110" cy="40" rx="45" ry="30" fill="#ffffff" opacity="0.85" />
-      <ellipse cx="150" cy="58" rx="38" ry="22" fill="#ffffff" opacity="0.75" />
-    </svg>
-  );
-}
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    name: "BZF I & II Online-Kurs",
+    description:
+      "Online-Kurs für das Sprechfunkzeugnis BZF I und BZF II für PPL(A)- und LAPL(A)-Piloten in Deutschland, mit dem offiziellen Fragenkatalog der Bundesnetzagentur.",
+    provider: { "@type": "Organization", name: "funkraus", sameAs: "https://funkraus.de" },
+    offers: {
+      "@type": "Offer",
+      price: PRICE,
+      priceCurrency: "EUR",
+      category: "Vollzugang, Modul 0 und 1 kostenlos",
+    },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: FAQS.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  },
+];
 
 function Blob({ style, color }: { style: React.CSSProperties; color: string }) {
   return <div className="deco blob hide-mobile" style={{ ...style, background: color }} />;
@@ -102,54 +90,24 @@ export default async function Home() {
 
   return (
     <div style={{ width: "100%", background: "var(--bg)", overflowX: "hidden", position: "relative" }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <ScrollRevealInit />
       <SiteNav email={user?.email ?? null} />
 
       {/* HERO */}
-      <div style={{ position: "relative", minHeight: "92vh", display: "flex", alignItems: "center", overflow: "hidden", isolation: "isolate" }}>
-        <div className="deco sky-wash" style={{ inset: 0 }} />
+      <div style={{ position: "relative", overflow: "hidden", background: "#fff" }}>
+        <HeroNetwork />
 
-        <Cloud style={{ top: "12%", left: "-5%", width: 220 }} duration="22s" direction="alternate" />
-        <Cloud style={{ top: "55%", right: "-8%", width: 280 }} duration="28s" direction="alternate-reverse" />
-        <svg className="deco cloud hide-mobile" style={{ top: "3%", left: "38%", width: 160, animationDuration: "18s", animationDirection: "alternate" }} viewBox="0 0 200 90" fill="none">
-          <ellipse cx="60" cy="55" rx="55" ry="28" fill="#ffffff" opacity="0.6" />
-          <ellipse cx="110" cy="40" rx="45" ry="30" fill="#ffffff" opacity="0.65" />
-        </svg>
-
-        <Blob style={{ top: "8%", left: "8%", width: 220, height: 220, animationDelay: "0s" }} color="var(--sky)" />
-        <Blob style={{ bottom: "6%", right: "10%", width: 260, height: 260, animationDelay: "-4s" }} color="var(--sky-2)" />
-        <Blob style={{ top: "40%", right: "28%", width: 140, height: 140, animationDelay: "-8s", opacity: 0.3 }} color="var(--violet)" />
-
-        <div
-          className="deco plane hide-mobile"
-          style={{ offsetPath: "path('M -40 420 C 240 120, 640 560, 1120 90')", fontSize: 30, filter: "drop-shadow(0 6px 10px rgba(30,58,95,0.25))" } as React.CSSProperties}
-        >
-          ✈️
-        </div>
-
-        <div className="deco glass float hide-mobile" style={{ top: "16%", right: "9%", "--rot": "-4deg", borderRadius: 16, padding: "14px 18px", animationDelay: "-1s" } as React.CSSProperties}>
-          <p className="label" style={{ color: "var(--sky-deep)", marginBottom: 4 }}>Turm</p>
-          <p style={{ fontSize: 13, color: "var(--text-dim)", maxWidth: 180 }}>&quot;Startbahn 27, Startfreigabe.&quot;</p>
-        </div>
-        <div className="deco glass float hide-mobile" style={{ bottom: "14%", left: "7%", "--rot": "3deg", borderRadius: 16, padding: "16px 20px", animationDelay: "-3s" } as React.CSSProperties}>
-          <p className="grad" style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 22 }}>261</p>
-          <p className="label" style={{ color: "var(--text-dim)" }}>offizielle Fragen</p>
-        </div>
-        <div className="deco glass float hide-mobile" style={{ top: "64%", left: "16%", "--rot": "-2deg", borderRadius: 14, padding: "10px 16px", animationDelay: "-5s", display: "flex", alignItems: "center", gap: 8 } as React.CSSProperties}>
-          <span style={{ fontSize: 16 }}>✅</span>
-          <span style={{ fontSize: 13, fontWeight: 600, color: "var(--text)" }}>BZF bestanden</span>
-        </div>
-
-        <div className="section-pad" style={{ position: "relative", zIndex: 2, maxWidth: 820, margin: "0 auto", padding: "40px 32px", width: "100%", textAlign: "center" }}>
-          <div style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "8px 16px", borderRadius: 999, background: "rgba(255,255,255,0.55)", backdropFilter: "blur(10px)", WebkitBackdropFilter: "blur(10px)", border: "1px solid rgba(255,255,255,0.7)", marginBottom: 26 } as React.CSSProperties}>
+        <div className="section-pad" style={{ position: "relative", zIndex: 2, maxWidth: 860, margin: "0 auto", padding: "76px 32px 20px", width: "100%", textAlign: "center" }}>
+          <div style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "8px 16px", borderRadius: 999, background: "rgba(47,155,234,0.08)", border: "1px solid rgba(47,155,234,0.25)", marginBottom: 26 }}>
             <span style={{ width: 7, height: 7, borderRadius: "50%", background: "var(--sky)" }} />
-            <span className="label" style={{ color: "var(--sky-deep)" }}>BZF I &amp; BZF II · Online-Kurs</span>
+            <span className="label" style={{ color: "var(--sky-deep)" }}>BZF I &amp; BZF II · Online-Kurs für PPL &amp; LAPL</span>
           </div>
-          <h1 className="h1-hero" style={{ fontSize: "clamp(40px,6.4vw,74px)", lineHeight: 1.05, fontWeight: 800, textShadow: "0 2px 30px rgba(255,255,255,0.9)" }}>
-            Verstanden.<br />Und <span className="grad">bestanden.</span>
+          <h1 className="h1-hero" style={{ fontSize: "clamp(30px,5.2vw,58px)", lineHeight: 1.18, fontWeight: 800, overflowWrap: "break-word", hyphens: "auto" }}>
+            Dein Sprechfunkzeugnis für PPL &amp; LAPL: <span className="grad">online lernen, in unter 10 Stunden bestehen.</span>
           </h1>
-          <p style={{ marginTop: 26, fontSize: 19, color: "var(--text-dim)", maxWidth: 600, marginLeft: "auto", marginRight: "auto" }}>
-            Der komplette Kurs für dein Sprechfunkzeugnis. Starte heute kostenlos mit Modul 0 und 1, ganz ohne Zahlungsdaten, und schalte den Rest später einmalig frei.
+          <p style={{ marginTop: 24, fontSize: 18, color: "var(--text-dim)", maxWidth: 640, marginLeft: "auto", marginRight: "auto" }}>
+            Der komplette BZF-Onlinekurs mit Video, Audio-Funkübungen, Lesetexten, PDF-Merkblättern und dem offiziellen Fragenkatalog der Bundesnetzagentur — auf Laptop, Tablet und Smartphone.
           </p>
           <div style={{ display: "inline-flex", alignItems: "center", gap: 10, marginTop: 22, padding: "8px 16px", borderRadius: 999, background: "rgba(52,211,153,0.16)", border: "1px solid rgba(52,211,153,0.4)" }}>
             <span style={{ fontSize: 13 }}>🎁</span>
@@ -163,9 +121,13 @@ export default async function Home() {
               So sieht der Kurs aus ↓
             </a>
           </div>
-          <p style={{ marginTop: 24, fontSize: 12.5, color: "var(--text-faint)", fontWeight: 600 }}>
+          <p style={{ marginTop: 22, fontSize: 12.5, color: "var(--text-faint)", fontWeight: 600 }}>
             Kostenlos starten · Vollzugang später einmalig €{PRICE} statt €{ORIGINAL_PRICE} · Basierend auf dem offiziellen Fragenkatalog der Bundesnetzagentur
           </p>
+        </div>
+
+        <div className="section-pad" style={{ position: "relative", zIndex: 2, maxWidth: 1180, margin: "0 auto", padding: "36px 32px 64px" }}>
+          <PlatformShowcase />
         </div>
       </div>
 
@@ -187,126 +149,119 @@ export default async function Home() {
 
       <HighlightsCounters />
 
-      {/* PLATFORM SHOWCASE */}
+      {/* USP STORY: einblick */}
       <div id="einblick" style={{ position: "relative", overflow: "hidden" }}>
         <Blob style={{ top: "6%", left: "-6%", width: 280, height: 280, opacity: 0.2 }} color="var(--sky-2)" />
-        <div className="section-pad" style={{ position: "relative", zIndex: 1, padding: "90px 32px 40px", maxWidth: 1180, margin: "0 auto" }}>
+        <div className="section-pad" style={{ position: "relative", zIndex: 1, padding: "0px 32px 10px", maxWidth: 1180, margin: "0 auto" }}>
           <div className="reveal" style={{ maxWidth: 700, margin: "0 auto", textAlign: "center" }}>
             <span className="label" style={{ color: "var(--sky)" }}>Einblick</span>
             <h2 style={{ fontSize: "clamp(28px,3.4vw,42px)", marginTop: 14, fontWeight: 700, lineHeight: 1.2 }}>
-              So sieht deine <span className="grad">Lernplattform</span> von innen aus.
+              Warum funkraus der richtige <span className="grad">BZF-Kurs</span> für dich ist.
             </h2>
             <p style={{ marginTop: 16, fontSize: 17, color: "var(--text-dim)" }}>
-              Keine Attrappe: Das sind echte Ansichten aus dem Kurs. Am Laptop, am Tablet und am Handy, mit Video, Quiz und Fortschritt.
+              Keine Attrappe: Das sind echte Ansichten aus der Lernplattform, Schritt für Schritt erklärt.
             </p>
-            <Link href={SIGNUP_HREF} className="btn-accent" style={{ display: "inline-block", marginTop: 26, padding: "15px 30px", borderRadius: 999, fontSize: 15.5 }}>
+          </div>
+        </div>
+
+        <ShowcaseSection
+          eyebrow="1 · Der komplette Crashkurs"
+          title={
+            <>
+              Vom Einsteiger zum <span className="grad">Sprechfunkzeugnis</span> — in unter 10 Stunden.
+            </>
+          }
+          text="Ein durchgehender Kurs für BZF I und BZF II, der bei null anfängt: Luftraumstruktur, Funkverfahren, Platzverkehr, Streckenflug und Navigation, bis zur Prüfungssimulation. Kein Springen zwischen Anbietern, keine Lücken."
+          bullets={[
+            "8,5 Stunden Gesamtlernzeit für den kompletten BZF-Stoff",
+            "261 offizielle Prüfungsfragen der Bundesnetzagentur, passend zu jedem Kapitel",
+            "Aufgebaut für PPL(A)- und LAPL(A)-Piloten ohne Vorkenntnisse",
+          ]}
+          image={{ src: "/screens/kurs-desktop.webp", alt: "Kursübersicht des BZF-Online-Kurses mit allen Modulen und Fortschritt", width: 2880, height: 1800 }}
+        />
+
+        <ShowcaseSection
+          reverse
+          eyebrow="2 · Kostenlos starten"
+          title={
+            <>
+              Erst überzeugen lassen. <span className="grad">Dann erst zahlen.</span>
+            </>
+          }
+          text="Anders als bei vielen BZF-Anbietern zahlst du nicht im Voraus für ein Versprechen. Du erstellst ein kostenloses Konto, lernst Modul 0 und 1 komplett durch und entscheidest erst danach, ob du den Vollzugang freischaltest."
+          bullets={[
+            "Keine Zahlungsdaten bei der Registrierung",
+            "Kein Verkaufsgespräch, kein Countdown-Trick",
+            "Dein Fortschritt bleibt erhalten, wenn du später upgradest",
+          ]}
+          image={{ src: "/screens/gesperrt-desktop.webp", alt: "Ansicht eines gesperrten Kapitels mit Hinweis auf den kostenlosen Einstieg", width: 2880, height: 1800 }}
+        />
+
+        <ShowcaseSection
+          eyebrow="3 · Moderne, interaktive Lernplattform"
+          title={
+            <>
+              Video, Text, Audio, PDF und Quiz — <span className="grad">für jede Lektion.</span>
+            </>
+          }
+          text="Jede Lektion kombiniert ein Erklärvideo, einen Lesetext, echte Audio-Funkübungen zum Nachsprechen und ein PDF-Merkblatt zum Ausdrucken. Direkt darunter: die passenden Fragen aus dem offiziellen Fragenkatalog, Modul für Modul."
+          bullets={[
+            "Original-Fragen der Bundesnetzagentur zu jeder Lektion und jedem Modul",
+            "Sofortige Erklärung bei jeder Antwort, richtig oder falsch",
+            "PDF-Spickzettel zum Download für jedes Thema",
+          ]}
+          image={{ src: "/screens/lektion-video-desktop.webp", alt: "Video-Lektion mit Text, Audio und PDF-Karte im BZF-Kurs", width: 2880, height: 1800 }}
+        />
+
+        <ShowcaseSection
+          reverse
+          eyebrow="4 · Lerne, wann und wo du willst"
+          title={
+            <>
+              Am Laptop begonnen, <span className="grad">am Handy weitergemacht.</span>
+            </>
+          }
+          text="Die Lernplattform passt sich jedem Bildschirm an. Ob am Küchentisch auf dem Laptop, im Flugzeug-Club auf dem Tablet oder unterwegs auf dem Smartphone: dein Fortschritt ist überall sofort da."
+          bullets={["Responsive auf Desktop, Tablet und Smartphone", "Automatische Synchronisierung deines Fortschritts", "Keine App-Installation nötig, läuft im Browser"]}
+          image={{ src: "/screens/quiz-desktop.webp", alt: "BZF-Prüfungsfragen mit Erklärung, responsiv auf allen Geräten nutzbar", width: 2880, height: 1800 }}
+          cta={
+            <Link href={SIGNUP_HREF} className="btn-accent" style={{ display: "inline-block", padding: "14px 26px", borderRadius: 999, fontSize: 15 }}>
               {FREE_CTA}
             </Link>
-          </div>
-          <PlatformShowcase />
-        </div>
-      </div>
-
-      {/* PROBLEM */}
-      <div style={{ position: "relative", overflow: "hidden" }}>
-        <Blob style={{ top: "10%", right: "-6%", width: 300, height: 300, opacity: 0.25 }} color="var(--pink)" />
-        <svg className="deco cloud hide-mobile" style={{ bottom: "-2%", left: "-6%", width: 220, animationDuration: "24s" } as React.CSSProperties} viewBox="0 0 200 90" fill="none">
-          <ellipse cx="60" cy="55" rx="55" ry="28" fill="#ffffff" />
-          <ellipse cx="110" cy="40" rx="45" ry="30" fill="#ffffff" />
-        </svg>
-        <div className="section-pad" style={{ position: "relative", zIndex: 1, padding: "100px 32px", maxWidth: 1180, margin: "0 auto" }}>
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 40 }}>
-            <div className="reveal" style={{ maxWidth: 640 }}>
-              <span className="label" style={{ color: "var(--sky)" }}>Die Realität</span>
-              <h2 style={{ fontSize: "clamp(28px,3.4vw,42px)", marginTop: 14, fontWeight: 700, lineHeight: 1.2 }}>
-                Sprechfunk lernen fühlt sich oft <span className="grad">komplizierter</span> an, als es sein müsste.
-              </h2>
-              <p style={{ marginTop: 18, fontSize: 17, color: "var(--text-dim)" }}>
-                Die meisten BZF-Vorbereitungen scheitern nicht an der Prüfung selbst — sondern daran, wie sie unterrichtet wird.
-              </p>
-            </div>
-            <div className="hide-mobile reveal" style={{ position: "relative", width: 160, height: 160, flex: "none" }}>
-              <div className="radar-sweep" style={{ position: "absolute", inset: 0, borderRadius: "50%", background: "conic-gradient(from 0deg, rgba(47,155,234,0.55), transparent 35%)", animation: "radarspin 3.4s linear infinite" }} />
-              <div style={{ position: "absolute", inset: 0, borderRadius: "50%", border: "1.5px dashed var(--line-strong)" }} />
-              <div style={{ position: "absolute", inset: 16, borderRadius: "50%", border: "1px dashed var(--line)" }} />
-              <div style={{ position: "absolute", inset: 42, borderRadius: "50%", border: "1px dashed var(--line)" }} />
-              <div style={{ position: "absolute", top: "50%", left: "50%", width: 9, height: 9, background: "var(--sky)", borderRadius: "50%", transform: "translate(-50%,-50%)", boxShadow: "0 0 14px var(--sky)" }} />
-            </div>
-          </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(250px,1fr))", gap: 22, marginTop: 52 }}>
-            {PROBLEMS.map((p) => (
-              <div key={p.title} className="card glass reveal" style={{ borderRadius: 20, padding: 30 }}>
-                <div style={{ width: 44, height: 44, borderRadius: 14, background: "rgba(47,155,234,0.12)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 20, marginBottom: 18 }}>
-                  {p.icon}
-                </div>
-                <h3 style={{ fontSize: 18, fontWeight: 700 }}>{p.title}</h3>
-                <p style={{ marginTop: 10, fontSize: 14.5, color: "var(--text-dim)" }}>{p.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+          }
+        />
       </div>
 
       {/* DIFFERENTIATION / COMPARE */}
       <div id="vorteile" style={{ position: "relative", overflow: "hidden" }}>
         <Blob style={{ top: "0%", left: "-8%", width: 280, height: 280, opacity: 0.22 }} color="var(--sky-2)" />
-        <div className="section-pad" style={{ position: "relative", zIndex: 1, padding: "40px 32px 100px", maxWidth: 1180, margin: "0 auto" }}>
-          <div className="reveal" style={{ maxWidth: 640 }}>
+        <div className="section-pad" style={{ position: "relative", zIndex: 1, padding: "60px 32px 90px", maxWidth: 1180, margin: "0 auto" }}>
+          <div className="reveal" style={{ maxWidth: 640, margin: "0 auto", textAlign: "center" }}>
             <span className="label" style={{ color: "var(--sky)" }}>Der Unterschied</span>
             <h2 style={{ fontSize: "clamp(28px,3.4vw,42px)", marginTop: 14, fontWeight: 700, lineHeight: 1.2 }}>
-              Ein Kurs, der genauso funktioniert, wie <span className="grad">die Prüfung klingt.</span>
+              Ein BZF-Kurs, der <span className="grad">ehrlich mit dir funkt.</span>
             </h2>
           </div>
-          <div className="compare-grid reveal">
-            <div className="compare-left">
-              <p className="label" style={{ color: "var(--text-faint)", marginBottom: 18 }}>Typischer Ablauf am Markt</p>
-              {COMPARE_ROWS.map((row) => (
-                <div key={row.label} className="compare-row-them">
-                  <p style={{ fontSize: 12, fontWeight: 700, color: "var(--text-faint)", textTransform: "uppercase", letterSpacing: "0.03em", marginBottom: 6 }}>
-                    {row.label}
-                  </p>
-                  <p style={{ fontSize: 14.5, color: "var(--text-dim)", display: "flex", gap: 8, alignItems: "flex-start" }}>
-                    <span style={{ color: "#c65b6b", flex: "none" }}>✕</span>
-                    {row.them}
-                  </p>
-                </div>
-              ))}
-            </div>
-            <div className="glass-strong compare-right">
-              <p className="label grad" style={{ marginBottom: 18 }}>funkraus</p>
-              {COMPARE_ROWS.map((row) => (
-                <div key={row.label} className="compare-row-us">
-                  <p style={{ fontSize: 12, fontWeight: 700, color: "var(--sky-deep)", textTransform: "uppercase", letterSpacing: "0.03em", marginBottom: 6 }}>
-                    {row.label}
-                  </p>
-                  <p style={{ fontSize: 14.5, color: "var(--text)", fontWeight: 600, display: "flex", gap: 8, alignItems: "flex-start" }}>
-                    <span style={{ color: "var(--sky)", flex: "none" }}>✓</span>
-                    {row.us}
-                  </p>
-                </div>
-              ))}
-            </div>
-            <div
-              className="vs-badge"
-              style={{ width: 56, height: 56, borderRadius: "50%", background: "linear-gradient(135deg,var(--sky),var(--sky-2))", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 13, boxShadow: "0 8px 20px rgba(47,155,234,0.4)", border: "4px solid var(--bg)" }}
-            >
-              VS
-            </div>
-          </div>
-        </div>
-      </div>
 
-      {/* FEATURES */}
-      <div style={{ position: "relative", overflow: "hidden" }}>
-        <Blob style={{ bottom: "-4%", right: "-6%", width: 260, height: 260, opacity: 0.22 }} color="var(--mint)" />
-        <div className="section-pad" style={{ position: "relative", zIndex: 1, padding: "20px 32px 100px", maxWidth: 1180, margin: "0 auto" }}>
-          <div className="reveal" style={{ maxWidth: 640 }}>
-            <span className="label" style={{ color: "var(--sky)" }}>Kursinhalt</span>
-            <h2 style={{ fontSize: "clamp(28px,3.4vw,42px)", marginTop: 14, fontWeight: 700, lineHeight: 1.2 }}>
-              Alles, was du für <span className="grad">BZF I &amp; II</span> brauchst — in einem Kurs.
-            </h2>
+          <div className="glass-strong cmp-table reveal">
+            <div className="cmp-head">
+              <span className="label" style={{ color: "var(--text-faint)" }}>Andere Anbieter</span>
+              <span className="label grad">funkraus</span>
+            </div>
+            {CMP_ROWS.map((row) => (
+              <div key={row.label} className="cmp-row">
+                <span className="cmp-row-label">{row.label}</span>
+                <span className="cmp-them">
+                  <span style={{ color: "#c65b6b", flex: "none" }}>✕</span>
+                  {row.them}
+                </span>
+                <span className="cmp-us">
+                  <span style={{ color: "var(--sky)", flex: "none" }}>✓</span>
+                  {row.us}
+                </span>
+              </div>
+            ))}
           </div>
-          <FeaturesShowcase />
         </div>
       </div>
 
@@ -314,13 +269,17 @@ export default async function Home() {
       <div id="kurs" style={{ position: "relative", overflow: "hidden" }}>
         <Blob style={{ top: "6%", right: "6%", width: 220, height: 220, opacity: 0.16 }} color="var(--sky)" />
         <div className="section-pad" style={{ position: "relative", zIndex: 1, padding: "20px 32px 100px", maxWidth: 1180, margin: "0 auto" }}>
-          <div className="reveal" style={{ maxWidth: 640 }}>
+          <div className="reveal" style={{ maxWidth: 680 }}>
             <span className="label" style={{ color: "var(--sky)" }}>Kursstruktur</span>
-            <h2 style={{ fontSize: "clamp(28px,3.4vw,42px)", marginTop: 14, fontWeight: 700, lineHeight: 1.2 }}>
-              Zwei Prüfungen, <span className="grad">ein Kurs.</span>
+            <div style={{ display: "inline-flex", alignItems: "center", gap: 8, marginTop: 14, padding: "6px 14px", borderRadius: 999, background: "rgba(255,143,179,0.14)", border: "1px solid rgba(255,143,179,0.35)" }}>
+              <span style={{ fontSize: 13 }}>🎁</span>
+              <span style={{ fontSize: 12.5, fontWeight: 700, color: "#c0447a" }}>Inklusive geschenkt</span>
+            </div>
+            <h2 style={{ fontSize: "clamp(28px,3.4vw,42px)", marginTop: 12, fontWeight: 700, lineHeight: 1.2 }}>
+              Du buchst dein <span className="grad">BZF II.</span> Das BZF I bekommst du gratis dazu.
             </h2>
             <p style={{ marginTop: 16, fontSize: 16, color: "var(--text-dim)" }}>
-              BZF II berechtigt zum deutschsprachigen Funk im deutschen Luftraum. BZF I erweitert das um Englisch und internationalen Verkehr. Beide Wege sind vollständig enthalten.
+              BZF II reicht für den deutschsprachigen Sprechfunk im deutschen Luftraum, viele PPL- und LAPL-Piloten brauchen nicht mehr. Bei funkraus bekommst du trotzdem den kompletten BZF I Kurs mit englischem Funk und internationalem Verkehr dazu — ohne Aufpreis, ohne zweite Anmeldung.
             </p>
           </div>
           <CurriculumTabs />

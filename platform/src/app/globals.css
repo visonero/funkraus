@@ -433,9 +433,6 @@ button {
     padding-left: 22px !important;
     padding-right: 22px !important;
   }
-  .h1-hero {
-    font-size: 38px !important;
-  }
   .compare-table {
     font-size: 13px !important;
   }
@@ -1301,5 +1298,151 @@ button {
     max-width: 270px;
     margin: 0 auto;
     border-radius: 22px;
+  }
+}
+
+/* ===== Hero network backdrop ===== */
+.hero-network {
+  pointer-events: none;
+}
+.hero-net-line {
+  fill: none;
+  stroke: var(--sky-deep);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  opacity: 0.16;
+  stroke-dasharray: 1400;
+  stroke-dashoffset: 1400;
+  animation: heroNetDraw 2.4s ease forwards;
+}
+@keyframes heroNetDraw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.hero-net-flow {
+  fill: none;
+  stroke: var(--sky);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  opacity: 0.5;
+  stroke-dasharray: 3 22;
+  animation: heroNetFlow 2.6s linear infinite;
+}
+@keyframes heroNetFlow {
+  to {
+    stroke-dashoffset: -100;
+  }
+}
+.hero-net-pulse {
+  filter: drop-shadow(0 0 5px var(--sky));
+}
+.ping-ring {
+  fill: none;
+  stroke: var(--sky);
+  stroke-width: 2;
+  opacity: 0;
+  animation: pingring 3.2s ease-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-net-line {
+    stroke-dashoffset: 0;
+  }
+  .hero-net-flow,
+  .hero-net-pulse,
+  .ping-ring {
+    display: none;
+  }
+}
+
+/* ===== Compact comparison table ("Der Unterschied") ===== */
+.cmp-table {
+  max-width: 760px;
+  margin: 40px auto 0;
+  border-radius: 22px;
+  overflow: hidden;
+}
+.cmp-head,
+.cmp-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+}
+.cmp-head {
+  padding: 14px 20px 10px;
+}
+.cmp-row {
+  padding: 14px 20px;
+  border-top: 1px solid var(--line);
+}
+.cmp-row-label {
+  grid-column: 1 / -1;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 6px;
+}
+.cmp-them,
+.cmp-us {
+  display: flex;
+  gap: 7px;
+  align-items: flex-start;
+  font-size: 13.5px;
+  line-height: 1.4;
+}
+.cmp-them {
+  color: var(--text-faint);
+}
+.cmp-us {
+  color: var(--text);
+  font-weight: 600;
+}
+@media (max-width: 620px) {
+  .cmp-head {
+    display: none;
+  }
+}
+
+/* ===== Timeline milestones (static numbers, diamond on the line) ===== */
+.timeline-num {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-weight: 800;
+  color: var(--sky-deep);
+  margin: 0 auto 36px;
+  position: relative;
+  z-index: 2;
+}
+.timeline-diamond {
+  position: absolute;
+  top: 74px;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(135deg, var(--sky), var(--sky-2));
+  border-radius: 3px;
+  transform: translate(-50%, -50%) rotate(45deg);
+  box-shadow: 0 0 0 4px var(--bg);
+  z-index: 1;
+}
+
+/* ===== Alternating USP story sections (ShowcaseSection.tsx) ===== */
+.showcase-mockup {
+  transition: transform 0.3s ease;
+}
+@media (max-width: 860px) {
+  .showcase-row {
+    grid-template-columns: 1fr !important;
+    direction: ltr !important;
+    gap: 28px !important;
   }
 }
