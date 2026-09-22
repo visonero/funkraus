@@ -4,13 +4,15 @@ import remarkGfm from "remark-gfm";
 import { notFound } from "next/navigation";
 import AppIcon from "@/components/app/AppIcon";
 import CompleteButton from "@/components/app/CompleteButton";
+import ExamSimulation from "@/components/app/ExamSimulation";
 import LessonQuiz from "@/components/app/LessonQuiz";
 import UpgradeCard from "@/components/app/UpgradeCard";
 import { getCurrentUser } from "@/lib/auth/session";
 import { getCourseData, getLessonDetail } from "@/lib/course/data";
+import { getExamState } from "@/lib/course/exam";
 import { moduleLabel } from "@/lib/course/format";
 
-const TYPE_LABEL = { video: "Video", audio: "Audio", text: "Lesetext", quiz: "Quiz" } as const;
+const TYPE_LABEL = { video: "Video", audio: "Audio", text: "Lesetext", quiz: "Quiz", exam: "Prüfung" } as const;
 
 export default async function LessonPage({ params }: PageProps<"/dashboard/course/[lessonId]">) {
   const { lessonId } = await params;
@@ -18,6 +20,7 @@ export default async function LessonPage({ params }: PageProps<"/dashboard/cours
 
   const [lesson, course] = await Promise.all([getLessonDetail(lessonId, user.id), getCourseData(user.id)]);
   if (!lesson) notFound();
+  const examState = lesson.type === "exam" && !lesson.locked ? await getExamState(user.id, lesson.id) : null;
 
   const flat = course.modules.flatMap((m) => m.chapters.map((c) => ({ chapter: c, module: m })));
   const index = flat.findIndex((f) => f.chapter.id === lesson.id);
@@ -119,6 +122,8 @@ export default async function LessonPage({ params }: PageProps<"/dashboard/cours
           <Markdown remarkPlugins={[remarkGfm]}>{lesson.body}</Markdown>
         </div>
       )}
+
+      {examState && current && <ExamSimulation lessonId={lesson.id} track={current.module.track} initialState={examState} />}
 
       {lesson.audioUrl && (
         <section className="glass dash-card" style={{ marginTop: 32 }}>

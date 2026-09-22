@@ -1,5 +1,5 @@
 export type Track = "bzf1" | "bzf2";
-export type ChapterType = "video" | "audio" | "text" | "quiz";
+export type ChapterType = "video" | "audio" | "text" | "quiz" | "exam";
 
 export type RawModule = {
   id: string;
@@ -85,6 +85,30 @@ export type CourseData = {
   next: { chapter: Chapter; module: CourseModule } | null;
   allDone: boolean;
 };
+
+export type ExamQuestion = { id: string; question: string; options: string[] };
+
+export type ExamResultSummary = { score: number; passed: boolean; submittedAtIso: string };
+
+export type ExamResultDetail = {
+  score: number;
+  passed: boolean;
+  total: number;
+  threshold: number;
+  breakdown: {
+    questionId: string;
+    question: string;
+    options: string[];
+    selectedIndex: number | null;
+    correctIndex: number;
+    explanation: string | null;
+    isCorrect: boolean;
+  }[];
+};
+
+export type ExamState =
+  | { mode: "start"; lastResult: ExamResultSummary | null }
+  | { mode: "in-progress"; attemptId: string; questions: ExamQuestion[]; startedAtIso: string; durationSeconds: number };
 
 export type LessonDetail = {
   id: string;

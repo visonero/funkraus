@@ -5,7 +5,7 @@ import { updateLesson, deleteLesson, createQuestion, updateQuestion, deleteQuest
 import DeleteButton from "@/components/DeleteButton";
 import { field, label, dangerBtn, smallBtn } from "@/lib/form-styles";
 
-const CONTENT_TYPES = ["video", "audio", "text", "quiz"];
+const CONTENT_TYPES = ["video", "audio", "text", "quiz", "exam"];
 
 export default async function LessonDetailPage({ params }: PageProps<"/admin/lessons/[id]">) {
   const { id } = await params;

@@ -22,7 +22,7 @@ const dayKeyFormat = new Intl.DateTimeFormat("sv-SE", { timeZone: TIME_ZONE });
 const weekdayFormat = new Intl.DateTimeFormat("de-DE", { timeZone: TIME_ZONE, weekday: "short" });
 
 function toChapterType(value: string): ChapterType {
-  return value === "video" || value === "audio" || value === "quiz" ? value : "text";
+  return value === "video" || value === "audio" || value === "quiz" || value === "exam" ? value : "text";
 }
 
 // Full access = a paid purchase. Modules flagged is_free (Modules 0 and 1) are open to every account.

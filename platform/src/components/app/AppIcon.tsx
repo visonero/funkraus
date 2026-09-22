@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 export type AppIconName =
   | "dashboard" | "course" | "payment" | "settings" | "logout" | "admin" | "home" | "lock" | "check"
-  | "video" | "audio" | "text" | "quiz" | "menu" | "close" | "chevron" | "target" | "layers" | "help" | "arrow";
+  | "video" | "audio" | "text" | "quiz" | "exam" | "menu" | "close" | "chevron" | "target" | "layers" | "help" | "arrow";
 
 const PATHS: Record<AppIconName, ReactNode> = {
   dashboard: (
@@ -49,6 +49,12 @@ const PATHS: Record<AppIconName, ReactNode> = {
     <>
       <circle cx="12" cy="12" r="8.5" />
       <path d="M9.6 9.6a2.5 2.5 0 1 1 3.4 2.3c-.7.3-1 .8-1 1.5M12 16.6v.1" />
+    </>
+  ),
+  exam: (
+    <>
+      <circle cx="12" cy="13" r="8" />
+      <path d="M12 9v4l3 2M9.5 2.5h5" />
     </>
   ),
   menu: <path d="M4 7h16M4 12h16M4 17h16" />,

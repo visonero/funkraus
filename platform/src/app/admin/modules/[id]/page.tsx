@@ -5,7 +5,7 @@ import { updateModule, deleteModule, createLesson, deleteLesson } from "../../ac
 import DeleteButton from "@/components/DeleteButton";
 import { field, label, dangerBtn, smallBtn } from "@/lib/form-styles";
 
-const CONTENT_TYPES = ["video", "audio", "text", "quiz"];
+const CONTENT_TYPES = ["video", "audio", "text", "quiz", "exam"];
 
 export default async function ModuleDetailPage({ params }: PageProps<"/admin/modules/[id]">) {
   const { id } = await params;
