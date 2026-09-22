@@ -1,0 +1,150 @@
+{
+  "id": "5.2-hook-video",
+  "language": "de",
+  "scenes": [
+    {
+      "id": "intro",
+      "voice": "trainer",
+      "text": "Was tust du, wenn dein Funkgerät schweigt oder du einfach keine Antwort mehr hörst? Auch dafür gibt es feste Regeln: die [[0]]Blindsendung [[1]]und den Funkausfall.",
+      "visual": {
+        "kind": "headline",
+        "headline": "Was, wenn der Funk",
+        "highlight": "schweigt?",
+        "tiles": [
+          "Blindsendung",
+          "Funkausfall"
+        ]
+      }
+    },
+    {
+      "id": "blind",
+      "voice": "trainer",
+      "text": "Zuerst die Blindsendung. Du sendest eine Meldung, ohne zu wissen, ob dich jemand hört. [[0]]Du beginnst mit dem Wort Blindsendung und deinem Rufzeichen. [[1]]Dann folgt die eigentliche Meldung, zum Beispiel dein Standort und deine Höhe. [[2]]Fällt nur dein Empfänger aus, beginnst du stattdessen mit Blindsendung wegen Empfängerausfall.",
+      "visual": {
+        "kind": "dialog",
+        "headline": "Senden, ohne",
+        "highlight": "eine Antwort zu hören",
+        "lines": [
+          {
+            "who": "pilot",
+            "text": "BLINDSENDUNG, DEHOL",
+            "note": "keine Verbindung möglich"
+          },
+          {
+            "who": "pilot",
+            "text": "ÜBERFLIEGE SIERRA, 3500 FUSS",
+            "note": "die Meldung selbst"
+          },
+          {
+            "who": "pilot",
+            "text": "BLINDSENDUNG WEGEN EMPFÄNGERAUSFALL",
+            "note": "wenn nur der Empfänger ausfällt",
+            "tone": "amber"
+          }
+        ]
+      }
+    },
+    {
+      "id": "blindRules",
+      "voice": "trainer",
+      "text": "Zwei Merkmale der Blindsendung fragt der Katalog ab. [[0]]Die Meldung wird zweimal übermittelt, vollständig wiederholt. [[1]]Und du nennst den Zeitpunkt deiner nächsten beabsichtigten Übermittlung.",
+      "visual": {
+        "kind": "layers",
+        "headline": "Merkmale der",
+        "highlight": "Blindsendung",
+        "layers": [
+          {
+            "label": "Zweimal senden",
+            "sub": "die Meldung vollständig wiederholen"
+          },
+          {
+            "label": "Nächste Sendezeit nennen",
+            "sub": "wann du wieder sendest"
+          }
+        ]
+      }
+    },
+    {
+      "id": "squawk",
+      "voice": "trainer",
+      "text": "Auch beim Transponder gibt es einen eigenen Code. [[0]]A sieben sieben null null bedeutet Notlage, das kennst du schon. [[1]]A sieben sechs null null dagegen bedeutet: Funkausfall. Zwei Codes für zwei ganz unterschiedliche Lagen.",
+      "visual": {
+        "kind": "transform",
+        "headline": "Zwei Codes,",
+        "highlight": "zwei Lagen",
+        "tiles": [
+          {
+            "top": "A 7700",
+            "bottom": "Notlage",
+            "tone": "red"
+          },
+          {
+            "top": "A 7600",
+            "bottom": "Funkausfall",
+            "tone": "white"
+          }
+        ]
+      }
+    },
+    {
+      "id": "procedure",
+      "voice": "trainer",
+      "text": "Fällt der Funk vor deiner Einflugfreigabe in eine Kontrollzone aus, gilt ein klarer Ablauf. [[0]]Stelle, wenn möglich, den Transponder auf sieben sechs null null. [[1]]Lande auf dem nächstgelegenen geeigneten Flugplatz. [[2]]Und melde der Flugverkehrskontrollstelle schnellstmöglich deine Landezeit.",
+      "visual": {
+        "kind": "layers",
+        "headline": "Funkausfall vor der",
+        "highlight": "Einflugfreigabe",
+        "layers": [
+          {
+            "label": "Transponder A 7600",
+            "sub": "sofern möglich"
+          },
+          {
+            "label": "Nächster geeigneter Flugplatz",
+            "sub": "dort landen"
+          },
+          {
+            "label": "Landezeit melden",
+            "sub": "sobald wie möglich"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ctrDiagram",
+      "voice": "trainer",
+      "text": "Dabei kommt es genau darauf an, wann der Funk ausfällt. [[0]]Fällt er aus, bevor du die Einflugfreigabe hast, landest du außerhalb der Kontrollzone. [[1]]Hast du Freigabe und Landeanweisung dagegen schon erhalten und bestätigt, setzt du den Flug einfach so fort, wie du freigegeben wurdest.",
+      "visual": {
+        "kind": "diagram",
+        "diagram": "funkausfall",
+        "headline": "Vor oder nach der",
+        "highlight": "Freigabe?",
+        "steps": [
+          {
+            "label": "Vor der Freigabe",
+            "sub": "außerhalb landen",
+            "tone": "white"
+          },
+          {
+            "label": "Nach bestätigter Freigabe",
+            "sub": "weiterfliegen wie freigegeben",
+            "tone": "green"
+          }
+        ]
+      }
+    },
+    {
+      "id": "outro",
+      "voice": "trainer",
+      "text": "Damit kennst du auch den Ernstfall ohne Funk: [[0]]die Blindsendung, [[1]]den Code sieben sechs null null [[2]]und die richtige Reaktion je nach Freigabe. Lade dir die Funkausfall-Karte herunter und beantworte danach acht Fragen. Los geht's.",
+      "visual": {
+        "kind": "outro",
+        "pills": [
+          "Blindsendung",
+          "A 7600",
+          "Freigabe"
+        ]
+      }
+    }
+  ]
+}

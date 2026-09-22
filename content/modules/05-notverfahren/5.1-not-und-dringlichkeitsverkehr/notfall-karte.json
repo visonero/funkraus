@@ -1,0 +1,75 @@
+{
+  "label": "Lektion 5.1 · Notfall-Karte",
+  "title": "Not- und",
+  "highlight": "Dringlichkeitsverkehr",
+  "sections": [
+    {
+      "title": "Notlage oder Dringlichkeit?",
+      "rows": [
+        [
+          "Notlage",
+          "schwere/unmittelbare Gefahr, sofortige Hilfe nötig — Signal MAYDAY"
+        ],
+        [
+          "Dringlichkeitslage",
+          "Sicherheit betroffen, keine sofortige Hilfe nötig — Signal PAN PAN"
+        ],
+        [
+          "Aussprache PAN PAN",
+          "wie das französische Wort „panne“"
+        ],
+        [
+          "Häufigkeit",
+          "Signal vorzugsweise dreimal, am Anfang der ersten Meldung"
+        ]
+      ]
+    },
+    {
+      "title": "Aufbau der Meldung",
+      "rows": [
+        [
+          "1",
+          "Name der gerufenen Stelle (wenn möglich)"
+        ],
+        [
+          "2",
+          "Kennung des Luftfahrzeugs"
+        ],
+        [
+          "3",
+          "Art der Not- bzw. Dringlichkeitslage"
+        ],
+        [
+          "4",
+          "Absicht des Piloten"
+        ],
+        [
+          "5",
+          "Standort, Höhe, Kurs"
+        ]
+      ],
+      "example": {
+        "say": "„MAYDAY MAYDAY MAYDAY, DEHOL, TRIEBWERKAUSFALL …“",
+        "note": "Frequenz: die gerade benutzte oder eine Notfrequenz"
+      }
+    },
+    {
+      "title": "Transponder und Vorrang",
+      "rows": [
+        [
+          "A 7700",
+          "zeigt der Bodenfunkstelle: Notlage"
+        ],
+        [
+          "Notverkehr",
+          "uneingeschränkter Vorrang vor allem Verkehr"
+        ],
+        [
+          "Dringlichkeitsverkehr",
+          "Vorrang vor allem außer Notverkehr"
+        ]
+      ]
+    }
+  ],
+  "footer": "Quellen: NfL 2024-1-3266 (DFS), Nr. 22; BNetzA-Prüfungsfragenkatalog 2024, Nr. 136 bis 144"
+}

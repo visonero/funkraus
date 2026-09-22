@@ -1,0 +1,14 @@
+{
+  "id": "5.2",
+  "title": "Funkausfallverfahren",
+  "content_type": "text",
+  "sort_order": 1,
+  "assets": {
+    "video": "5.2-hook-video/hook-video.mp4",
+    "pdf": "5.2-funkausfall-karte/funkausfall-karte.pdf"
+  },
+  "sources": [
+    "NfL 2024-1-3266, Nr. 20 (Verwenden von Blindsendungen)",
+    "BNetzA-Prüfungsfragenkatalog 2024, Nr. 12, 145 bis 149, 205, 206"
+  ]
+}

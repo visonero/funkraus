@@ -1,0 +1,15 @@
+{
+  "id": "5.1",
+  "title": "Not- und Dringlichkeitsverkehr",
+  "content_type": "audio",
+  "sort_order": 0,
+  "assets": {
+    "video": "5.1-hook-video/hook-video.mp4",
+    "audio": "5.1-audio-drill/5.1-audio-drill.mp3",
+    "pdf": "5.1-notfall-karte/notfall-karte.pdf"
+  },
+  "sources": [
+    "NfL 2024-1-3266, Nr. 22 (Sprechfunkverfahren für Not- und Dringlichkeitsverkehr)",
+    "BNetzA-Prüfungsfragenkatalog 2024, Nr. 136 bis 144"
+  ]
+}

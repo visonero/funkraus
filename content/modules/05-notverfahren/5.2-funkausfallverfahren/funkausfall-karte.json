@@ -1,0 +1,59 @@
+{
+  "label": "Lektion 5.2 · Funkausfall-Karte",
+  "title": "Blindsendung und",
+  "highlight": "Funkausfall",
+  "sections": [
+    {
+      "title": "Die Blindsendung",
+      "rows": [
+        [
+          "Wann",
+          "keine Sprechfunkverbindung möglich"
+        ],
+        [
+          "Merkmal 1",
+          "Meldung zweimal übermitteln, vollständig wiederholen"
+        ],
+        [
+          "Merkmal 2",
+          "Zeitpunkt der nächsten Übermittlung angeben"
+        ],
+        [
+          "Bei Empfängerausfall",
+          "beginnt mit „BLINDSENDUNG WEGEN EMPFÄNGERAUSFALL“"
+        ]
+      ],
+      "example": {
+        "say": "„BLINDSENDUNG, DEHOL, ÜBERFLIEGE SIERRA, 3500 FUSS“",
+        "note": "zweimal senden"
+      }
+    },
+    {
+      "title": "Transponder",
+      "rows": [
+        [
+          "A 7700",
+          "Notlage"
+        ],
+        [
+          "A 7600",
+          "Funkausfall"
+        ]
+      ]
+    },
+    {
+      "title": "Funkausfall vor einer Kontrollzone",
+      "rows": [
+        [
+          "Vor der Einflugfreigabe",
+          "A 7600 (wenn möglich), auf nächstem geeigneten Flugplatz landen, Landezeit schnellstmöglich melden"
+        ],
+        [
+          "Freigabe und Landeanweisung schon bestätigt",
+          "Flug entsprechend der erteilten Freigabe fortsetzen"
+        ]
+      ]
+    }
+  ],
+  "footer": "Quellen: NfL 2024-1-3266 (DFS), Nr. 20; BNetzA-Prüfungsfragenkatalog 2024, Nr. 12, 145 bis 149, 205, 206"
+}

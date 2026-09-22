@@ -1,0 +1,173 @@
+{
+  "id": "5.1-hook-video",
+  "language": "de",
+  "scenes": [
+    {
+      "id": "intro",
+      "voice": "trainer",
+      "text": "Die meiste Zeit läuft dein Funk ganz gewöhnlich ab. Aber es gibt zwei Momente, für die es feste Regeln gibt, gerade weil dann keine Zeit für Umwege bleibt: [[0]]MAYDAY [[1]]und PAN PAN.",
+      "visual": {
+        "kind": "headline",
+        "headline": "Wenn es wirklich",
+        "highlight": "zählt",
+        "tiles": [
+          "MAYDAY",
+          "PAN PAN"
+        ]
+      }
+    },
+    {
+      "id": "definitions",
+      "voice": "trainer",
+      "text": "Zuerst der Unterschied. [[0]]Eine Notlage ist ein Zustand mit schwerer oder unmittelbarer Gefahr, bei dem du sofortige Hilfe brauchst. [[1]]Eine Dringlichkeitslage betrifft die Sicherheit, verlangt aber keine sofortige Hilfe.",
+      "visual": {
+        "kind": "transform",
+        "headline": "Notlage oder",
+        "highlight": "Dringlichkeitslage?",
+        "tiles": [
+          {
+            "top": "Notlage",
+            "bottom": "schwere, unmittelbare Gefahr, sofortige Hilfe nötig",
+            "tone": "red"
+          },
+          {
+            "top": "Dringlichkeit",
+            "bottom": "Sicherheit betroffen, keine sofortige Hilfe nötig",
+            "tone": "white"
+          }
+        ]
+      }
+    },
+    {
+      "id": "maydayCall",
+      "voice": "trainer",
+      "text": "So klingt ein echter Notanruf. [[0]]Du beginnst mit MAYDAY, dreimal gesendet. [[1]]Dann nennst du dein Rufzeichen und die Art der Notlage, zum Beispiel Triebwerkausfall. [[2]]Zum Schluss deine Absicht sowie Standort, Höhe und Kurs.",
+      "visual": {
+        "kind": "dialog",
+        "headline": "Der",
+        "highlight": "Notanruf",
+        "lines": [
+          {
+            "who": "pilot",
+            "text": "MAYDAY MAYDAY MAYDAY",
+            "tone": "red"
+          },
+          {
+            "who": "pilot",
+            "text": "DEHOL, TRIEBWERKAUSFALL",
+            "note": "Art der Notlage"
+          },
+          {
+            "who": "pilot",
+            "text": "SINKE DURCH 3000 FUSS, LANDE AUF FELD",
+            "note": "Absicht, Standort, Höhe"
+          }
+        ]
+      }
+    },
+    {
+      "id": "content",
+      "voice": "trainer",
+      "text": "Die Notmeldung folgt also einer klaren Reihenfolge. [[0]]Zuerst die Art der Notlage. [[1]]Dann deine Absicht als Pilot. [[2]]Und schließlich Standort, Höhe und Kurs, damit man dich findet.",
+      "visual": {
+        "kind": "layers",
+        "headline": "Die Notmeldung,",
+        "highlight": "Schritt für Schritt",
+        "layers": [
+          {
+            "label": "Art der Notlage",
+            "sub": "was ist passiert"
+          },
+          {
+            "label": "Absicht des Piloten",
+            "sub": "was du jetzt vorhast"
+          },
+          {
+            "label": "Standort, Höhe, Kurs",
+            "sub": "wo du bist und wohin du fliegst"
+          }
+        ]
+      }
+    },
+    {
+      "id": "panpan",
+      "voice": "trainer",
+      "text": "Ist die Lage dringlich, aber nicht lebensbedrohlich, beginnst du stattdessen mit [[0]]PAN PAN, dreimal gesendet und wie das französische Wort panne ausgesprochen. [[1]]Danach nennst du die Art der Dringlichkeitslage, zum Beispiel knapper Treibstoff.",
+      "visual": {
+        "kind": "dialog",
+        "headline": "Der",
+        "highlight": "Dringlichkeitsanruf",
+        "lines": [
+          {
+            "who": "pilot",
+            "text": "PAN PAN, PAN PAN, PAN PAN",
+            "note": "gesprochen wie „panne“",
+            "tone": "amber"
+          },
+          {
+            "who": "pilot",
+            "text": "DEHOL, TREIBSTOFF WIRD KNAPP",
+            "note": "Art der Dringlichkeitslage"
+          }
+        ]
+      }
+    },
+    {
+      "id": "transponder",
+      "voice": "trainer",
+      "text": "Es gibt noch einen zweiten Weg, eine Notlage zu zeigen. [[0]]Per Sprechfunk sagst du MAYDAY. [[1]]Am Transponder stellst du den Code sieben sieben null null ein. Beide zeigen genau dasselbe: Du bist in Not.",
+      "visual": {
+        "kind": "transform",
+        "headline": "Zwei Wege,",
+        "highlight": "eine Notlage",
+        "tiles": [
+          {
+            "top": "MAYDAY",
+            "bottom": "per Sprechfunk",
+            "tone": "red"
+          },
+          {
+            "top": "A 7700",
+            "bottom": "per Transponder",
+            "tone": "red"
+          }
+        ]
+      }
+    },
+    {
+      "id": "priority",
+      "voice": "trainer",
+      "text": "Und wer darf jetzt noch senden? [[0]]Notverkehr hat uneingeschränkten Vorrang vor allem anderen Verkehr. [[1]]Dringlichkeitsverkehr hat Vorrang vor allem, außer vor Notverkehr. Alle anderen hören mit und warten.",
+      "visual": {
+        "kind": "transform",
+        "headline": "Wer hat",
+        "highlight": "Vorrang?",
+        "tiles": [
+          {
+            "top": "Notverkehr",
+            "bottom": "uneingeschränkter Vorrang",
+            "tone": "red"
+          },
+          {
+            "top": "Dringlichkeit",
+            "bottom": "Vorrang außer vor Notverkehr",
+            "tone": "amber"
+          }
+        ]
+      }
+    },
+    {
+      "id": "outro",
+      "voice": "trainer",
+      "text": "Damit kennst du die Regeln für den Ernstfall: [[0]]die Notlage, [[1]]die Dringlichkeit [[2]]und den Vorrang. Lade dir die Notfall-Karte herunter, hör dir die Übung an und beantworte danach neun Fragen. Los geht's.",
+      "visual": {
+        "kind": "outro",
+        "pills": [
+          "Notlage",
+          "Dringlichkeit",
+          "Vorrang"
+        ]
+      }
+    }
+  ]
+}

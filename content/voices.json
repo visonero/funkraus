@@ -38,7 +38,8 @@
   "BKN": "broken",
   "OVC": "overcast",
   "SCT040": "scattered null vier null",
-  "9999": "neun neun neun neun"
+  "9999": "neun neun neun neun",
+  "PAN": "Pann"
  },
  "abbreviationStyle": "plain",
  "keepAsWord": [

@@ -1,5 +1,5 @@
 import type { DiagramFn } from "./diagrams1";
-import { C, Cloud, Dimension, Label, PlaneSide, Station, Txt, fade } from "./svgkit";
+import { Bubble, C, Cloud, Dimension, Label, Plane, PlaneSide, Station, Tower, Txt, fade, prog } from "./svgkit";
 
 // ---------------------------------------------------------------------------------------------------------
 // Altimeter settings. Steps: QNH (height above sea level), QFE (height above the aerodrome), 1013.2 (flight level)
@@ -90,3 +90,64 @@ export const los: DiagramFn = ({ since, active }) => {
   );
 };
 
+
+// ---------------------------------------------------------------------------------------------------------
+// Radio failure near a control zone. Steps switch the scenario:
+//   0 = before the entry clearance was received -> land outside the CTR
+//   1 = after the clearance (and landing instructions) were already confirmed -> continue as cleared
+// ---------------------------------------------------------------------------------------------------------
+export const funkausfall: DiagramFn = ({ since, active }) => {
+  const s = Math.max(active, 0);
+  const t = since[s];
+  const cx = 660;
+  const cy = 300;
+  const r = 190;
+  const before = s === 0;
+  const outerRunway: [number, number] = [180, 480];
+  const innerRunway: [number, number] = [560, 300];
+  const start: [number, number] = [980, 120];
+  const target = before ? outerRunway : innerRunway;
+  const pos = {
+    x: start[0] + (target[0] - start[0]) * prog(t, 0.3, 3),
+    y: start[1] + (target[1] - start[1]) * prog(t, 0.3, 3),
+  };
+  const heading = before ? 235 : 250;
+  return (
+    <g>
+      <rect x={0} y={0} width={1040} height={640} fill="#eaf4fd" />
+      <circle cx={cx} cy={cy} r={r} fill="rgba(47,155,234,0.08)" stroke={C.deep} strokeWidth={5} strokeDasharray="16 10" />
+      <Txt x={cx} y={cy - r - 18} size={22} fill={C.dim}>
+        Kontrollzone
+      </Txt>
+      <g opacity={fade(t, 0, 0.4)}>
+        <line x1={cx - 22} y1={cy - 148} x2={cx + 18} y2={cy - 188} stroke={C.red} strokeWidth={7} strokeLinecap="round" />
+        <line x1={cx + 18} y1={cy - 148} x2={cx - 22} y2={cy - 188} stroke={C.red} strokeWidth={7} strokeLinecap="round" />
+        <Label x={cx + 150} y={cy - 168} text="kein Funkkontakt" fill={C.red} size={22} />
+      </g>
+      <Tower x={cx} y={cy + 40} s={0.7} />
+      {/* the outside diversion field */}
+      <g opacity={before ? 1 : 0.28}>
+        <rect x={outerRunway[0] - 70} y={outerRunway[1] - 10} width={140} height={20} rx={4} fill={C.runway} transform={`rotate(-15 ${outerRunway[0]} ${outerRunway[1]})`} />
+        <Txt x={outerRunway[0]} y={outerRunway[1] + 46} size={20} fill={C.dim}>
+          Flugplatz außerhalb
+        </Txt>
+      </g>
+      {/* the runway inside the CTR, offset from the tower so landing traffic does not sit on top of it */}
+      <g opacity={before ? 0.28 : 1}>
+        <rect x={innerRunway[0] - 70} y={innerRunway[1] - 10} width={140} height={20} rx={4} fill={C.runway} />
+        <Txt x={innerRunway[0]} y={innerRunway[1] + 40} size={20} fill={C.dim}>
+          Zielflugplatz
+        </Txt>
+      </g>
+      <Plane x={pos.x} y={pos.y} rot={heading} s={0.8} fill={before ? C.amber : C.green} />
+      {before ? (
+        <Label x={340} y={575} w={360} text="Landung außerhalb der CTR" fill={C.amber} opacity={fade(t, 1.2)} />
+      ) : (
+        <g opacity={fade(t, 1.2)}>
+          <Bubble x={840} y={420} text="FREIGABE BEREITS BESTÄTIGT" stroke={C.green} tail="none" size={22} />
+          <Label x={660} y={575} w={420} text="Weiterflug wie freigegeben" fill={C.green} />
+        </g>
+      )}
+    </g>
+  );
+};

@@ -1,0 +1,73 @@
+{
+  "id": "5.1-audio-drill",
+  "language": "de",
+  "segments": [
+    {
+      "voice": "trainer",
+      "text": "Willkommen zur Notfall-Übung. Ich spiele dir eine Situation vor, du sprichst danach deine Meldung. Danach höre ich dir die richtige Antwort vor."
+    },
+    {
+      "pause": 1.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Dein Triebwerk fällt aus, du sinkst und musst notlanden. Sende deinen Notanruf."
+    },
+    {
+      "pause": 9.0
+    },
+    {
+      "voice": "trainer",
+      "text": "MAYDAY MAYDAY MAYDAY, Delta Echo Hotel Oscar Lima, Triebwerkausfall, sinke durch dreitausend Fuß, lande auf freiem Feld."
+    },
+    {
+      "pause": 1.8
+    },
+    {
+      "voice": "trainer",
+      "text": "Ein Passagier an Bord wird plötzlich schwer krank, aber du hast die Lage unter Kontrolle. Wie beginnst du deine Meldung?"
+    },
+    {
+      "pause": 5.0
+    },
+    {
+      "voice": "trainer",
+      "text": "PAN PAN, PAN PAN, PAN PAN."
+    },
+    {
+      "pause": 1.8
+    },
+    {
+      "voice": "trainer",
+      "text": "Welchen Transpondercode stellst du in einer Notlage ein?"
+    },
+    {
+      "pause": 4.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Den Code sieben sieben null null."
+    },
+    {
+      "pause": 1.8
+    },
+    {
+      "voice": "trainer",
+      "text": "Darf ein anderes Flugzeug jetzt einfach auf derselben Frequenz weitersenden?"
+    },
+    {
+      "pause": 4.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Nein. Notverkehr hat uneingeschränkten Vorrang, alle anderen hören nur mit."
+    },
+    {
+      "pause": 1.8
+    },
+    {
+      "voice": "trainer",
+      "text": "Sehr gut. Wiederhole die Übung, bis der Ablauf sitzt."
+    }
+  ]
+}

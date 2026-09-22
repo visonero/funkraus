@@ -1,0 +1,40 @@
+{
+  "questions": [
+    {
+      "catalogue_number": 136,
+      "explanation": "Die Notmeldung enthält nach Möglichkeit Art der Notlage, Absicht des Piloten sowie aktuellen Standort, Flughöhe und Kurs."
+    },
+    {
+      "catalogue_number": 137,
+      "explanation": "MAYDAY bedeutet: eine schwere und/oder unmittelbare Gefahr droht, sofortige Hilfe ist erforderlich."
+    },
+    {
+      "catalogue_number": 138,
+      "explanation": "Ein Notanruf wird auf der gerade benutzten Frequenz oder einer Notfrequenz übermittelt, nicht zwingend auf 121,500 MHz."
+    },
+    {
+      "catalogue_number": 139,
+      "explanation": "Ein Notanruf beginnt mit MAYDAY, vorzugsweise dreimal gesendet."
+    },
+    {
+      "catalogue_number": 140,
+      "explanation": "Das per Sprechfunk übermittelte Wort MAYDAY ist ein Notsignal. Leuchtkugeln und blinkende Lichter sind andere, nicht-funktechnische Signale."
+    },
+    {
+      "catalogue_number": 141,
+      "explanation": "Ein Dringlichkeitsanruf beginnt mit PAN PAN, vorzugsweise dreimal gesendet."
+    },
+    {
+      "catalogue_number": 142,
+      "explanation": "PAN PAN bedeutet: Das Luftfahrzeug befindet sich in einer schwierigen Lage, aber ohne unmittelbare Gefahr."
+    },
+    {
+      "catalogue_number": 143,
+      "explanation": "In einer Notlage sendest du den Transpondercode A 7700."
+    },
+    {
+      "catalogue_number": 144,
+      "explanation": "Der Code A 7700 zeigt der Bodenfunkstelle: Das Luftfahrzeug befindet sich in einer Notlage."
+    }
+  ]
+}

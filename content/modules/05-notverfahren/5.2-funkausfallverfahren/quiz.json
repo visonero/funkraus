@@ -1,0 +1,36 @@
+{
+  "questions": [
+    {
+      "catalogue_number": 12,
+      "explanation": "Eine Blindsendung ist das Übermitteln einer Meldung an die Flugverkehrsdienststelle, wenn eine Sprechfunkverbindung nicht hergestellt werden kann."
+    },
+    {
+      "catalogue_number": 145,
+      "explanation": "Bei Funkausfall vor Erhalt bzw. Bestätigung der Einflugfreigabe in eine Kontrollzone: Transponder A 7600 (wenn möglich), auf dem nächstgelegenen geeigneten Flugplatz landen, der Flugverkehrskontrollstelle schnellstmöglich die Landezeit übermitteln."
+    },
+    {
+      "catalogue_number": 146,
+      "explanation": "Ein besonderes Merkmal der Blindsendung: Die Meldung wird zweimal übermittelt."
+    },
+    {
+      "catalogue_number": 147,
+      "explanation": "Ein besonderes Merkmal der Blindsendung: Angabe des Zeitpunkts der nächsten beabsichtigten Übermittlung."
+    },
+    {
+      "catalogue_number": 148,
+      "explanation": "Bei Funkausfall sendet der Pilot den Transpondercode A 7600."
+    },
+    {
+      "catalogue_number": 149,
+      "explanation": "Der Code A 7600 zeigt der Bodenfunkstelle: Funkausfall."
+    },
+    {
+      "catalogue_number": 205,
+      "explanation": "Kann mit dem Kontrollturm keine Funkverbindung hergestellt werden, muss der Pilot außerhalb der Kontrollzone landen. Nur aus flugbetrieblichen Gründen darf der Flug in die CTR fortgesetzt werden."
+    },
+    {
+      "catalogue_number": 206,
+      "explanation": "Sind Einflugfreigabe und Landeanweisung bereits bestätigt und fällt danach der Funk aus, setzt der Pilot den Flug entsprechend der erteilten Flugverkehrskontrollfreigabe fort."
+    }
+  ]
+}
