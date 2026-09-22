@@ -1,26 +1,20 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
 
-type DeviceImage = { src: string; alt: string; width: number; height: number };
-
 type Props = {
   id?: string;
   eyebrow: string;
   title: ReactNode;
   text: ReactNode;
   bullets?: string[];
-  laptop: DeviceImage;
-  tablet?: DeviceImage;
-  phone?: DeviceImage;
+  image: { src: string; alt: string; width: number; height: number };
   reverse?: boolean;
   cta?: ReactNode;
 };
 
-// One USP told as a short story: text on one side, real screenshots on the other. Each screenshot is a
-// zoomed-in crop of one specific, exciting part of the platform (not the whole browser frame, which made
-// the content unreadably small) paired with the same feature on tablet/phone, using the same device-collage
-// pattern as the hero's PlatformShowcase.
-export default function ShowcaseSection({ id, eyebrow, title, text, bullets, laptop, tablet, phone, reverse, cta }: Props) {
+// One USP told as a short story: text on one side, a real screenshot (in a browser-style frame) on the
+// other. Used repeatedly under "einblick" so each highlight gets its own moment instead of a feature grid.
+export default function ShowcaseSection({ id, eyebrow, title, text, bullets, image, reverse, cta }: Props) {
   return (
     <div id={id} className="section-pad" style={{ padding: "56px 32px", maxWidth: 1180, margin: "0 auto" }}>
       <div
@@ -49,25 +43,26 @@ export default function ShowcaseSection({ id, eyebrow, title, text, bullets, lap
           )}
           {cta && <div style={{ marginTop: 22 }}>{cta}</div>}
         </div>
-
-        <div className="reveal showcase-mockup showcase-devices-compact showcase-stage" style={{ direction: "ltr" }}>
-          <div className="device-laptop">
-            <Image src={laptop.src} alt={laptop.alt} width={laptop.width} height={laptop.height} sizes="(max-width: 900px) 92vw, 480px" />
+        <div className="reveal mockup-frame showcase-mockup" style={{ direction: "ltr", maxWidth: "none" }}>
+          <div className="mockup-topbar">
+            <span className="mockup-dot" />
+            <span className="mockup-dot" />
+            <span className="mockup-dot" />
+            <span
+              style={{
+                marginLeft: 10,
+                fontSize: 11,
+                color: "var(--text-faint)",
+                fontFamily: "var(--font-mono, monospace)",
+                background: "rgba(0,0,0,0.03)",
+                padding: "3px 10px",
+                borderRadius: 999,
+              }}
+            >
+              app.funkraus.de
+            </span>
           </div>
-          {(tablet || phone) && (
-            <div className="showcase-devices-row">
-              {phone && (
-                <div className="device-phone">
-                  <Image src={phone.src} alt={phone.alt} width={phone.width} height={phone.height} sizes="(max-width: 760px) 26vw, 140px" />
-                </div>
-              )}
-              {tablet && (
-                <div className="device-tablet">
-                  <Image src={tablet.src} alt={tablet.alt} width={tablet.width} height={tablet.height} sizes="(max-width: 760px) 44vw, 260px" />
-                </div>
-              )}
-            </div>
-          )}
+          <Image src={image.src} alt={image.alt} width={image.width} height={image.height} sizes="(max-width: 900px) 92vw, 540px" style={{ display: "block", width: "100%", height: "auto" }} />
         </div>
       </div>
     </div>

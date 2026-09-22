@@ -96,38 +96,36 @@ export default async function Home() {
       <div style={{ position: "relative", overflow: "hidden", background: "#fff" }}>
         <HeroNetwork />
 
-        <div className="section-pad hero-grid" style={{ position: "relative", zIndex: 2, maxWidth: 1180, margin: "0 auto", padding: "56px 32px 60px", width: "100%" }}>
-          <div className="hero-copy">
-            <div className="hero-badge-row" style={{ display: "flex", alignItems: "center", gap: 8, padding: "8px 16px", borderRadius: 999, background: "rgba(47,155,234,0.08)", border: "1px solid rgba(47,155,234,0.25)", marginBottom: 20 }}>
-              <span style={{ width: 7, height: 7, borderRadius: "50%", background: "var(--sky)", flex: "none" }} />
-              <span className="label" style={{ color: "var(--sky-deep)" }}>BZF I &amp; BZF II · Online-Kurs für PPL &amp; LAPL</span>
-            </div>
-            <h1 className="h1-hero" style={{ fontSize: "clamp(26px,3.6vw,42px)", lineHeight: 1.18, fontWeight: 800, overflowWrap: "break-word", hyphens: "auto" }}>
-              Das Sprechfunkzeugnis für Privatpiloten: <span className="grad">Crash-Kurs in unter 10 Stunden bestehen.</span>
-            </h1>
-            <p style={{ marginTop: 18, fontSize: 15.5, color: "var(--text-dim)", maxWidth: 480, marginLeft: "auto", marginRight: "auto" }}>
-              Der komplette BZF-Onlinekurs mit Video, Audio-Funkübungen, Lesetexten, PDF-Merkblättern und dem offiziellen Fragenkatalog der Bundesnetzagentur. Auf Laptop, Tablet und Smartphone.
-            </p>
-            <div className="hero-badge-row" style={{ display: "flex", alignItems: "center", gap: 10, marginTop: 18, padding: "7px 14px", borderRadius: 999, background: "rgba(52,211,153,0.16)", border: "1px solid rgba(52,211,153,0.4)" }}>
-              <span style={{ fontSize: 12.5, flex: "none" }}>🎁</span>
-              <span style={{ fontSize: 12.5, fontWeight: 700, color: "#0b7a55" }}>Konto erstellen · Modul 0 und 1 sofort kostenlos nutzen</span>
-            </div>
-            <div className="hero-cta-row" style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 20 }}>
-              <Link href={SIGNUP_HREF} className="btn-accent" style={{ padding: "15px 26px", borderRadius: 999, fontSize: 15, display: "inline-block" }}>
-                {FREE_CTA}
-              </Link>
-              <a href="#einblick" className="btn-ghost" style={{ padding: "15px 26px", borderRadius: 999, fontSize: 15, display: "inline-block" }}>
-                So sieht der Kurs aus ↓
-              </a>
-            </div>
-            <p style={{ marginTop: 18, fontSize: 12, color: "var(--text-faint)", fontWeight: 600 }}>
-              Kostenlos starten · Vollzugang später einmalig €{PRICE} statt €{ORIGINAL_PRICE} · Basierend auf dem offiziellen Fragenkatalog der Bundesnetzagentur
-            </p>
+        <div className="section-pad" style={{ position: "relative", zIndex: 2, maxWidth: 860, margin: "0 auto", padding: "76px 32px 20px", width: "100%", textAlign: "center" }}>
+          <div style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "8px 16px", borderRadius: 999, background: "rgba(47,155,234,0.08)", border: "1px solid rgba(47,155,234,0.25)", marginBottom: 26 }}>
+            <span style={{ width: 7, height: 7, borderRadius: "50%", background: "var(--sky)" }} />
+            <span className="label" style={{ color: "var(--sky-deep)" }}>BZF I &amp; BZF II · Online-Kurs für PPL &amp; LAPL</span>
           </div>
+          <h1 className="h1-hero" style={{ fontSize: "clamp(30px,5.2vw,58px)", lineHeight: 1.18, fontWeight: 800, overflowWrap: "break-word", hyphens: "auto" }}>
+            Das Sprechfunkzeugnis für Privatpiloten: <span className="grad">Crash-Kurs in unter 10 Stunden bestehen.</span>
+          </h1>
+          <p style={{ marginTop: 24, fontSize: 18, color: "var(--text-dim)", maxWidth: 640, marginLeft: "auto", marginRight: "auto" }}>
+            Der komplette BZF-Onlinekurs mit Video, Audio-Funkübungen, Lesetexten, PDF-Merkblättern und dem offiziellen Fragenkatalog der Bundesnetzagentur. Auf Laptop, Tablet und Smartphone.
+          </p>
+          <div style={{ display: "inline-flex", alignItems: "center", gap: 10, marginTop: 22, padding: "8px 16px", borderRadius: 999, background: "rgba(52,211,153,0.16)", border: "1px solid rgba(52,211,153,0.4)" }}>
+            <span style={{ fontSize: 13 }}>🎁</span>
+            <span style={{ fontSize: 13, fontWeight: 700, color: "#0b7a55" }}>Konto erstellen · Modul 0 und 1 sofort kostenlos nutzen</span>
+          </div>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 14, marginTop: 22, justifyContent: "center" }}>
+            <Link href={SIGNUP_HREF} className="btn-accent" style={{ padding: "17px 30px", borderRadius: 999, fontSize: 16, display: "inline-block" }}>
+              {FREE_CTA}
+            </Link>
+            <a href="#einblick" className="btn-ghost" style={{ padding: "17px 30px", borderRadius: 999, fontSize: 16, display: "inline-block" }}>
+              So sieht der Kurs aus ↓
+            </a>
+          </div>
+          <p style={{ marginTop: 22, fontSize: 12.5, color: "var(--text-faint)", fontWeight: 600 }}>
+            Kostenlos starten · Vollzugang später einmalig €{PRICE} statt €{ORIGINAL_PRICE} · Basierend auf dem offiziellen Fragenkatalog der Bundesnetzagentur
+          </p>
+        </div>
 
-          <div className="hero-showcase-slot">
-            <PlatformShowcase />
-          </div>
+        <div className="section-pad" style={{ position: "relative", zIndex: 2, maxWidth: 1180, margin: "0 auto", padding: "36px 32px 64px" }}>
+          <PlatformShowcase />
         </div>
       </div>
 
@@ -177,9 +175,7 @@ export default async function Home() {
             "261 offizielle Prüfungsfragen der Bundesnetzagentur, passend zu jedem Kapitel",
             "Aufgebaut für PPL(A)- und LAPL(A)-Piloten ohne Vorkenntnisse",
           ]}
-          laptop={{ src: "/screens/kurs-desktop-zoom.webp", alt: "Kursübersicht mit Modulzahl, Fragenkatalog und Freischalten-Button", width: 1565, height: 978 }}
-          tablet={{ src: "/screens/kurs-tablet.webp", alt: "Kursübersicht auf dem Tablet", width: 1668, height: 2224 }}
-          phone={{ src: "/screens/kurs-mobile.webp", alt: "Kursübersicht auf dem Smartphone", width: 1170, height: 2532 }}
+          image={{ src: "/screens/kurs-desktop.webp", alt: "Kursübersicht des BZF-Online-Kurses mit allen Modulen und Fortschritt", width: 2880, height: 1800 }}
         />
 
         <ShowcaseSection
@@ -196,8 +192,7 @@ export default async function Home() {
             "Kein Verkaufsgespräch, kein Countdown-Trick",
             "Dein Fortschritt bleibt erhalten, wenn du später upgradest",
           ]}
-          laptop={{ src: "/screens/gesperrt-desktop-zoom.webp", alt: "Gesperrtes Kapitel mit Hinweis auf den kostenlosen Einstieg", width: 1565, height: 950 }}
-          phone={{ src: "/screens/gesperrt-mobile.webp", alt: "Gesperrtes Kapitel auf dem Smartphone", width: 1170, height: 2532 }}
+          image={{ src: "/screens/gesperrt-desktop.webp", alt: "Ansicht eines gesperrten Kapitels mit Hinweis auf den kostenlosen Einstieg", width: 2880, height: 1800 }}
         />
 
         <ShowcaseSection
@@ -213,9 +208,7 @@ export default async function Home() {
             "Sofortige Erklärung bei jeder Antwort, richtig oder falsch",
             "PDF-Spickzettel zum Download für jedes Thema",
           ]}
-          laptop={{ src: "/screens/lektion-video-desktop-zoom.webp", alt: "Erklärvideo mit Diagramm zur Platzrunde", width: 1565, height: 880 }}
-          tablet={{ src: "/screens/lektion-video-tablet.webp", alt: "Video-Lektion auf dem Tablet", width: 1668, height: 2224 }}
-          phone={{ src: "/screens/lektion-video-mobile.webp", alt: "Video-Lektion auf dem Smartphone", width: 1170, height: 2532 }}
+          image={{ src: "/screens/lektion-video-desktop.webp", alt: "Video-Lektion mit Text, Audio und PDF-Karte im BZF-Kurs", width: 2880, height: 1800 }}
         />
 
         <ShowcaseSection
@@ -228,9 +221,7 @@ export default async function Home() {
           }
           text="Die Lernplattform passt sich jedem Bildschirm an. Ob am Küchentisch auf dem Laptop, im Flugzeug-Club auf dem Tablet oder unterwegs auf dem Smartphone: dein Fortschritt ist überall sofort da."
           bullets={["Responsive auf Desktop, Tablet und Smartphone", "Automatische Synchronisierung deines Fortschritts", "Keine App-Installation nötig, läuft im Browser"]}
-          laptop={{ src: "/screens/quiz-desktop-zoom.webp", alt: "BZF-Prüfungsfrage mit Erklärung, richtig und falsch markiert", width: 1600, height: 1000 }}
-          tablet={{ src: "/screens/quiz-tablet.webp", alt: "BZF-Prüfungsfrage auf dem Tablet", width: 1668, height: 2224 }}
-          phone={{ src: "/screens/quiz-mobile.webp", alt: "BZF-Prüfungsfrage auf dem Smartphone", width: 1170, height: 2532 }}
+          image={{ src: "/screens/quiz-desktop.webp", alt: "BZF-Prüfungsfragen mit Erklärung, responsiv auf allen Geräten nutzbar", width: 2880, height: 1800 }}
           cta={
             <Link href={SIGNUP_HREF} className="btn-accent" style={{ display: "inline-block", padding: "14px 26px", borderRadius: 999, fontSize: 15 }}>
               {FREE_CTA}
