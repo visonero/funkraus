@@ -1,0 +1,156 @@
+{
+  "id": "11.1-hook-video",
+  "language": "de",
+  "scenes": [
+    {
+      "id": "intro",
+      "voice": "trainer",
+      "text": "Herzlichen Glückwunsch, du hast den gesamten Kurs durchgearbeitet. Jetzt geht es um drei letzte Schritte: [[0]]dich anmelden, [[1]]die Prüfung ablegen [[2]]und bestehen.",
+      "visual": {
+        "kind": "headline",
+        "headline": "Geschafft —",
+        "highlight": "und jetzt?",
+        "tiles": [
+          "Anmelden",
+          "Prüfen",
+          "Bestehen"
+        ]
+      }
+    },
+    {
+      "id": "registration",
+      "voice": "trainer",
+      "text": "Die Anmeldung läuft in drei Punkten. [[0]]Sie erfolgt schriftlich bei der zuständigen Außenstelle der Bundesnetzagentur. [[1]]Du gibst die beantragte Zeugnisart an, BZF II oder BZF I. [[2]]Und das Ganze muss spätestens vierzehn Tage vor dem Prüfungstermin eingehen.",
+      "visual": {
+        "kind": "layers",
+        "headline": "Die Anmeldung,",
+        "highlight": "in drei Punkten",
+        "layers": [
+          {
+            "label": "Schriftlich bei der BNetzA",
+            "sub": "bei der zuständigen Außenstelle"
+          },
+          {
+            "label": "Zeugnisart angeben",
+            "sub": "BZF II oder BZF I"
+          },
+          {
+            "label": "Spätestens 14 Tage vorher",
+            "sub": "vor dem Prüfungstermin"
+          }
+        ]
+      }
+    },
+    {
+      "id": "fees",
+      "voice": "trainer",
+      "text": "Die Gebühren sind bundesweit einheitlich festgelegt. [[0]]Das BZF II kostet achtzig Euro. [[1]]Das BZF I fünfundneunzig Euro. [[2]]Eine Wiederholungsprüfung nur in Theorie kostet sechsundfünfzig Euro. [[3]]Theorie und Praxis zusammen kosten je nach Zeugnis zwischen einundsiebzig und dreiundachtzig Euro.",
+      "visual": {
+        "kind": "grid",
+        "headline": "Was die Prüfung",
+        "highlight": "kostet",
+        "items": [
+          {
+            "top": "BZF II",
+            "bottom": "80 €"
+          },
+          {
+            "top": "BZF I",
+            "bottom": "95 €"
+          },
+          {
+            "top": "Wiederholung Theorie",
+            "bottom": "56 €"
+          },
+          {
+            "top": "Wiederholung Theorie + Praxis",
+            "bottom": "71 bis 83 €"
+          }
+        ],
+        "columns": 2
+      }
+    },
+    {
+      "id": "examDay",
+      "voice": "trainer",
+      "text": "Am Prüfungstag selbst gilt: [[0]]Bring deinen Personalausweis oder Reisepass mit, ohne Ausweis keine Prüfung. [[1]]Die Prüfung besteht aus einem schriftlichen und einem praktischen Teil, genau das, was du in diesem Kurs gelernt hast. [[2]]Und ein Prüfungsausschuss aus einem Vorsitzenden und mindestens einem Beisitzer entscheidet über das Ergebnis.",
+      "visual": {
+        "kind": "layers",
+        "headline": "Am",
+        "highlight": "Prüfungstag",
+        "layers": [
+          {
+            "label": "Ausweis mitbringen",
+            "sub": "Personalausweis oder Reisepass"
+          },
+          {
+            "label": "Schriftlich und praktisch",
+            "sub": "genau das, was du hier gelernt hast"
+          },
+          {
+            "label": "Prüfungsausschuss entscheidet",
+            "sub": "Vorsitzender und mindestens ein Beisitzer"
+          }
+        ]
+      }
+    },
+    {
+      "id": "retake",
+      "voice": "trainer",
+      "text": "Und falls es beim ersten Mal nicht klappt, das ist kein Weltuntergang. [[0]]Du darfst einmal wiederholen, und zwar nur die Teile, die du nicht bestanden hast. [[1]]Melde dich dafür innerhalb von drei Monaten erneut an. [[2]]Die Wiederholung selbst findet frühestens nach sieben Tagen und spätestens nach sechs Monaten statt.",
+      "visual": {
+        "kind": "layers",
+        "headline": "Nicht bestanden?",
+        "highlight": "Das ist kein Weltuntergang",
+        "layers": [
+          {
+            "label": "Einmal wiederholbar",
+            "sub": "nur die nicht bestandenen Teile"
+          },
+          {
+            "label": "Neu anmelden innerhalb von 3 Monaten",
+            "sub": "sonst verfällt der Anspruch"
+          },
+          {
+            "label": "Frühestens 7 Tage, spätestens 6 Monate später",
+            "sub": "Zeitfenster für die Wiederholung"
+          }
+        ]
+      }
+    },
+    {
+      "id": "languageTest",
+      "voice": "trainer",
+      "text": "Ein letzter Punkt für internationale Vielflieger. [[0]]Das BZF I reicht für normalen VFR-Funk auf Englisch völlig aus. [[1]]Nur bei besonders hohem Sprachanspruch kommt zusätzlich eine eigene Sprachprüfung ins Spiel, die ICAO-Sprachprüfung. Informiere dich bei der Bundesnetzagentur, ob dein Vorhaben sie erfordert.",
+      "visual": {
+        "kind": "transform",
+        "headline": "BZF I und",
+        "highlight": "Sprachprüfung",
+        "tiles": [
+          {
+            "top": "BZF I",
+            "bottom": "reicht für normalen VFR-Funk auf Englisch"
+          },
+          {
+            "top": "Sprachprüfung",
+            "bottom": "eigene Prüfung für hohen Sprachanspruch",
+            "tone": "amber"
+          }
+        ]
+      }
+    },
+    {
+      "id": "outro",
+      "voice": "trainer",
+      "text": "Damit kennst du den gesamten Weg: [[0]]die Anmeldung, [[1]]den Prüfungstag [[2]]und was du tust, falls es einmal nicht klappt. Viel Erfolg bei deiner Prüfung — du hast dich gut vorbereitet!",
+      "visual": {
+        "kind": "outro",
+        "pills": [
+          "Anmeldung",
+          "Prüfungstag",
+          "Viel Erfolg!"
+        ]
+      }
+    }
+  ]
+}
