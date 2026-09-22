@@ -1,0 +1,101 @@
+{
+  "id": "9.1-audio-drill",
+  "language": "de",
+  "segments": [
+    {
+      "voice": "trainer",
+      "text": "Willkommen zum Fachvokabular-Trainer. Ich nenne dir einen englischen Begriff, du sagst die deutsche Bedeutung. Danach höre ich dir die richtige Antwort vor."
+    },
+    {
+      "pause": 1.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Runway."
+    },
+    {
+      "pause": 2.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Piste."
+    },
+    {
+      "pause": 1.2
+    },
+    {
+      "voice": "trainer",
+      "text": "Taxiway."
+    },
+    {
+      "pause": 2.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Rollbahn."
+    },
+    {
+      "pause": 1.2
+    },
+    {
+      "voice": "trainer",
+      "text": "Threshold."
+    },
+    {
+      "pause": 2.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Landebahnschwelle."
+    },
+    {
+      "pause": 1.2
+    },
+    {
+      "voice": "trainer",
+      "text": "Unserviceable."
+    },
+    {
+      "pause": 2.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Außer Betrieb."
+    },
+    {
+      "pause": 1.2
+    },
+    {
+      "voice": "trainer",
+      "text": "Withdrawn."
+    },
+    {
+      "pause": 2.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Zurückgezogen."
+    },
+    {
+      "pause": 1.2
+    },
+    {
+      "voice": "trainer",
+      "text": "Prior permission required."
+    },
+    {
+      "pause": 3.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Vorherige Genehmigung erforderlich."
+    },
+    {
+      "pause": 1.2
+    },
+    {
+      "voice": "trainer",
+      "text": "Sehr gut. Wiederhole die Übung, bis dir die Begriffe vertraut sind."
+    }
+  ]
+}

@@ -42,7 +42,9 @@
   "PAN": "Pann",
   "NINER": "Nainer",
   "BZF I": "BZF eins",
-  "BZF II": "BZF zwei"
+  "BZF II": "BZF zwei",
+  "RWY": "Runway",
+  "TWY": "Taxiway"
  },
  "abbreviationStyle": "plain",
  "keepAsWord": [

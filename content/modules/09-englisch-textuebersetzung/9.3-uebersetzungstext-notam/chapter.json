@@ -1,0 +1,12 @@
+{
+  "id": "9.3",
+  "title": "Übersetzungstext-Übung: NOTAM-Auszug",
+  "content_type": "audio",
+  "sort_order": 2,
+  "assets": {
+    "audio": "9.3-audio-drill/9.3-audio-drill.mp3"
+  },
+  "sources": [
+    "FlugfunkV, Anlage 1, Abschnitt 2.2.3 (Lesen und Übersetzen eines englischen Fachtextes)"
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "id": "9.2-audio-drill",
+  "language": "de",
+  "segments": [
+    {
+      "voice": "trainer",
+      "text": "Willkommen zur Übersetzungsübung: ein AIP-Auszug. Zuerst hörst du den englischen Text vollständig vor. Danach liest du ihn selbst laut vor. Zum Schluss hörst du die Referenzübersetzung."
+    },
+    {
+      "pause": 1.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Waldheim Aerodrome. Elevation one tree fower zero feet above mean sea level. Runway zero niner two seven is asphalt, eight hundred metres long and one eight metres wide. Runway lighting is not available, and the aerodrome is closed to traffic between sunset and sunrise. Fuel, grade AVGAS one zero zero low lead, is available on request from the operator, who should be contacted by telephone prior to arrival. Circuit height is one thousand feet above ground level: right-hand circuits apply for runway zero niner, left-hand circuits for runway two seven. Prior permission is required for aircraft above two thousand kilograms maximum take-off mass."
+    },
+    {
+      "pause": 3.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Jetzt bist du dran: Lies den Text selbst laut vor."
+    },
+    {
+      "pause": 30.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Und hier ist die Referenzübersetzung."
+    },
+    {
+      "pause": 1.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Flugplatz Waldheim. Höhe eintausenddreihundertvierzig Fuß über Meeresspiegel. Die Piste null neun, zwei sieben ist asphaltiert, achthundert Meter lang und achtzehn Meter breit. Eine Pistenbefeuerung ist nicht vorhanden, und der Flugplatz ist zwischen Sonnenuntergang und Sonnenaufgang für den Verkehr gesperrt. Kraftstoff der Sorte AVGAS einhundert Low Lead ist auf Anfrage beim Betreiber erhältlich, dieser sollte vor der Ankunft telefonisch kontaktiert werden. Die Platzrundenhöhe beträgt eintausend Fuß über Grund: Für Piste null neun gilt Platzrunde rechts, für Piste zwei sieben Platzrunde links. Für Luftfahrzeuge über zweitausend Kilogramm höchstzulässiger Startmasse ist eine vorherige Genehmigung erforderlich."
+    },
+    {
+      "pause": 1.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Wiederhole die Übung, bis dir das Vorlesen und Übersetzen flüssig gelingt."
+    }
+  ]
+}

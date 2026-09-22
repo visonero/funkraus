@@ -1,0 +1,153 @@
+{
+  "id": "9.1-hook-video",
+  "language": "de",
+  "scenes": [
+    {
+      "id": "intro",
+      "voice": "trainer",
+      "text": "Die praktische BZF I Prüfung verlangt: einen englischen Fachtext lesen und übersetzen. Dafür brauchst du das Vokabular, das in AIP und NOTAM ständig wiederkehrt, zum Beispiel [[0]]RWY, [[1]]TWY, [[2]]CLSD [[3]]und AVBL.",
+      "visual": {
+        "kind": "headline",
+        "headline": "Das Vokabular hinter",
+        "highlight": "AIP und NOTAM",
+        "tiles": [
+          "RWY",
+          "TWY",
+          "CLSD",
+          "AVBL"
+        ]
+      }
+    },
+    {
+      "id": "core",
+      "voice": "trainer",
+      "text": "Zuerst die Grundbegriffe rund um den Flugplatz. [[0]]Aerodrome heißt Flugplatz. [[1]]Runway heißt Piste. [[2]]Taxiway heißt Rollbahn. [[3]]Apron heißt Vorfeld. [[4]]Threshold heißt Landebahnschwelle. [[5]]Elevation heißt Höhe über NN. [[6]]Circuit heißt Platzrunde. [[7]]Und Obstacle heißt Hindernis.",
+      "visual": {
+        "kind": "grid",
+        "headline": "Die wichtigsten",
+        "highlight": "Begriffe",
+        "items": [
+          {
+            "top": "AERODROME",
+            "bottom": "Flugplatz"
+          },
+          {
+            "top": "RUNWAY",
+            "bottom": "Piste"
+          },
+          {
+            "top": "TAXIWAY",
+            "bottom": "Rollbahn"
+          },
+          {
+            "top": "APRON",
+            "bottom": "Vorfeld"
+          },
+          {
+            "top": "THRESHOLD",
+            "bottom": "Landebahnschwelle"
+          },
+          {
+            "top": "ELEVATION",
+            "bottom": "Höhe über NN"
+          },
+          {
+            "top": "CIRCUIT",
+            "bottom": "Platzrunde"
+          },
+          {
+            "top": "OBSTACLE",
+            "bottom": "Hindernis"
+          }
+        ],
+        "columns": 4
+      }
+    },
+    {
+      "id": "status",
+      "voice": "trainer",
+      "text": "Dazu kommen Status-Wörter, die den Zustand von etwas beschreiben. [[0]]Promulgated heißt veröffentlicht. [[1]]Withdrawn heißt zurückgezogen. [[2]]Unserviceable heißt außer Betrieb. [[3]]Closed heißt gesperrt. [[4]]Available heißt verfügbar. [[5]]Effective heißt gültig ab. [[6]]Permanent heißt dauerhaft. [[7]]Und Temporary heißt vorübergehend.",
+      "visual": {
+        "kind": "grid",
+        "headline": "Status-Wörter in",
+        "highlight": "AIP und NOTAM",
+        "items": [
+          {
+            "top": "PROMULGATED",
+            "bottom": "veröffentlicht"
+          },
+          {
+            "top": "WITHDRAWN",
+            "bottom": "zurückgezogen"
+          },
+          {
+            "top": "UNSERVICEABLE",
+            "bottom": "außer Betrieb"
+          },
+          {
+            "top": "CLOSED",
+            "bottom": "gesperrt"
+          },
+          {
+            "top": "AVAILABLE",
+            "bottom": "verfügbar"
+          },
+          {
+            "top": "EFFECTIVE",
+            "bottom": "gültig ab"
+          },
+          {
+            "top": "PERMANENT",
+            "bottom": "dauerhaft"
+          },
+          {
+            "top": "TEMPORARY",
+            "bottom": "vorübergehend"
+          }
+        ],
+        "columns": 4
+      }
+    },
+    {
+      "id": "abbrev",
+      "voice": "trainer",
+      "text": "Viele dieser Wörter siehst du in echten NOTAMs nur abgekürzt geschrieben. Gesprochen sagst du trotzdem immer das volle Wort: [[0]]Runway statt der drei Buchstaben, [[1]]Taxiway statt der drei Buchstaben, [[2]]CLSD sprichst du als Closed [[3]]und AVBL als Available.",
+      "visual": {
+        "kind": "transform",
+        "headline": "Dieselben Wörter,",
+        "highlight": "als NOTAM-Kürzel",
+        "tiles": [
+          {
+            "top": "RWY",
+            "bottom": "RUNWAY"
+          },
+          {
+            "top": "TWY",
+            "bottom": "TAXIWAY"
+          },
+          {
+            "top": "CLSD",
+            "bottom": "CLOSED"
+          },
+          {
+            "top": "AVBL",
+            "bottom": "AVAILABLE"
+          }
+        ]
+      }
+    },
+    {
+      "id": "outro",
+      "voice": "trainer",
+      "text": "Damit hast du das Grundvokabular für englische Fachtexte: [[0]]die Grundbegriffe, [[1]]die Status-Wörter [[2]]und die NOTAM-Kürzel. In den nächsten beiden Lektionen wendest du das direkt an. Hör dir jetzt die Übung an.",
+      "visual": {
+        "kind": "outro",
+        "pills": [
+          "Grundvokabular",
+          "Status-Wörter",
+          "NOTAM-Kürzel"
+        ]
+      }
+    }
+  ]
+}

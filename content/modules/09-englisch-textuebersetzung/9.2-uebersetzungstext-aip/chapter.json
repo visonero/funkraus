@@ -1,0 +1,12 @@
+{
+  "id": "9.2",
+  "title": "Übersetzungstext-Übung: AIP-Auszug",
+  "content_type": "audio",
+  "sort_order": 1,
+  "assets": {
+    "audio": "9.2-audio-drill/9.2-audio-drill.mp3"
+  },
+  "sources": [
+    "FlugfunkV, Anlage 1, Abschnitt 2.2.3 (Lesen und Übersetzen eines englischen Fachtextes)"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "9.1",
+  "title": "Fachvokabular-Trainer",
+  "content_type": "audio",
+  "sort_order": 0,
+  "assets": {
+    "video": "9.1-hook-video/hook-video.mp4",
+    "audio": "9.1-audio-drill/9.1-audio-drill.mp3"
+  },
+  "sources": [
+    "FlugfunkV, Anlage 1, Abschnitt 2.2.3 (Lesen und Übersetzen eines englischen Fachtextes)"
+  ]
+}

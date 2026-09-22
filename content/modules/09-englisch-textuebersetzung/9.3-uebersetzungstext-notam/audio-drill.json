@@ -1,0 +1,45 @@
+{
+  "id": "9.3-audio-drill",
+  "language": "de",
+  "segments": [
+    {
+      "voice": "trainer",
+      "text": "Willkommen zur zweiten Übersetzungsübung: ein NOTAM-Auszug. Zuerst hörst du den englischen Text vollständig vor, mit ausgesprochenen Abkürzungen. Danach liest du ihn selbst laut vor. Zum Schluss hörst du die Referenzübersetzung."
+    },
+    {
+      "pause": 1.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Notice to airmen. Aerodrome Echo Delta X-ray X-ray. Valid from the first to the thirty-first of January. Runway zero niner two seven closed due to resurfacing work. Aircraft unable to land or depart during the period stated. Work will be carried out daily between zero six zero zero and one eight zero zero UTC. Alternate aerodrome Echo Delta Yankee Yankee available for diversion, prior permission required via telephone. Taxiway Alfa remains available for ground movements only, maximum taxi speed one zero knots. Fuel services suspended for the duration of the work. For further information contact aerodrome operator."
+    },
+    {
+      "pause": 3.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Jetzt bist du dran: Lies den Text selbst laut vor."
+    },
+    {
+      "pause": 30.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Und hier ist die Referenzübersetzung."
+    },
+    {
+      "pause": 1.0
+    },
+    {
+      "voice": "trainer",
+      "text": "NOTAM. Flugplatz Echo Delta X-Ray X-Ray. Gültig vom ersten bis zum einunddreißigsten Januar. Piste null neun, zwei sieben ist wegen Fahrbahnsanierungsarbeiten gesperrt. Luftfahrzeuge können während des genannten Zeitraums weder landen noch starten. Die Arbeiten finden täglich zwischen sechs und achtzehn Uhr UTC statt. Der Ausweichflugplatz Echo Delta Yankee Yankee steht zur Umleitung zur Verfügung, eine vorherige telefonische Genehmigung ist erforderlich. Die Rollbahn Alfa bleibt ausschließlich für Bodenbewegungen verfügbar, mit einer Höchstrollgeschwindigkeit von zehn Knoten. Der Kraftstoffservice ist für die Dauer der Arbeiten ausgesetzt. Weitere Informationen erhältst du beim Flugplatzbetreiber."
+    },
+    {
+      "pause": 1.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Sehr gut. Damit hast du beide Textarten geübt: den ausführlichen AIP-Stil und den knappen NOTAM-Stil. Wiederhole beide Übungen, bis dir das Vorlesen und Übersetzen flüssig gelingt."
+    }
+  ]
+}
