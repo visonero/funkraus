@@ -1,0 +1,165 @@
+{
+  "id": "7.2-hook-video",
+  "language": "de",
+  "scenes": [
+    {
+      "id": "intro",
+      "voice": "trainer",
+      "text": "Die Bedeutungen kennst du schon aus Modul 2. Jetzt lernst du dieselben Konzepte mit ihren englischen Wörtern, zum Beispiel [[0]]Roger, [[1]]Wilco [[2]]und Standby.",
+      "visual": {
+        "kind": "headline",
+        "headline": "Diese Wörter kennst du schon —",
+        "highlight": "jetzt auf Englisch",
+        "tiles": [
+          "ROGER",
+          "WILCO",
+          "STANDBY"
+        ]
+      }
+    },
+    {
+      "id": "known",
+      "voice": "trainer",
+      "text": "Hier sind die wichtigsten Wörter, die du inhaltlich schon kennst. [[0]]Affirm bedeutet Positiv. [[1]]Negative bedeutet Negativ. [[2]]Roger bedeutet Verstanden. [[3]]Wilco bleibt Wilco. [[4]]Standby bleibt Standby. [[5]]Over bedeutet Kommen. [[6]]Out bedeutet Ende. [[7]]Und Read Back bedeutet: wiederholen Sie wörtlich.",
+      "visual": {
+        "kind": "grid",
+        "headline": "Bekannte Bedeutung,",
+        "highlight": "englisches Wort",
+        "items": [
+          {
+            "top": "AFFIRM",
+            "bottom": "POSITIV"
+          },
+          {
+            "top": "NEGATIVE",
+            "bottom": "NEGATIV"
+          },
+          {
+            "top": "ROGER",
+            "bottom": "VERSTANDEN"
+          },
+          {
+            "top": "WILCO",
+            "bottom": "WILCO"
+          },
+          {
+            "top": "STANDBY",
+            "bottom": "STANDBY"
+          },
+          {
+            "top": "OVER",
+            "bottom": "KOMMEN"
+          },
+          {
+            "top": "OUT",
+            "bottom": "ENDE"
+          },
+          {
+            "top": "READ BACK",
+            "bottom": "WÖRTLICH WIEDERHOLEN"
+          }
+        ],
+        "columns": 4
+      }
+    },
+    {
+      "id": "trap",
+      "voice": "trainer",
+      "text": "Eine Falle für die Prüfung: Im Deutschen heißt beides Bestätigen Sie, im Englischen sind es zwei verschiedene Wörter. [[0]]Acknowledge heißt: bestätigen Sie den Empfang der Meldung. [[1]]Confirm heißt: ich bitte Sie um Bestätigung einer Freigabe oder Information.",
+      "visual": {
+        "kind": "transform",
+        "headline": "Eine Falle:",
+        "highlight": "zwei Wörter, eine Übersetzung",
+        "tiles": [
+          {
+            "top": "ACKNOWLEDGE",
+            "bottom": "Empfang bestätigen",
+            "tone": "amber"
+          },
+          {
+            "top": "CONFIRM",
+            "bottom": "um Bestätigung bitten",
+            "tone": "amber"
+          }
+        ]
+      }
+    },
+    {
+      "id": "newWords",
+      "voice": "trainer",
+      "text": "Diese Wörter kommen im deutschen Funk seltener vor, für BZF I sind sie aber Pflicht. [[0]]Cleared bedeutet Frei. [[1]]Cancel bedeutet Aufgehoben. [[2]]Correction bedeutet Berichtigung. [[3]]Maintain bedeutet: behalten Sie etwas bei. [[4]]Break zeigt eine Trennung in der Meldung an. [[5]]Und Disregard heißt: ignorieren Sie das eben Gesagte.",
+      "visual": {
+        "kind": "grid",
+        "headline": "Neu für den",
+        "highlight": "internationalen Funk",
+        "items": [
+          {
+            "top": "CLEARED",
+            "bottom": "Frei"
+          },
+          {
+            "top": "CANCEL",
+            "bottom": "Aufgehoben"
+          },
+          {
+            "top": "CORRECTION",
+            "bottom": "Berichtigung"
+          },
+          {
+            "top": "MAINTAIN",
+            "bottom": "Behalten Sie bei"
+          },
+          {
+            "top": "BREAK",
+            "bottom": "Trennung"
+          },
+          {
+            "top": "DISREGARD",
+            "bottom": "Ignorieren Sie"
+          }
+        ],
+        "columns": 3
+      }
+    },
+    {
+      "id": "example",
+      "voice": "trainer",
+      "text": "So klingt ein kompletter englischer Funkspruch. [[0]]Der Turm gibt die Startfreigabe: Wind ruhig, Bahn zwei sieben, cleared for take-off. [[1]]Der Pilot liest zurück: cleared for take-off, Bahn zwei sieben, Delta Echo Hotel Oscar Lima. [[2]]Der Turm bestätigt: read back correct, das Read-back war korrekt.",
+      "visual": {
+        "kind": "dialog",
+        "headline": "Ein Funkspruch,",
+        "highlight": "komplett auf Englisch",
+        "lines": [
+          {
+            "who": "tower",
+            "text": "DEHOL, WIND CALM, RUNWAY TWO SEVEN, CLEARED FOR TAKE-OFF"
+          },
+          {
+            "who": "pilot",
+            "text": "CLEARED FOR TAKE-OFF, RUNWAY TWO SEVEN, DEHOL",
+            "note": "Read-back"
+          },
+          {
+            "who": "tower",
+            "text": "READ BACK CORRECT",
+            "note": "korrekt wiederholt",
+            "tone": "green"
+          }
+        ]
+      }
+    },
+    {
+      "id": "outro",
+      "voice": "trainer",
+      "text": "Damit kennst du die englischen Standardphrasen: [[0]]die bekannten Wörter aus Modul 2, [[1]]die Falle zwischen Acknowledge und Confirm [[2]]und die neuen Phrasen für den internationalen Funk. Lade dir die Karte herunter und hör dir die Übung an.",
+      "visual": {
+        "kind": "outro",
+        "pills": [
+          "Bekannte Wörter",
+          "ACKNOWLEDGE vs. CONFIRM",
+          "Neue Phrasen"
+        ]
+      }
+    }
+  ]
+}

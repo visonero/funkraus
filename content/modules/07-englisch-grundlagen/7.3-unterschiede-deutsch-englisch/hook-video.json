@@ -1,0 +1,132 @@
+{
+  "id": "7.3-hook-video",
+  "language": "de",
+  "scenes": [
+    {
+      "id": "intro",
+      "voice": "trainer",
+      "text": "Du kennst schon den Unterschied zwischen den Zeugnissen. [[0]]Das BZF II reicht für den deutschen Luftraum. [[1]]Das BZF I gibt dir eine Fähigkeit mehr: den Funk auch auf Englisch.",
+      "visual": {
+        "kind": "headline",
+        "headline": "Zwei Zeugnisse,",
+        "highlight": "eine Fähigkeit mehr",
+        "tiles": [
+          "BZF II",
+          "BZF I"
+        ]
+      }
+    },
+    {
+      "id": "authorization",
+      "voice": "trainer",
+      "text": "Zur Erinnerung, aus Modul 1: [[0]]Das BZF II berechtigt zum Sprechfunk bei VFR-Flügen innerhalb Deutschlands, nur auf Deutsch. [[1]]Das BZF I berechtigt zusätzlich zum Sprechfunk auf Englisch, auch außerhalb Deutschlands.",
+      "visual": {
+        "kind": "transform",
+        "headline": "Was darf",
+        "highlight": "welches Zeugnis?",
+        "tiles": [
+          {
+            "top": "BZF II",
+            "bottom": "VFR-Flüge in Deutschland, nur Deutsch",
+            "tone": "white"
+          },
+          {
+            "top": "BZF I",
+            "bottom": "zusätzlich VFR-Flüge auf Englisch",
+            "tone": "blue"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sameThing",
+      "voice": "trainer",
+      "text": "Die gute Nachricht: Vieles bleibt exakt gleich. [[0]]Rufzeichen werden genauso gebildet wie im Deutschen. [[1]]Das Buchstabieralphabet ist identisch. [[2]]Und der Aufbau eines Funkspruchs, Anruf, Antwort, Meldung, Ende, bleibt derselbe.",
+      "visual": {
+        "kind": "layers",
+        "headline": "Das bleibt",
+        "highlight": "genau gleich",
+        "layers": [
+          {
+            "label": "Rufzeichen",
+            "sub": "gleiche Bildung wie im Deutschen"
+          },
+          {
+            "label": "Buchstabieralphabet",
+            "sub": "Alfa, Bravo, Charlie …"
+          },
+          {
+            "label": "Aufbau eines Funkspruchs",
+            "sub": "Anruf, Antwort, Meldung, Ende"
+          }
+        ]
+      }
+    },
+    {
+      "id": "falseFriends",
+      "voice": "trainer",
+      "text": "Beim Lesen englischer Fachtexte lauern falsche Freunde, Wörter, die deutsch aussehen, aber etwas anderes bedeuten. [[0]]Actual heißt tatsächlich, nicht aktuell. [[1]]Eventually heißt schließlich, nicht eventuell. [[2]]Become heißt werden, nicht bekommen. [[3]]Und sensible heißt vernünftig, nicht sensibel.",
+      "visual": {
+        "kind": "grid",
+        "headline": "Falsche Freunde:",
+        "highlight": "sieht deutsch aus, ist es nicht",
+        "items": [
+          {
+            "top": "ACTUAL",
+            "bottom": "tatsächlich, nicht aktuell",
+            "tone": "amber"
+          },
+          {
+            "top": "EVENTUALLY",
+            "bottom": "schließlich, nicht eventuell",
+            "tone": "amber"
+          },
+          {
+            "top": "BECOME",
+            "bottom": "werden, nicht bekommen",
+            "tone": "amber"
+          },
+          {
+            "top": "SENSIBLE",
+            "bottom": "vernünftig, nicht sensibel",
+            "tone": "amber"
+          }
+        ],
+        "columns": 2
+      }
+    },
+    {
+      "id": "ahead",
+      "voice": "trainer",
+      "text": "Das ist wichtig, denn die praktische BZF I Prüfung verlangt genau das. [[0]]Du liest einen kurzen englischen Text aus den Luftfahrthandbüchern laut vor. [[1]]Und übersetzt ihn anschließend mündlich ins Deutsche. Genau das übst du in Modul neun.",
+      "visual": {
+        "kind": "layers",
+        "headline": "Als Nächstes:",
+        "highlight": "Lesen und Übersetzen",
+        "layers": [
+          {
+            "label": "Englischen Text vorlesen",
+            "sub": "rund 800 Zeichen aus Luftfahrthandbüchern"
+          },
+          {
+            "label": "Mündlich ins Deutsche übersetzen",
+            "sub": "Teil der praktischen BZF I Prüfung"
+          }
+        ]
+      }
+    },
+    {
+      "id": "outro",
+      "voice": "trainer",
+      "text": "Damit kennst du die wichtigsten Unterschiede: [[0]]was BZF I zusätzlich erlaubt, [[1]]die typischen falschen Freunde [[2]]und was als Nächstes kommt, Lesen und Übersetzen. Hör dir jetzt die Übung an.",
+      "visual": {
+        "kind": "outro",
+        "pills": [
+          "BZF I vs. BZF II",
+          "Falsche Freunde",
+          "Lesen & Übersetzen"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "id": "7.2-audio-drill",
+  "language": "de",
+  "segments": [
+    {
+      "voice": "trainer",
+      "text": "Willkommen zur Übung mit den englischen Standardphrasen. Ich nenne dir eine deutsche Redewendung, du sagst sie auf Englisch. Danach höre ich dir die richtige Antwort vor."
+    },
+    {
+      "pause": 1.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Verstanden."
+    },
+    {
+      "pause": 2.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Roger."
+    },
+    {
+      "pause": 1.2
+    },
+    {
+      "voice": "trainer",
+      "text": "Wiederholen Sie wörtlich."
+    },
+    {
+      "pause": 3.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Read back."
+    },
+    {
+      "pause": 1.2
+    },
+    {
+      "voice": "trainer",
+      "text": "Ich bitte um Bestätigung Ihrer Freigabe."
+    },
+    {
+      "pause": 3.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Confirm."
+    },
+    {
+      "pause": 1.2
+    },
+    {
+      "voice": "trainer",
+      "text": "Bestätigen Sie den Empfang dieser Meldung."
+    },
+    {
+      "pause": 3.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Acknowledge."
+    },
+    {
+      "pause": 1.2
+    },
+    {
+      "voice": "trainer",
+      "text": "Die vorherige Freigabe ist aufgehoben."
+    },
+    {
+      "pause": 3.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Cancel."
+    },
+    {
+      "pause": 1.2
+    },
+    {
+      "voice": "trainer",
+      "text": "Sehr gut. Wiederhole die Übung, bis dir die englischen Wörter genauso selbstverständlich sind wie die deutschen."
+    }
+  ]
+}

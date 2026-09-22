@@ -1,0 +1,73 @@
+{
+  "id": "7.3-audio-drill",
+  "language": "de",
+  "segments": [
+    {
+      "voice": "trainer",
+      "text": "Willkommen zur Übung über falsche Freunde. Ich nenne ein englisches Wort, du sagst die richtige deutsche Bedeutung. Danach höre ich dir die Antwort vor."
+    },
+    {
+      "pause": 1.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Actual."
+    },
+    {
+      "pause": 3.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Tatsächlich, nicht aktuell."
+    },
+    {
+      "pause": 1.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Eventually."
+    },
+    {
+      "pause": 3.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Schließlich, nicht eventuell."
+    },
+    {
+      "pause": 1.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Become."
+    },
+    {
+      "pause": 3.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Werden, nicht bekommen."
+    },
+    {
+      "pause": 1.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Und zur Erinnerung: Welches Zeugnis brauchst du für Sprechfunk auf Deutsch und Englisch bei einem VFR-Flug?"
+    },
+    {
+      "pause": 4.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Das BZF I."
+    },
+    {
+      "pause": 1.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Sehr gut. Weiter geht's mit dem Lesen und Übersetzen in Modul neun."
+    }
+  ]
+}

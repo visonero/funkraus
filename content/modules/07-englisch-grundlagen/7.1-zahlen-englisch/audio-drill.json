@@ -1,0 +1,101 @@
+{
+  "id": "7.1-audio-drill",
+  "language": "de",
+  "segments": [
+    {
+      "voice": "trainer",
+      "text": "Willkommen zur Zahlenübung auf Englisch. Ich nenne eine Zahl auf Deutsch, du sprichst sie auf Englisch. Danach höre ich dir die richtige Antwort vor."
+    },
+    {
+      "pause": 1.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Drei."
+    },
+    {
+      "pause": 2.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Tree."
+    },
+    {
+      "pause": 1.2
+    },
+    {
+      "voice": "trainer",
+      "text": "Vier."
+    },
+    {
+      "pause": 2.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Fower."
+    },
+    {
+      "pause": 1.2
+    },
+    {
+      "voice": "trainer",
+      "text": "Fünf."
+    },
+    {
+      "pause": 2.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Fife."
+    },
+    {
+      "pause": 1.2
+    },
+    {
+      "voice": "trainer",
+      "text": "Neun."
+    },
+    {
+      "pause": 2.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Niner."
+    },
+    {
+      "pause": 1.2
+    },
+    {
+      "voice": "trainer",
+      "text": "Jetzt eine ganze Frequenz: einhundertachtzehn Komma null zwei fünf."
+    },
+    {
+      "pause": 5.0
+    },
+    {
+      "voice": "trainer",
+      "text": "One one eight decimal zero two fife."
+    },
+    {
+      "pause": 1.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Und eine Höhe: dreitausendfünfhundert Fuß."
+    },
+    {
+      "pause": 5.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Tree thousand fife hundred feet."
+    },
+    {
+      "pause": 1.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Sehr gut. Wiederhole die Übung, bis dir die Zahlen flüssig über die Lippen gehen."
+    }
+  ]
+}

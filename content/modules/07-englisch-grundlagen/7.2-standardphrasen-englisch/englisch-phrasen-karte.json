@@ -1,0 +1,139 @@
+{
+  "label": "Lektion 7.2 · Englisch-Phrasen-Karte",
+  "title": "Standardphrasen im",
+  "highlight": "englischen Funk",
+  "sections": [
+    {
+      "title": "Wörter, die du schon kennst",
+      "rows": [
+        [
+          "AFFIRM",
+          "Positiv, ja"
+        ],
+        [
+          "NEGATIVE",
+          "Negativ, nein, oder nicht richtig"
+        ],
+        [
+          "ROGER",
+          "Verstanden"
+        ],
+        [
+          "WILCO",
+          "Verstanden, werde entsprechend handeln"
+        ],
+        [
+          "STANDBY",
+          "Warten Sie, ich rufe Sie"
+        ],
+        [
+          "MONITOR",
+          "Hören Sie (Frequenz) ab"
+        ],
+        [
+          "CONTACT",
+          "Stellen Sie Funkverbindung her mit …"
+        ],
+        [
+          "REPORT",
+          "Geben Sie mir folgende Information"
+        ],
+        [
+          "REQUEST",
+          "Ich möchte wissen, ich beantrage"
+        ],
+        [
+          "OVER",
+          "Übermittlung beendet, erwarte Antwort"
+        ],
+        [
+          "OUT",
+          "Übermittlung beendet, keine Antwort erwartet"
+        ],
+        [
+          "SPEAK SLOWER",
+          "Sprechgeschwindigkeit vermindern"
+        ],
+        [
+          "SAY AGAIN",
+          "Wiederholen Sie alles oder einen Teil"
+        ],
+        [
+          "I SAY AGAIN",
+          "Ich wiederhole zur Klarstellung"
+        ],
+        [
+          "READ BACK",
+          "Wiederholen Sie wörtlich"
+        ]
+      ]
+    },
+    {
+      "title": "Eine Falle: ACKNOWLEDGE vs. CONFIRM",
+      "rows": [
+        [
+          "ACKNOWLEDGE",
+          "Bestätigen Sie den Empfang der Meldung"
+        ],
+        [
+          "CONFIRM",
+          "Ich erbitte Bestätigung einer Freigabe/Information"
+        ]
+      ]
+    },
+    {
+      "title": "Neu für den internationalen Funk",
+      "rows": [
+        [
+          "APPROVED",
+          "Erlaubnis für das vorgeschlagene Verfahren erteilt"
+        ],
+        [
+          "BREAK / BREAK BREAK",
+          "Trennung zwischen Meldungsteilen bzw. Meldungen"
+        ],
+        [
+          "CANCEL",
+          "Vorherige Freigabe ist aufgehoben"
+        ],
+        [
+          "CHECK",
+          "Prüfen Sie ein System oder Verfahren"
+        ],
+        [
+          "CLEARED",
+          "Genehmigung, unter festgelegten Bedingungen zu verfahren"
+        ],
+        [
+          "CORRECT / CORRECTION",
+          "Richtig / es muss richtig heißen …"
+        ],
+        [
+          "DISREGARD",
+          "Ignorieren Sie"
+        ],
+        [
+          "HOW DO YOU READ",
+          "Wie ist die Verständlichkeit meiner Sendung"
+        ],
+        [
+          "MAINTAIN",
+          "Behalten Sie … bei"
+        ],
+        [
+          "RECLEARED",
+          "Neue Freigabe ersetzt die vorherige"
+        ],
+        [
+          "UNABLE",
+          "Kann Anfrage/Anweisung/Freigabe nicht folgen"
+        ],
+        [
+          "WORDS TWICE",
+          "Jedes Wort wird doppelt gesendet"
+        ]
+      ]
+    }
+  ],
+  "footer": "Quelle: NfL 2024-1-3266 (DFS), Nr. 12 (SERA.14045) · funkraus.de"
+}

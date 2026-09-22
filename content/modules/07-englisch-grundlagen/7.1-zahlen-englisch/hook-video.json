@@ -1,0 +1,171 @@
+{
+  "id": "7.1-hook-video",
+  "language": "de",
+  "scenes": [
+    {
+      "id": "intro",
+      "voice": "trainer",
+      "text": "Das Buchstabieralphabet bleibt exakt dasselbe wie im Deutschen. Neu sind die Zahlen: Im englischen Funk sprichst du sie teilweise bewusst anders aus, damit sie sich nicht verwechseln lassen, zum Beispiel [[0]]TREE, [[1]]FOWER [[2]]und NINER.",
+      "visual": {
+        "kind": "headline",
+        "headline": "Gleiches Alphabet,",
+        "highlight": "neue Zahlen",
+        "tiles": [
+          "TREE",
+          "FOWER",
+          "NINER"
+        ]
+      }
+    },
+    {
+      "id": "digits",
+      "voice": "trainer",
+      "text": "Hier sind alle zehn Ziffern auf Englisch. [[0]]Zero. [[1]]One. [[2]]Two. [[3]]Tree. [[4]]Fower. [[5]]Fife. [[6]]Six. [[7]]Seven. [[8]]Eight. [[9]]Niner.",
+      "visual": {
+        "kind": "grid",
+        "headline": "Die Ziffern null bis neun,",
+        "highlight": "englisch ausgesprochen",
+        "items": [
+          {
+            "top": "0",
+            "bottom": "ZERO"
+          },
+          {
+            "top": "1",
+            "bottom": "ONE"
+          },
+          {
+            "top": "2",
+            "bottom": "TWO"
+          },
+          {
+            "top": "3",
+            "bottom": "TREE"
+          },
+          {
+            "top": "4",
+            "bottom": "FOWER"
+          },
+          {
+            "top": "5",
+            "bottom": "FIFE"
+          },
+          {
+            "top": "6",
+            "bottom": "SIX"
+          },
+          {
+            "top": "7",
+            "bottom": "SEVEN"
+          },
+          {
+            "top": "8",
+            "bottom": "EIGHT"
+          },
+          {
+            "top": "9",
+            "bottom": "NINER"
+          }
+        ],
+        "columns": 5
+      }
+    },
+    {
+      "id": "quirky",
+      "voice": "trainer",
+      "text": "Vier davon weichen von der normalen englischen Aussprache ab, das ist Vorschrift und kein Fehler. [[0]]Die Drei wird zu Tree, nicht three. [[1]]Die Vier wird zu Fower, nicht four. [[2]]Die Fünf wird zu Fife, nicht five. [[3]]Und die Neun wird zu Niner, nicht nine.",
+      "visual": {
+        "kind": "transform",
+        "headline": "Vier Ziffern klingen",
+        "highlight": "bewusst anders",
+        "tiles": [
+          {
+            "top": "3",
+            "bottom": "TREE, nicht three",
+            "tone": "amber"
+          },
+          {
+            "top": "4",
+            "bottom": "FOWER, nicht four",
+            "tone": "amber"
+          },
+          {
+            "top": "5",
+            "bottom": "FIFE, nicht five",
+            "tone": "amber"
+          },
+          {
+            "top": "9",
+            "bottom": "NINER, nicht nine",
+            "tone": "amber"
+          }
+        ]
+      }
+    },
+    {
+      "id": "bigNumbers",
+      "voice": "trainer",
+      "text": "Auch größere Zahlen haben feste Wörter. [[0]]Zehn, elf und zwölf bleiben nah am normalen Englisch: Ten, Eleven, Twelve. [[1]]Hundert wird zu Hundred, tausend zu Thousand. [[2]]Und den Dezimalpunkt sprichst du als Decimal, genau wie im Deutschen Komma.",
+      "visual": {
+        "kind": "layers",
+        "headline": "Zehn, hundert,",
+        "highlight": "tausend und das Komma",
+        "layers": [
+          {
+            "label": "10 · ELEVEN · TWELVE",
+            "sub": "10, 11, 12 bleiben nah am normalen Englisch"
+          },
+          {
+            "label": "HUNDRED · THOUSAND",
+            "sub": "für 100 und 1000"
+          },
+          {
+            "label": "DECIMAL",
+            "sub": "der Dezimalpunkt, wie das deutsche KOMMA"
+          }
+        ]
+      }
+    },
+    {
+      "id": "examples",
+      "voice": "trainer",
+      "text": "So klingt das im echten Funkspruch. [[0]]Die Frequenz 118,025 wird zu One One Eight Decimal Zero Two Fife. [[1]]Eine Höhe von 3500 Fuß wird zu Tree Thousand Fife Hundred Feet. [[2]]Und der Notlage-Code A7700 wird Ziffer für Ziffer zu Seven Seven Zero Zero.",
+      "visual": {
+        "kind": "dialog",
+        "headline": "Zahlen im",
+        "highlight": "echten Funkspruch",
+        "lines": [
+          {
+            "who": "pilot",
+            "text": "ONE ONE EIGHT DECIMAL ZERO TWO FIFE",
+            "note": "Frequenz 118,025"
+          },
+          {
+            "who": "pilot",
+            "text": "TREE THOUSAND FIFE HUNDRED FEET",
+            "note": "Höhe 3500 Fuß"
+          },
+          {
+            "who": "pilot",
+            "text": "SEVEN SEVEN ZERO ZERO",
+            "note": "Transpondercode A7700",
+            "tone": "red"
+          }
+        ]
+      }
+    },
+    {
+      "id": "outro",
+      "voice": "trainer",
+      "text": "Damit kennst du die englischen Zahlen für den Funk: [[0]]die Ziffern von Zero bis Niner, [[1]]das Wort Decimal [[2]]und die Regel, alles Ziffer für Ziffer zu sprechen. Hör dir jetzt die Übung an und sprich laut mit.",
+      "visual": {
+        "kind": "outro",
+        "pills": [
+          "ZERO bis NINER",
+          "DECIMAL",
+          "Ziffer für Ziffer"
+        ]
+      }
+    }
+  ]
+}
