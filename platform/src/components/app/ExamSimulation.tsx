@@ -3,8 +3,11 @@
 import { useEffect, useMemo, useState, useTransition } from "react";
 import AppIcon from "./AppIcon";
 import { startExam, submitExam } from "@/lib/course/exam-actions";
-import { EXAM_PASS_THRESHOLD, EXAM_QUESTION_COUNT } from "@/lib/course/exam";
+import { EXAM_DURATION_SECONDS, EXAM_PASS_THRESHOLD, EXAM_QUESTION_COUNT } from "@/lib/course/exam";
 import type { ExamResultDetail, ExamState, Track } from "@/lib/course/types";
+
+// A pass with more than this much time still on the clock earns the extra "you finished fast" line.
+const FAST_FINISH_REMAINING_SECONDS = 30 * 60;
 
 function formatClock(totalSeconds: number) {
   const s = Math.max(0, Math.round(totalSeconds));
@@ -15,6 +18,7 @@ function formatClock(totalSeconds: number) {
 export default function ExamSimulation({ lessonId, track, initialState }: { lessonId: string; track: Track; initialState: ExamState }) {
   const [state, setState] = useState<ExamState>(initialState);
   const [result, setResult] = useState<ExamResultDetail | null>(null);
+  const [remainingAtSubmit, setRemainingAtSubmit] = useState(0);
   const [answers, setAnswers] = useState<Record<string, number>>({});
   const [pending, startTransition] = useTransition();
   const [error, setError] = useState<string | null>(null);
@@ -36,11 +40,12 @@ export default function ExamSimulation({ lessonId, track, initialState }: { less
     });
   }
 
-  function submit(attemptId: string, finalAnswers: Record<string, number>, questionIds: string[]) {
+  function submit(attemptId: string, finalAnswers: Record<string, number>, questionIds: string[], remainingAtCall: number) {
     startTransition(async () => {
       const payload = Object.entries(finalAnswers).map(([questionId, selectedIndex]) => ({ questionId, selectedIndex }));
       const res = await submitExam(attemptId, payload, questionIds);
       if (res.ok) {
+        setRemainingAtSubmit(remainingAtCall);
         setResult(res.result);
         setState({ mode: "start", lastResult: { score: res.result.score, passed: res.result.passed, submittedAtIso: new Date().toISOString() } });
       } else {
@@ -48,6 +53,12 @@ export default function ExamSimulation({ lessonId, track, initialState }: { less
       }
     });
   }
+
+  // Jump to the top so the pass/fail result is immediately visible instead of staying scrolled
+  // down at the question list / submit button.
+  useEffect(() => {
+    if (result) window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [result]);
 
   // Countdown; auto-submits once when time runs out.
   useEffect(() => {
@@ -60,7 +71,7 @@ export default function ExamSimulation({ lessonId, track, initialState }: { less
       setRemaining(left);
       if (left <= 0 && !submitted) {
         submitted = true;
-        submit(attemptId, answers, questionIds);
+        submit(attemptId, answers, questionIds, 0);
       }
     };
     tick();
@@ -81,6 +92,14 @@ export default function ExamSimulation({ lessonId, track, initialState }: { less
             {result.score} / {result.total}
           </p>
           <p style={{ marginTop: 4, fontSize: 14, color: "var(--text-faint)" }}>Bestanden ab {result.threshold} von {result.total} richtigen Antworten.</p>
+          {result.passed && remainingAtSubmit > FAST_FINISH_REMAINING_SECONDS && (
+            <p style={{ marginTop: 16, fontSize: 15, fontWeight: 700, color: "#0b7a55" }}>
+              🚀 Wow, du hast die Prüfung in nur {Math.round((EXAM_DURATION_SECONDS - remainingAtSubmit) / 60)} Minuten bestanden! Das zeigt: Du bist bestens vorbereitet.
+            </p>
+          )}
+          {result.passed && (
+            <p style={{ marginTop: 10, fontSize: 15.5, fontWeight: 700 }}>Du bist jetzt bereit für die echte Prüfung! 🎉</p>
+          )}
           <button onClick={begin} disabled={pending} className="btn-accent" style={{ marginTop: 20, padding: "12px 26px", borderRadius: 999, fontSize: 14.5 }}>
             {pending ? "Wird gestartet…" : "Erneut versuchen"}
           </button>
@@ -164,7 +183,7 @@ export default function ExamSimulation({ lessonId, track, initialState }: { less
         <span style={{ fontSize: 13.5, color: "var(--text-faint)", fontWeight: 600 }}>
           {answeredCount} von {EXAM_QUESTION_COUNT} beantwortet
         </span>
-        <button onClick={() => submit(state.attemptId, answers, state.questions.map((q) => q.id))} disabled={pending} className="btn-accent" style={{ padding: "9px 20px", borderRadius: 999, fontSize: 13.5 }}>
+        <button onClick={() => submit(state.attemptId, answers, state.questions.map((q) => q.id), remaining)} disabled={pending} className="btn-accent" style={{ padding: "9px 20px", borderRadius: 999, fontSize: 13.5 }}>
           {pending ? "Wird abgegeben…" : "Prüfung abgeben"}
         </button>
       </div>
@@ -195,7 +214,7 @@ export default function ExamSimulation({ lessonId, track, initialState }: { less
       </div>
 
       <div style={{ display: "flex", justifyContent: "flex-end", marginTop: 20 }}>
-        <button onClick={() => submit(state.attemptId, answers, state.questions.map((q) => q.id))} disabled={pending} className="btn-accent" style={{ padding: "12px 26px", borderRadius: 999, fontSize: 14.5 }}>
+        <button onClick={() => submit(state.attemptId, answers, state.questions.map((q) => q.id), remaining)} disabled={pending} className="btn-accent" style={{ padding: "12px 26px", borderRadius: 999, fontSize: 14.5 }}>
           {pending ? "Wird abgegeben…" : "Prüfung abgeben"}
         </button>
       </div>
