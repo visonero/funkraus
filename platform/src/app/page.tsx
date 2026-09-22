@@ -102,10 +102,10 @@ export default async function Home() {
             <span className="label" style={{ color: "var(--sky-deep)" }}>BZF I &amp; BZF II · Online-Kurs für PPL &amp; LAPL</span>
           </div>
           <h1 className="h1-hero" style={{ fontSize: "clamp(30px,5.2vw,58px)", lineHeight: 1.18, fontWeight: 800, overflowWrap: "break-word", hyphens: "auto" }}>
-            Dein Sprechfunkzeugnis für PPL &amp; LAPL: <span className="grad">online lernen, in unter 10 Stunden bestehen.</span>
+            Das Sprechfunkzeugnis für Privatpiloten: <span className="grad">Crash-Kurs in unter 10 Stunden bestehen.</span>
           </h1>
           <p style={{ marginTop: 24, fontSize: 18, color: "var(--text-dim)", maxWidth: 640, marginLeft: "auto", marginRight: "auto" }}>
-            Der komplette BZF-Onlinekurs mit Video, Audio-Funkübungen, Lesetexten, PDF-Merkblättern und dem offiziellen Fragenkatalog der Bundesnetzagentur — auf Laptop, Tablet und Smartphone.
+            Der komplette BZF-Onlinekurs mit Video, Audio-Funkübungen, Lesetexten, PDF-Merkblättern und dem offiziellen Fragenkatalog der Bundesnetzagentur. Auf Laptop, Tablet und Smartphone.
           </p>
           <div style={{ display: "inline-flex", alignItems: "center", gap: 10, marginTop: 22, padding: "8px 16px", borderRadius: 999, background: "rgba(52,211,153,0.16)", border: "1px solid rgba(52,211,153,0.4)" }}>
             <span style={{ fontSize: 13 }}>🎁</span>
