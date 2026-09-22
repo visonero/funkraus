@@ -1,0 +1,14 @@
+{
+  "id": "8.3",
+  "title": "Streckenflug auf Englisch",
+  "content_type": "audio",
+  "sort_order": 2,
+  "assets": {
+    "video": "8.3-hook-video/hook-video.mp4",
+    "audio": "8.3-audio-drill/8.3-audio-drill.mp3"
+  },
+  "sources": [
+    "FlugfunkV, Anlage 1, Abschnitt 2.2 (Fertigkeiten BZF I)",
+    "ICAO Doc 9432 (Manual of Radiotelephony) / EGAST Radiotelephony Guide for VFR Pilots"
+  ]
+}

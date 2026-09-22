@@ -1,0 +1,15 @@
+{
+  "id": "8.1",
+  "title": "Kontrollierter Platzverkehr auf Englisch",
+  "content_type": "audio",
+  "sort_order": 0,
+  "assets": {
+    "video": "8.1-hook-video/hook-video.mp4",
+    "audio": "8.1-audio-drill/8.1-audio-drill.mp3",
+    "pdf": "8.1-platzverkehr-phrasen-karte/platzverkehr-phrasen-karte.pdf"
+  },
+  "sources": [
+    "FlugfunkV, Anlage 1, Abschnitt 2.2 (Fertigkeiten BZF I)",
+    "ICAO Doc 9432 (Manual of Radiotelephony) / EGAST Radiotelephony Guide for VFR Pilots"
+  ]
+}

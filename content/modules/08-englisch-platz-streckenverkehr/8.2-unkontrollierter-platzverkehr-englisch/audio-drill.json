@@ -1,0 +1,59 @@
+{
+  "id": "8.2-audio-drill",
+  "language": "de",
+  "segments": [
+    {
+      "voice": "trainer",
+      "text": "Willkommen zur Übung Selbstankündigung auf Englisch. Ich nenne dir eine Situation, du sprichst die passende Meldung für den Flugplatz Straubing. Danach höre ich dir die richtige Antwort vor."
+    },
+    {
+      "pause": 1.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Du rollst zur Piste zwei sieben."
+    },
+    {
+      "pause": 5.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Straubing Traffic, Dehol, taxiing to runway two seven, Straubing."
+    },
+    {
+      "pause": 1.8
+    },
+    {
+      "voice": "trainer",
+      "text": "Du fliegst in den Gegenanflug der Piste zwei sieben ein."
+    },
+    {
+      "pause": 5.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Straubing Traffic, Dehol, joining downwind runway two seven, Straubing."
+    },
+    {
+      "pause": 1.8
+    },
+    {
+      "voice": "trainer",
+      "text": "Du hast gerade die Piste verlassen."
+    },
+    {
+      "pause": 4.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Straubing Traffic, Dehol, runway vacated, Straubing."
+    },
+    {
+      "pause": 1.8
+    },
+    {
+      "voice": "trainer",
+      "text": "Sehr gut. Wiederhole die Übung, bis dir das Muster in Fleisch und Blut übergeht."
+    }
+  ]
+}

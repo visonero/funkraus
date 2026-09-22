@@ -1,0 +1,112 @@
+{
+  "id": "8.3-hook-video",
+  "language": "de",
+  "scenes": [
+    {
+      "id": "intro",
+      "voice": "trainer",
+      "text": "Auch auf der Strecke bleibt der Ablauf gleich wie im Deutschen. Nur die Worte ändern sich: [[0]]Contact, [[1]]Squawk [[2]]und Traffic.",
+      "visual": {
+        "kind": "headline",
+        "headline": "Gleicher Streckenfunk,",
+        "highlight": "englische Worte",
+        "tiles": [
+          "CONTACT",
+          "SQUAWK",
+          "TRAFFIC"
+        ]
+      }
+    },
+    {
+      "id": "frequencySquawk",
+      "voice": "trainer",
+      "text": "So klingt ein Frequenzwechsel mit Transponderanweisung. [[0]]Die Flugsicherung sagt: Contact Langen Radar, one two fower decimal tree. [[1]]Du bestätigst mit der Frequenz und deinem Rufzeichen. [[2]]Dann kommt die Transponderanweisung: Squawk fower tree two one. [[3]]Auch das wiederholst du mit deinem Rufzeichen.",
+      "visual": {
+        "kind": "dialog",
+        "headline": "Frequenzwechsel",
+        "highlight": "und Transponder",
+        "lines": [
+          {
+            "who": "tower",
+            "text": "DEHOL, CONTACT LANGEN RADAR ONE TWO FOWER DECIMAL TREE"
+          },
+          {
+            "who": "pilot",
+            "text": "ONE TWO FOWER DECIMAL TREE, DEHOL",
+            "note": "Read-back mit Frequenz",
+            "tone": "green"
+          },
+          {
+            "who": "tower",
+            "text": "DEHOL, SQUAWK FOWER TREE TWO ONE"
+          },
+          {
+            "who": "pilot",
+            "text": "SQUAWK FOWER TREE TWO ONE, DEHOL",
+            "note": "Read-back mit Code",
+            "tone": "green"
+          }
+        ]
+      }
+    },
+    {
+      "id": "positionTraffic",
+      "voice": "trainer",
+      "text": "Auch Standortmeldung und Verkehrshinweis funktionieren wie gewohnt. [[0]]Die Standortmeldung nennt Standort und Höhe. [[1]]Ein Verkehrshinweis nutzt dieselbe Uhrzeigerstellung wie im Deutschen. [[2]]Und du antwortest mit Looking out, Traffic in sight oder Negative contact, je nachdem, ob du den Verkehr siehst.",
+      "visual": {
+        "kind": "layers",
+        "headline": "Standortmeldung und",
+        "highlight": "Verkehrshinweis",
+        "layers": [
+          {
+            "label": "OVER SIERRA, TREE THOUSAND FIFE HUNDRED FEET",
+            "sub": "Standort und Höhe"
+          },
+          {
+            "label": "TRAFFIC, TEN O'CLOCK, FOWER MILES",
+            "sub": "Verkehrshinweis mit Uhrzeigerstellung"
+          },
+          {
+            "label": "LOOKING OUT / TRAFFIC IN SIGHT / NEGATIVE CONTACT",
+            "sub": "deine drei möglichen Antworten"
+          }
+        ]
+      }
+    },
+    {
+      "id": "international",
+      "voice": "trainer",
+      "text": "Eine Besonderheit kommt erst außerhalb Deutschlands dazu. [[0]]Die Transition Altitude ist von Land zu Land unterschiedlich, du findest sie im jeweiligen Luftfahrthandbuch. [[1]]Und manche Länder nutzen zusätzlich QFE statt nur QNH. Informiere dich also vor jedem Auslandsflug.",
+      "visual": {
+        "kind": "transform",
+        "headline": "Außerhalb Deutschlands:",
+        "highlight": "genau hinschauen",
+        "tiles": [
+          {
+            "top": "Transition Altitude",
+            "bottom": "von Land zu Land unterschiedlich",
+            "tone": "amber"
+          },
+          {
+            "top": "QFE",
+            "bottom": "manche Länder nutzen es zusätzlich",
+            "tone": "amber"
+          }
+        ]
+      }
+    },
+    {
+      "id": "outro",
+      "voice": "trainer",
+      "text": "Damit kennst du den Streckenfunk auf Englisch komplett: [[0]]Frequenzwechsel und Squawk, [[1]]Standortmeldung und Verkehrshinweis [[2]]und die internationalen Besonderheiten. Hör dir jetzt die Übung an.",
+      "visual": {
+        "kind": "outro",
+        "pills": [
+          "Frequenz & Squawk",
+          "Standort & Verkehr",
+          "Internationale AIP prüfen"
+        ]
+      }
+    }
+  ]
+}

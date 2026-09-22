@@ -1,0 +1,13 @@
+{
+  "id": "8.2",
+  "title": "Unkontrollierter Platzverkehr auf Englisch",
+  "content_type": "audio",
+  "sort_order": 1,
+  "assets": {
+    "video": "8.2-hook-video/hook-video.mp4",
+    "audio": "8.2-audio-drill/8.2-audio-drill.mp3"
+  },
+  "sources": [
+    "ICAO Doc 9432 (Manual of Radiotelephony) / EGAST Radiotelephony Guide for VFR Pilots — internationale Standard-Selbstankündigung"
+  ]
+}

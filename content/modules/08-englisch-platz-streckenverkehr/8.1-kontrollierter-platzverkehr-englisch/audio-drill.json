@@ -1,0 +1,73 @@
+{
+  "id": "8.1-audio-drill",
+  "language": "de",
+  "segments": [
+    {
+      "voice": "trainer",
+      "text": "Willkommen zur Übung Platzverkehr auf Englisch. Ich spiele dir eine Anweisung des Turms vor, du sprichst die Bestätigung. Danach höre ich dir die richtige Antwort vor."
+    },
+    {
+      "pause": 1.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Hold short of runway two seven."
+    },
+    {
+      "pause": 3.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Holding short of runway two seven."
+    },
+    {
+      "pause": 1.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Dehol, wind calm, runway two seven, cleared for take-off."
+    },
+    {
+      "pause": 4.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Cleared for take-off, runway two seven, Dehol."
+    },
+    {
+      "pause": 1.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Dehol, runway two seven, cleared to land."
+    },
+    {
+      "pause": 4.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Cleared to land, runway two seven, Dehol."
+    },
+    {
+      "pause": 1.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Go around."
+    },
+    {
+      "pause": 2.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Going around."
+    },
+    {
+      "pause": 1.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Sehr gut. Wiederhole die Übung, bis dir die Bestätigungen flüssig über die Lippen gehen."
+    }
+  ]
+}

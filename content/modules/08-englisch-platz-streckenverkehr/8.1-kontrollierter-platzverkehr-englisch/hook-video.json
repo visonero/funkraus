@@ -1,0 +1,155 @@
+{
+  "id": "8.1-hook-video",
+  "language": "de",
+  "scenes": [
+    {
+      "id": "intro",
+      "voice": "trainer",
+      "text": "Die Abläufe kennst du schon aus Modul drei. Neu ist nur die Sprache: [[0]]TAXI, [[1]]CLEARED FOR TAKE-OFF [[2]]und CLEARED TO LAND.",
+      "visual": {
+        "kind": "headline",
+        "headline": "Gleicher Ablauf,",
+        "highlight": "englische Worte",
+        "tiles": [
+          "TAXI",
+          "CLEARED FOR TAKE-OFF",
+          "CLEARED TO LAND"
+        ]
+      }
+    },
+    {
+      "id": "taxi",
+      "voice": "trainer",
+      "text": "So klingt eine Rollfreigabe auf Englisch. [[0]]Du bittest um Rollen: Request taxi. [[1]]Der Turm weist dich an: Taxi to holding point runway two seven via Alfa, QNH one zero one tree. [[2]]Du wiederholst Piste, Rollweg und QNH mit deinem Rufzeichen.",
+      "visual": {
+        "kind": "dialog",
+        "headline": "Rollen,",
+        "highlight": "auf Englisch",
+        "lines": [
+          {
+            "who": "pilot",
+            "text": "DEHOL, REQUEST TAXI",
+            "note": "Rollanfrage"
+          },
+          {
+            "who": "tower",
+            "text": "TAXI TO HOLDING POINT RUNWAY TWO SEVEN VIA ALFA, QNH ONE ZERO ONE TREE"
+          },
+          {
+            "who": "pilot",
+            "text": "TAXI TO HOLDING POINT RUNWAY TWO SEVEN VIA ALFA, QNH ONE ZERO ONE TREE, DEHOL",
+            "note": "Read-back",
+            "tone": "green"
+          }
+        ]
+      }
+    },
+    {
+      "id": "holdShort",
+      "voice": "trainer",
+      "text": "Bei Halteanweisungen reichen Roger oder Wilco nicht aus, genau wie im Deutschen. [[0]]Auf Hold position antwortest du: Holding. [[1]]Auf Hold short of runway: Holding short of runway. [[2]]Und auf Stop immediately: Stopping.",
+      "visual": {
+        "kind": "layers",
+        "headline": "Halteanweisungen,",
+        "highlight": "Bestätigung ohne Roger",
+        "layers": [
+          {
+            "label": "HOLD POSITION",
+            "sub": "→ HOLDING"
+          },
+          {
+            "label": "HOLD SHORT OF RUNWAY",
+            "sub": "→ HOLDING SHORT OF RUNWAY"
+          },
+          {
+            "label": "STOP IMMEDIATELY",
+            "sub": "→ STOPPING"
+          }
+        ]
+      }
+    },
+    {
+      "id": "takeoff",
+      "voice": "trainer",
+      "text": "So läuft die Startfreigabe. [[0]]Der Turm gibt frei: Wind calm, runway two seven, cleared for take-off. [[1]]Du liest zurück: Cleared for take-off, runway two seven, Dehol. [[2]]Zieht der Turm die Freigabe zurück, hörst du: Hold position, cancel take-off, I say again, cancel take-off. [[3]]Du antwortest: Holding.",
+      "visual": {
+        "kind": "dialog",
+        "headline": "Die",
+        "highlight": "Startfreigabe",
+        "lines": [
+          {
+            "who": "tower",
+            "text": "DEHOL, WIND CALM, RUNWAY TWO SEVEN, CLEARED FOR TAKE-OFF"
+          },
+          {
+            "who": "pilot",
+            "text": "CLEARED FOR TAKE-OFF, RUNWAY TWO SEVEN, DEHOL",
+            "note": "Read-back",
+            "tone": "green"
+          },
+          {
+            "who": "tower",
+            "text": "HOLD POSITION, CANCEL TAKE-OFF, I SAY AGAIN, CANCEL TAKE-OFF",
+            "note": "Freigabe zurückgezogen",
+            "tone": "red"
+          },
+          {
+            "who": "pilot",
+            "text": "HOLDING",
+            "tone": "red"
+          }
+        ]
+      }
+    },
+    {
+      "id": "landing",
+      "voice": "trainer",
+      "text": "Und so läuft Platzrunde und Landung. [[0]]Der Turm weist dich in den Gegenanflug ein: Join downwind runway two seven, QNH one zero one tree. [[1]]Später kommt die Landefreigabe: Runway two seven, cleared to land. [[2]]Du bestätigst: Cleared to land, runway two seven, Dehol. [[3]]Und musst du durchstarten, hörst du Go around [[4]]und antwortest: Going around.",
+      "visual": {
+        "kind": "dialog",
+        "headline": "Platzrunde",
+        "highlight": "und Landung",
+        "lines": [
+          {
+            "who": "tower",
+            "text": "DEHOL, JOIN DOWNWIND RUNWAY TWO SEVEN, QNH ONE ZERO ONE TREE"
+          },
+          {
+            "who": "tower",
+            "text": "DEHOL, RUNWAY TWO SEVEN, CLEARED TO LAND"
+          },
+          {
+            "who": "pilot",
+            "text": "CLEARED TO LAND, RUNWAY TWO SEVEN, DEHOL",
+            "note": "Read-back",
+            "tone": "green"
+          },
+          {
+            "who": "tower",
+            "text": "GO AROUND",
+            "note": "Durchstarten",
+            "tone": "amber"
+          },
+          {
+            "who": "pilot",
+            "text": "GOING AROUND",
+            "tone": "amber"
+          }
+        ]
+      }
+    },
+    {
+      "id": "outro",
+      "voice": "trainer",
+      "text": "Damit kennst du den kompletten Platzverkehr auf Englisch: [[0]]Rollen und Start, [[1]]die Halteanweisungen [[2]]und Platzrunde mit Landung. Lade dir die Karte herunter und hör dir die Übung an.",
+      "visual": {
+        "kind": "outro",
+        "pills": [
+          "Rollen & Start",
+          "Halteanweisungen",
+          "Platzrunde & Landung"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "label": "Lektion 8.1 · Platzverkehr-Phrasen-Karte",
+  "title": "Kontrollierter Platzverkehr",
+  "highlight": "auf Englisch",
+  "sections": [
+    {
+      "title": "Rollen",
+      "rows": [
+        [
+          "REQUEST START UP / TAXI",
+          "Anlassen bzw. Rollen erbitten"
+        ],
+        [
+          "TAXI TO HOLDING POINT RUNWAY … VIA …",
+          "Rollfreigabe mit Piste und Rollweg"
+        ],
+        [
+          "Read-back",
+          "Piste, Rollweg und QNH mit Rufzeichen wiederholen"
+        ]
+      ]
+    },
+    {
+      "title": "Halteanweisungen (Bestätigung ohne Roger/Wilco)",
+      "rows": [
+        [
+          "HOLD POSITION",
+          "→ HOLDING"
+        ],
+        [
+          "HOLD SHORT OF RUNWAY …",
+          "→ HOLDING SHORT OF RUNWAY …"
+        ],
+        [
+          "CANCEL TAKE-OFF",
+          "→ HOLDING"
+        ],
+        [
+          "STOP IMMEDIATELY",
+          "→ STOPPING"
+        ]
+      ]
+    },
+    {
+      "title": "Start und Landung",
+      "rows": [
+        [
+          "CLEARED FOR TAKE-OFF",
+          "Startfreigabe, mit Piste und Rufzeichen zurücklesen"
+        ],
+        [
+          "JOIN DOWNWIND RUNWAY …",
+          "Einweisung in den Gegenanflug"
+        ],
+        [
+          "REPORT DOWNWIND / FINAL",
+          "Meldung verlangt (Endanflug: 4 NM vor dem Aufsetzen)"
+        ],
+        [
+          "CLEARED TO LAND",
+          "Landefreigabe, mit Piste und Rufzeichen zurücklesen"
+        ],
+        [
+          "REPORT RUNWAY VACATED",
+          "→ RUNWAY VACATED"
+        ],
+        [
+          "GO AROUND",
+          "→ GOING AROUND"
+        ]
+      ],
+      "example": {
+        "say": "„CLEARED FOR TAKE-OFF, RUNWAY TWO SEVEN, DEHOL“",
+        "note": "Rufzeichen immer im Read-back"
+      }
+    }
+  ],
+  "footer": "Quellen: FlugfunkV Anlage 1, Abschnitt 2.2; ICAO Doc 9432 / EGAST Radiotelephony Guide for VFR Pilots · funkraus.de"
+}

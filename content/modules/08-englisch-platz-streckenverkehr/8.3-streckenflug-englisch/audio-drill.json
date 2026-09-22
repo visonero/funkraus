@@ -1,0 +1,73 @@
+{
+  "id": "8.3-audio-drill",
+  "language": "de",
+  "segments": [
+    {
+      "voice": "trainer",
+      "text": "Willkommen zur Übung Streckenfunk auf Englisch. Ich spiele dir eine Anweisung vor, du sprichst die Bestätigung. Danach höre ich dir die richtige Antwort vor."
+    },
+    {
+      "pause": 1.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Dehol, contact Langen Radar, one two fower decimal tree."
+    },
+    {
+      "pause": 4.5
+    },
+    {
+      "voice": "trainer",
+      "text": "One two fower decimal tree, Dehol."
+    },
+    {
+      "pause": 1.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Dehol, squawk fower tree two one."
+    },
+    {
+      "pause": 4.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Squawk fower tree two one, Dehol."
+    },
+    {
+      "pause": 1.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Traffic, ten o'clock, fower miles. Du siehst den Verkehr noch nicht."
+    },
+    {
+      "pause": 4.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Looking out."
+    },
+    {
+      "pause": 1.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Jetzt siehst du ihn."
+    },
+    {
+      "pause": 3.0
+    },
+    {
+      "voice": "trainer",
+      "text": "Traffic in sight."
+    },
+    {
+      "pause": 1.5
+    },
+    {
+      "voice": "trainer",
+      "text": "Sehr gut. Wiederhole die Übung, bis dir die Bestätigungen flüssig über die Lippen gehen."
+    }
+  ]
+}

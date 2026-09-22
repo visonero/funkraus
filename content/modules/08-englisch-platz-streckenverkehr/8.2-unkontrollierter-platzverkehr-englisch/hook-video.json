@@ -1,0 +1,112 @@
+{
+  "id": "8.2-hook-video",
+  "language": "de",
+  "scenes": [
+    {
+      "id": "intro",
+      "voice": "trainer",
+      "text": "Ohne Kontrollturm gibt es keine Freigabe. Trotzdem funkst du: Du kündigst dich selbst an, mit dem Wort [[0]]TRAFFIC, in einer international festen [[1]]Selbstankündigung.",
+      "visual": {
+        "kind": "headline",
+        "headline": "Kein Turm,",
+        "highlight": "keine Freigabe — aber Funk",
+        "tiles": [
+          "TRAFFIC",
+          "Selbstankündigung"
+        ]
+      }
+    },
+    {
+      "id": "pattern",
+      "voice": "trainer",
+      "text": "Das Muster ist immer gleich. [[0]]Zuerst der Flugplatzname mit dem Wort Traffic. [[1]]Dann dein Rufzeichen. [[2]]Dann deine Position oder Absicht. [[3]]Und am Ende noch einmal der Flugplatzname, damit die Meldung eindeutig zugeordnet werden kann.",
+      "visual": {
+        "kind": "transform",
+        "headline": "Das Muster der",
+        "highlight": "Selbstankündigung",
+        "tiles": [
+          {
+            "top": "1",
+            "bottom": "Flugplatzname, TRAFFIC"
+          },
+          {
+            "top": "2",
+            "bottom": "Rufzeichen"
+          },
+          {
+            "top": "3",
+            "bottom": "Position oder Absicht"
+          },
+          {
+            "top": "4",
+            "bottom": "Flugplatzname, erneut"
+          }
+        ]
+      }
+    },
+    {
+      "id": "calls",
+      "voice": "trainer",
+      "text": "So klingt das in der Praxis, hier für den Flugplatz Straubing. [[0]]Vor dem Rollen: Straubing Traffic, Dehol, taxiing to runway two seven, Straubing. [[1]]Beim Einflug in die Platzrunde: Straubing Traffic, Dehol, joining downwind runway two seven, Straubing. [[2]]Und im Endanflug: Straubing Traffic, Dehol, final runway two seven, Straubing.",
+      "visual": {
+        "kind": "dialog",
+        "headline": "Typische",
+        "highlight": "Meldungen",
+        "lines": [
+          {
+            "who": "pilot",
+            "text": "STRAUBING TRAFFIC, DEHOL, TAXIING TO RUNWAY TWO SEVEN, STRAUBING",
+            "note": "vor dem Rollen"
+          },
+          {
+            "who": "pilot",
+            "text": "STRAUBING TRAFFIC, DEHOL, JOINING DOWNWIND RUNWAY TWO SEVEN, STRAUBING",
+            "note": "Einflug in die Platzrunde"
+          },
+          {
+            "who": "pilot",
+            "text": "STRAUBING TRAFFIC, DEHOL, FINAL RUNWAY TWO SEVEN, STRAUBING",
+            "note": "im Endanflug"
+          }
+        ]
+      }
+    },
+    {
+      "id": "responsibility",
+      "voice": "trainer",
+      "text": "Ganz wichtig dabei: Diese Meldungen sind keine Freigaben. [[0]]Niemand bestätigt sie dir. [[1]]Du bleibst selbst dafür verantwortlich, anderen Luftfahrzeugen zu sehen und auszuweichen. [[2]]Und du hörst ständig zu, auch wenn du gerade nicht selbst sendest.",
+      "visual": {
+        "kind": "layers",
+        "headline": "Keine Freigabe,",
+        "highlight": "eigene Verantwortung",
+        "layers": [
+          {
+            "label": "Niemand bestätigt",
+            "sub": "die Meldung ist keine Anweisung"
+          },
+          {
+            "label": "Selbst ausweichen",
+            "sub": "See-and-avoid bleibt bei dir"
+          },
+          {
+            "label": "Ständig zuhören",
+            "sub": "auch ohne selbst zu senden"
+          }
+        ]
+      }
+    },
+    {
+      "id": "outro",
+      "voice": "trainer",
+      "text": "Damit kennst du die Selbstankündigung: [[0]]das Traffic-Muster, [[1]]die typischen Meldungen [[2]]und deine eigene Verantwortung ohne Kontrollturm. Hör dir jetzt die Übung an.",
+      "visual": {
+        "kind": "outro",
+        "pills": [
+          "TRAFFIC-Muster",
+          "Typische Meldungen",
+          "Eigene Verantwortung"
+        ]
+      }
+    }
+  ]
+}
