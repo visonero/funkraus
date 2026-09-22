@@ -1,6 +1,14 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Logo from "@/components/Logo";
 import AuthForm from "@/components/AuthForm";
+
+export const metadata: Metadata = {
+  title: "Anmelden — funkraus",
+  description: "Melde dich bei funkraus an oder erstelle ein kostenloses Konto.",
+  robots: { index: false, follow: true },
+  alternates: { canonical: "/login" },
+};
 
 export default async function LoginPage({ searchParams }: PageProps<"/login">) {
   const { mode } = await searchParams;

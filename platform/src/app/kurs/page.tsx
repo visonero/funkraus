@@ -27,6 +27,7 @@ const PRICE_FEATURES = [
 export const metadata: Metadata = {
   title: "BZF I & II Kurs — funkraus",
   description: "Der komplette Online-Kurs für dein Sprechfunkzeugnis. Heute kostenlos starten, Vollzugang einmalig zum Einführungspreis.",
+  alternates: { canonical: "/kurs" },
 };
 
 export default async function KursPage() {

@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "AGB — funkraus",
   description: "Allgemeine Geschäftsbedingungen für den funkraus Online-Kurs.",
   robots: { index: true, follow: true },
+  alternates: { canonical: "/agb" },
 };
 
 const CONTENT = `

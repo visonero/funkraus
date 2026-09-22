@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "Impressum — funkraus",
   description: "Anbieterkennzeichnung gemäß § 5 DDG.",
   robots: { index: true, follow: true },
+  alternates: { canonical: "/impressum" },
 };
 
 const CONTENT = `

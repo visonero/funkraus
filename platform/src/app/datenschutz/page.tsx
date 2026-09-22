@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "Datenschutzerklärung — funkraus",
   description: "Informationen zur Verarbeitung personenbezogener Daten gemäß DSGVO.",
   robots: { index: true, follow: true },
+  alternates: { canonical: "/datenschutz" },
 };
 
 const CONTENT = `
