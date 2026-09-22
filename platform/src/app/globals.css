@@ -1308,9 +1308,9 @@ button {
 .hero-net-line {
   fill: none;
   stroke: var(--sky-deep);
-  stroke-width: 1.6;
+  stroke-width: 1.1;
   stroke-linecap: round;
-  opacity: 0.16;
+  opacity: 0.13;
   stroke-dasharray: 1400;
   stroke-dashoffset: 1400;
   animation: heroNetDraw 2.4s ease forwards;
@@ -1323,15 +1323,15 @@ button {
 .hero-net-flow {
   fill: none;
   stroke: var(--sky);
-  stroke-width: 2.2;
+  stroke-width: 1.7;
   stroke-linecap: round;
-  opacity: 0.5;
-  stroke-dasharray: 3 22;
+  opacity: 0.45;
+  stroke-dasharray: 2 15;
   animation: heroNetFlow 2.6s linear infinite;
 }
 @keyframes heroNetFlow {
   to {
-    stroke-dashoffset: -100;
+    stroke-dashoffset: -85;
   }
 }
 .hero-net-pulse {
@@ -1340,11 +1340,16 @@ button {
 .ping-ring {
   fill: none;
   stroke: var(--sky);
-  stroke-width: 2;
+  stroke-width: 1.6;
   opacity: 0;
   animation: pingring 3.2s ease-out infinite;
   transform-box: fill-box;
   transform-origin: center;
+}
+.radar-wedge {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: radarspin 4s linear infinite;
 }
 @media (prefers-reduced-motion: reduce) {
   .hero-net-line {
@@ -1352,7 +1357,8 @@ button {
   }
   .hero-net-flow,
   .hero-net-pulse,
-  .ping-ring {
+  .ping-ring,
+  .radar-wedge {
     display: none;
   }
 }
