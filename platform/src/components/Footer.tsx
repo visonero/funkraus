@@ -39,7 +39,7 @@ export default function Footer() {
         <p style={{ fontSize: 12, color: "var(--text-faint)", maxWidth: 640 }}>
           funkraus ist kein Teil der Bundesnetzagentur oder des LBA und steht in keiner Verbindung zu diesen Behörden. Alle Prüfungsinhalte basieren auf öffentlich zugänglichen, amtlichen Materialien.
         </p>
-        <div style={{ textAlign: "right" }}>
+        <div className="footer-credit" style={{ textAlign: "right" }}>
           <p style={{ fontSize: 12, color: "var(--text-faint)" }}>© 2026 funkraus</p>
           <p style={{ marginTop: 4, fontSize: 11, color: "var(--text-faint)" }}>
             Website &amp; Entwicklung von{" "}

@@ -446,6 +446,21 @@ button {
   .footer-grid > div:first-child {
     grid-column: 1 / -1;
   }
+  .footer-credit {
+    text-align: center !important;
+    width: 100%;
+  }
+}
+@media (max-width: 480px) {
+  .hero-eyebrow {
+    padding: 5px 10px !important;
+  }
+  .hero-eyebrow span {
+    font-size: 10px !important;
+  }
+  .hero-eyebrow .label {
+    letter-spacing: 0.02em !important;
+  }
 }
 
 /* ---------- Feature icon loops (replace emoji icons) ---------- */
@@ -1260,33 +1275,10 @@ button {
   height: auto;
 }
 @media (max-width: 760px) {
-  .showcase-stage {
-    padding-bottom: 0;
-  }
   .device-laptop {
     width: 100%;
     border-width: 6px;
     border-bottom-width: 9px;
-  }
-  .device-tablet,
-  .device-phone {
-    position: static;
-    display: inline-block;
-    vertical-align: bottom;
-    margin-top: 18px;
-  }
-  .device-tablet {
-    width: 44%;
-    margin-left: 4%;
-  }
-  .device-phone {
-    width: 26%;
-  }
-  .showcase-devices-row {
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    gap: 5%;
   }
 }
 

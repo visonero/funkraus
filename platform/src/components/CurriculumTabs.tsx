@@ -113,7 +113,7 @@ export default function CurriculumTabs() {
 
   return (
     <div>
-      <div style={{ display: "flex", gap: 12, marginTop: 36, flexWrap: "wrap" }}>
+      <div style={{ display: "flex", gap: 12, marginTop: 36, flexWrap: "wrap", justifyContent: "center" }}>
         <button className={`tab-btn${track === "bzf2" ? " is-active" : ""}`} onClick={() => switchTrack("bzf2")}>
           BZF II · Deutscher Luftraum
         </button>

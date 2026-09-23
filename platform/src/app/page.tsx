@@ -95,35 +95,35 @@ export default async function Home() {
       <div style={{ position: "relative", overflow: "hidden", background: "#fff" }}>
         <HeroNetwork />
 
-        <div className="section-pad" style={{ position: "relative", zIndex: 2, maxWidth: 1040, margin: "0 auto", padding: "16px 32px 4px", width: "100%", textAlign: "center" }}>
-          <div style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "5px 13px", borderRadius: 999, background: "rgba(47,155,234,0.08)", border: "1px solid rgba(47,155,234,0.25)", marginBottom: 10 }}>
-            <span style={{ width: 7, height: 7, borderRadius: "50%", background: "var(--sky)" }} />
-            <span className="label" style={{ color: "var(--sky-deep)" }}>BZF I &amp; BZF II · Online-Kurs für PPL &amp; LAPL</span>
+        <div className="section-pad" style={{ position: "relative", zIndex: 2, maxWidth: 1040, margin: "0 auto", padding: "44px 32px 8px", width: "100%", textAlign: "center" }}>
+          <div className="hero-eyebrow" style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "6px 14px", borderRadius: 999, background: "rgba(47,155,234,0.08)", border: "1px solid rgba(47,155,234,0.25)", marginBottom: 20 }}>
+            <span style={{ width: 7, height: 7, borderRadius: "50%", background: "var(--sky)", flex: "none" }} />
+            <span className="label" style={{ color: "var(--sky-deep)", whiteSpace: "nowrap" }}>BZF I &amp; II · Online-Kurs für PPL &amp; LAPL</span>
           </div>
-          <h1 className="h1-hero" style={{ fontSize: "clamp(23px,3.2vw,36px)", lineHeight: 1.16, fontWeight: 800, overflowWrap: "break-word" }}>
+          <h1 className="h1-hero" style={{ fontSize: "clamp(24px,3.6vw,40px)", lineHeight: 1.18, fontWeight: 800, overflowWrap: "break-word" }}>
             BZF-Crashkurs: <span className="grad">Sprechfunkzeugnis in unter 10 Stunden bestehen.</span>
           </h1>
-          <p style={{ marginTop: 8, fontSize: 14, color: "var(--text-dim)", maxWidth: 820, marginLeft: "auto", marginRight: "auto" }}>
+          <p style={{ marginTop: 18, fontSize: 15, color: "var(--text-dim)", maxWidth: 820, marginLeft: "auto", marginRight: "auto" }}>
             Der komplette BZF-Onlinekurs mit Video, Audio-Funkübungen, Lesetexten, PDF-Merkblättern und dem offiziellen Fragenkatalog der Bundesnetzagentur. Auf Laptop, Tablet und Smartphone.
           </p>
-          <div style={{ display: "inline-flex", alignItems: "center", gap: 8, marginTop: 10, padding: "4px 12px", borderRadius: 999, background: "rgba(52,211,153,0.16)", border: "1px solid rgba(52,211,153,0.4)" }}>
-            <span style={{ fontSize: 11.5 }}>🎁</span>
-            <span style={{ fontSize: 11.5, fontWeight: 700, color: "#0b7a55" }}>Konto erstellen · Modul 0 und 1 sofort kostenlos nutzen</span>
+          <div className="hero-eyebrow" style={{ display: "inline-flex", alignItems: "center", gap: 8, marginTop: 18, padding: "6px 14px", borderRadius: 999, background: "rgba(52,211,153,0.16)", border: "1px solid rgba(52,211,153,0.4)" }}>
+            <span style={{ fontSize: 12, flex: "none" }}>🎁</span>
+            <span style={{ fontSize: 12, fontWeight: 700, color: "#0b7a55", whiteSpace: "nowrap" }}>Modul 0 &amp; 1 sofort kostenlos nutzen</span>
           </div>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 12, justifyContent: "center" }}>
-            <Link href={SIGNUP_HREF} className="btn-accent" style={{ padding: "11px 20px", borderRadius: 999, fontSize: 13.5, display: "inline-block" }}>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 22, justifyContent: "center" }}>
+            <Link href={SIGNUP_HREF} className="btn-accent" style={{ padding: "13px 24px", borderRadius: 999, fontSize: 14.5, display: "inline-block" }}>
               {FREE_CTA}
             </Link>
-            <a href="#einblick" className="btn-ghost" style={{ padding: "11px 20px", borderRadius: 999, fontSize: 13.5, display: "inline-block" }}>
+            <a href="#einblick" className="btn-ghost" style={{ padding: "13px 24px", borderRadius: 999, fontSize: 14.5, display: "inline-block" }}>
               So sieht der Kurs aus ↓
             </a>
           </div>
-          <p style={{ marginTop: 10, fontSize: 11.5, color: "var(--text-faint)", fontWeight: 600 }}>
+          <p style={{ marginTop: 18, fontSize: 12, color: "var(--text-faint)", fontWeight: 600 }}>
             Kostenlos starten · Vollzugang später einmalig €{PRICE} statt €{ORIGINAL_PRICE} · Basierend auf dem offiziellen Fragenkatalog der Bundesnetzagentur
           </p>
         </div>
 
-        <div className="section-pad hero-showcase-slot" style={{ position: "relative", zIndex: 2, maxWidth: 1180, margin: "0 auto", padding: "4px 32px 40px" }}>
+        <div className="section-pad hero-showcase-slot" style={{ position: "relative", zIndex: 2, maxWidth: 1180, margin: "0 auto", padding: "16px 32px 56px" }}>
           <PlatformShowcase />
         </div>
       </div>
