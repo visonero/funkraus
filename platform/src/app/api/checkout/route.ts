@@ -25,6 +25,7 @@ export async function POST(request: Request) {
   const session = await getStripe().checkout.sessions.create({
     mode: "payment",
     line_items: [{ price: process.env.STRIPE_PRICE_ID!, quantity: 1 }],
+    allow_promotion_codes: true,
     customer_email: user.email,
     client_reference_id: user.id,
     metadata: { supabase_user_id: user.id, agb_accepted: "true", agb_accepted_at: new Date().toISOString() },
