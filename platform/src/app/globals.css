@@ -352,7 +352,7 @@ button {
 @keyframes pingring {
   0% {
     transform: scale(0.4);
-    opacity: 0.75;
+    opacity: 0.35;
   }
   100% {
     transform: scale(2.3);
@@ -1194,6 +1194,10 @@ button {
   margin: 56px auto 0;
   max-width: 1080px;
   padding-bottom: 8%;
+}
+.hero-showcase-slot .showcase-stage {
+  margin-top: 4px;
+  max-width: 665px;
 }
 .device-laptop {
   width: 86%;

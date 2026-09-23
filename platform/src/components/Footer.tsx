@@ -22,7 +22,7 @@ export default function Footer() {
         <div>
           <p className="label" style={{ color: "var(--text-faint)", marginBottom: 14 }}>Unternehmen</p>
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-            <a className="nav-link" style={{ fontSize: 13.5 }} href="#">Über uns</a>
+            <Link className="nav-link" style={{ fontSize: 13.5 }} href="/#vorteile">Über uns</Link>
             <a className="nav-link" style={{ fontSize: 13.5 }} href="#">Kontakt</a>
           </div>
         </div>
@@ -39,7 +39,15 @@ export default function Footer() {
         <p style={{ fontSize: 12, color: "var(--text-faint)", maxWidth: 640 }}>
           funkraus ist kein Teil der Bundesnetzagentur oder des LBA und steht in keiner Verbindung zu diesen Behörden. Alle Prüfungsinhalte basieren auf öffentlich zugänglichen, amtlichen Materialien.
         </p>
-        <p style={{ fontSize: 12, color: "var(--text-faint)" }}>© 2026 funkraus</p>
+        <div style={{ textAlign: "right" }}>
+          <p style={{ fontSize: 12, color: "var(--text-faint)" }}>© 2026 funkraus</p>
+          <p style={{ marginTop: 4, fontSize: 11, color: "var(--text-faint)" }}>
+            Website &amp; Entwicklung von{" "}
+            <a href="https://www.visonero.com" target="_blank" rel="noopener noreferrer" style={{ color: "var(--sky-deep)", textDecoration: "underline" }}>
+              Visonero
+            </a>
+          </p>
+        </div>
       </div>
     </div>
   );

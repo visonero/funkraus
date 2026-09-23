@@ -3,10 +3,9 @@ import PageHeader from "@/components/app/PageHeader";
 import CheckoutButton from "@/components/CheckoutButton";
 import { getCurrentUser } from "@/lib/auth/session";
 import { demoAccess, isDemoMode } from "@/lib/course/demo";
+import { PRICE } from "@/lib/pricing";
 import { getStripe } from "@/lib/stripe";
 import { createClient } from "@/lib/supabase/server";
-
-const PRICE = "349";
 const STATUS_LABEL: Record<string, { text: string; bg: string; color: string }> = {
   paid: { text: "Bezahlt", bg: "rgba(52,211,153,0.16)", color: "#0b7a55" },
   pending: { text: "Ausstehend", bg: "rgba(47,155,234,0.12)", color: "var(--sky-deep)" },
@@ -45,7 +44,7 @@ export default async function PaymentsPage() {
   let purchases: Purchase[] = [];
   if (isDemoMode()) {
     purchases = demoAccess() === "free" ? [] : [
-      { id: "demo", stripe_checkout_session_id: null, amount_cents: 34900, currency: "eur", status: "paid", created_at: new Date().toISOString() },
+      { id: "demo", stripe_checkout_session_id: null, amount_cents: 27900, currency: "eur", status: "paid", created_at: new Date().toISOString() },
     ];
   } else {
     const supabase = await createClient();

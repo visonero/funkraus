@@ -3,6 +3,7 @@ import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import SiteNav from "@/components/SiteNav";
 import Footer from "@/components/Footer";
+import { PRICE } from "@/lib/pricing";
 import { createClient } from "@/lib/supabase/server";
 
 export const metadata: Metadata = {
@@ -47,7 +48,7 @@ Der Vertrag kommt zustande mit Hussam Alkhodour. Die vollständigen Kontaktdaten
 
 ## § 5 Preise und Zahlung
 
-(1) Es gilt der zum Zeitpunkt der Bestellung auf der Website angegebene Preis (Stand dieser AGB: 349,00 EUR für den Vollzugang, einmalige Zahlung).
+(1) Es gilt der zum Zeitpunkt der Bestellung auf der Website angegebene Preis (Stand dieser AGB: ${PRICE},00 EUR für den Vollzugang, einmalige Zahlung).
 
 (2) Wir sind Kleinunternehmer im Sinne des § 19 Abs. 1 UStG. Auf unseren Preisen wird daher keine Umsatzsteuer ausgewiesen und keine Umsatzsteuer erhoben; die angegebenen Preise sind Endpreise.
 

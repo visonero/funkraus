@@ -6,7 +6,7 @@ import { gsap, ScrollTrigger, useGSAP } from "@/lib/gsap";
 const STATS = [
   { target: 261, prefix: "", suffix: "", label: "offizielle Prüfungsfragen der Bundesnetzagentur, komplett integriert" },
   { target: 8.5, prefix: "", suffix: "h", label: "Gesamtlernzeit vom Einsteiger bis zum Sprechfunkzeugnis" },
-  { target: 0, prefix: "€", suffix: "", label: "kostet der Start: Modul 0 und 1 gratis, ohne Zahlungsdaten" },
+  { target: 0, prefix: "", suffix: " EUR", label: "kostet der Start: Modul 0 und 1 gratis, ohne Zahlungsdaten" },
 ];
 
 export default function HighlightsCounters() {
@@ -57,33 +57,25 @@ export default function HighlightsCounters() {
   );
 
   return (
-    <div ref={sectionRef} className="section-pad" style={{ padding: "64px 32px", maxWidth: 1180, margin: "0 auto" }}>
-      <div
-        className="glass reveal"
-        style={{
-          borderRadius: 24,
-          padding: "40px 32px",
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit,minmax(200px,1fr))",
-          gap: 28,
-          textAlign: "center",
-        }}
-      >
-        {STATS.map((s) => (
-          <div key={s.label}>
-            <div
-              className="stat-number grad"
-              data-target={s.target}
-              data-prefix={s.prefix}
-              data-suffix={s.suffix}
-              style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "clamp(34px,4.2vw,50px)" }}
-            >
-              {s.prefix}0{s.suffix}
-            </div>
-            <p style={{ marginTop: 8, fontSize: 13.5, color: "var(--text-dim)", lineHeight: 1.4 }}>{s.label}</p>
+    <div
+      ref={sectionRef}
+      className="section-pad"
+      style={{ padding: "64px 32px", maxWidth: 1180, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(200px,1fr))", gap: 20 }}
+    >
+      {STATS.map((s) => (
+        <div key={s.label} className="glass reveal" style={{ borderRadius: 24, padding: "32px 28px", textAlign: "center" }}>
+          <div
+            className="stat-number grad"
+            data-target={s.target}
+            data-prefix={s.prefix}
+            data-suffix={s.suffix}
+            style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "clamp(34px,4.2vw,50px)" }}
+          >
+            {s.prefix}0{s.suffix}
           </div>
-        ))}
-      </div>
+          <p style={{ marginTop: 8, fontSize: 13.5, color: "var(--text-dim)", lineHeight: 1.4 }}>{s.label}</p>
+        </div>
+      ))}
     </div>
   );
 }

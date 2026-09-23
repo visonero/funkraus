@@ -95,35 +95,35 @@ export default async function Home() {
       <div style={{ position: "relative", overflow: "hidden", background: "#fff" }}>
         <HeroNetwork />
 
-        <div className="section-pad" style={{ position: "relative", zIndex: 2, maxWidth: 860, margin: "0 auto", padding: "76px 32px 20px", width: "100%", textAlign: "center" }}>
-          <div style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "8px 16px", borderRadius: 999, background: "rgba(47,155,234,0.08)", border: "1px solid rgba(47,155,234,0.25)", marginBottom: 26 }}>
+        <div className="section-pad" style={{ position: "relative", zIndex: 2, maxWidth: 1040, margin: "0 auto", padding: "16px 32px 4px", width: "100%", textAlign: "center" }}>
+          <div style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "5px 13px", borderRadius: 999, background: "rgba(47,155,234,0.08)", border: "1px solid rgba(47,155,234,0.25)", marginBottom: 10 }}>
             <span style={{ width: 7, height: 7, borderRadius: "50%", background: "var(--sky)" }} />
             <span className="label" style={{ color: "var(--sky-deep)" }}>BZF I &amp; BZF II · Online-Kurs für PPL &amp; LAPL</span>
           </div>
-          <h1 className="h1-hero" style={{ fontSize: "clamp(30px,5.2vw,58px)", lineHeight: 1.18, fontWeight: 800, overflowWrap: "break-word", hyphens: "auto" }}>
-            Das Sprechfunkzeugnis für Privatpiloten: <span className="grad">Crash-Kurs in unter 10 Stunden bestehen.</span>
+          <h1 className="h1-hero" style={{ fontSize: "clamp(23px,3.2vw,36px)", lineHeight: 1.16, fontWeight: 800, overflowWrap: "break-word" }}>
+            BZF-Crashkurs: <span className="grad">Sprechfunkzeugnis in unter 10 Stunden bestehen.</span>
           </h1>
-          <p style={{ marginTop: 24, fontSize: 18, color: "var(--text-dim)", maxWidth: 640, marginLeft: "auto", marginRight: "auto" }}>
+          <p style={{ marginTop: 8, fontSize: 14, color: "var(--text-dim)", maxWidth: 820, marginLeft: "auto", marginRight: "auto" }}>
             Der komplette BZF-Onlinekurs mit Video, Audio-Funkübungen, Lesetexten, PDF-Merkblättern und dem offiziellen Fragenkatalog der Bundesnetzagentur. Auf Laptop, Tablet und Smartphone.
           </p>
-          <div style={{ display: "inline-flex", alignItems: "center", gap: 10, marginTop: 22, padding: "8px 16px", borderRadius: 999, background: "rgba(52,211,153,0.16)", border: "1px solid rgba(52,211,153,0.4)" }}>
-            <span style={{ fontSize: 13 }}>🎁</span>
-            <span style={{ fontSize: 13, fontWeight: 700, color: "#0b7a55" }}>Konto erstellen · Modul 0 und 1 sofort kostenlos nutzen</span>
+          <div style={{ display: "inline-flex", alignItems: "center", gap: 8, marginTop: 10, padding: "4px 12px", borderRadius: 999, background: "rgba(52,211,153,0.16)", border: "1px solid rgba(52,211,153,0.4)" }}>
+            <span style={{ fontSize: 11.5 }}>🎁</span>
+            <span style={{ fontSize: 11.5, fontWeight: 700, color: "#0b7a55" }}>Konto erstellen · Modul 0 und 1 sofort kostenlos nutzen</span>
           </div>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 14, marginTop: 22, justifyContent: "center" }}>
-            <Link href={SIGNUP_HREF} className="btn-accent" style={{ padding: "17px 30px", borderRadius: 999, fontSize: 16, display: "inline-block" }}>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 12, justifyContent: "center" }}>
+            <Link href={SIGNUP_HREF} className="btn-accent" style={{ padding: "11px 20px", borderRadius: 999, fontSize: 13.5, display: "inline-block" }}>
               {FREE_CTA}
             </Link>
-            <a href="#einblick" className="btn-ghost" style={{ padding: "17px 30px", borderRadius: 999, fontSize: 16, display: "inline-block" }}>
+            <a href="#einblick" className="btn-ghost" style={{ padding: "11px 20px", borderRadius: 999, fontSize: 13.5, display: "inline-block" }}>
               So sieht der Kurs aus ↓
             </a>
           </div>
-          <p style={{ marginTop: 22, fontSize: 12.5, color: "var(--text-faint)", fontWeight: 600 }}>
+          <p style={{ marginTop: 10, fontSize: 11.5, color: "var(--text-faint)", fontWeight: 600 }}>
             Kostenlos starten · Vollzugang später einmalig €{PRICE} statt €{ORIGINAL_PRICE} · Basierend auf dem offiziellen Fragenkatalog der Bundesnetzagentur
           </p>
         </div>
 
-        <div className="section-pad" style={{ position: "relative", zIndex: 2, maxWidth: 1180, margin: "0 auto", padding: "36px 32px 64px" }}>
+        <div className="section-pad hero-showcase-slot" style={{ position: "relative", zIndex: 2, maxWidth: 1180, margin: "0 auto", padding: "4px 32px 40px" }}>
           <PlatformShowcase />
         </div>
       </div>
@@ -266,13 +266,9 @@ export default async function Home() {
       <div id="kurs" style={{ position: "relative", overflow: "hidden" }}>
         <Blob style={{ top: "6%", right: "6%", width: 220, height: 220, opacity: 0.16 }} color="var(--sky)" />
         <div className="section-pad" style={{ position: "relative", zIndex: 1, padding: "20px 32px 100px", maxWidth: 1180, margin: "0 auto" }}>
-          <div className="reveal" style={{ maxWidth: 680 }}>
+          <div className="reveal" style={{ maxWidth: 680, margin: "0 auto", textAlign: "center" }}>
             <span className="label" style={{ color: "var(--sky)" }}>Kursstruktur</span>
-            <div style={{ display: "inline-flex", alignItems: "center", gap: 8, marginTop: 14, padding: "6px 14px", borderRadius: 999, background: "rgba(255,143,179,0.14)", border: "1px solid rgba(255,143,179,0.35)" }}>
-              <span style={{ fontSize: 13 }}>🎁</span>
-              <span style={{ fontSize: 12.5, fontWeight: 700, color: "#c0447a" }}>Inklusive geschenkt</span>
-            </div>
-            <h2 style={{ fontSize: "clamp(28px,3.4vw,42px)", marginTop: 12, fontWeight: 700, lineHeight: 1.2 }}>
+            <h2 style={{ fontSize: "clamp(28px,3.4vw,42px)", marginTop: 14, fontWeight: 700, lineHeight: 1.2 }}>
               Du buchst dein <span className="grad">BZF II.</span> Das BZF I bekommst du gratis dazu.
             </h2>
             <p style={{ marginTop: 16, fontSize: 16, color: "var(--text-dim)" }}>

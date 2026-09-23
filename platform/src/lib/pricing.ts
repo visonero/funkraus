@@ -1,2 +1,2 @@
-export const PRICE = "349";
+export const PRICE = "279";
 export const ORIGINAL_PRICE = "799";

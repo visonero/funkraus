@@ -1,3 +1,5 @@
+import { PRICE } from "@/lib/pricing";
+
 // Shared with FaqAccordion.tsx (renders it) and the homepage (FAQPage structured data for SEO).
 export const FAQS = [
   {
@@ -10,7 +12,7 @@ export const FAQS = [
   },
   {
     q: "Was passiert nach Modul 1?",
-    a: "Ab Modul 2 beginnt der eigentliche Sprechfunk-Teil. Diese Module schaltest du mit dem Vollzugang frei, einmalig €349, ohne Abo. Bis dahin kannst du in Ruhe testen, ob dir der Kurs gefällt.",
+    a: `Ab Modul 2 beginnt der eigentliche Sprechfunk-Teil. Diese Module schaltest du mit dem Vollzugang frei, einmalig €${PRICE}, ohne Abo. Bis dahin kannst du in Ruhe testen, ob dir der Kurs gefällt.`,
   },
   {
     q: "Muss ich für die Registrierung bezahlen oder Zahlungsdaten angeben?",
@@ -35,9 +37,5 @@ export const FAQS = [
   {
     q: "Was passiert direkt nach dem Kauf des Vollzugangs?",
     a: "Alle weiteren Module werden in deinem bestehenden Konto sofort freigeschaltet, ohne Wartezeit und ohne weiteres Gespräch. Dein bisheriger Fortschritt bleibt erhalten.",
-  },
-  {
-    q: "Gibt es eine Geld-zurück-Garantie?",
-    a: "Details zu unserer Rückerstattungsregelung werden vor dem offiziellen Launch final festgelegt und hier ergänzt.",
   },
 ];

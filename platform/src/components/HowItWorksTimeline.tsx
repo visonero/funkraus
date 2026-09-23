@@ -37,7 +37,7 @@ export default function HowItWorksTimeline() {
     <div id="ablauf" ref={sectionRef} style={{ position: "relative", overflow: "hidden" }}>
       <div className="deco blob hide-mobile" style={{ position: "absolute", bottom: "0%", left: "-6%", width: 240, height: 240, opacity: 0.2, background: "var(--violet)" }} />
       <div className="section-pad" style={{ position: "relative", zIndex: 1, padding: "20px 32px 110px", maxWidth: 1180, margin: "0 auto" }}>
-        <div className="reveal" style={{ maxWidth: 640 }}>
+        <div className="reveal" style={{ maxWidth: 640, margin: "0 auto", textAlign: "center" }}>
           <span className="label" style={{ color: "var(--sky)" }}>So einfach geht&apos;s</span>
           <h2 style={{ fontSize: "clamp(28px,3.4vw,42px)", marginTop: 14, fontWeight: 700, lineHeight: 1.2 }}>
             Von der Registrierung zur <span className="grad">bestandenen Prüfung.</span>
