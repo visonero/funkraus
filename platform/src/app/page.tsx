@@ -56,7 +56,7 @@ const jsonLd = [
     name: "BZF I & II Online-Kurs",
     description:
       "Online-Kurs für das Sprechfunkzeugnis BZF I und BZF II für PPL(A)- und LAPL(A)-Piloten in Deutschland, mit dem offiziellen Fragenkatalog der Bundesnetzagentur.",
-    provider: { "@type": "Organization", name: "funkraus", sameAs: "https://funkraus.de" },
+    provider: { "@type": "Organization", name: "funkraus", sameAs: "https://www.funkraus.de" },
     offers: {
       "@type": "Offer",
       price: PRICE,

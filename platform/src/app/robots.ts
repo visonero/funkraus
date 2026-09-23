@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const SITE_URL = "https://funkraus.de";
+const SITE_URL = "https://www.funkraus.de";
 
 export default function robots(): MetadataRoute.Robots {
   return {

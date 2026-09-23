@@ -23,7 +23,7 @@ export default function Footer() {
           <p className="label" style={{ color: "var(--text-faint)", marginBottom: 14 }}>Unternehmen</p>
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
             <Link className="nav-link" style={{ fontSize: 13.5 }} href="/#vorteile">Über uns</Link>
-            <a className="nav-link" style={{ fontSize: 13.5 }} href="#">Kontakt</a>
+            <a className="nav-link" style={{ fontSize: 13.5 }} href="mailto:h.alkhodour@web.de">Kontakt</a>
           </div>
         </div>
         <div>
