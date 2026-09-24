@@ -104,7 +104,7 @@ export default async function Home() {
             BZF-Crashkurs: <span className="grad">Sprechfunkzeugnis in unter 10 Stunden bestehen.</span>
           </h1>
           <p style={{ marginTop: 18, fontSize: 15, color: "var(--text-dim)", maxWidth: 820, marginLeft: "auto", marginRight: "auto" }}>
-            Der komplette BZF-Onlinekurs mit Video, Audio-Funkübungen, Lesetexten, PDF-Merkblättern und dem offiziellen Fragenkatalog der Bundesnetzagentur. Auf Laptop, Tablet und Smartphone.
+            Der komplette BZF-Crashkurs mit Video, Audio-Funkübungen, Lesetexten, PDF-Merkblättern und dem offiziellen Fragenkatalog der Bundesnetzagentur — damit du deine Prüfung sicher bestehen kannst. Auf Laptop, Tablet und Smartphone.
           </p>
           <div className="hero-eyebrow" style={{ display: "inline-flex", alignItems: "center", gap: 8, marginTop: 18, padding: "6px 14px", borderRadius: 999, background: "rgba(52,211,153,0.16)", border: "1px solid rgba(52,211,153,0.4)" }}>
             <span style={{ fontSize: 12, flex: "none" }}>🎁</span>
@@ -223,7 +223,7 @@ export default async function Home() {
           image={{ src: "/screens/quiz-desktop.webp", alt: "BZF-Prüfungsfragen mit Erklärung, responsiv auf allen Geräten nutzbar", width: 2880, height: 1800 }}
           cta={
             <Link href={SIGNUP_HREF} className="btn-accent" style={{ display: "inline-block", padding: "14px 26px", borderRadius: 999, fontSize: 15 }}>
-              {FREE_CTA}
+              Jetzt kostenloses Konto erstellen
             </Link>
           }
         />
@@ -316,7 +316,7 @@ export default async function Home() {
                 ))}
               </div>
               <Link href={SIGNUP_HREF} className="btn-accent" style={{ display: "block", marginTop: 26, padding: 15, borderRadius: 999, fontSize: 15 }}>
-                {FREE_CTA}
+                Kostenlos registrieren
               </Link>
             </div>
 
@@ -379,7 +379,7 @@ export default async function Home() {
           </h2>
           <p style={{ marginTop: 16, fontSize: 17, color: "var(--text-dim)" }}>Kostenlos starten. Fester Preis für den Rest. Kein Verkaufsgespräch.</p>
           <Link href={SIGNUP_HREF} className="btn-accent" style={{ display: "inline-block", marginTop: 32, padding: "18px 38px", borderRadius: 999, fontSize: 17 }}>
-            {FREE_CTA}
+            Jetzt kostenlos starten
           </Link>
         </div>
       </div>

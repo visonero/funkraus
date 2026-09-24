@@ -63,7 +63,7 @@ export default function HowItWorksTimeline() {
             <div key={s.num} className="reveal" style={{ position: "relative", flex: 1, textAlign: "center", padding: "0 8px" }}>
               <div className="glass timeline-num">{s.num}</div>
               <div className="timeline-diamond" />
-              <h3 style={{ marginTop: 26, fontSize: 16.5, fontWeight: 700 }}>{s.title}</h3>
+              <p style={{ marginTop: 26, fontSize: 16.5, fontWeight: 700 }}>{s.title}</p>
               <p style={{ marginTop: 8, fontSize: 13.5, color: "var(--text-dim)" }}>{s.desc}</p>
             </div>
           ))}

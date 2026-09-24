@@ -10,13 +10,53 @@ export default function Footer() {
           <p style={{ marginTop: 14, fontSize: 13.5, color: "var(--text-faint)", maxWidth: 280 }}>
             Verstanden. Und bestanden. Der Online-Kurs für dein Sprechfunkzeugnis BZF I &amp; II.
           </p>
+          <div style={{ display: "flex", gap: 10, marginTop: 18 }}>
+            <a
+              href="https://wa.me/?text=Schau%20dir%20den%20BZF-Online-Kurs%20von%20funkraus%20an%3A%20https%3A%2F%2Fwww.funkraus.de"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Auf WhatsApp teilen"
+              className="nav-link"
+              style={{ fontSize: 13 }}
+            >
+              WhatsApp
+            </a>
+            <a
+              href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.funkraus.de"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Auf Facebook teilen"
+              className="nav-link"
+              style={{ fontSize: 13 }}
+            >
+              Facebook
+            </a>
+            <a
+              href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.funkraus.de&text=BZF-Online-Kurs%20von%20funkraus"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Auf X teilen"
+              className="nav-link"
+              style={{ fontSize: 13 }}
+            >
+              X
+            </a>
+            <a
+              href="mailto:?subject=BZF-Online-Kurs%20von%20funkraus&body=Schau%20dir%20das%20mal%20an%3A%20https%3A%2F%2Fwww.funkraus.de"
+              aria-label="Per E-Mail teilen"
+              className="nav-link"
+              style={{ fontSize: 13 }}
+            >
+              E-Mail
+            </a>
+          </div>
         </div>
         <div>
           <p className="label" style={{ color: "var(--text-faint)", marginBottom: 14 }}>Kurs</p>
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
             <Link className="nav-link" style={{ fontSize: 13.5 }} href="/#kurs">Kursinhalt</Link>
-            <Link className="nav-link" style={{ fontSize: 13.5 }} href="/kurs">Preis</Link>
-            <Link className="nav-link" style={{ fontSize: 13.5 }} href="/#faq">FAQ</Link>
+            <Link className="nav-link" style={{ fontSize: 13.5 }} href="/kurs">Preise</Link>
+            <Link className="nav-link" style={{ fontSize: 13.5 }} href="/#faq">Häufige Fragen</Link>
           </div>
         </div>
         <div>

@@ -52,7 +52,7 @@ export default async function KursPage() {
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 14, justifyContent: "center", marginTop: 28 }}>
             <Link href="/login?mode=signup" className="btn-accent" style={{ display: "inline-block", padding: "16px 32px", borderRadius: 999, fontSize: 16 }}>
-              Heute kostenlos starten
+              Jetzt kostenlos registrieren
             </Link>
             <a href="#kaufen" className="btn-ghost" style={{ display: "inline-block", padding: "16px 32px", borderRadius: 999, fontSize: 16 }}>
               Vollzugang ansehen ↓

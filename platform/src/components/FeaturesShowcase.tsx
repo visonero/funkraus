@@ -87,7 +87,7 @@ export default function FeaturesShowcase() {
                 </span>
               </div>
               <div className="flip-card-face flip-card-back glass-strong">
-                <h3 style={{ fontSize: 14.5, fontWeight: 700, color: "var(--sky-deep)" }}>{f.title}</h3>
+                <p style={{ fontSize: 14.5, fontWeight: 700, color: "var(--sky-deep)" }}>{f.title}</p>
                 <p style={{ marginTop: 10, fontSize: 13.5, color: "var(--text-dim)", lineHeight: 1.5 }}>{f.desc}</p>
                 <span style={{ marginTop: "auto", fontSize: 12, color: "var(--text-faint)", fontWeight: 600 }}>
                   ← Zurück

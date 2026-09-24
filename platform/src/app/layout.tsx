@@ -15,9 +15,9 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 const SITE_URL = "https://www.funkraus.de";
-const TITLE = "BZF Online-Kurs für PPL & LAPL – Sprechfunkzeugnis lernen | funkraus";
+const TITLE = "BZF Online-Kurs für PPL & LAPL | funkraus";
 const DESCRIPTION =
-  "Der komplette BZF I & II Online-Kurs für deinen PPL(A) oder LAPL(A): offizieller Fragenkatalog der Bundesnetzagentur, Video, Audio-Funkübungen und PDF-Merkblätter. Starte jetzt kostenlos mit Modul 0 und 1.";
+  "BZF I & II Online-Kurs für PPL(A) und LAPL(A): offizieller Fragenkatalog, Video und Audio-Funkübungen. Jetzt kostenlos starten.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
