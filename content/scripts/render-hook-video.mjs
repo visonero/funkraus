@@ -41,7 +41,7 @@ const props = {
     const scene = script.scenes.find((s) => s.id === t.id);
     return { ...t, visual: scene.visual, subtitles: scene.subtitles };
   }),
-  lessonLabel: `Lektion ${chapter.id}`,
+  lessonLabel: chapter.videoLabel ?? `Lektion ${chapter.id}`,
   lessonTitle: chapter.title.replace(/\s*\(.*\)$/, ""),
 };
 const propsFile = path.join(videoDir, "out", `${script.id}.props.json`);

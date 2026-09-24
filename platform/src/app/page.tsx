@@ -161,6 +161,14 @@ export default async function Home() {
           </div>
         </div>
 
+        <div className="reveal section-pad" style={{ position: "relative", zIndex: 1, maxWidth: 960, margin: "40px auto 0", padding: "0 32px" }}>
+          <div style={{ borderRadius: 28, overflow: "hidden", boxShadow: "0 40px 80px -30px rgba(30,58,95,0.45)", border: "1px solid var(--line)" }}>
+            <video controls preload="metadata" poster="/videos/sales-video-poster.webp" style={{ display: "block", width: "100%", height: "auto", background: "#0b1220" }}>
+              <source src="/videos/sales-video.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+
         <ShowcaseSection
           eyebrow="1 · Der komplette Crashkurs"
           title={
