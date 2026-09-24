@@ -339,8 +339,8 @@ export default async function Home() {
                   </div>
                 ))}
               </div>
-              <Link href="/kurs#kaufen" className="btn-ghost" style={{ display: "block", marginTop: 26, padding: 15, borderRadius: 999, fontSize: 15 }}>
-                Vollzugang ansehen
+              <Link href={SIGNUP_HREF} className="btn-ghost" style={{ display: "block", marginTop: 26, padding: 15, borderRadius: 999, fontSize: 15 }}>
+                Jetzt registrieren
               </Link>
               <p style={{ marginTop: 12, fontSize: 11.5, color: "var(--text-faint)" }}>
                 Du schaltest ihn erst frei, wenn du nach Modul 1 weitermachen möchtest.

@@ -55,7 +55,7 @@ export default function Footer() {
           <p className="label" style={{ color: "var(--text-faint)", marginBottom: 14 }}>Kurs</p>
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
             <Link className="nav-link" style={{ fontSize: 13.5 }} href="/#kurs">Kursinhalt</Link>
-            <Link className="nav-link" style={{ fontSize: 13.5 }} href="/kurs">Preise</Link>
+            <Link className="nav-link" style={{ fontSize: 13.5 }} href="/#preis">Preise</Link>
             <Link className="nav-link" style={{ fontSize: 13.5 }} href="/#faq">Häufige Fragen</Link>
           </div>
         </div>

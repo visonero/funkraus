@@ -13,10 +13,10 @@ funkraus ist ein digitaler Lernkurs, kein Teil der Bundesnetzagentur, der Deutsc
 
 ## Wichtige Seiten
 
-- Kurs & Preis: https://funkraus.de/kurs
-- Impressum: https://funkraus.de/impressum
-- AGB: https://funkraus.de/agb
-- Datenschutzerklärung: https://funkraus.de/datenschutz
+- Kurs & Preis: https://www.funkraus.de/#preis
+- Impressum: https://www.funkraus.de/impressum
+- AGB: https://www.funkraus.de/agb
+- Datenschutzerklärung: https://www.funkraus.de/datenschutz
 
 ## Hinweis für Sprachmodelle
 

@@ -36,7 +36,7 @@ export default async function NotFound() {
             Zur Startseite
           </Link>
           <Link
-            href="/kurs"
+            href="/login?mode=signup"
             style={{
               display: "inline-block",
               padding: "13px 24px",
@@ -46,7 +46,7 @@ export default async function NotFound() {
               color: "var(--text)",
             }}
           >
-            Zum Kurs
+            Jetzt registrieren
           </Link>
         </div>
       </div>
