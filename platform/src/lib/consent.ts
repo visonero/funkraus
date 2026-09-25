@@ -2,7 +2,8 @@
 export const CONSENT_KEY = "funkraus-analytics-consent";
 export const CONSENT_EVENT = "funkraus:consent-changed";
 export const OPEN_SETTINGS_EVENT = "funkraus:open-consent";
-export const GA_ID = process.env.NEXT_PUBLIC_GA_ID ?? "";
+// The measurement ID is public (visible in every page source), so it lives in code. NEXT_PUBLIC_GA_ID overrides it.
+export const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-WW2TDK7NYM";
 
 export type Consent = "granted" | "denied" | "unset";
 
