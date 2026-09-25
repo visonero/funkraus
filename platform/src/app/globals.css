@@ -1520,3 +1520,27 @@ button {
   border-color: transparent;
   color: #fff;
 }
+.blog-prose table {
+  font-size: 15px;
+}
+.blog-prose td,
+.blog-prose th {
+  vertical-align: top;
+}
+.blog-prose td:first-child {
+  width: auto;
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-weight: 700;
+  color: var(--text);
+}
+.blog-prose td:nth-child(2) {
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-weight: 400;
+  color: inherit;
+}
+@media (max-width: 640px) {
+  .blog-prose table {
+    display: block;
+    overflow-x: auto;
+  }
+}
