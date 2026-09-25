@@ -32,6 +32,22 @@ function repairTables(md: string): string {
     .join("\n");
 }
 
+const DIVIDER = /^\s*\|?\s*:?-{3,}:?\s*(\|\s*:?-{3,}:?\s*)*\|?\s*$/;
+
+const cellsOf = (line: string) => line.trim().replace(/^\|/, "").replace(/\|$/, "").split("|");
+
+// Markdown only makes a table when the divider row has as many cells as the header. Adding a column by hand
+// usually forgets the divider, so match it to the header.
+function fixDividers(md: string): string {
+  const lines = md.split("\n");
+  for (let i = 1; i < lines.length; i++) {
+    if (!DIVIDER.test(lines[i]) || !lines[i - 1].includes("|")) continue;
+    const want = cellsOf(lines[i - 1]).length;
+    if (cellsOf(lines[i]).length !== want) lines[i] = `|${Array(want).fill("---").join("|")}|`;
+  }
+  return lines.join("\n");
+}
+
 const TOKEN = /^[ \t]*\{\{\s*([a-z-]+)\s*\}\}[ \t]*$/gm;
 
 export function splitBody(body: string): BodySegment[] {
@@ -40,13 +56,13 @@ export function splitBody(body: string): BodySegment[] {
   for (const m of body.matchAll(TOKEN)) {
     const start = m.index ?? 0;
     const text = body.slice(last, start);
-    if (text.trim()) segments.push({ type: "md", text: repairTables(text) });
+    if (text.trim()) segments.push({ type: "md", text: fixDividers(repairTables(text)) });
     const id = m[1] as PresetId;
     if (id in PRESETS) segments.push({ type: "preset", id });
     last = start + m[0].length;
   }
   const rest = body.slice(last);
-  if (rest.trim()) segments.push({ type: "md", text: repairTables(rest) });
+  if (rest.trim()) segments.push({ type: "md", text: fixDividers(repairTables(rest)) });
   return segments;
 }
 
