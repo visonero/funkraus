@@ -4,115 +4,197 @@
   "scenes": [
     {
       "id": "hook",
-      "voice": "trainer",
-      "text": "Du willst dein Sprechfunkzeugnis - BZF I und BZF II, in einem einzigen Kurs? funkraus bringt dich in unter 10 Stunden von null zur bestandenen Prüfung. Ich zeige dir, wie.",
+      "voice": "enthusiast",
+      "text": "Hey, schön, dass du da bist! Du willst dein Sprechfunkzeugnis machen, BZF I und BZF II, aber du hast keine Lust auf trockene Folien und teure Kurse? Dann bleib dran, denn genau dafür haben wir funkraus gebaut!",
       "visual": {
         "kind": "headline",
-        "headline": "Dein Sprechfunkzeugnis,",
-        "highlight": "in unter 10 Stunden.",
+        "headline": "Dein Sprechfunkzeugnis",
+        "highlight": "wartet auf dich!",
         "tiles": []
       }
     },
     {
+      "id": "forwho",
+      "voice": "enthusiast",
+      "text": "Der Kurs ist für dich, wenn du [[0]]schon Privatpilot bist oder es werden willst, [[1]]den Pilotenschein für Leichtflugzeuge machst, [[2]]noch mitten in der Flugausbildung steckst [[3]]oder einfach komplett bei null anfängst. Vorwissen brauchst du keins, versprochen!",
+      "visual": {
+        "kind": "headline",
+        "headline": "Dieser Kurs ist",
+        "highlight": "für dich, wenn du...",
+        "tiles": [
+          "PPL(A)",
+          "LAPL(A)",
+          "In Ausbildung",
+          "Ohne Vorwissen"
+        ]
+      }
+    },
+    {
+      "id": "why",
+      "voice": "enthusiast",
+      "text": "Und warum funkraus? Erstens: [[0]]Du startest komplett kostenlos, ganz ohne Kreditkarte! Zweitens: [[1]]ein fairer Festpreis, kein Abo und garantiert kein Verkaufsgespräch. Drittens, mein Favorit: [[2]]Du buchst das BZF II und bekommst das BZF I gratis dazu! Viertens: [[3]]der komplette offizielle Fragenkatalog der Bundesnetzagentur. Und das Beste kommt zum Schluss: [[4]]eine richtig moderne Lernplattform. Und die zeige ich dir jetzt!",
+      "visual": {
+        "kind": "transform",
+        "headline": "Darum",
+        "highlight": "funkraus",
+        "tiles": [
+          {
+            "top": "Gratis",
+            "bottom": "Modul 0 & 1 zum Testen"
+          },
+          {
+            "top": "Fair",
+            "bottom": "Ein Preis, kein Abo, kein Verkaufsgespräch"
+          },
+          {
+            "top": "2 in 1",
+            "bottom": "BZF II buchen, BZF I gratis dazu"
+          },
+          {
+            "top": "Offiziell",
+            "bottom": "Kompletter Fragenkatalog"
+          },
+          {
+            "top": "Modern",
+            "bottom": "Lernplattform mit Fortschritt"
+          }
+        ]
+      }
+    },
+    {
       "id": "dashboard",
-      "voice": "trainer",
-      "text": "Sobald du startest, bekommst du dein [[0]]persönliches Dashboard: deinen [[1]]Fortschritt in Prozent, deine Trefferquote, alles live berechnet. Du machst genau [[2]]dort weiter, wo du aufgehört hast - kein Suchen, kein Blättern.",
+      "voice": "enthusiast",
+      "text": "Schau mal, das ist dein [[0]]persönliches Dashboard! Hier siehst du deinen [[1]]Fortschritt in Prozent, deine Trefferquote, alles live. Und mit einem Klick machst du [[2]]genau da weiter, wo du aufgehört hast. Kein Suchen, kein Blättern!",
       "visual": {
         "kind": "photo",
         "image": "sales-dashboard.webp",
+        "pad": 36,
         "headline": "Dein Fortschritt,",
         "highlight": "immer im Blick.",
         "credit": "Live-Ansicht aus dem funkraus Dashboard",
         "steps": [
-          { "label": "Persönliches Dashboard", "sub": "Alle Module auf einen Blick" },
-          { "label": "Live-Fortschritt", "sub": "Prozent, Kapitel, Trefferquote" },
-          { "label": "Genau dort weiterlernen", "sub": "wo du aufgehört hast" }
+          {
+            "label": "Persönliches Dashboard",
+            "sub": "Alle Module auf einen Blick"
+          },
+          {
+            "label": "Live-Fortschritt",
+            "sub": "Prozent, Kapitel, Trefferquote"
+          },
+          {
+            "label": "Genau dort weiterlernen",
+            "sub": "wo du aufgehört hast"
+          }
         ]
       }
     },
     {
       "id": "kurs",
-      "voice": "trainer",
-      "text": "Der Kurs selbst? [[0]]12 Module, die dich von null bis zur Prüfungssimulation führen. [[1]]Der komplette offizielle Fragenkatalog der Bundesnetzagentur mit allen 261 Fragen ist direkt eingebaut. Und der Clou: [[2]]Du buchst das BZF II - und bekommst das komplette BZF I gratis dazu.",
+      "voice": "enthusiast",
+      "text": "Der Kurs selbst? [[0]]Zwölf Module, die dich Schritt für Schritt von null bis zur Prüfungssimulation führen! [[1]]Alle 261 Fragen der Bundesnetzagentur sind direkt eingebaut. Und wie gesagt: [[2]]Du buchst das BZF II und bekommst das komplette BZF I einfach gratis dazu!",
       "visual": {
         "kind": "photo",
         "image": "sales-kurs.webp",
+        "pad": 36,
         "headline": "12 Module,",
         "highlight": "ein durchgehender Kurs.",
         "credit": "Live-Ansicht der Kursübersicht",
         "steps": [
-          { "label": "Vom Einsteiger bis zur Prüfung", "sub": "Kein Vorwissen nötig" },
-          { "label": "Offizieller Fragenkatalog", "sub": "Alle 261 BNetzA-Fragen integriert" },
-          { "label": "BZF II gebucht, BZF I gratis dazu", "sub": "Ohne Aufpreis, ohne zweite Anmeldung" }
+          {
+            "label": "Vom Einsteiger bis zur Prüfung",
+            "sub": "Kein Vorwissen nötig"
+          },
+          {
+            "label": "Offizieller Fragenkatalog",
+            "sub": "Alle 261 BNetzA-Fragen integriert"
+          },
+          {
+            "label": "BZF II gebucht, BZF I gratis dazu",
+            "sub": "Ohne Aufpreis, ohne zweite Anmeldung"
+          }
         ]
       }
     },
     {
       "id": "lektion",
-      "voice": "trainer",
-      "text": "Jede Lektion kombiniert [[0]]Erklärvideos mit echten Diagrammen, [[1]]Audio-Funkübungen zum Nachsprechen [[2]]und PDF-Merkblätter zum Ausdrucken. Kein trockener Frontalunterricht - du hörst, siehst und übst gleichzeitig.",
+      "voice": "enthusiast",
+      "text": "Und jede Lektion ist richtig abwechslungsreich! Du bekommst [[0]]Erklärvideos mit echten Diagrammen, [[1]]Audio-Funkübungen zum Nachsprechen [[2]]und PDF-Merkblätter zum Ausdrucken. Du hörst, siehst und übst gleichzeitig!",
       "visual": {
         "kind": "photo",
         "image": "sales-lektion.webp",
+        "pad": 36,
         "headline": "Video, Audio",
         "highlight": "und echte Diagramme.",
         "credit": "Live-Ansicht einer Video-Lektion",
         "steps": [
-          { "label": "Erklärvideos mit echten Diagrammen", "sub": "Kein trockener Text" },
-          { "label": "Audio-Funkübungen", "sub": "Zum Nachsprechen, wie im Cockpit" },
-          { "label": "PDF-Merkblätter", "sub": "Zum Ausdrucken und Lernen unterwegs" }
+          {
+            "label": "Erklärvideos mit echten Diagrammen",
+            "sub": "Kein trockener Text"
+          },
+          {
+            "label": "Audio-Funkübungen",
+            "sub": "Zum Nachsprechen, wie im Cockpit"
+          },
+          {
+            "label": "PDF-Merkblätter",
+            "sub": "Zum Ausdrucken und Lernen unterwegs"
+          }
         ]
       }
     },
     {
       "id": "quiz",
-      "voice": "trainer",
-      "text": "Zu jeder Lektion gehören [[0]]die passenden Original-Prüfungsfragen. Liegst du daneben, bekommst du [[1]]sofort die Erklärung dazu - nicht erst am Ende. So gehst du [[2]]bestens vorbereitet in deine echte Prüfung.",
+      "voice": "enthusiast",
+      "text": "Zu jeder Lektion gibt es [[0]]die passenden Original-Prüfungsfragen. Liegst du mal daneben, kriegst du [[1]]sofort die Erklärung dazu, nicht erst am Ende! So gehst du [[2]]richtig gut vorbereitet in deine echte Prüfung.",
       "visual": {
         "kind": "photo",
         "image": "sales-quiz.webp",
+        "pad": 36,
         "headline": "Original-Prüfungsfragen,",
         "highlight": "sofort erklärt.",
         "credit": "Live-Ansicht des Übungsquiz",
         "steps": [
-          { "label": "Alle 261 offiziellen Fragen", "sub": "Direkt aus dem BNetzA-Katalog" },
-          { "label": "Sofortige Erklärung", "sub": "Bei jeder Antwort, richtig oder falsch" },
-          { "label": "Perfekt vorbereitet", "sub": "Auf den echten Prüfungstag" }
-        ]
-      }
-    },
-    {
-      "id": "compare",
-      "voice": "trainer",
-      "text": "Viele andere Anbieter setzen auf [[0]]ein Verkaufsgespräch und einen hohen, oft vierstelligen Preis, bevor du überhaupt weißt, was du bekommst. Bei [[1]]funkraus siehst du den Preis von Anfang an, startest kostenlos, und niemand ruft dich an.",
-      "visual": {
-        "kind": "transform",
-        "headline": "Der Unterschied zu",
-        "highlight": "anderen Anbietern.",
-        "tiles": [
-          { "top": "Andere", "bottom": "Verkaufsgespräch, hoher Preis, erst zahlen" },
-          { "top": "funkraus", "bottom": "Kostenloser Start, fairer Festpreis, kein Anruf" }
+          {
+            "label": "Alle 261 offiziellen Fragen",
+            "sub": "Direkt aus dem BNetzA-Katalog"
+          },
+          {
+            "label": "Sofortige Erklärung",
+            "sub": "Bei jeder Antwort, richtig oder falsch"
+          },
+          {
+            "label": "Perfekt vorbereitet",
+            "sub": "Auf den echten Prüfungstag"
+          }
         ]
       }
     },
     {
       "id": "free-start",
-      "voice": "trainer",
-      "text": "Du testest [[0]]Modul 0 und 1 komplett kostenlos, [[1]]ganz ohne Kreditkarte oder Zahlungsdaten. [[2]]Erst wenn du überzeugt bist, schaltest du den Rest frei.",
+      "voice": "enthusiast",
+      "text": "Und das Tollste: Du kannst alles in Ruhe testen! [[0]]Modul 0 und 1 sind komplett kostenlos, [[1]]ohne Kreditkarte, ohne Zahlungsdaten. [[2]]Erst wenn du überzeugt bist, schaltest du den Rest frei.",
       "visual": {
         "kind": "headline",
         "headline": "Kostenlos starten,",
         "highlight": "ohne Risiko.",
-        "tiles": ["Modul 0 & 1 gratis", "Keine Kreditkarte", "Erst zahlen, wenn du überzeugt bist"]
+        "tiles": [
+          "Modul 0 & 1 gratis",
+          "Keine Kreditkarte",
+          "Erst zahlen, wenn du überzeugt bist"
+        ]
       }
     },
     {
       "id": "outro",
-      "voice": "trainer",
-      "text": "Dein Sprechfunkzeugnis wartet nicht. [[0]]Registriere dich jetzt kostenlos, sichere dir beide Zeugnisse zum [[1]]fairen Festpreis von 279 Euro statt 799, mit [[2]]12 Monaten Zugriff. Bis gleich bei funkraus!",
+      "voice": "enthusiast",
+      "text": "Also, worauf wartest du? [[0]]Registriere dich jetzt kostenlos! Wenn du bereit bist, schaltest du alles für [[1]]einmalig 279 Euro frei, mit [[2]]12 Monaten Zugriff. Ich kann es kaum erwarten, mit dir zu starten. Wir sehen uns auf der anderen Seite!",
       "visual": {
         "kind": "outro",
-        "pills": ["Jetzt kostenlos registrieren", "279€ statt 799€", "12 Monate Zugriff"]
+        "pills": [
+          "Jetzt kostenlos registrieren",
+          "Einmalig 279 €",
+          "12 Monate Zugriff"
+        ]
       }
     }
   ]

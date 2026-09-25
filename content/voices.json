@@ -10,6 +10,18 @@
     "video_speed": 0.93
    },
    "say": "Anna"
+  },
+  "enthusiast": {
+   "elevenlabs": {
+    "voice_id": "j46AY0iVY3oHcnZbgEJg",
+    "model_id": "eleven_multilingual_v2",
+    "stability": 0.28,
+    "similarity_boost": 0.7,
+    "style": 0.6,
+    "use_speaker_boost": true,
+    "video_speed": 1.03
+   },
+   "say": "Anna"
   }
  },
  "pronunciations": {

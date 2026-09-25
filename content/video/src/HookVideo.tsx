@@ -28,7 +28,7 @@ export type Visual =
   | { kind: "dialog"; headline: string; highlight?: string; lines: DialogLine[] }
   | { kind: "glyphs"; headline: string; highlight?: string; items: GlyphItem[] }
   | { kind: "diagram"; diagram: DiagramName; headline: string; highlight?: string; steps: Step[]; params?: Record<string, number | string | boolean>; credit?: string }
-  | { kind: "photo"; image: string; headline: string; highlight?: string; steps: Step[]; credit: string; focus?: string }
+  | { kind: "photo"; image: string; headline: string; highlight?: string; steps: Step[]; credit: string; focus?: string; pad?: number }
   | { kind: "outro"; pills: string[] };
 
 type Sentence = { text: string; start: number; end: number };
@@ -450,9 +450,16 @@ function PhotoScene({ duration, visual, cues }: SceneProps<"photo">) {
       highlight={visual.highlight}
       steps={visual.steps}
       credit={visual.credit}
-      panel={(state) => (
-        <Img src={staticFile(`photos/${visual.image}`)} style={{ width: PANEL_W, height: PANEL_H, objectFit: "cover", objectPosition: visual.focus ?? "50% 50%", transform: `scale(${1 + Math.min(0.06, state.frame / (duration * 12))})` }} />
-      )}
+      panel={(state) =>
+        visual.pad ? (
+          // Screenshot with breathing room: the whole image stays visible (contain) inside a padded frame.
+          <div style={{ width: PANEL_W, height: PANEL_H, padding: visual.pad, background: "#fff", display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <Img src={staticFile(`photos/${visual.image}`)} style={{ width: PANEL_W - visual.pad * 2, height: PANEL_H - visual.pad * 2, objectFit: "contain", borderRadius: 18, transform: `scale(${1 + Math.min(0.03, state.frame / (duration * 24))})` }} />
+          </div>
+        ) : (
+          <Img src={staticFile(`photos/${visual.image}`)} style={{ width: PANEL_W, height: PANEL_H, objectFit: "cover", objectPosition: visual.focus ?? "50% 50%", transform: `scale(${1 + Math.min(0.06, state.frame / (duration * 12))})` }} />
+        )
+      }
     />
   );
 }

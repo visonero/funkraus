@@ -89,11 +89,11 @@ function voiceFor(voiceName) {
 
 async function synthesizeElevenLabs(voice, text, { timestamps, speed }) {
   const apiKey = process.env.ELEVENLABS_API_KEY;
-  const { voice_id, model_id, stability, similarity_boost } = voice.elevenlabs ?? {};
+  const { voice_id, model_id, stability, similarity_boost, style, use_speaker_boost } = voice.elevenlabs ?? {};
   if (!apiKey) throw new Error("ELEVENLABS_API_KEY is not set");
   if (!voice_id) throw new Error("No elevenlabs.voice_id in voices.json");
   const url = `https://api.elevenlabs.io/v1/text-to-speech/${voice_id}${timestamps ? "/with-timestamps" : ""}?output_format=pcm_${SAMPLE_RATE}`;
-  const voice_settings = { stability, similarity_boost, ...(speed ? { speed } : {}) };
+  const voice_settings = { stability, similarity_boost, ...(style !== undefined ? { style } : {}), ...(use_speaker_boost !== undefined ? { use_speaker_boost } : {}), ...(speed ? { speed } : {}) };
   // ElevenLabs answers 429 ("system busy") or 5xx under load; waiting and retrying is safe and not billed.
   let res;
   for (let attempt = 1; ; attempt++) {
