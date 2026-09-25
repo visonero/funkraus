@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Logo from "./Logo";
+import CookieSettingsLink from "./CookieSettingsLink";
 
 export default function Footer() {
   return (
@@ -73,6 +74,7 @@ export default function Footer() {
             <Link className="nav-link" style={{ fontSize: 13.5 }} href="/impressum">Impressum</Link>
             <Link className="nav-link" style={{ fontSize: 13.5 }} href="/datenschutz">Datenschutz</Link>
             <Link className="nav-link" style={{ fontSize: 13.5 }} href="/agb">AGB</Link>
+            <CookieSettingsLink />
           </div>
         </div>
       </div>
