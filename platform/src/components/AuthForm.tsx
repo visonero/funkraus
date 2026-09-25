@@ -21,7 +21,7 @@ const inputStyle: React.CSSProperties = {
 
 const labelStyle: React.CSSProperties = { fontSize: 13, fontWeight: 600, color: "var(--text-dim)" };
 
-export default function AuthForm({ initialMode = "signin" }: { initialMode?: Mode }) {
+export default function AuthForm({ initialMode = "signin", callbackError = false }: { initialMode?: Mode; callbackError?: boolean }) {
   const router = useRouter();
   const [mode, setMode] = useState<Mode>(initialMode);
   const [fullName, setFullName] = useState("");
@@ -29,7 +29,10 @@ export default function AuthForm({ initialMode = "signin" }: { initialMode?: Mod
   const [password, setPassword] = useState("");
   const [newsletterOptIn, setNewsletterOptIn] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [forgot, setForgot] = useState(false);
+  const [error, setError] = useState<string | null>(
+    callbackError ? "Der Link ist ungültig oder abgelaufen. Bitte fordere einen neuen an." : null,
+  );
   const [message, setMessage] = useState<string | null>(null);
 
   async function handleSubmit(e: React.FormEvent) {
@@ -39,6 +42,20 @@ export default function AuthForm({ initialMode = "signin" }: { initialMode?: Mod
     setMessage(null);
 
     const supabase = createClient();
+
+    if (forgot) {
+      const { error } = await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: `${window.location.origin}/auth/callback?next=/reset-password`,
+      });
+      if (error) {
+        setError(error.message);
+      } else {
+        // Same message whether or not the address has an account, so this can't be used to probe for registered emails.
+        setMessage("Falls ein Konto mit dieser E-Mail-Adresse existiert, haben wir dir einen Link zum Zurücksetzen geschickt.");
+      }
+      setLoading(false);
+      return;
+    }
 
     if (mode === "signup") {
       const { error } = await supabase.auth.signUp({
@@ -72,9 +89,10 @@ export default function AuthForm({ initialMode = "signin" }: { initialMode?: Mod
       <div style={{ display: "flex", gap: 8, marginBottom: 24, justifyContent: "center" }}>
         <button
           type="button"
-          className={`tab-btn${mode === "signin" ? " is-active" : ""}`}
+          className={`tab-btn${mode === "signin" && !forgot ? " is-active" : ""}`}
           onClick={() => {
             setMode("signin");
+            setForgot(false);
             setError(null);
             setMessage(null);
           }}
@@ -86,6 +104,7 @@ export default function AuthForm({ initialMode = "signin" }: { initialMode?: Mod
           className={`tab-btn${mode === "signup" ? " is-active" : ""}`}
           onClick={() => {
             setMode("signup");
+            setForgot(false);
             setError(null);
             setMessage(null);
           }}
@@ -95,7 +114,12 @@ export default function AuthForm({ initialMode = "signin" }: { initialMode?: Mod
       </div>
 
       <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 14, textAlign: "left" }}>
-        {mode === "signup" && (
+        {forgot && (
+          <p style={{ fontSize: 13.5, color: "var(--text-dim)" }}>
+            Gib deine E-Mail-Adresse ein. Wir schicken dir einen Link, mit dem du ein neues Passwort festlegen kannst.
+          </p>
+        )}
+        {mode === "signup" && !forgot && (
           <label style={labelStyle}>
             Name
             <input
@@ -117,19 +141,35 @@ export default function AuthForm({ initialMode = "signin" }: { initialMode?: Mod
             style={inputStyle}
           />
         </label>
-        <label style={labelStyle}>
-          Passwort
-          <input
-            type="password"
-            required
-            minLength={6}
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            style={inputStyle}
-          />
-        </label>
+        {!forgot && (
+          <label style={labelStyle}>
+            Passwort
+            <input
+              type="password"
+              required
+              minLength={6}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              style={inputStyle}
+            />
+          </label>
+        )}
+        {mode === "signin" && !forgot && (
+          <button
+            type="button"
+            onClick={() => {
+              setForgot(true);
+              setError(null);
+              setMessage(null);
+            }}
+            className="nav-link"
+            style={{ alignSelf: "flex-end", background: "transparent", border: "none", padding: 0, fontSize: 13, marginTop: -6 }}
+          >
+            Passwort vergessen?
+          </button>
+        )}
 
-        {mode === "signup" && (
+        {mode === "signup" && !forgot && (
           <label style={{ display: "flex", alignItems: "flex-start", gap: 10, fontSize: 13, color: "var(--text-dim)" }}>
             <input
               type="checkbox"
@@ -156,8 +196,22 @@ export default function AuthForm({ initialMode = "signin" }: { initialMode?: Mod
         )}
 
         <button type="submit" disabled={loading} className="btn-accent" style={{ padding: 14, borderRadius: 999, fontSize: 15, border: "none", opacity: loading ? 0.7 : 1 }}>
-          {loading ? "Einen Moment…" : mode === "signup" ? "Kostenloses Konto erstellen" : "Anmelden"}
+          {loading ? "Einen Moment…" : forgot ? "Link zum Zurücksetzen senden" : mode === "signup" ? "Kostenloses Konto erstellen" : "Anmelden"}
         </button>
+        {forgot && (
+          <button
+            type="button"
+            onClick={() => {
+              setForgot(false);
+              setError(null);
+              setMessage(null);
+            }}
+            className="nav-link"
+            style={{ background: "transparent", border: "none", padding: 0, fontSize: 13.5, textAlign: "center" }}
+          >
+            ← Zurück zur Anmeldung
+          </button>
+        )}
       </form>
     </div>
   );

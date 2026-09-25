@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 };
 
 export default async function LoginPage({ searchParams }: PageProps<"/login">) {
-  const { mode } = await searchParams;
+  const { mode, error } = await searchParams;
   const signup = mode === "signup";
   return (
     <div
@@ -45,7 +45,7 @@ export default async function LoginPage({ searchParams }: PageProps<"/login">) {
             : "Melde dich an oder erstelle ein kostenloses Konto."}
         </p>
         <div style={{ marginTop: 28 }}>
-          <AuthForm initialMode={signup ? "signup" : "signin"} />
+          <AuthForm initialMode={signup ? "signup" : "signin"} callbackError={error === "auth_callback_failed"} />
         </div>
         <Link
           href="/"
