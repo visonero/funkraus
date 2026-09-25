@@ -72,16 +72,16 @@ export default async function BlogIndexPage({ searchParams }: PageProps<"/blog">
     <div style={{ width: "100%", background: "var(--bg)", overflowX: "hidden" }}>
       <SiteNav email={user?.email ?? null} />
       <div className="sky-wash">
-        <div style={{ maxWidth: 1180, margin: "0 auto", padding: "64px 32px 40px" }}>
+        <div style={{ maxWidth: 1180, margin: "0 auto", padding: "64px 32px 40px", textAlign: "center" }}>
           <span className="label" style={{ color: "var(--sky)" }}>Blog</span>
-          <h1 style={{ marginTop: 10, fontSize: "clamp(30px,4.6vw,46px)", fontWeight: 800, lineHeight: 1.15, maxWidth: 760 }}>
+          <h1 style={{ marginTop: 10, fontSize: "clamp(30px,4.6vw,46px)", fontWeight: 800, lineHeight: 1.15, maxWidth: 760, marginInline: "auto" }}>
             Wissen rund ums <span className="grad">Sprechfunkzeugnis</span>
           </h1>
-          <p style={{ marginTop: 14, fontSize: 17, lineHeight: 1.6, color: "var(--text-dim)", maxWidth: 620 }}>{DESCRIPTION}</p>
+          <p style={{ marginTop: 14, fontSize: 17, lineHeight: 1.6, color: "var(--text-dim)", maxWidth: 620, marginInline: "auto" }}>{DESCRIPTION}</p>
 
           {all.length > 0 && (
             <div style={{ marginTop: 32, display: "flex", flexDirection: "column", gap: 16 }}>
-              <form action="/blog" method="get" style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+              <form action="/blog" method="get" style={{ display: "flex", gap: 10, flexWrap: "wrap", justifyContent: "center" }}>
                 {topic && <input type="hidden" name="thema" value={topic} />}
                 {sort === "alt" && <input type="hidden" name="sort" value="alt" />}
                 <input
@@ -90,12 +90,12 @@ export default async function BlogIndexPage({ searchParams }: PageProps<"/blog">
                   defaultValue={q}
                   placeholder="Artikel durchsuchen…"
                   aria-label="Artikel durchsuchen"
-                  style={{ flex: "1 1 260px", maxWidth: 420, padding: "12px 16px", borderRadius: 999, border: "1.5px solid var(--line-strong)", background: "rgba(255,255,255,0.8)", fontSize: 15, fontFamily: "var(--font-body)", color: "var(--text)" }}
+                  style={{ flex: "1 1 260px", maxWidth: 420, textAlign: "left", padding: "12px 16px", borderRadius: 999, border: "1.5px solid var(--line-strong)", background: "rgba(255,255,255,0.8)", fontSize: 15, fontFamily: "var(--font-body)", color: "var(--text)" }}
                 />
                 <button type="submit" className="btn-accent" style={{ padding: "12px 24px", borderRadius: 999, fontSize: 14.5 }}>Suchen</button>
               </form>
 
-              <div style={{ display: "flex", flexWrap: "wrap", gap: 8, alignItems: "center" }}>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 8, alignItems: "center", justifyContent: "center" }}>
                 <Link href={href({ thema: "" })} className={`blog-chip${!topic ? " is-active" : ""}`}>Alle ({all.length})</Link>
                 {topics.map((t) => (
                   <Link key={t} href={href({ thema: t })} className={`blog-chip${topic === t ? " is-active" : ""}`}>
@@ -104,7 +104,7 @@ export default async function BlogIndexPage({ searchParams }: PageProps<"/blog">
                 ))}
               </div>
 
-              <div style={{ display: "flex", flexWrap: "wrap", gap: 8, alignItems: "center" }}>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 8, alignItems: "center", justifyContent: "center" }}>
                 <span style={{ fontSize: 13, fontWeight: 600, color: "var(--text-faint)" }}>Sortieren:</span>
                 <Link href={href({ sort: "" })} className={`blog-chip${sort === "neu" ? " is-active" : ""}`}>Neueste zuerst</Link>
                 <Link href={href({ sort: "alt" })} className={`blog-chip${sort === "alt" ? " is-active" : ""}`}>Älteste zuerst</Link>
@@ -116,15 +116,15 @@ export default async function BlogIndexPage({ searchParams }: PageProps<"/blog">
 
       <div style={{ maxWidth: 1180, margin: "0 auto", padding: "16px 32px 72px" }}>
         {all.length === 0 ? (
-          <p style={{ padding: "48px 0", fontSize: 16, color: "var(--text-dim)" }}>Hier erscheinen bald die ersten Artikel. Schau bald wieder vorbei!</p>
+          <p style={{ padding: "48px 0", fontSize: 16, color: "var(--text-dim)", textAlign: "center" }}>Hier erscheinen bald die ersten Artikel. Schau bald wieder vorbei!</p>
         ) : posts.length === 0 ? (
-          <div style={{ padding: "48px 0" }}>
+          <div style={{ padding: "48px 0", textAlign: "center" }}>
             <p style={{ fontSize: 16, color: "var(--text-dim)" }}>Keine Artikel für diese Auswahl gefunden.</p>
             {hasFilter && <Link href="/blog" className="nav-link" style={{ display: "inline-block", marginTop: 12 }}>Filter zurücksetzen</Link>}
           </div>
         ) : (
           <>
-            <p style={{ margin: "8px 0 20px", fontSize: 13.5, color: "var(--text-faint)" }}>
+            <p style={{ margin: "8px 0 20px", fontSize: 13.5, color: "var(--text-faint)", textAlign: "center" }}>
               {posts.length} Artikel
               {topic ? ` in „${topic}“` : ""}
               {q ? ` für „${q}“` : ""}
