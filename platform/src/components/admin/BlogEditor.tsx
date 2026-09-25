@@ -20,7 +20,13 @@ export type EditorPost = {
 
 type Tool =
   | { label: string; title: string; kind: "wrap"; before: string; after: string; placeholder: string }
-  | { label: string; title: string; kind: "line"; prefix: string; placeholder: string };
+  | { label: string; title: string; kind: "line"; prefix: string; placeholder: string }
+  | { label: string; title: string; kind: "block"; text: string };
+
+const TABLE_TEMPLATE = `| Überschrift 1 | Überschrift 2 | Überschrift 3 |
+|---|---|---|
+| Zeile 1, Spalte 1 | Zeile 1, Spalte 2 | Zeile 1, Spalte 3 |
+| Zeile 2, Spalte 1 | Zeile 2, Spalte 2 | Zeile 2, Spalte 3 |`;
 
 const TOOLS: Tool[] = [
   { label: "B", title: "Fett", kind: "wrap", before: "**", after: "**", placeholder: "fetter Text" },
@@ -30,6 +36,7 @@ const TOOLS: Tool[] = [
   { label: "• Liste", title: "Aufzählung", kind: "line", prefix: "- ", placeholder: "Listenpunkt" },
   { label: "❝", title: "Zitat", kind: "line", prefix: "> ", placeholder: "Zitat" },
   { label: "Link", title: "Link einfügen", kind: "wrap", before: "[", after: "](https://)", placeholder: "Linktext" },
+  { label: "▦ Tabelle", title: "Tabelle einfügen (3 Spalten, 2 Zeilen)", kind: "block", text: TABLE_TEMPLATE },
   { label: "Bild", title: "Bild per URL einfügen", kind: "wrap", before: "![", after: "](https://)", placeholder: "Bildbeschreibung" },
 ];
 
@@ -59,7 +66,9 @@ export default function BlogEditor({ post = EMPTY, topics }: { post?: EditorPost
   }
 
   function applyTool(tool: Tool) {
-    if (tool.kind === "wrap") {
+    if (tool.kind === "block") {
+      insertBlock(tool.text);
+    } else if (tool.kind === "wrap") {
       applyEdit((t, s, e) => {
         const sel = t.slice(s, e) || tool.placeholder;
         return { text: t.slice(0, s) + tool.before + sel + tool.after + t.slice(e), start: s + tool.before.length, end: s + tool.before.length + sel.length };
@@ -74,17 +83,20 @@ export default function BlogEditor({ post = EMPTY, topics }: { post?: EditorPost
     }
   }
 
-  function insertPreset(id: PresetId) {
+  function insertBlock(block: string) {
     applyEdit((t, s) => {
       const before = t.slice(0, s);
       const after = t.slice(s);
       const lead = before === "" || before.endsWith("\n\n") ? "" : before.endsWith("\n") ? "\n" : "\n\n";
       const trail = after === "" || after.startsWith("\n\n") ? "" : after.startsWith("\n") ? "\n" : "\n\n";
-      const token = `{{${id}}}`;
-      const text = before + lead + token + trail + after;
-      const pos = (before + lead + token + trail).length;
+      const text = before + lead + block + trail + after;
+      const pos = (before + lead + block + trail).length;
       return { text, start: pos, end: pos };
     });
+  }
+
+  function insertPreset(id: PresetId) {
+    insertBlock(`{{${id}}}`);
   }
 
   return (
@@ -158,6 +170,9 @@ export default function BlogEditor({ post = EMPTY, topics }: { post?: EditorPost
               </button>
             ))}
           </div>
+          <p style={{ marginTop: 10, fontSize: 12.5, color: "var(--text-faint)" }}>
+            Hier siehst du den Rohtext mit Zeichen wie ## oder |. Wie der Artikel wirklich aussieht, zeigt der Reiter „Vorschau“.
+          </p>
           <textarea
             ref={ref}
             name="body"
