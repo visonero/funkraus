@@ -52,9 +52,9 @@ Drohnenpiloten brauchen im Normalfall kein Sprechfunkzeugnis.
 
 ## BZF I direkt oder erst BZF II?
 
-Wenn du das BZF I willst, gibt es zwei Wege. Du kannst die Vollprüfung fürs BZF I machen, oder du machst zuerst das BZF II und holst das BZF I später als Ergänzungsprüfung nach. Was die Ergänzungsprüfung kostet, steht in den Unterlagen der Bundesnetzagentur.
+Wenn du das BZF I willst, gibt es zwei Wege. Du kannst die Vollprüfung fürs BZF I machen, oder du machst zuerst das BZF II und holst das BZF I später als Ergänzungsprüfung nach. Die Ergänzungsprüfung vom BZF II zum BZF I kostet 80 Euro.
 
-Ein Blick auf die Gebühren hilft bei der Entscheidung. Die Vollprüfung fürs BZF II kostet 80 Euro, die fürs BZF I 95 Euro, also nur 15 Euro mehr. Ist absehbar, dass du Englisch brauchst, ist das BZF I direkt meist der einfachere Weg: eine Anmeldung, ein Prüfungstermin, fertig.
+Ein Blick auf die Gebühren hilft bei der Entscheidung. Die Vollprüfung fürs BZF II kostet 80 Euro, die fürs BZF I 95 Euro, also nur 15 Euro mehr. Wer dagegen erst das BZF II macht und später die Ergänzungsprüfung, zahlt insgesamt 160 Euro. Ist absehbar, dass du Englisch brauchst, ist das BZF I direkt deshalb meist der einfachere und günstigere Weg: eine Anmeldung, ein Prüfungstermin, fertig.
 
 Ein Umweg über das BZF II kann trotzdem Sinn ergeben. Zum Beispiel, wenn du mitten in der Ausbildung steckst, das Zeugnis bald brauchst und dein Englisch gerade eingerostet ist. Dann machst du erst das BZF II und nimmst dir für den englischen Teil in Ruhe später Zeit.
 
