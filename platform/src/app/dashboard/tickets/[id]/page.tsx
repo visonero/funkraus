@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { QuestionBox, StatusPill, Thread } from "@/components/app/TicketBits";
 import TicketReplyForm from "@/components/app/TicketReplyForm";
 import { getCurrentUser } from "@/lib/auth/session";
-import { markTicketSeen } from "@/lib/course/study-actions";
+import MarkTicketSeen from "@/components/app/MarkTicketSeen";
 import { getTicketThread } from "@/lib/course/study";
 
 export default async function TicketPage({ params }: PageProps<"/dashboard/tickets/[id]">) {
@@ -11,10 +11,10 @@ export default async function TicketPage({ params }: PageProps<"/dashboard/ticke
   const user = (await getCurrentUser())!;
   const ticket = await getTicketThread(id, user.id);
   if (!ticket) notFound();
-  await markTicketSeen(id);
 
   return (
     <div className="app-container" style={{ maxWidth: 760 }}>
+      <MarkTicketSeen ticketId={ticket.id} />
       <Link href="/dashboard/tickets" style={{ fontSize: 13, fontWeight: 600, color: "var(--sky-deep)" }}>← Meine Fragen</Link>
       <div style={{ display: "flex", alignItems: "center", gap: 12, margin: "14px 0 18px" }}>
         <h1 style={{ fontSize: "clamp(22px,2.6vw,28px)", fontWeight: 800 }}>Deine Frage</h1>
