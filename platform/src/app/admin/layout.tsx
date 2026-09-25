@@ -37,6 +37,9 @@ export default async function AdminLayout({ children }: LayoutProps<"/admin">) {
             <Link href="/admin/tickets" className="nav-link" style={{ fontSize: 14 }}>
               Fragen
             </Link>
+            <Link href="/admin/blog" className="nav-link" style={{ fontSize: 14 }}>
+              Blog
+            </Link>
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
             <Link href="/dashboard" className="nav-link" style={{ fontSize: 14 }}>

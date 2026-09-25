@@ -7,12 +7,12 @@ import Logo from "./Logo";
 import { createClient } from "@/lib/supabase/client";
 
 const LINKS = [
-  { href: "#einblick", label: "Einblick" },
-  { href: "#kurs", label: "Kurs" },
-  { href: "#ablauf", label: "Ablauf" },
-  { href: "#vorteile", label: "Vorteile" },
-  { href: "#preis", label: "Preis" },
-  { href: "#faq", label: "FAQ" },
+  { href: "/#einblick", label: "Einblick" },
+  { href: "/#kurs", label: "Kurs" },
+  { href: "/#ablauf", label: "Ablauf" },
+  { href: "/#vorteile", label: "Vorteile" },
+  { href: "/#preis", label: "Preis" },
+  { href: "/#faq", label: "FAQ" },
 ];
 
 export default function SiteNav({
