@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
+import { germanAuthError } from "@/lib/auth/errors";
 
 const inputStyle: React.CSSProperties = {
   display: "block",
@@ -36,7 +37,7 @@ export default function ResetPasswordForm() {
     setLoading(true);
     const { error } = await createClient().auth.updateUser({ password });
     if (error) {
-      setError(error.message);
+      setError(germanAuthError(error));
       setLoading(false);
       return;
     }

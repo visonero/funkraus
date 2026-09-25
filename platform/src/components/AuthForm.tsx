@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
+import { germanAuthError } from "@/lib/auth/errors";
 
 type Mode = "signin" | "signup";
 
@@ -48,7 +49,7 @@ export default function AuthForm({ initialMode = "signin", callbackError = false
         redirectTo: `${window.location.origin}/auth/callback?next=/reset-password`,
       });
       if (error) {
-        setError(error.message);
+        setError(germanAuthError(error));
       } else {
         // Same message whether or not the address has an account, so this can't be used to probe for registered emails.
         setMessage("Falls ein Konto mit dieser E-Mail-Adresse existiert, haben wir dir einen Link zum Zurücksetzen geschickt.");
@@ -67,14 +68,14 @@ export default function AuthForm({ initialMode = "signin", callbackError = false
         },
       });
       if (error) {
-        setError(error.message);
+        setError(germanAuthError(error));
       } else {
         setMessage("Fast geschafft — bitte bestätige deine E-Mail-Adresse über den Link, den wir dir geschickt haben.");
       }
     } else {
       const { error } = await supabase.auth.signInWithPassword({ email, password });
       if (error) {
-        setError(error.message);
+        setError(germanAuthError(error));
       } else {
         router.push("/dashboard");
         router.refresh();
