@@ -13,10 +13,12 @@ type Props = {
   isAdmin: boolean;
   hasAccess: boolean;
   progressPercent: number;
+  unreadTickets?: number;
+  flaggedCount?: number;
   children: React.ReactNode;
 };
 
-export default function AppShell({ name, email, isAdmin, hasAccess, progressPercent, children }: Props) {
+export default function AppShell({ name, email, isAdmin, hasAccess, progressPercent, unreadTickets = 0, flaggedCount = 0, children }: Props) {
   const pathname = usePathname();
   const router = useRouter();
   const [openForPath, setOpenForPath] = useState<string | null>(null);
@@ -72,7 +74,9 @@ export default function AppShell({ name, email, isAdmin, hasAccess, progressPerc
           <span className="app-nav-heading">Lernen</span>
           {navItem("/dashboard", "Dashboard", "dashboard", true)}
           {navItem("/dashboard/course", "Kurs", "course", false, progressPercent > 0 ? `${progressPercent}%` : undefined)}
+          {navItem("/dashboard/flagged", "Gemerkte Fragen", "bookmark", false, flaggedCount > 0 ? String(flaggedCount) : undefined)}
           <span className="app-nav-heading" style={{ marginTop: 14 }}>Konto</span>
+          {navItem("/dashboard/tickets", "Meine Fragen", "chat", false, unreadTickets > 0 ? `${unreadTickets} neu` : undefined)}
           {navItem("/dashboard/payments", "Zahlungen & Rechnungen", "payment")}
           {isAdmin && navItem("/admin", "Admin-Bereich", "admin")}
         </nav>

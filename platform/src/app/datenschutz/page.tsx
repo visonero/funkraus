@@ -80,6 +80,8 @@ Bei der Registrierung können Sie freiwillig und durch aktives Anklicken einer n
 
 Wenn Sie uns per E-Mail oder Telefon kontaktieren, verarbeiten wir die uns dabei mitgeteilten Daten zur Bearbeitung Ihrer Anfrage (Art. 6 Abs. 1 lit. b bzw. lit. f DSGVO).
 
+Wenn Sie im Kurs über die Funktion „Frage stellen“ eine Rückfrage zu einer Prüfungsfrage senden, speichern wir Ihre Nachricht, die betreffende Frage, Ihre gewählte Antwort, Ihre E-Mail-Adresse sowie den Verlauf unserer Antworten in Ihrem Nutzerkonto, um Ihre Frage zu beantworten und die Unterhaltung für Sie nachvollziehbar darzustellen (Art. 6 Abs. 1 lit. b DSGVO). Für die Benachrichtigung per E-Mail nutzen wir einen Dienstleister für den E-Mail-Versand (Resend), der hierfür Ihre E-Mail-Adresse und den Nachrichteninhalt verarbeitet; ein Auftragsverarbeitungsvertrag nach Art. 28 DSGVO besteht bzw. wird abgeschlossen. Fragen, die Sie mit „Merken“ speichern, werden ausschließlich in Ihrem Nutzerkonto abgelegt.
+
 ## 10. Speicherdauer
 
 Wir speichern personenbezogene Daten nur so lange, wie dies für die jeweiligen Zwecke erforderlich ist oder gesetzliche Aufbewahrungsfristen bestehen (z. B. handels- und steuerrechtliche Aufbewahrungsfristen von bis zu zehn Jahren für zahlungsbezogene Unterlagen). Sie können die Löschung Ihres Nutzerkontos jederzeit bei uns beantragen; dies berührt nicht die Aufbewahrung von Daten, zu deren Aufbewahrung wir gesetzlich verpflichtet sind.

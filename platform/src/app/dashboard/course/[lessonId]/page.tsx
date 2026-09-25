@@ -10,6 +10,7 @@ import UpgradeCard from "@/components/app/UpgradeCard";
 import { getCurrentUser } from "@/lib/auth/session";
 import { getCourseData, getLessonDetail } from "@/lib/course/data";
 import { getExamState } from "@/lib/course/exam";
+import { getFlaggedIds } from "@/lib/course/study";
 import { moduleLabel } from "@/lib/course/format";
 
 const TYPE_LABEL = { video: "Video", audio: "Audio", text: "Lesetext", quiz: "Quiz", exam: "Prüfung" } as const;
@@ -21,6 +22,7 @@ export default async function LessonPage({ params }: PageProps<"/dashboard/cours
   const [lesson, course] = await Promise.all([getLessonDetail(lessonId, user.id), getCourseData(user.id)]);
   if (!lesson) notFound();
   const examState = lesson.type === "exam" && !lesson.locked ? await getExamState(user.id, lesson.id) : null;
+  const flaggedIds = lesson.questions.length > 0 ? await getFlaggedIds(user.id) : [];
 
   const flat = course.modules.flatMap((m) => m.chapters.map((c) => ({ chapter: c, module: m })));
   const index = flat.findIndex((f) => f.chapter.id === lesson.id);
@@ -143,7 +145,7 @@ export default async function LessonPage({ params }: PageProps<"/dashboard/cours
       {lesson.questions.length > 0 && (
         <section style={{ marginTop: 40 }}>
           <h2 style={{ fontSize: 20, fontWeight: 700, marginBottom: 16 }}>Fragen zum Kapitel</h2>
-          <LessonQuiz key={lesson.id} questions={lesson.questions} />
+          <LessonQuiz key={lesson.id} questions={lesson.questions} flaggedIds={flaggedIds} />
         </section>
       )}
 

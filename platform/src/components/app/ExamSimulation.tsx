@@ -1,5 +1,6 @@
 "use client";
 
+import QuestionTools from "./QuestionTools";
 import { useEffect, useMemo, useState, useTransition } from "react";
 import AppIcon from "./AppIcon";
 import { startExam, submitExam } from "@/lib/course/exam-actions";
@@ -130,6 +131,9 @@ export default function ExamSimulation({ lessonId, track, initialState }: { less
                       {b.explanation}
                     </p>
                   )}
+                  <div style={{ marginTop: 14 }}>
+                    <QuestionTools questionId={b.questionId} initialFlagged={false} selectedIndex={b.selectedIndex} />
+                  </div>
                 </div>
               ))}
             </div>

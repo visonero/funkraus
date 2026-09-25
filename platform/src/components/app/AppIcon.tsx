@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 export type AppIconName =
   | "dashboard" | "course" | "payment" | "settings" | "logout" | "admin" | "home" | "lock" | "check"
-  | "video" | "audio" | "text" | "quiz" | "exam" | "menu" | "close" | "chevron" | "target" | "layers" | "help" | "arrow";
+  | "video" | "audio" | "text" | "quiz" | "exam" | "menu" | "close" | "chevron" | "target" | "layers" | "help" | "arrow" | "bookmark" | "chat";
 
 const PATHS: Record<AppIconName, ReactNode> = {
   dashboard: (
@@ -75,6 +75,8 @@ const PATHS: Record<AppIconName, ReactNode> = {
     </>
   ),
   arrow: <path d="M5 12h14M13 6l6 6-6 6" />,
+  bookmark: <path d="M7 4h10a1 1 0 0 1 1 1v15l-6-4-6 4V5a1 1 0 0 1 1-1z" />,
+  chat: <path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v7a2.5 2.5 0 0 1-2.5 2.5H11l-4.5 4v-4H6.5A2.5 2.5 0 0 1 4 13.5z" />,
 };
 
 export default function AppIcon({ name, size = 20 }: { name: AppIconName; size?: number }) {
