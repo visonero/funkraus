@@ -66,8 +66,11 @@ function historyMessages(history: TranscriptEntry[]): ChatMessage[] {
 
 // ---------- Anthropic ----------
 
+// A different base URL is only honoured outside production (local tests), so a stray env variable can never redirect live traffic.
+const ANTHROPIC_BASE = process.env.NODE_ENV !== "production" && process.env.ANTHROPIC_BASE_URL ? process.env.ANTHROPIC_BASE_URL : "https://api.anthropic.com";
+
 async function claude(model: string, system: string, messages: ChatMessage[], maxTokens: number) {
-  const res = await fetch(`${process.env.ANTHROPIC_BASE_URL ?? "https://api.anthropic.com"}/v1/messages`, {
+  const res = await fetch(`${ANTHROPIC_BASE}/v1/messages`, {
     method: "POST",
     headers: { "x-api-key": process.env.ANTHROPIC_API_KEY!, "anthropic-version": "2023-06-01", "content-type": "application/json" },
     body: JSON.stringify({ model, max_tokens: maxTokens, system, messages }),
@@ -151,7 +154,7 @@ export async function askTower(s: Scenario, stepIdx: number, history: Transcript
 
 // ---------- ElevenLabs: speech-to-text and text-to-speech ----------
 
-export async function transcribe(audio: Blob, filename: string, lang: Language): Promise<string> {
+export async function transcribe(audio: Blob, filename: string, lang: Language): Promise<{ text: string; seconds: number }> {
   const form = new FormData();
   form.append("file", audio, filename);
   form.append("model_id", TOWER.sttModel);
@@ -165,7 +168,9 @@ export async function transcribe(audio: Blob, filename: string, lang: Language):
   });
   if (!res.ok) throw new Error(`speech-to-text ${res.status}`);
   const data = await res.json();
-  return String(data.text ?? "").trim();
+  // The provider reports the real length of the audio; billing uses it instead of anything the browser claims.
+  const seconds = Number(data.audio_duration_secs) || Number((data.words ?? []).at(-1)?.end) || 0;
+  return { text: String(data.text ?? "").trim(), seconds };
 }
 
 function spoken(text: string): string {

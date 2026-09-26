@@ -92,11 +92,21 @@ Wenn Sie uns per E-Mail oder Telefon kontaktieren, verarbeiten wir die uns dabei
 
 Wenn Sie im Kurs über die Funktion „Frage stellen“ eine Rückfrage zu einer Prüfungsfrage senden, speichern wir Ihre Nachricht, die betreffende Frage, Ihre gewählte Antwort, Ihre E-Mail-Adresse sowie den Verlauf unserer Antworten in Ihrem Nutzerkonto, um Ihre Frage zu beantworten und die Unterhaltung für Sie nachvollziehbar darzustellen (Art. 6 Abs. 1 lit. b DSGVO). Für die Benachrichtigung per E-Mail nutzen wir einen Dienstleister für den E-Mail-Versand (Resend), der hierfür Ihre E-Mail-Adresse und den Nachrichteninhalt verarbeitet; mit dem Anbieter (Plus Five Five, Inc., USA) besteht ein Auftragsverarbeitungsvertrag nach Art. 28 DSGVO. Die Übermittlung in die USA erfolgt auf Grundlage der darin enthaltenen EU-Standardvertragsklauseln (Art. 46 Abs. 2 lit. c DSGVO). Fragen, die Sie mit „Merken“ speichern, werden ausschließlich in Ihrem Nutzerkonto abgelegt.
 
-## 11. Speicherdauer
+## 11. Funktraining mit dem KI-Tower (Beta)
+
+Im Funktraining übst du Sprechfunk mit einem KI-gesteuerten „Tower“. Der Tower ist ein KI-System, kein echter Fluglotse. Dafür verarbeiten wir Folgendes:
+
+- **Sprachaufnahme:** Wenn du die Sprechtaste benutzt, wird deine Aufnahme (höchstens 15 Sekunden je Funkspruch) zur Umwandlung in Text an unseren Dienstleister **ElevenLabs** (ElevenLabs Inc., USA) gesendet. Wir selbst speichern die Aufnahme nicht. ElevenLabs verarbeitet sie als Auftragsverarbeiter und kann sie nach seinen eigenen Aufbewahrungsregeln zeitweise speichern. Die Antworten des Towers werden ebenfalls von ElevenLabs in Sprache umgewandelt.
+- **Text:** Der erkannte (oder von dir getippte) Text wird an **Anthropic** (Anthropic PBC, USA) übermittelt, das die Antwort des Towers erzeugt. Nach Angaben von Anthropic werden die über die Schnittstelle übermittelten Ein- und Ausgaben innerhalb von 30 Tagen gelöscht und nicht zum Training von Modellen verwendet.
+- **Übungsdaten in deinem Konto:** Wir speichern den Text der Übung (deine Funksprüche als Text und die Antworten des Towers), die gewählte Übung, Zeitpunkte, dein Feedback sowie die Nutzungsmenge (Anzahl der Funksprüche, Textmenge, Sprechdauer). Damit geben wir dir Feedback, berechnen dein Kontingent und verhindern Missbrauch und unerwartet hohe Kosten.
+
+Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Erbringung des Kursangebots). Die Nutzung des Mikrofons ist freiwillig und erfolgt nur nach deiner Freigabe im Browser; du kannst deine Funksprüche stattdessen tippen. Mit ElevenLabs und Anthropic bestehen Auftragsverarbeitungsverträge nach Art. 28 DSGVO. Soweit Daten in die USA übermittelt werden, erfolgt dies auf Grundlage von EU-Standardvertragsklauseln (Art. 46 Abs. 2 lit. c DSGVO). Die Übungsdaten bleiben gespeichert, bis du dein Konto löschen lässt oder uns um Löschung bittest.
+
+## 12. Speicherdauer
 
 Wir speichern personenbezogene Daten nur so lange, wie dies für die jeweiligen Zwecke erforderlich ist oder gesetzliche Aufbewahrungsfristen bestehen (z. B. handels- und steuerrechtliche Aufbewahrungsfristen von bis zu zehn Jahren für zahlungsbezogene Unterlagen). Sie können die Löschung Ihres Nutzerkontos jederzeit bei uns beantragen; dies berührt nicht die Aufbewahrung von Daten, zu deren Aufbewahrung wir gesetzlich verpflichtet sind.
 
-## 12. Ihre Rechte
+## 13. Ihre Rechte
 
 Ihnen stehen nach der DSGVO folgende Rechte zu:
 
@@ -111,11 +121,11 @@ Ihnen stehen nach der DSGVO folgende Rechte zu:
 
 Zuständige Aufsichtsbehörde ist die Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen.
 
-## 13. Datensicherheit
+## 14. Datensicherheit
 
 Wir setzen technische und organisatorische Sicherheitsmaßnahmen ein, um Ihre Daten gegen zufällige oder vorsätzliche Manipulation, Verlust, Zerstörung oder unberechtigten Zugriff zu schützen, u. a. eine verschlüsselte Datenübertragung (TLS/SSL) zwischen Ihrem Browser und unseren Servern.
 
-## 14. Änderung dieser Datenschutzerklärung
+## 15. Änderung dieser Datenschutzerklärung
 
 Wir behalten uns vor, diese Datenschutzerklärung anzupassen, um sie an geänderte Rechtslagen oder bei Änderungen unseres Angebots und der Datenverarbeitung anzupassen. Es gilt jeweils die zum Zeitpunkt Ihres Besuchs aktuelle, auf dieser Seite veröffentlichte Fassung.
 

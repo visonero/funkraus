@@ -40,9 +40,10 @@ export async function startTowerSession(scenarioId: string): Promise<Result<{ se
       .sort((a, b) => b.startedAt.localeCompare(a.startedAt))[0];
     const variant = pickVariant(scenarioId, previous?.variant);
     const scenario = getScenario(scenarioId, variant)!;
-    const row = await store.create(user.id, scenarioId, variant, mode);
+    const row = await store.create(user.id, scenarioId, variant, mode, !hasAccess);
     return { ok: true, sessionId: row.id, situation: scenario.steps[0].situation, stepCount: scenario.steps.length, mode, info: scenario.info };
   } catch (e) {
+    if (e instanceof Error && e.message === "ACTIVE_SESSION_EXISTS") return { ok: false, error: "Es läuft bereits eine Übung. Bitte warte einen Moment und versuch es dann noch einmal." };
     console.error("[tower] start failed", e);
     return { ok: false, error: GENERIC };
   }
@@ -55,6 +56,7 @@ export async function finishTowerSession(sessionId: string): Promise<Result<{ fe
     const store = getStore();
     const row = await store.get(sessionId);
     if (!row || row.userId !== user.id) return { ok: false, error: "Übung nicht gefunden." };
+    if (row.busyUntil && new Date(row.busyUntil).getTime() > Date.now()) return { ok: false, error: "Der Tower antwortet noch. Bitte warte einen Moment." };
     const completed = row.status === "completed";
     if (row.feedback) return { ok: true, feedback: row.feedback, completed };
 

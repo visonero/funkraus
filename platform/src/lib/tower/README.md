@@ -34,9 +34,17 @@ roughly two thirds of the cost. Real usage is stored per session (`tower_session
 "Funktraining", so these estimates can be replaced by measured values.
 
 ## Limits (all enforced on the server, defaults in `config.ts`, override with TOWER_* env variables)
-- per transmission: 15 s recording, 400 KB audio, 300 characters of text, 320 answer tokens, 250 voice characters, 2 s between transmissions
-- per practice: 16 transmissions, 20 minutes
-- per user: 5 practices per day, budget of $2.50 per rolling 30 days (measured cost), free users 1 trial practice in total
+- per transmission: 15 s recording (billed on the length the speech provider measures), 250 KB audio, 300 KB request body, 300 characters of text, 320 answer tokens, 250 voice characters, 2 s between transmissions, one transmission in progress per session
+- per practice: 16 transmissions, 20 minutes, at most one running practice per user
+- per user: 5 practices per day, budget of $2.50 per rolling 30 days (measured cost)
+- free users: 1 trial practice in total; all trials together share $5 per month, so free-account farming cannot use up the paying users' share
 - whole platform: $60 per calendar month, then the feature pauses; `TOWER_ENABLED=0` stops everything at once
+- every limit check fails closed: if the database cannot be read, the request is refused
 
-Also set spend limits at the providers (Anthropic Console monthly limit, ElevenLabs overage off) as a second safety net.
+## Concurrency and abuse protection
+- `tower_claim_turn` (SQL function) books a transmission atomically: status, turn cap, spacing and "no other transmission of this session in progress". Parallel requests cannot pass together or overwrite each other's cost bookkeeping.
+- A unique index allows only one active session per user.
+- The endpoint only accepts same-origin requests, refuses oversized bodies before reading them, and answers "not found" alike for unknown and foreign session ids.
+- `ANTHROPIC_BASE_URL` is ignored in production. Nothing tower-related is sent to the browser except scenario titles; the ideal answers stay on the server.
+
+Also set spend limits at the providers (Anthropic Console monthly limit, ElevenLabs credit limit / overage off) as the final safety net: our numbers are our own accounting, the providers' invoices are the truth.

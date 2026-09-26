@@ -20,7 +20,8 @@ export const TOWER = {
     maxTurnsPerSession: num("TOWER_MAX_TURNS", 16),
     maxSessionMinutes: num("TOWER_MAX_SESSION_MINUTES", 20),
     maxAudioSeconds: num("TOWER_MAX_AUDIO_SECONDS", 15),
-    maxAudioBytes: num("TOWER_MAX_AUDIO_BYTES", 400_000),
+    maxAudioBytes: num("TOWER_MAX_AUDIO_BYTES", 250_000),
+    maxBodyBytes: num("TOWER_MAX_BODY_BYTES", 300_000),
     maxTranscriptChars: num("TOWER_MAX_TRANSCRIPT_CHARS", 300),
     minSecondsBetweenTurns: num("TOWER_MIN_SECONDS_BETWEEN_TURNS", 2),
     llmMaxTokens: num("TOWER_LLM_MAX_TOKENS", 320),
@@ -34,6 +35,8 @@ export const TOWER = {
 
     // Whole platform
     globalMonthlyBudgetUsd: num("TOWER_GLOBAL_MONTHLY_BUDGET_USD", 60),
+    // Free trial practices get their own small budget, so free-account farming can never use up the paying users' share.
+    trialMonthlyBudgetUsd: num("TOWER_TRIAL_MONTHLY_BUDGET_USD", 5),
   },
 } as const;
 

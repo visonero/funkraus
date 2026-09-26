@@ -334,9 +334,14 @@ export default function TowerPractice({
         </div>
         {error && <p style={{ marginTop: 16, fontSize: 14, color: "#c0334d" }}>{error}</p>}
         <div style={{ marginTop: 18 }}>{usageLine}</div>
-        <p style={{ marginTop: 10, fontSize: 12.5, lineHeight: 1.55, color: "var(--text-faint)", maxWidth: 640 }}>
-          Datenschutz: Deine Aufnahme wird nur zur Texterkennung an unseren Dienstleister ElevenLabs gesendet und nicht gespeichert. Der erkannte Text wird zur Auswertung an Anthropic (Claude) übermittelt. Gespeichert werden nur der Text der Übung und die Nutzungsmenge.
-        </p>
+        <div style={{ marginTop: 10, fontSize: 12.5, lineHeight: 1.6, color: "var(--text-faint)", maxWidth: 680 }}>
+          <p>
+            <strong>Beta:</strong> Der Tower ist ein KI-System (Claude von Anthropic) mit künstlich erzeugter Stimme, kein echter Fluglotse. Die Übungen wurden noch nicht von einem Fluglehrer geprüft. Maßgeblich sind immer die amtlichen Unterlagen und deine Prüfung.
+          </p>
+          <p style={{ marginTop: 6 }}>
+            <strong>Datenschutz:</strong> Deine Aufnahme (höchstens 15 Sekunden je Funkspruch) wird zur Texterkennung an unseren Dienstleister ElevenLabs gesendet. Wir selbst speichern sie nicht, ElevenLabs kann sie nach eigenen Regeln zeitweise speichern. Der erkannte Text geht zur Auswertung an Anthropic. In deinem Konto speichern wir den Text der Übung und die Nutzungsmenge. Du kannst auch tippen statt zu sprechen. Mehr in der Datenschutzerklärung.
+          </p>
+        </div>
       </div>
     );
   }
