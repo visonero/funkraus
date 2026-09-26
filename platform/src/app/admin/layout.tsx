@@ -2,9 +2,11 @@ import Link from "next/link";
 import Logo from "@/components/Logo";
 import SignOutButton from "@/components/SignOutButton";
 import { requireAdmin } from "@/lib/auth/admin";
+import { isDemoMode } from "@/lib/course/demo";
 
 export default async function AdminLayout({ children }: LayoutProps<"/admin">) {
-  await requireAdmin();
+  // Local demo mode (never active in production) skips the login so the admin pages can be previewed.
+  if (!isDemoMode()) await requireAdmin();
 
   return (
     <div style={{ minHeight: "100vh", background: "var(--bg)" }}>
@@ -31,6 +33,9 @@ export default async function AdminLayout({ children }: LayoutProps<"/admin">) {
           <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
             <Logo size={26} />
             <span className="label" style={{ color: "var(--sky)" }}>Admin</span>
+            <Link href="/admin/statistik" className="nav-link" style={{ fontSize: 14 }}>
+              Übersicht
+            </Link>
             <Link href="/admin" className="nav-link" style={{ fontSize: 14 }}>
               Module
             </Link>
