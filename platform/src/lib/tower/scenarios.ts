@@ -6,10 +6,17 @@
 
 export type Language = "de" | "en";
 
+// A read-back is checked by code, not by the AI: these numbers and phrases must appear (plus the callsign).
+export type ReadbackSpec = {
+  items: { label: string; number?: string; anyPhrase?: string[] }[];
+  ideal: string; // a correct read-back, shown as "Besser" when something is missing
+};
+
 export type Step = {
   situation: string; // shown to the learner: what is happening, what to do next
   expect: string; // criteria the tower checks the transmission against
   towerLine: string; // ideal tower answer once the step is done ("" = no transmission needed)
+  readback?: ReadbackSpec; // set for read-back steps: judged by code instead of the AI
 };
 
 // What the learner sees about "their" flight (the tower knows it too).
@@ -62,11 +69,11 @@ const DE_FLEET: Vars[] = [
 ];
 
 const DE_FIELDS: Vars[] = [
-  { AD: "Waldheim", RWY: "zwo vier", RWYN: "24", WIND: "zwo vier null Grad, acht Knoten", QNH: "eins null eins fünf" },
-  { AD: "Hohenberg", RWY: "zwo sechs", RWYN: "26", WIND: "zwo fünf null Grad, zehn Knoten", QNH: "eins null zwo null" },
-  { AD: "Lindenau", RWY: "eins acht", RWYN: "18", WIND: "eins sechs null Grad, sieben Knoten", QNH: "eins null null eins" },
-  { AD: "Bergfeld", RWY: "drei sechs", RWYN: "36", WIND: "drei fünf null Grad, sechs Knoten", QNH: "eins null eins acht" },
-  { AD: "Seeburg", RWY: "zwo eins", RWYN: "21", WIND: "zwo null null Grad, neun Knoten", QNH: "eins null zwo drei" },
+  { AD: "Waldheim", QNHN: "1015", RWY: "zwo vier", RWYN: "24", WIND: "zwo vier null Grad, acht Knoten", QNH: "eins null eins fünf" },
+  { AD: "Hohenberg", QNHN: "1020", RWY: "zwo sechs", RWYN: "26", WIND: "zwo fünf null Grad, zehn Knoten", QNH: "eins null zwo null" },
+  { AD: "Lindenau", QNHN: "1001", RWY: "eins acht", RWYN: "18", WIND: "eins sechs null Grad, sieben Knoten", QNH: "eins null null eins" },
+  { AD: "Bergfeld", QNHN: "1018", RWY: "drei sechs", RWYN: "36", WIND: "drei fünf null Grad, sechs Knoten", QNH: "eins null eins acht" },
+  { AD: "Seeburg", QNHN: "1023", RWY: "zwo eins", RWYN: "21", WIND: "zwo null null Grad, neun Knoten", QNH: "eins null zwo drei" },
 ];
 
 const EN_FLEET: Vars[] = [
@@ -78,11 +85,11 @@ const EN_FLEET: Vars[] = [
 ];
 
 const EN_FIELDS: Vars[] = [
-  { AD: "Waldheim", RWY: "two four", RWYN: "24", WIND: "two four zero degrees, eight knots", QNH: "one zero one fife" },
-  { AD: "Hohenberg", RWY: "two six", RWYN: "26", WIND: "two fife zero degrees, one zero knots", QNH: "one zero two zero" },
-  { AD: "Lindenau", RWY: "one eight", RWYN: "18", WIND: "one six zero degrees, seven knots", QNH: "one zero zero one" },
-  { AD: "Bergfeld", RWY: "tree six", RWYN: "36", WIND: "tree fife zero degrees, six knots", QNH: "one zero one eight" },
-  { AD: "Seeburg", RWY: "two one", RWYN: "21", WIND: "two zero zero degrees, niner knots", QNH: "one zero two tree" },
+  { AD: "Waldheim", QNHN: "1015", RWY: "two four", RWYN: "24", WIND: "two four zero degrees, eight knots", QNH: "one zero one fife" },
+  { AD: "Hohenberg", QNHN: "1020", RWY: "two six", RWYN: "26", WIND: "two fife zero degrees, one zero knots", QNH: "one zero two zero" },
+  { AD: "Lindenau", QNHN: "1001", RWY: "one eight", RWYN: "18", WIND: "one six zero degrees, seven knots", QNH: "one zero zero one" },
+  { AD: "Bergfeld", QNHN: "1018", RWY: "tree six", RWYN: "36", WIND: "tree fife zero degrees, six knots", QNH: "one zero one eight" },
+  { AD: "Seeburg", QNHN: "1023", RWY: "two one", RWYN: "21", WIND: "two zero zero degrees, niner knots", QNH: "one zero two tree" },
 ];
 
 // Combine fleet, aerodrome and scenario-specific details. `shift` rotates the pairing so the same aircraft
@@ -111,6 +118,13 @@ const TEMPLATES: Template[] = [
         situation: "Die Rollkontrolle hat dir eine Rollanweisung gegeben. Wiederhole sie.",
         expect: "Wiederholt Rollhalt Piste {RWY} und QNH {QNH} und nennt sein Rufzeichen.",
         towerLine: "",
+        readback: {
+          items: [
+            { label: "Piste", number: "{RWYN}" },
+            { label: "QNH", number: "{QNHN}" },
+          ],
+          ideal: "Rollen zum Rollhalt Piste {RWY}, QNH {QNH}, {CS}.",
+        },
       },
       {
         situation: "Du bist am Rollhalt der Piste {RWYN}, die Startvorbereitungen sind beendet. Rufe jetzt den Turm.",
@@ -121,6 +135,13 @@ const TEMPLATES: Template[] = [
         situation: "Du hast die Startfreigabe bekommen. Bestätige sie.",
         expect: "Wiederholt Piste {RWY}, Start frei, mit Rufzeichen.",
         towerLine: "",
+        readback: {
+          items: [
+            { label: "Piste", number: "{RWYN}" },
+            { label: "Start frei", anyPhrase: ["Start frei", "Startfreigabe"] },
+          ],
+          ideal: "Piste {RWY}, Start frei, {CS}.",
+        },
       },
       {
         situation: "Du bist gestartet, es ist {TIME}. Melde dich beim Turm.",
@@ -159,6 +180,14 @@ const TEMPLATES: Template[] = [
         situation: "Der Turm hat dich eingewiesen. Bestätige Piste und QNH.",
         expect: "Wiederholt Gegenanflug Piste {RWY} und QNH {QNH} mit Rufzeichen.",
         towerLine: "",
+        readback: {
+          items: [
+            { label: "Gegenanflug", anyPhrase: ["Gegenanflug"] },
+            { label: "Piste", number: "{RWYN}" },
+            { label: "QNH", number: "{QNHN}" },
+          ],
+          ideal: "Gegenanflug Piste {RWY}, QNH {QNH}, {CS}.",
+        },
       },
       {
         situation: "Du bist jetzt im Gegenanflug der Piste {RWYN}. Melde dich.",
@@ -174,6 +203,13 @@ const TEMPLATES: Template[] = [
         situation: "Du hast die Landefreigabe bekommen. Bestätige sie.",
         expect: "Wiederholt Piste {RWY}, Landung frei, mit Rufzeichen.",
         towerLine: "",
+        readback: {
+          items: [
+            { label: "Piste", number: "{RWYN}" },
+            { label: "Landung frei", anyPhrase: ["Landung frei", "Landefreigabe"] },
+          ],
+          ideal: "Piste {RWY}, Landung frei, {CS}.",
+        },
       },
       {
         situation: "Du bist gelandet und mit dem ganzen Flugzeug hinter dem Rollhalt. Melde es dem Turm.",
@@ -212,6 +248,13 @@ const TEMPLATES: Template[] = [
         situation: "Ground has given you a taxi instruction. Read it back.",
         expect: "Reads back taxi to holding point runway {RWY} and QNH {QNH} with callsign.",
         towerLine: "",
+        readback: {
+          items: [
+            { label: "Piste", number: "{RWYN}" },
+            { label: "QNH", number: "{QNHN}" },
+          ],
+          ideal: "Taxi to holding point runway {RWY}, QNH {QNH}, {CS}.",
+        },
       },
       {
         situation: "You are at the holding point of runway {RWYN} and ready. Call {AD} Tower.",
@@ -222,6 +265,13 @@ const TEMPLATES: Template[] = [
         situation: "You are cleared for take-off. Read the clearance back.",
         expect: "Reads back runway {RWY}, cleared for take-off, with callsign.",
         towerLine: "",
+        readback: {
+          items: [
+            { label: "Piste", number: "{RWYN}" },
+            { label: "cleared for take-off", anyPhrase: ["cleared for take-off", "cleared for takeoff"] },
+          ],
+          ideal: "Runway {RWY}, cleared for take-off, {CS}.",
+        },
       },
       {
         situation: "You are airborne at {TIME}. Report to the tower.",
@@ -262,7 +312,15 @@ export function getScenario(id: string, variant: number): Scenario | null {
     info: { aerodrome: v.AD, callsign: v.CS, registration: v.REG, type: v.TYPE, typeDisplay: v.TYPED },
     brief: f(t.brief),
     names: [v.AD, v.CS, v.TYPE, "Rollkontrolle", "Turm", "Ground", "Tower"],
-    steps: t.steps.map((s) => ({ situation: f(s.situation), expect: f(s.expect), towerLine: f(s.towerLine) })),
+    steps: t.steps.map((s) => ({
+      situation: f(s.situation),
+      expect: f(s.expect),
+      towerLine: f(s.towerLine),
+      readback: s.readback && {
+        items: s.readback.items.map((i) => ({ label: i.label, number: i.number && f(i.number), anyPhrase: i.anyPhrase?.map(f) })),
+        ideal: f(s.readback.ideal),
+      },
+    })),
   };
 }
 

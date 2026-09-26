@@ -2,7 +2,7 @@ import { isDemoMode } from "@/lib/course/demo";
 import { createAdminClient } from "@/lib/supabase/admin";
 import type { Usage } from "./config";
 
-export type IssueKind = "fehlt" | "reihenfolge" | "phraseologie" | "zahl" | "rueckbestaetigung";
+export type IssueKind = "fehlt" | "phraseologie" | "zahl" | "rueckbestaetigung";
 export type Issue = { art: IssueKind; text: string };
 
 // Pilot entries carry the step they belonged to and the real mistakes the tower found; tower entries carry ok.
