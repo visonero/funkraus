@@ -58,7 +58,8 @@
   "RWY": "Runway",
   "TWY": "Taxiway",
   "QNH": "Ku En Ha",
-  "DEHOL": "Delta Echo Hotel Oscar Lima"
+  "DEHOL": "Delta Echo Hotel Oscar Lima",
+  "KI": "Ka I"
  },
  "abbreviationStyle": "plain",
  "keepAsWord": [

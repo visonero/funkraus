@@ -5,7 +5,7 @@
     {
       "id": "hook",
       "voice": "enthusiast",
-      "text": "Hey, schön, dass du da bist! Du willst dein Sprechfunkzeugnis machen, BZF I und BZF II, aber du hast keine Lust auf trockene Folien und teure Kurse? Dann bleib dran, denn genau dafür haben wir funkraus gebaut!",
+      "text": "Hey, schön, dass du da bist! Du willst dein Sprechfunkzeugnis machen, BZF I und BZF II, aber du hast keine Lust auf trockene Folien und teure Kurse? Dann bleib dran, denn genau dafür haben wir funkraus gebaut, und zwar mit einem KI-Tower, mit dem du live sprechen kannst!",
       "visual": {
         "kind": "headline",
         "headline": "Dein Sprechfunkzeugnis",
@@ -32,7 +32,7 @@
     {
       "id": "why",
       "voice": "enthusiast",
-      "text": "Und warum funkraus? Erstens: [[0]]Du startest komplett kostenlos, ganz ohne Kreditkarte! Zweitens: [[1]]ein fairer Festpreis, kein Abo und garantiert kein Verkaufsgespräch. Drittens, mein Favorit: [[2]]Du buchst das BZF II und bekommst das BZF I gratis dazu! Viertens: [[3]]der komplette offizielle Fragenkatalog der Bundesnetzagentur. Und das Beste kommt zum Schluss: [[4]]eine richtig moderne Lernplattform. Und die zeige ich dir jetzt!",
+      "text": "Und warum funkraus? Erstens: [[0]]Du startest kostenlos, die ersten zwei Module sind komplett offen, ganz ohne Kreditkarte! Zweitens: [[1]]ein fairer Festpreis, kein Abo und garantiert kein Verkaufsgespräch. Drittens: [[2]]Du buchst das BZF II und bekommst das BZF I gratis dazu! Viertens: [[3]]der komplette offizielle Fragenkatalog der Bundesnetzagentur. Und das Neueste: [[4]]ein KI-Tower, mit dem du echten Funkverkehr per Stimme übst!",
       "visual": {
         "kind": "transform",
         "headline": "Darum",
@@ -40,7 +40,7 @@
         "tiles": [
           {
             "top": "Gratis",
-            "bottom": "Modul 0 & 1 zum Testen"
+            "bottom": "Die ersten 2 Module zum Testen"
           },
           {
             "top": "Fair",
@@ -55,62 +55,62 @@
             "bottom": "Kompletter Fragenkatalog"
           },
           {
-            "top": "Modern",
-            "bottom": "Lernplattform mit Fortschritt"
+            "top": "Neu",
+            "bottom": "KI-Tower zum Sprechen"
           }
         ]
       }
     },
     {
-      "id": "dashboard",
+      "id": "ki",
       "voice": "enthusiast",
-      "text": "Schau mal, das ist dein [[0]]persönliches Dashboard! Hier siehst du deinen [[1]]Fortschritt in Prozent, deine Trefferquote, alles live. Und mit einem Klick machst du [[2]]genau da weiter, wo du aufgehört hast. Kein Suchen, kein Blättern!",
+      "text": "Schau mal, das ist dein KI-Funktraining! [[0]]Du hältst die Sprechtaste und sprichst deinen Funkspruch, ganz wie im Cockpit. [[1]]Der Tower antwortet dir mit Stimme und gibt dir Anweisungen, [[2]]und du bestätigst sie, genau wie später in der Prüfung. Und bei jeder Übung hast du ein anderes Flugzeug, ein anderes Rufzeichen und einen anderen Flugplatz!",
       "visual": {
         "kind": "photo",
-        "image": "sales-dashboard.webp",
+        "image": "sales-ki.webp",
         "pad": 36,
-        "headline": "Dein Fortschritt,",
-        "highlight": "immer im Blick.",
-        "credit": "Live-Ansicht aus dem funkraus Dashboard",
+        "headline": "Sprich live mit dem",
+        "highlight": "KI-Tower.",
+        "credit": "Live-Ansicht aus dem KI-Funktraining",
         "steps": [
           {
-            "label": "Persönliches Dashboard",
-            "sub": "Alle Module auf einen Blick"
+            "label": "Sprechtaste halten und sprechen",
+            "sub": "Wie im echten Cockpit"
           },
           {
-            "label": "Live-Fortschritt",
-            "sub": "Prozent, Kapitel, Trefferquote"
+            "label": "Der Tower antwortet mit Stimme",
+            "sub": "Mit Anweisungen und Freigaben"
           },
           {
-            "label": "Genau dort weiterlernen",
-            "sub": "wo du aufgehört hast"
+            "label": "Anweisungen bestätigen",
+            "sub": "Jedes Mal ein anderes Szenario"
           }
         ]
       }
     },
     {
-      "id": "kurs",
+      "id": "ki-feedback",
       "voice": "enthusiast",
-      "text": "Der Kurs selbst? [[0]]Zwölf Module, die dich Schritt für Schritt von null bis zur Prüfungssimulation führen! [[1]]Alle 261 Fragen der Bundesnetzagentur sind direkt eingebaut. Und wie gesagt: [[2]]Du buchst das BZF II und bekommst das komplette BZF I einfach gratis dazu!",
+      "text": "Danach bekommst du dein Feedback: [[0]]eine Bewertung mit Sternen, [[1]]genau erklärt, was gefehlt hat, [[2]]und dazu den richtigen Funkspruch zum Vergleichen. Dein Akzent und deine Aussprache werden nicht bewertet, nur der Inhalt zählt!",
       "visual": {
         "kind": "photo",
-        "image": "sales-kurs.webp",
+        "image": "sales-ki-feedback.webp",
         "pad": 36,
-        "headline": "12 Module,",
-        "highlight": "ein durchgehender Kurs.",
-        "credit": "Live-Ansicht der Kursübersicht",
+        "headline": "Feedback, das dich",
+        "highlight": "weiterbringt.",
+        "credit": "Feedback nach einer Übung im KI-Funktraining",
         "steps": [
           {
-            "label": "Vom Einsteiger bis zur Prüfung",
-            "sub": "Kein Vorwissen nötig"
+            "label": "Bewertung mit Sternen",
+            "sub": "Nach jeder Übung"
           },
           {
-            "label": "Offizieller Fragenkatalog",
-            "sub": "Alle 261 BNetzA-Fragen integriert"
+            "label": "Genau erklärt, was fehlte",
+            "sub": "Ohne Abzug für Akzent"
           },
           {
-            "label": "BZF II gebucht, BZF I gratis dazu",
-            "sub": "Ohne Aufpreis, ohne zweite Anmeldung"
+            "label": "Der richtige Funkspruch dazu",
+            "sub": "Zum Vergleichen und Nachsprechen"
           }
         ]
       }
@@ -118,25 +118,25 @@
     {
       "id": "lektion",
       "voice": "enthusiast",
-      "text": "Und jede Lektion ist richtig abwechslungsreich! Du bekommst [[0]]Erklärvideos mit echten Diagrammen, [[1]]Audio-Funkübungen zum Nachsprechen [[2]]und PDF-Merkblätter zum Ausdrucken. Du hörst, siehst und übst gleichzeitig!",
+      "text": "Der Kurs hat zwölf Module, und jede Lektion führt dich Schritt für Schritt. [[0]]Erst das Erklärvideo, [[1]]dann kurze Textabschnitte und Hörübungen zum Nachsprechen, [[2]]und am Ende das PDF-Merkblatt zum Ausdrucken. Immer nur ein Schritt auf dem Bildschirm, damit es nie langweilig wird!",
       "visual": {
         "kind": "photo",
         "image": "sales-lektion.webp",
         "pad": 36,
-        "headline": "Video, Audio",
-        "highlight": "und echte Diagramme.",
-        "credit": "Live-Ansicht einer Video-Lektion",
+        "headline": "Jede Lektion",
+        "highlight": "Schritt für Schritt.",
+        "credit": "Live-Ansicht einer Lektion",
         "steps": [
           {
-            "label": "Erklärvideos mit echten Diagrammen",
-            "sub": "Kein trockener Text"
+            "label": "Erst das Erklärvideo",
+            "sub": "Mit echten Diagrammen"
           },
           {
-            "label": "Audio-Funkübungen",
-            "sub": "Zum Nachsprechen, wie im Cockpit"
+            "label": "Text und Hörübung in kleinen Schritten",
+            "sub": "Lesen und laut nachsprechen"
           },
           {
-            "label": "PDF-Merkblätter",
+            "label": "Am Ende das PDF-Merkblatt",
             "sub": "Zum Ausdrucken und Lernen unterwegs"
           }
         ]
@@ -145,26 +145,26 @@
     {
       "id": "quiz",
       "voice": "enthusiast",
-      "text": "Zu jeder Lektion gibt es [[0]]die passenden Original-Prüfungsfragen. Liegst du mal daneben, kriegst du [[1]]sofort die Erklärung dazu, nicht erst am Ende! So gehst du [[2]]richtig gut vorbereitet in deine echte Prüfung.",
+      "text": "Zu jeder Lektion gibt es [[0]]die passenden Original-Prüfungsfragen, immer nur eine pro Bildschirm. Liegst du daneben, kriegst du [[1]]sofort die Erklärung. Und kniffelige Fragen [[2]]merkst du dir mit einem Klick!",
       "visual": {
         "kind": "photo",
-        "image": "sales-quiz.webp",
+        "image": "sales-frage.webp",
         "pad": 36,
         "headline": "Original-Prüfungsfragen,",
-        "highlight": "sofort erklärt.",
-        "credit": "Live-Ansicht des Übungsquiz",
+        "highlight": "Frage für Frage.",
+        "credit": "Live-Ansicht einer Prüfungsfrage",
         "steps": [
           {
             "label": "Alle 261 offiziellen Fragen",
-            "sub": "Direkt aus dem BNetzA-Katalog"
+            "sub": "Immer nur eine pro Bildschirm"
           },
           {
             "label": "Sofortige Erklärung",
             "sub": "Bei jeder Antwort, richtig oder falsch"
           },
           {
-            "label": "Perfekt vorbereitet",
-            "sub": "Auf den echten Prüfungstag"
+            "label": "Kniffelige Fragen merken",
+            "sub": "Und später gezielt üben"
           }
         ]
       }
@@ -172,14 +172,14 @@
     {
       "id": "free-start",
       "voice": "enthusiast",
-      "text": "Und das Tollste: Du kannst alles in Ruhe testen! [[0]]Modul 0 und 1 sind komplett kostenlos, [[1]]ohne Kreditkarte, ohne Zahlungsdaten. [[2]]Erst wenn du überzeugt bist, schaltest du den Rest frei.",
+      "text": "Und das Tollste: Du kannst alles in Ruhe testen! [[0]]Die ersten zwei Module sind komplett kostenlos, [[1]]dazu gibt es eine Probe-Übung im KI-Funktraining, ohne Kreditkarte. [[2]]Erst wenn du überzeugt bist, schaltest du den Rest frei.",
       "visual": {
         "kind": "headline",
         "headline": "Kostenlos starten,",
         "highlight": "ohne Risiko.",
         "tiles": [
-          "Modul 0 & 1 gratis",
-          "Keine Kreditkarte",
+          "Die ersten 2 Module gratis",
+          "Probe-Übung im KI-Funktraining",
           "Erst zahlen, wenn du überzeugt bist"
         ]
       }

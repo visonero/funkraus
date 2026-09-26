@@ -6,7 +6,7 @@ import { gsap, ScrollTrigger, useGSAP } from "@/lib/gsap";
 const STATS = [
   { target: 261, prefix: "", suffix: "", label: "offizielle Prüfungsfragen der Bundesnetzagentur, komplett integriert" },
   { target: 8.5, prefix: "", suffix: "h", label: "Gesamtlernzeit vom Einsteiger bis zum Sprechfunkzeugnis" },
-  { target: 0, prefix: "", suffix: " EUR", label: "kostet der Start: Modul 0 und 1 gratis, ohne Zahlungsdaten" },
+  { target: 0, prefix: "", suffix: " EUR", label: "kostet der Start: die ersten 2 Module gratis, ohne Zahlungsdaten" },
 ];
 
 export default function HighlightsCounters() {
