@@ -20,31 +20,32 @@
     {
       "id": "units",
       "voice": "trainer",
-      "text": "Höhen misst du in [[0]]Fuß, die horizontale Geschwindigkeit in [[1]]Knoten. Wie schnell du steigst oder sinkst, gibst du in [[2]]Fuß pro Minute an. Entfernungen zur Navigation nennst du in [[3]]Seemeilen und Zehnteln. Und den Luftdruck in [[4]]Hektopascal. Zur Orientierung: Ein Fuß sind gut dreißig Zentimeter, und eine Seemeile sind knapp zwei Kilometer.",
+      "text": "Schau dir diesen Flug an: [[0]]Höhen misst du in Fuß, [[p:0.4]][[1]]die horizontale Geschwindigkeit in Knoten. [[p:0.4]][[2]]Wie schnell du steigst oder sinkst, gibst du in Fuß pro Minute an. [[p:0.4]][[3]]Entfernungen zur Navigation nennst du in Seemeilen und Zehnteln. [[p:0.4]][[4]]Und den Luftdruck in Hektopascal. Zur Orientierung: Ein Fuß sind gut dreißig Zentimeter, und eine Seemeile sind knapp zwei Kilometer.",
       "visual": {
-        "kind": "transform",
+        "kind": "diagram",
+        "diagram": "unitsFlight",
         "headline": "Fünf Einheiten, die",
         "highlight": "du kennen musst",
-        "tiles": [
+        "steps": [
           {
-            "top": "ft",
-            "bottom": "Höhe"
+            "label": "ft",
+            "sub": "Höhe"
           },
           {
-            "top": "kt",
-            "bottom": "Geschwindigkeit"
+            "label": "kt",
+            "sub": "Geschwindigkeit"
           },
           {
-            "top": "ft/min",
-            "bottom": "Steigen und Sinken"
+            "label": "ft/min",
+            "sub": "Steigen und Sinken"
           },
           {
-            "top": "NM",
-            "bottom": "Entfernung"
+            "label": "NM",
+            "sub": "Entfernung"
           },
           {
-            "top": "hPa",
-            "bottom": "Luftdruck"
+            "label": "hPa",
+            "sub": "Luftdruck"
           }
         ]
       }
@@ -54,17 +55,18 @@
       "voice": "trainer",
       "text": "Der Luftdruck spielt eine besondere Rolle, denn dein Höhenmesser ist im Grunde ein Barometer. Er misst den [[0]]Luftdruck und rechnet ihn in eine [[1]]Höhe um. Damit das stimmt, stellst du einen Referenzwert ein.",
       "visual": {
-        "kind": "transform",
+        "kind": "diagram",
+        "diagram": "baro",
         "headline": "Der Höhenmesser ist",
         "highlight": "ein Barometer",
-        "tiles": [
+        "steps": [
           {
-            "top": "Luftdruck",
-            "bottom": "wird gemessen"
+            "label": "Luftdruck",
+            "sub": "wird gemessen"
           },
           {
-            "top": "Höhe",
-            "bottom": "wird angezeigt"
+            "label": "Höhe",
+            "sub": "wird angezeigt"
           }
         ]
       }
@@ -99,14 +101,14 @@
       "voice": "trainer",
       "text": "Ein Beispiel: Dein Höhenmesser ist auf 1013,2 hPa eingestellt und zeigt 7500 ft an. Die Bodenstelle fragt nach deiner Höhe. Dann nennst du nicht die Höhe in Fuß, sondern [[0]]FL 75.",
       "visual": {
-        "kind": "transform",
+        "kind": "diagram",
+        "diagram": "flExample",
         "headline": "So meldest du",
         "highlight": "deine Höhe",
-        "plate": "7500 ft",
-        "tiles": [
+        "steps": [
           {
-            "top": "FL 75",
-            "bottom": "deine Meldung"
+            "label": "FL 75",
+            "sub": "deine Meldung"
           }
         ]
       }
@@ -116,11 +118,12 @@
       "voice": "trainer",
       "text": "Bleibt noch die Zeit. Die Luftfahrt rechnet weltweit mit [[0]]UTC, der koordinierten Weltzeit. Deine Ortszeit spielt dabei keine Rolle.",
       "visual": {
-        "kind": "transform",
+        "kind": "glyphs",
         "headline": "Eine Zeit für",
         "highlight": "alle",
-        "tiles": [
+        "items": [
           {
+            "glyph": "g-clock",
             "top": "UTC",
             "bottom": "immer und überall"
           }

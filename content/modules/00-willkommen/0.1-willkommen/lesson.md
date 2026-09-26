@@ -9,7 +9,7 @@ Du bereitest dich auf die Prüfung zum **BZF II** (Sprechfunk in deutscher Sprac
 1. Arbeite die Module der Reihe nach durch. Jedes baut auf dem vorherigen auf.
 2. Schau in jeder Lektion zuerst das Einstiegsvideo, lies die Erklärung und übe mit den Audioaufgaben.
 3. Beantworte danach die Fragen aus dem offiziellen Prüfungsfragenkatalog. Nach jeder Antwort siehst du eine Erklärung.
-4. Kehre jederzeit zu früheren Lektionen zurück. Du hast lebenslangen Zugriff und lernst in deinem eigenen Tempo.
+4. Kehre jederzeit zu früheren Lektionen zurück. Du hast 12 Monate Zugriff und lernst in deinem eigenen Tempo.
 5. Dein Fortschritt wird auf dem Dashboard angezeigt, sodass du immer weißt, wo du stehst.
 
 ## Wenn du nicht weiterkommst

@@ -1,8 +1,10 @@
 import type { ReactNode } from "react";
 import { C, Txt } from "./svgkit";
+import { GLYPHS2, type GlyphName2 } from "./glyphs2";
 
 // Pictograms for the "glyphs" scene (220 x 220 viewBox). Lamps blink for real when `flash` is set.
 export type GlyphName =
+  | GlyphName2
   | "lamp-green"
   | "lamp-red"
   | "lamp-white"
@@ -60,6 +62,7 @@ const Board = ({ children, fill = "#5b8f6a" }: { children: ReactNode; fill?: str
 );
 
 export const GLYPHS: Record<GlyphName, (props: GlyphProps) => ReactNode> = {
+  ...GLYPHS2,
   "lamp-green": (p) => <Lamp color="#2ecc71" glow="#2ecc71" ring="#3b4a5a" {...p} />,
   "lamp-red": (p) => <Lamp color="#ef4444" glow="#ef4444" ring="#3b4a5a" {...p} />,
   "lamp-white": (p) => <Lamp color="#ffffff" glow="#f5b800" ring="#3b4a5a" {...p} />,

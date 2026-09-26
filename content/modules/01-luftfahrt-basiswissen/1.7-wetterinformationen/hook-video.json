@@ -5,12 +5,26 @@
     {
       "id": "intro",
       "voice": "trainer",
-      "text": "Ein Wetterbericht im Funk klingt für Einsteiger zuerst wie ein Zahlencode. Und genau das ist er auch: ein Code, der in wenigen Worten sagt, wie der Himmel aussieht, wie weit du siehst und wie der Wind steht. Sobald du den Code kennst, liest du das Wetter fast wie einen Satz. Dafür lernen wir jetzt die wichtigsten Bausteine.",
+      "text": "Ein Wetterbericht im Funk klingt für Einsteiger zuerst wie ein Zahlencode. Und genau das ist er auch: ein Code, der in wenigen Worten sagt, [[0]]wie der Himmel aussieht, [[p:0.3]][[1]]wie weit du siehst [[p:0.3]][[2]]und wie der Wind steht. Sobald du den Code kennst, liest du das Wetter fast wie einen Satz. Dafür lernen wir jetzt die wichtigsten Bausteine.",
       "visual": {
-        "kind": "headline",
+        "kind": "diagram",
+        "diagram": "skyCode",
         "headline": "Das Wetter im Funk:",
         "highlight": "ein kleiner Code",
-        "tiles": []
+        "steps": [
+          {
+            "label": "Himmel",
+            "sub": "Wolken"
+          },
+          {
+            "label": "Sicht",
+            "sub": "wie weit du siehst"
+          },
+          {
+            "label": "Wind",
+            "sub": "Richtung und Stärke"
+          }
+        ]
       }
     },
     {
@@ -48,23 +62,24 @@
     {
       "id": "cavok",
       "voice": "trainer",
-      "text": "Und dann gibt es ein Kürzel, das jeden Piloten freut: [[0]]CAVOK. Es steht für gutes Wetter und heißt genau: [[1]]Sicht 10 km oder mehr [[2]]und keine Bewölkung unter 5000 ft über Grund.",
+      "text": "Und dann gibt es ein Kürzel, das jeden Piloten freut: [[0]]CAVOK. Es steht für gutes Wetter und heißt genau: [[p:0.4]][[1]]Sicht 10 km oder mehr [[p:0.4]][[2]]und keine Bewölkung unter 5000 ft über Grund.",
       "visual": {
-        "kind": "transform",
+        "kind": "diagram",
+        "diagram": "cavok",
         "headline": "Das Kürzel für",
         "highlight": "gutes Wetter",
-        "tiles": [
+        "steps": [
           {
-            "top": "CAVOK",
-            "bottom": "gutes Wetter"
+            "label": "CAVOK",
+            "sub": "gutes Wetter"
           },
           {
-            "top": "10 km",
-            "bottom": "Sicht oder mehr"
+            "label": "10 km",
+            "sub": "Sicht oder mehr"
           },
           {
-            "top": "5000 ft",
-            "bottom": "keine Wolken darunter"
+            "label": "5000 ft",
+            "sub": "keine Wolken darunter"
           }
         ]
       }
@@ -72,7 +87,7 @@
     {
       "id": "visibility",
       "voice": "trainer",
-      "text": "Bei der Sicht gilt im Funk eine feste Regel: Unter fünf Kilometern nennst du sie in Metern, darüber in Kilometern. Richtig heißt es also: [[0]]Sicht drei tausend Meter. [[1]]Sicht drei Kilometer wäre falsch.",
+      "text": "Bei der Sicht gilt im Funk eine feste Regel: Unter fünf Kilometern nennst du sie in Metern, darüber in Kilometern. Richtig heißt es also: [[0]]Sicht drei tausend Meter. [[p:0.4]][[1]]Sicht drei Kilometer wäre falsch.",
       "visual": {
         "kind": "transform",
         "headline": "Sichtweite im",
@@ -80,11 +95,13 @@
         "tiles": [
           {
             "top": "3000 m",
-            "bottom": "richtig"
+            "bottom": "richtig",
+            "tone": "green"
           },
           {
             "top": "3 km",
-            "bottom": "falsch"
+            "bottom": "falsch",
+            "tone": "red"
           }
         ]
       }
@@ -92,36 +109,33 @@
     {
       "id": "metar",
       "voice": "trainer",
-      "text": "Schauen wir uns eine echte Routinewettermeldung an, einen METAR. [[0]]Zuerst kommt der Wind: 240 Grad, 8 Knoten. [[1]]Dann die Sicht: 9999 bedeutet 10 Kilometer oder mehr. [[2]]Danach die Wolken: SCT040, also drei bis vier Achtel in 4000 ft über Grund. [[3]]Dann Temperatur und Taupunkt, [[4]]der Luftdruck als QNH [[5]]und am Ende der Trend. Die Karte zum Download entschlüsselt dir das Beispiel Zeile für Zeile.",
+      "text": "Schauen wir uns eine echte Routinewettermeldung an, einen METAR. [[0]]Vorne stehen der Flugplatz und die Uhrzeit: München, zwölf Uhr fünfzig UTC am zwanzigsten. [[p:0.4]][[1]]Dann kommt der Wind: zwo vier null Grad, acht Knoten. [[p:0.4]][[2]]Danach die Sicht: 9999 bedeutet 10 Kilometer oder mehr. [[p:0.4]][[3]]Dann die Wolken: SCT040, also drei bis vier Achtel in 4000 ft über Grund. [[p:0.4]][[4]]Danach Temperatur und Taupunkt: achtzehn und neun Grad. [[p:0.4]][[5]]Es folgt der Luftdruck als QNH: eins null eins fünf Hektopascal. [[p:0.4]][[6]]Und am Ende der Trend: NOSIG, keine wesentliche Änderung erwartet. Die Karte zum Download entschlüsselt dir das Beispiel Zeile für Zeile.",
       "visual": {
-        "kind": "transform",
+        "kind": "diagram",
+        "diagram": "metar",
         "headline": "Ein METAR,",
         "highlight": "Zeile für Zeile",
-        "plate": "24008KT 9999 SCT040",
-        "tiles": [
+        "steps": [
           {
-            "top": "24008KT",
-            "bottom": "Wind"
+            "label": "Flugplatz und Zeit"
           },
           {
-            "top": "9999",
-            "bottom": "Sicht"
+            "label": "Wind"
           },
           {
-            "top": "SCT040",
-            "bottom": "Wolken"
+            "label": "Sicht"
           },
           {
-            "top": "18/09",
-            "bottom": "Temperatur"
+            "label": "Wolken"
           },
           {
-            "top": "Q1015",
-            "bottom": "QNH"
+            "label": "Temperatur"
           },
           {
-            "top": "NOSIG",
-            "bottom": "Trend"
+            "label": "QNH"
+          },
+          {
+            "label": "Trend"
           }
         ]
       }
@@ -129,21 +143,24 @@
     {
       "id": "services",
       "voice": "trainer",
-      "text": "Woher bekommst du das Wetter? Es gibt drei wichtige Quellen. [[0]]Die ATIS sendet Lande- und Startinformationen für einen Flugplatz. [[1]]VOLMET sind Wetterrundsendungen mit Flughafenwettermeldungen. [[2]]Und SIGMET warnt vor besonderen Wettererscheinungen wie Gewitter, Turbulenzen und Vereisung.",
+      "text": "Woher bekommst du das Wetter? Es gibt drei wichtige Quellen. [[p:0.3]][[0]]Die ATIS sendet Lande- und Startinformationen für einen Flugplatz. [[p:0.6]][[1]]VOLMET sind Wetterrundsendungen mit Flughafenwettermeldungen. [[p:0.6]][[2]]Und SIGMET warnt vor besonderen Wettererscheinungen wie Gewitter, Turbulenzen und Vereisung.",
       "visual": {
-        "kind": "transform",
+        "kind": "glyphs",
         "headline": "Woher kommt",
         "highlight": "das Wetter?",
-        "tiles": [
+        "items": [
           {
+            "glyph": "g-atis",
             "top": "ATIS",
             "bottom": "Start- und Landeinfos"
           },
           {
+            "glyph": "g-volmet",
             "top": "VOLMET",
             "bottom": "Wetterrundsendungen"
           },
           {
+            "glyph": "g-sigmet",
             "top": "SIGMET",
             "bottom": "Warnung vor Gefahren"
           }

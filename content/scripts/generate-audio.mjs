@@ -178,13 +178,16 @@ async function synthesizeSceneTake(voice, spoken, options) {
   let bestOver = Infinity;
   for (let attempt = 1; attempt <= 8; attempt++) {
     const take = await synthesizeVerified(voice, spoken, options);
-    const over = worstOverrun(spoken, take.alignment);
+    // Extra audio after the last spoken character is the voice mumbling a stray syllable ("Uhr" after "Instrumentenflugregeln").
+    const ends = take.alignment?.character_end_times_seconds;
+    const trailing = ends?.length ? Math.max(0, take.pcm.length / 2 / SAMPLE_RATE - ends[ends.length - 1]) : 0;
+    const over = Math.max(worstOverrun(spoken, take.alignment), trailing / 0.4);
     if (over < bestOver) {
       best = take;
       bestOver = over;
     }
     if (over <= 1) break;
-    console.warn(`  a spelled-out word is too long in "${spoken.slice(0, 40)}…" (${over.toFixed(2)}x the limit), taking another take (${attempt}/8)`);
+    console.warn(`  a stray sound or an overlong spelled-out word in "${spoken.slice(0, 40)}…" (${over.toFixed(2)}x the limit), taking another take (${attempt}/8)`);
   }
   return best;
 }
@@ -305,15 +308,19 @@ function applyRadio(pcm) {
 async function speakScene(voiceName, displayTextWithCues, leadIn = 0) {
   const voice = voiceFor(voiceName);
 
-  // Split "…[[0]]text…" into spoken text and the character offset of each cue.
-  const pieces = displayTextWithCues.split(/\[\[(\d+)\]\]/);
+  // Split "…[[0]]text…" into spoken text and the character offset of each cue. "[[p:0.6]]" is a pause of 0.6 s at that
+  // point: it is not spoken, the silence is cut into the finished audio (so changing a pause never costs new credits).
+  const pieces = displayTextWithCues.split(/\[\[(\d+|p:[\d.]+)\]\]/);
   let spoken = "";
   let display = "";
   const cueOffsets = [];
+  const pauses = [];
   for (let i = 0; i < pieces.length; i++) {
     if (i % 2 === 0) {
       spoken += applyPronunciations(pieces[i]);
       display += pieces[i];
+    } else if (pieces[i].startsWith("p:")) {
+      pauses.push({ offset: spoken.length, seconds: Number(pieces[i].slice(2)) });
     } else {
       cueOffsets[Number(pieces[i])] = spoken.length;
     }
@@ -355,9 +362,27 @@ async function speakScene(voiceName, displayTextWithCues, leadIn = 0) {
   const aligned = Array.isArray(starts) && starts.length === spoken.length;
   if (engine === "elevenlabs" && !aligned) console.warn(`  warning: no exact alignment for scene "${spoken.slice(0, 40)}…", using estimated timings`);
 
-  const timeAt = (index, edge) => {
+  const rawTimeAt = (index, edge) => {
     if (aligned) return (edge === "end" ? ends : starts)[Math.max(0, Math.min(index, spoken.length - 1))];
     return (index / Math.max(1, spoken.length)) * duration;
+  };
+  // Pause insertion points (seconds in the raw clip): in the gap between the last spoken character before the marker
+  // and the next one after it.
+  const gaps = pauses
+    .map((pz) => {
+      let before = Math.min(pz.offset, spoken.length) - 1;
+      while (before > 0 && /\s/.test(spoken[before])) before--;
+      let after = Math.min(pz.offset, spoken.length - 1);
+      while (after < spoken.length - 1 && /\s/.test(spoken[after])) after++;
+      const at = pz.offset >= spoken.length ? duration : (rawTimeAt(before, "end") + rawTimeAt(after, "start")) / 2;
+      return { at, seconds: pz.seconds };
+    })
+    .sort((a, b) => a.at - b.at);
+  const shiftBy = (t) => gaps.reduce((sum, g) => (g.at <= t ? sum + g.seconds : sum), 0);
+  const timeAt = (index, edge) => {
+    const t = rawTimeAt(index, edge);
+    // a cue that sits exactly on a pause marker appears after the pause (the word it points at follows it)
+    return t + shiftBy(edge === "start" ? t + 0.001 : t - 0.001);
   };
   const cues = cueOffsets.map((offset) => {
     if (offset === undefined) return null;
@@ -377,8 +402,19 @@ async function speakScene(voiceName, displayTextWithCues, leadIn = 0) {
         }))
       : [{ text: display.trim(), start: 0, end: +duration.toFixed(3) }];
 
+  if (gaps.length) {
+    const parts = [];
+    let from = 0;
+    for (const g of gaps) {
+      const cut = Math.round(g.at * SAMPLE_RATE) * 2;
+      parts.push(pcm.subarray(from, cut), silence(g.seconds));
+      from = cut;
+    }
+    parts.push(pcm.subarray(from));
+    pcmOut = Buffer.concat(parts);
+  }
   let pre = 0;
-  if (voice.radio) ({ pcm: pcmOut, pre } = applyRadio(pcm));
+  if (voice.radio) ({ pcm: pcmOut, pre } = applyRadio(pcmOut));
   const total = leadIn + pre;
   if (total > 0) {
     const shift = (t) => +(t + total).toFixed(3);

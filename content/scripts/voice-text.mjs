@@ -47,8 +47,14 @@ function numberToGerman(n) {
 }
 const digitWords = (digits) => [...digits].map((d) => (d === "2" ? "zwei" : ONES[Number(d)])).join(" ");
 
+// Flight levels are read digit by digit: "FL 75" -> "Flugfläche sieben fünf", "FL 100" -> "Flugfläche eins null null".
+const flightLevelDigits = (digits) => [...digits].map((d) => (d === "2" ? "zwo-" : d === "1" ? "eins" : ONES[Number(d)])).join(" ");
+
+const flightLevels = (text) => text.replace(/(?<![\p{L}\p{N}])FL\s?(\d{2,3})(?![\p{L}\p{N}])/gu, (_, digits) => `Flugfläche ${flightLevelDigits(digits)}`);
+
 function spellNumbers(text) {
   return text
+
     .replace(/(?<![\p{L}\p{N}])(\d{1,2}):(\d{2})(?:\s+Uhr)?(?![\p{L}\p{N}])/gu, (_, h, m) => `${numberToGerman(Number(h))} Uhr ${Number(m) ? numberToGerman(Number(m)) : ""}`.trim())
     .replace(/(?<![\p{L}\p{N}])(\d{1,4}),(\d+)(?![\p{L}\p{N}])/gu, (_, whole, decimals) => `${numberToGerman(Number(whole))} Komma ${digitWords(decimals)}`)
     .replace(/(?<![\p{L}\p{N}])(\d{1,4})(?![\p{L}\p{N}])/gu, (_, n) => numberToGerman(Number(n)));
@@ -71,7 +77,7 @@ function applyExact(text) {
 }
 
 function applyPronunciations(text) {
-  return spellAbbreviations(spellNumbers(applyExact(applyGlossary(text))));
+  return spellAbbreviations(spellNumbers(applyExact(applyGlossary(flightLevels(text)))));
 }
 
 // Anything left that the voice could misread: digits glued to letters, unknown mixed tokens.
