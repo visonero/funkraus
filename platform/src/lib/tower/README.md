@@ -11,7 +11,11 @@ Each exercise has 5 variants (aircraft, callsign, aerodrome, runway, wind, QNH, 
 random when a practice starts and it is never the same one twice in a row.
 
 ## Speech recognition is never held against the learner
-Accents garble names ("Old Time Tower" for "Waldheim Tower"). Three layers keep that from costing points:
+Accents garble names ("Old Time Tower" for "Waldheim Tower"). Four layers keep that from costing points:
+0. `normalize.ts` repairs what the code can know for certain before anything is judged: a callsign in which most words
+   match ("Delta Echo Whiskey Papa Cool") becomes the real callsign, and a misheard aerodrome name in front of
+   Tower/Turm/Ground/Rollkontrolle becomes the real name. Things that are really missing are left missing.
+   The judge also receives a verified "system check" (callsign stated: yes/no) with every message.
 1. The judge is told to ignore names, callsign letters, numbers spelled differently and pronunciation, and never to ask
    for a repeat just because something was recognised unclearly.
 2. Mistakes can only be of the kinds `fehlt`, `reihenfolge`, `phraseologie`, `zahl`, `rueckbestaetigung`. There is no kind for

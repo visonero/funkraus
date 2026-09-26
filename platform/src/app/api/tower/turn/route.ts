@@ -3,6 +3,7 @@ import { getCurrentUser } from "@/lib/auth/session";
 import { askTower, speak, speechAvailable, transcribe } from "@/lib/tower/ai";
 import { costMicroUsd, TOWER } from "@/lib/tower/config";
 import { checkCanTurn } from "@/lib/tower/limits";
+import { normalizeTranscript } from "@/lib/tower/normalize";
 import { getScenario } from "@/lib/tower/scenarios";
 import { getStore } from "@/lib/tower/store";
 
@@ -58,7 +59,7 @@ export async function POST(req: Request) {
       usage.sttSeconds += Math.max(1, claimed);
       pilotText = await transcribe(audio, audio.name || "funk.webm", scenario.language);
     }
-    pilotText = pilotText.slice(0, TOWER.limits.maxTranscriptChars);
+    pilotText = normalizeTranscript(pilotText.slice(0, TOWER.limits.maxTranscriptChars), scenario);
     if (!pilotText) {
       await persistCost();
       return fail("Ich habe nichts verstanden. Halte die Sprechtaste gedrückt und sprich etwas deutlicher.", 200, { empty: true });

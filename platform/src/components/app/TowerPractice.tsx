@@ -367,7 +367,7 @@ export default function TowerPractice({
               {feedback.verbessern.map((v, i) => (
                 <div key={i} style={{ borderRadius: 14, padding: "12px 14px", background: "rgba(47,155,234,0.08)", fontSize: 14, lineHeight: 1.55 }}>
                   <p style={{ color: "#c0334d" }}>Erkannt: {v.gesagt}</p>
-                  <p style={{ color: "#0f9f6e", fontWeight: 600 }}>Besser: {v.besser}</p>
+                  {v.besser && <p style={{ color: "#0f9f6e", fontWeight: 600 }}>Besser: {v.besser}</p>}
                   <p style={{ color: "var(--text-dim)" }}>{v.grund}</p>
                 </div>
               ))}
