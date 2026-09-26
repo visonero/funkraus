@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "funkraus — BZF I & II Online-Kurs für dein Sprechfunkzeugnis";
+export const alt = "funkraus — BZF I & II Online-Kurs mit KI-Funktraining";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -79,7 +79,7 @@ export default function Image() {
             maxWidth: 880,
           }}
         >
-          BZF I &amp; II Online-Kurs für dein Sprechfunkzeugnis
+          BZF I &amp; II Online-Kurs mit KI-Funktraining
         </div>
         <div
           style={{
@@ -90,7 +90,7 @@ export default function Image() {
             color: "rgba(255,255,255,0.78)",
           }}
         >
-          Offizieller Fragenkatalog · Audio-Training · Prüfungssimulation
+          Alle 261 Fragen · KI-Tower zum Sprechen · Prüfungssimulation
         </div>
       </div>
     ),

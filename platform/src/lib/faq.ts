@@ -7,6 +7,22 @@ export const FAQS = [
     a: "Mit einem kostenlosen Konto nutzt du das Dashboard sowie die ersten 2 Module komplett: Videos, Lesetexte, PDF-Merkblätter und die zugehörigen offiziellen Prüfungsfragen mit Erklärung. Dein Fortschritt wird gespeichert. Dafür brauchst du keine Zahlungsdaten, und der Zugang läuft nicht ab.",
   },
   {
+    q: "Was ist das KI-Funktraining und wie funktioniert es?",
+    a: "Im KI-Funktraining übst du echten Sprechfunk im Gespräch: Du hältst die Sprechtaste, sprichst deinen Funkspruch, und ein KI-Tower antwortet dir mit Stimme. Am Ende bekommst du Feedback zu Ablauf, Phraseologie und Rückbestätigungen. Es gibt Übungen auf Deutsch (BZF II) und Englisch (BZF I), jedes Mal mit anderem Flugzeug, Rufzeichen und Flugplatz.",
+  },
+  {
+    q: "Brauche ich ein Mikrofon, und wird meine Aussprache bewertet?",
+    a: "Du kannst per Mikrofon sprechen oder deine Funksprüche einfach tippen. Bewertet werden nur Inhalt, Ablauf, Phraseologie und Rückbestätigungen, nicht deine Aussprache oder ein Akzent. Die Spracherkennung versteht nicht jeden Namen perfekt, das zählt nicht gegen dich.",
+  },
+  {
+    q: "Ersetzt das KI-Funktraining die praktische BZF-Prüfung?",
+    a: "Nein. Das KI-Funktraining ist eine Übung, damit du den Ablauf sicher beherrschst, bevor du zur praktischen Prüfung bei der Bundesnetzagentur antrittst. Der Tower ist ein KI-System, kein echter Fluglotse, und die Übungen befinden sich in der Beta-Phase. Maßgeblich sind immer die amtlichen Unterlagen.",
+  },
+  {
+    q: "Wie viel kann ich das KI-Funktraining nutzen?",
+    a: "Mit einem kostenlosen Konto hast du eine Probe-Übung. Mit dem Vollzugang übst du im Rahmen eines fairen Tageslimits so oft du möchtest, ohne Aufpreis.",
+  },
+  {
     q: "Brauche ich das BZF für meinen PPL(A) oder LAPL(A)?",
     a: "Ja. Für den Sprechfunkverkehr in deutscher Sprache brauchst du das BZF II, für Englisch und internationalen Flugverkehr zusätzlich das BZF I. Beide Zeugnisse sind Voraussetzung, um mit deinem PPL oder LAPL selbstständig zu funken — unabhängig von der Flugschule bei der Bundesnetzagentur zu beantragen.",
   },

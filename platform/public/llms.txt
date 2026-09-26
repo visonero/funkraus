@@ -7,8 +7,9 @@ funkraus ist ein digitaler Lernkurs, kein Teil der Bundesnetzagentur, der Deutsc
 ## Angebot
 
 - BZF I (Sprechfunk auf Deutsch und Englisch, internationaler Luftraum) und BZF II (Sprechfunk auf Deutsch, deutscher Luftraum) in einem Kurs.
-- Der komplette, offizielle Prüfungsfragenkatalog der Bundesnetzagentur, thematisch in den Kurs integriert.
-- Video-Lektionen, Audio-Funkübungen, PDF-Merkblätter und eine vollständige, zeitlich begrenzte Prüfungssimulation (100 Fragen, 60 Minuten) im Format der echten Prüfung.
+- Der komplette, offizielle Prüfungsfragenkatalog der Bundesnetzagentur (261 Fragen), thematisch in den Kurs integriert, mit Erklärung zu jeder Antwort.
+- KI-Funktraining (Beta): Lernende sprechen per Sprechtaste live mit einem KI-Tower, der mit Stimme antwortet, und erhalten Feedback zu Ablauf, Phraseologie und Rückbestätigungen. Übungen auf Deutsch (BZF II) und Englisch (BZF I), mit wechselnden Flugzeugen, Rufzeichen und Flugplätzen. Es ist eine Übung und ersetzt nicht die praktische Prüfung bei der Bundesnetzagentur.
+- Lektionen Schritt für Schritt mit Video-Lektionen, Audio-Funkübungen, PDF-Merkblätter und eine vollständige, zeitlich begrenzte Prüfungssimulation (100 Fragen, 60 Minuten) im Format der echten Prüfung.
 - Die ersten 2 Module sind kostenlos nutzbar; der Vollzugang ist ein einmaliger Kauf ohne Abo (12 Monate Zugriff).
 
 ## Wichtige Seiten

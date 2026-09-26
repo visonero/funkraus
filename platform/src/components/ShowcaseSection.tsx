@@ -10,11 +10,12 @@ type Props = {
   image: { src: string; alt: string; width: number; height: number };
   reverse?: boolean;
   cta?: ReactNode;
+  overlay?: ReactNode; // animated layer on top of the screenshot
 };
 
 // One USP told as a short story: text on one side, a real screenshot (in a browser-style frame) on the
 // other. Used repeatedly under "einblick" so each highlight gets its own moment instead of a feature grid.
-export default function ShowcaseSection({ id, eyebrow, title, text, bullets, image, reverse, cta }: Props) {
+export default function ShowcaseSection({ id, eyebrow, title, text, bullets, image, reverse, cta, overlay }: Props) {
   return (
     <div id={id} className="section-pad" style={{ padding: "56px 32px", maxWidth: 1180, margin: "0 auto" }}>
       <div
@@ -43,7 +44,7 @@ export default function ShowcaseSection({ id, eyebrow, title, text, bullets, ima
           )}
           {cta && <div style={{ marginTop: 22 }}>{cta}</div>}
         </div>
-        <div className="reveal mockup-frame showcase-mockup" style={{ direction: "ltr", maxWidth: "none" }}>
+        <div className="reveal mockup-frame showcase-mockup" style={{ direction: "ltr", maxWidth: "none", position: "relative" }}>
           <div className="mockup-topbar">
             <span className="mockup-dot" />
             <span className="mockup-dot" />
@@ -62,7 +63,10 @@ export default function ShowcaseSection({ id, eyebrow, title, text, bullets, ima
               app.funkraus.de
             </span>
           </div>
-          <Image src={image.src} alt={image.alt} width={image.width} height={image.height} sizes="(max-width: 900px) 92vw, 540px" style={{ display: "block", width: "100%", height: "auto" }} />
+          <div style={{ position: "relative" }}>
+            <Image src={image.src} alt={image.alt} width={image.width} height={image.height} sizes="(max-width: 900px) 92vw, 540px" style={{ display: "block", width: "100%", height: "auto" }} />
+            {overlay}
+          </div>
         </div>
       </div>
     </div>

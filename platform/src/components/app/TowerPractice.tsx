@@ -393,7 +393,7 @@ export default function TowerPractice({
       <div className="glass dash-card">
         <div style={{ display: "flex", justifyContent: "space-between", gap: 12, flexWrap: "wrap" }}>
           <span className="label" style={{ color: "var(--sky)" }}>{scenario?.title} · {done ? "Geschafft" : stepLabel}</span>
-          <span style={{ fontSize: 12.5, color: "var(--text-faint)" }}>{turns} Funksprüche</span>
+          <span style={{ fontSize: 12.5, color: "var(--text-faint)" }}>{turns} {turns === 1 ? "Funkspruch" : "Funksprüche"}</span>
         </div>
         <p style={{ marginTop: 10, fontSize: 15.5, lineHeight: 1.6, fontWeight: 600 }}>{done ? "Alle Schritte sind durch. Beende die Übung und sieh dir dein Feedback an." : situation}</p>
         {info && !done && (

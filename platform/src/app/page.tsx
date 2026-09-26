@@ -1,9 +1,9 @@
 import Link from "next/link";
 import SiteNav from "@/components/SiteNav";
 import ScrollRevealInit from "@/components/ScrollRevealInit";
-import HighlightsCounters from "@/components/HighlightsCounters";
-import HeroNetwork from "@/components/HeroNetwork";
-import PlatformShowcase from "@/components/PlatformShowcase";
+import HeroAI from "@/components/landing/HeroAI";
+import UspGrid from "@/components/landing/UspGrid";
+import { FreeStartOverlay, MerkenOverlay, MicOverlay, TowerChatOverlay } from "@/components/landing/Overlays";
 import ShowcaseSection from "@/components/ShowcaseSection";
 import CurriculumTabs from "@/components/CurriculumTabs";
 import HowItWorksTimeline from "@/components/HowItWorksTimeline";
@@ -17,16 +17,18 @@ const SIGNUP_HREF = "/login?mode=signup";
 const FREE_CTA = "Heute kostenlos starten";
 
 const CMP_ROWS = [
-  { label: "Einstieg", them: "Erst zahlen oder ein Verkaufsgespräch führen", us: "Kostenloses Konto: Modul 0 & 1 sofort offen" },
+  { label: "Einstieg", them: "Erst zahlen oder ein Verkaufsgespräch führen", us: "Kostenloses Konto: die ersten 2 Module sofort offen" },
+  { label: "Sprechfunk üben", them: "Nur lesen, hören und Quizfragen anklicken", us: "KI-Tower: live per Stimme sprechen, mit Feedback zu deinen Funksprüchen" },
   { label: "Preis für den Rest", them: "Oft vierstellig, erst nach Beratung sichtbar", us: `€${PRICE} einmalig, von Anfang an sichtbar` },
-  { label: "Lernformat", them: "Meist nur Video", us: "Video, Audio, Text, PDF und Quiz mit Fragenkatalog" },
+  { label: "Lernformat", them: "Meist nur Video", us: "Video, Audio, Text, PDF und Quiz mit dem kompletten Fragenkatalog" },
   { label: "Tempo & Zugang", them: "Feste Kurstermine, Wartezeit", us: "Sofort startklar, komplett selbstbestimmt" },
 ];
 
 const FREE_FEATURES = [
   "Kostenloses Konto mit persönlichem Dashboard",
-  "Modul 0 und 1 komplett: Videos, Lesetexte, PDF-Merkblätter",
+  "Die ersten 2 Module komplett: Videos, Lesetexte, PDF-Merkblätter",
   "Rund 80 offizielle Prüfungsfragen mit Erklärung",
+  "1 Probe-Übung im KI-Funktraining",
   "Fortschritt und Trefferquote werden gespeichert",
   "Keine Zahlungsdaten nötig, kein Ablaufdatum",
 ];
@@ -34,6 +36,7 @@ const FREE_FEATURES = [
 const PRICE_FEATURES = [
   "Alles aus dem kostenlosen Start, plus:",
   "BZF I & BZF II komplett, ein Kurs",
+  "KI-Funktraining: live mit dem Tower sprechen (Beta)",
   "Kompletter offizieller Fragenkatalog als Übungsquiz",
   "Über 40 Audio-Funkbeispiele & interaktive Simulationen",
   "Vollständige Prüfungssimulationen (BZF I & II)",
@@ -42,26 +45,33 @@ const PRICE_FEATURES = [
 ];
 
 const MARQUEE_ITEMS = [
-  "🎁 Modul 0 & 1 kostenlos",
-  "📘 Offizieller Fragenkatalog",
-  "💶 Fester Preis",
-  "⚡ Sofortiger Zugang",
-  "🎧 Audio-first Training",
+  "📘 Kompletter offizieller Fragenkatalog",
+  "🚀 Sofort kostenlos starten",
+  "🎁 Die ersten 2 Module kostenlos",
+  "💶 Einmal zahlen, alles freischalten",
+  "🎙️ KI-Training mit echter Sprachkonversation",
+  "✈️ BZF I & II in einem Kurs",
 ];
 
 const jsonLd = [
   {
     "@context": "https://schema.org",
     "@type": "Course",
-    name: "BZF I & II Online-Kurs",
+    name: "BZF Online-Kurs für BZF I und BZF II mit KI-Funktraining",
     description:
-      "Online-Kurs für das Sprechfunkzeugnis BZF I und BZF II für PPL(A)- und LAPL(A)-Piloten in Deutschland, mit dem offiziellen Fragenkatalog der Bundesnetzagentur.",
-    provider: { "@type": "Organization", name: "funkraus", sameAs: "https://www.funkraus.de" },
+      "Online-Kurs für das Sprechfunkzeugnis BZF I und BZF II für PPL(A)- und LAPL(A)-Piloten in Deutschland: kompletter offizieller Fragenkatalog der Bundesnetzagentur (261 Fragen), Prüfungssimulation und KI-Funktraining, bei dem du live mit einem KI-Tower sprichst.",
+    inLanguage: "de",
+    educationalLevel: "Beginner",
+    teaches: ["Sprechfunk im Flugfunkdienst", "BZF I", "BZF II", "Flugfunk-Phraseologie", "Englischer Flugfunk", "Prüfungsvorbereitung Bundesnetzagentur"],
+    provider: { "@type": "Organization", name: "funkraus", url: "https://www.funkraus.de", sameAs: "https://www.funkraus.de" },
+    hasCourseInstance: { "@type": "CourseInstance", courseMode: "online", courseWorkload: "PT9H" },
     offers: {
       "@type": "Offer",
       price: PRICE,
       priceCurrency: "EUR",
-      category: "Vollzugang, Modul 0 und 1 kostenlos",
+      url: "https://www.funkraus.de/#preis",
+      availability: "https://schema.org/InStock",
+      category: "Vollzugang einmalig, die ersten 2 Module kostenlos",
     },
   },
   {
@@ -92,41 +102,7 @@ export default async function Home() {
       <SiteNav email={user?.email ?? null} />
 
       {/* HERO */}
-      <div style={{ position: "relative", overflow: "hidden", background: "#fff" }}>
-        <HeroNetwork />
-
-        <div className="section-pad" style={{ position: "relative", zIndex: 2, maxWidth: 1040, margin: "0 auto", padding: "44px 32px 8px", width: "100%", textAlign: "center" }}>
-          <div className="hero-eyebrow" style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "6px 14px", borderRadius: 999, background: "rgba(47,155,234,0.08)", border: "1px solid rgba(47,155,234,0.25)", marginBottom: 20 }}>
-            <span style={{ width: 7, height: 7, borderRadius: "50%", background: "var(--sky)", flex: "none" }} />
-            <span className="label" style={{ color: "var(--sky-deep)", whiteSpace: "nowrap" }}>BZF I &amp; II · Online-Kurs für PPL &amp; LAPL</span>
-          </div>
-          <h1 className="h1-hero" style={{ fontSize: "clamp(24px,3.6vw,40px)", lineHeight: 1.18, fontWeight: 800, overflowWrap: "break-word" }}>
-            BZF-Crashkurs: <span className="grad">Sprechfunkzeugnis in unter 10 Stunden bestehen.</span>
-          </h1>
-          <p style={{ marginTop: 18, fontSize: 15, color: "var(--text-dim)", maxWidth: 820, marginLeft: "auto", marginRight: "auto" }}>
-            Der komplette BZF-Crashkurs mit Video, Audio-Funkübungen, Lesetexten, PDF-Merkblättern und dem offiziellen Fragenkatalog der Bundesnetzagentur — damit du deine Prüfung sicher bestehen kannst. Auf Laptop, Tablet und Smartphone.
-          </p>
-          <div className="hero-eyebrow" style={{ display: "inline-flex", alignItems: "center", gap: 8, marginTop: 18, padding: "6px 14px", borderRadius: 999, background: "rgba(52,211,153,0.16)", border: "1px solid rgba(52,211,153,0.4)" }}>
-            <span style={{ fontSize: 12, flex: "none" }}>🎁</span>
-            <span style={{ fontSize: 12, fontWeight: 700, color: "#0b7a55", whiteSpace: "nowrap" }}>Modul 0 &amp; 1 sofort kostenlos nutzen</span>
-          </div>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 22, justifyContent: "center" }}>
-            <Link href={SIGNUP_HREF} className="btn-accent" style={{ padding: "13px 24px", borderRadius: 999, fontSize: 14.5, display: "inline-block" }}>
-              {FREE_CTA}
-            </Link>
-            <a href="#einblick" className="btn-ghost" style={{ padding: "13px 24px", borderRadius: 999, fontSize: 14.5, display: "inline-block" }}>
-              So sieht der Kurs aus ↓
-            </a>
-          </div>
-          <p style={{ marginTop: 18, fontSize: 12, color: "var(--text-faint)", fontWeight: 600 }}>
-            Kostenlos starten · Vollzugang später einmalig €{PRICE} statt €{ORIGINAL_PRICE} · Basierend auf dem offiziellen Fragenkatalog der Bundesnetzagentur
-          </p>
-        </div>
-
-        <div className="section-pad hero-showcase-slot" style={{ position: "relative", zIndex: 2, maxWidth: 1180, margin: "0 auto", padding: "16px 32px 56px" }}>
-          <PlatformShowcase />
-        </div>
-      </div>
+      <HeroAI signupHref={SIGNUP_HREF} cta={FREE_CTA} />
 
       {/* MARQUEE */}
       <div className="marquee-outer" style={{ padding: "22px 0", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)", background: "rgba(255,255,255,0.5)" }}>
@@ -144,7 +120,19 @@ export default async function Home() {
         </div>
       </div>
 
-      <HighlightsCounters />
+      {/* MAIN USPs */}
+      <div id="vorteil-gitter" className="section-pad" style={{ padding: "84px 32px 30px", maxWidth: 1180, margin: "0 auto" }}>
+        <div className="reveal" style={{ maxWidth: 860, margin: "0 auto 44px", textAlign: "center" }}>
+          <span className="label" style={{ color: "var(--sky)" }}>Das bekommst du</span>
+          <h2 style={{ fontSize: "clamp(28px,3.6vw,44px)", marginTop: 14, fontWeight: 800, lineHeight: 1.15 }}>
+            Alles für dein Sprechfunkzeugnis. <span className="grad">In einem Kurs.</span>
+          </h2>
+          <p style={{ marginTop: 14, fontSize: 17, color: "var(--text-dim)" }}>
+            Kompletter BZF-Kurs, der gesamte offizielle Fragenkatalog und ein KI-Tower zum Sprechen üben.
+          </p>
+        </div>
+        <UspGrid />
+      </div>
 
       {/* USP STORY: einblick */}
       <div id="einblick" style={{ position: "relative", overflow: "hidden" }}>
@@ -153,10 +141,10 @@ export default async function Home() {
           <div className="reveal" style={{ maxWidth: 700, margin: "0 auto", textAlign: "center" }}>
             <span className="label" style={{ color: "var(--sky)" }}>Einblick</span>
             <h2 style={{ fontSize: "clamp(28px,3.4vw,42px)", marginTop: 14, fontWeight: 700, lineHeight: 1.2 }}>
-              Warum funkraus der richtige <span className="grad">BZF-Kurs</span> für dich ist.
+              Warum funkraus der <span className="grad">BZF Online-Kurs</span> für dich ist.
             </h2>
             <p style={{ marginTop: 16, fontSize: 17, color: "var(--text-dim)" }}>
-              Keine Attrappe: Das sind echte Ansichten aus der Lernplattform, Schritt für Schritt erklärt.
+              Keine Attrappe: Das sind echte Ansichten aus der Lernplattform. Erst das Video, dann vier Dinge, die funkraus besonders machen.
             </p>
           </div>
         </div>
@@ -170,65 +158,74 @@ export default async function Home() {
         </div>
 
         <ShowcaseSection
-          eyebrow="1 · Der komplette Crashkurs"
+          id="ki-training"
+          eyebrow="1 · NEU: KI-Funktraining"
           title={
             <>
-              Vom Einsteiger zum <span className="grad">Sprechfunkzeugnis</span> — in unter 10 Stunden.
+              Sprich live mit dem <span className="grad">KI-Tower.</span>
             </>
           }
-          text="Ein durchgehender Kurs für BZF I und BZF II, der bei null anfängt: Luftraumstruktur, Funkverfahren, Platzverkehr, Streckenflug und Navigation, bis zur Prüfungssimulation. Kein Springen zwischen Anbietern, keine Lücken."
+          text="Halte die Sprechtaste, sprich deinen Funkspruch, und der Tower antwortet dir mit Stimme, wie im echten Funkverkehr. Danach bekommst du Feedback zu Ablauf, Phraseologie und Rückbestätigungen. Du übst Rollen, Start, Platzrunde und Landung, auf Deutsch und Englisch."
           bullets={[
-            "8,5 Stunden Gesamtlernzeit für den kompletten BZF-Stoff",
-            "261 offizielle Prüfungsfragen der Bundesnetzagentur, passend zu jedem Kapitel",
-            "Aufgebaut für PPL(A)- und LAPL(A)-Piloten ohne Vorkenntnisse",
+            "Jedes Mal anderes Flugzeug, Rufzeichen und anderer Flugplatz",
+            "Aussprache und Akzent werden nicht bewertet, nur der Inhalt",
+            "Auch ohne Mikrofon nutzbar: Funksprüche einfach tippen",
           ]}
-          image={{ src: "/screens/kurs-desktop.webp", alt: "Kursübersicht des BZF-Online-Kurses mit allen Modulen und Fortschritt", width: 2880, height: 1800 }}
+          image={{ src: "/screens/tower-desktop.webp", alt: "KI-Funktraining: Funkverkehr mit dem KI-Tower per Sprechtaste üben", width: 2880, height: 2020 }}
+          overlay={<MicOverlay />}
         />
 
         <ShowcaseSection
           reverse
-          eyebrow="2 · Kostenlos starten"
+          eyebrow="2 · Der komplette Fragenkatalog"
           title={
             <>
-              Erst überzeugen lassen. <span className="grad">Dann erst zahlen.</span>
+              Alle <span className="grad">261 Prüfungsfragen.</span> Mit Erklärung.
             </>
           }
-          text="Anders als bei vielen BZF-Anbietern zahlst du nicht im Voraus für ein Versprechen. Du erstellst ein kostenloses Konto, lernst Modul 0 und 1 komplett durch und entscheidest erst danach, ob du den Vollzugang freischaltest."
+          text="Der gesamte offizielle Fragenkatalog der Bundesnetzagentur steckt direkt in den Lektionen, Frage für Frage. Zu jeder Antwort bekommst du sofort die Erklärung. Schwierige Fragen merkst du dir mit einem Klick und übst sie später gezielt."
+          bullets={[
+            "Immer nur eine Frage auf dem Bildschirm, ohne Ablenkung",
+            "„Merken“ sammelt deine kniffligen Fragen im eigenen Bereich",
+            "Rückfragen an einen echten Menschen direkt bei der Frage",
+          ]}
+          image={{ src: "/screens/frage-desktop.webp", alt: "Prüfungsfrage aus dem BZF-Fragenkatalog mit Erklärung und Merken-Funktion", width: 2880, height: 1800 }}
+          overlay={<MerkenOverlay />}
+        />
+
+        <ShowcaseSection
+          eyebrow="3 · Lektionen Schritt für Schritt"
+          title={
+            <>
+              Jede Lektion ein <span className="grad">geführter Weg.</span>
+            </>
+          }
+          text="Erst das Erklärvideo, dann der Lesetext in kleinen Abschnitten, die Hörübung zum Nachsprechen, die passenden Prüfungsfragen und am Ende das PDF-Merkblatt. Immer nur ein Schritt auf dem Bildschirm, mit Weiter und Zurück."
+          bullets={[
+            "Erklärvideos und Audio-Funkübungen wie im echten Funkverkehr",
+            "Kurze Abschnitte statt endlosem Scrollen",
+            "Dein Platz in der Lektion bleibt erhalten",
+          ]}
+          image={{ src: "/screens/lektion-video-desktop.webp", alt: "Video-Lektion im BZF-Online-Kurs mit Fortschrittsanzeige", width: 2880, height: 1800 }}
+          overlay={<TowerChatOverlay />}
+        />
+
+        <ShowcaseSection
+          reverse
+          eyebrow="4 · Kostenlos starten"
+          title={
+            <>
+              Die ersten 2 Module <span className="grad">kostenlos.</span>
+            </>
+          }
+          text="Anders als bei vielen BZF-Anbietern zahlst du nicht im Voraus für ein Versprechen. Du erstellst ein kostenloses Konto, lernst die ersten 2 Module komplett durch und probierst das KI-Funktraining einmal aus. Erst danach entscheidest du, ob du alles freischaltest."
           bullets={[
             "Keine Zahlungsdaten bei der Registrierung",
-            "Kein Verkaufsgespräch, kein Countdown-Trick",
-            "Dein Fortschritt bleibt erhalten, wenn du später upgradest",
+            "Danach einmal zahlen, kein Abo, 12 Monate Zugriff",
+            "Dein Fortschritt bleibt erhalten, wenn du freischaltest",
           ]}
-          image={{ src: "/screens/gesperrt-desktop.webp", alt: "Ansicht eines gesperrten Kapitels mit Hinweis auf den kostenlosen Einstieg", width: 2880, height: 1800 }}
-        />
-
-        <ShowcaseSection
-          eyebrow="3 · Moderne, interaktive Lernplattform"
-          title={
-            <>
-              Video, Text, Audio, PDF und Quiz — <span className="grad">für jede Lektion.</span>
-            </>
-          }
-          text="Jede Lektion kombiniert ein Erklärvideo, einen Lesetext, echte Audio-Funkübungen zum Nachsprechen und ein PDF-Merkblatt zum Ausdrucken. Direkt darunter: die passenden Fragen aus dem offiziellen Fragenkatalog, Modul für Modul."
-          bullets={[
-            "Original-Fragen der Bundesnetzagentur zu jeder Lektion und jedem Modul",
-            "Sofortige Erklärung bei jeder Antwort, richtig oder falsch",
-            "PDF-Spickzettel zum Download für jedes Thema",
-          ]}
-          image={{ src: "/screens/lektion-video-desktop.webp", alt: "Video-Lektion mit Text, Audio und PDF-Karte im BZF-Kurs", width: 2880, height: 1800 }}
-        />
-
-        <ShowcaseSection
-          reverse
-          eyebrow="4 · Lerne, wann und wo du willst"
-          title={
-            <>
-              Am Laptop begonnen, <span className="grad">am Handy weitergemacht.</span>
-            </>
-          }
-          text="Die Lernplattform passt sich jedem Bildschirm an. Ob am Küchentisch auf dem Laptop, im Flugzeug-Club auf dem Tablet oder unterwegs auf dem Smartphone: dein Fortschritt ist überall sofort da."
-          bullets={["Responsive auf Desktop, Tablet und Smartphone", "Automatische Synchronisierung deines Fortschritts", "Keine App-Installation nötig, läuft im Browser"]}
-          image={{ src: "/screens/quiz-desktop.webp", alt: "BZF-Prüfungsfragen mit Erklärung, responsiv auf allen Geräten nutzbar", width: 2880, height: 1800 }}
+          image={{ src: "/screens/dashboard-desktop.webp", alt: "Dashboard des BZF-Online-Kurses mit Lernfortschritt", width: 2880, height: 1800 }}
+          overlay={<FreeStartOverlay />}
           cta={
             <Link href={SIGNUP_HREF} className="btn-accent" style={{ display: "inline-block", padding: "14px 26px", borderRadius: 999, fontSize: 15 }}>
               Jetzt kostenloses Konto erstellen
@@ -385,7 +382,7 @@ export default async function Home() {
           <h2 style={{ fontSize: "clamp(30px,4vw,48px)", fontWeight: 800, lineHeight: 1.15 }}>
             Bereit, <span className="grad">klar zu funken?</span>
           </h2>
-          <p style={{ marginTop: 16, fontSize: 17, color: "var(--text-dim)" }}>Kostenlos starten. Fester Preis für den Rest. Kein Verkaufsgespräch.</p>
+          <p style={{ marginTop: 16, fontSize: 17, color: "var(--text-dim)" }}>Kostenlos starten, die ersten 2 Module frei. Fester Preis für den Rest. Kein Verkaufsgespräch.</p>
           <Link href={SIGNUP_HREF} className="btn-accent" style={{ display: "inline-block", marginTop: 32, padding: "18px 38px", borderRadius: 999, fontSize: 17 }}>
             Jetzt kostenlos starten
           </Link>

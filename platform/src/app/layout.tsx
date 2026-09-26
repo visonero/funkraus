@@ -16,26 +16,30 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 const SITE_URL = "https://www.funkraus.de";
-const TITLE = "BZF Online-Kurs für PPL & LAPL | funkraus";
+const TITLE = "BZF Online-Kurs mit KI-Funktraining | BZF I & II | funkraus";
 const DESCRIPTION =
-  "BZF I & II Online-Kurs für PPL(A) und LAPL(A): offizieller Fragenkatalog, Video und Audio-Funkübungen. Jetzt kostenlos starten.";
+  "BZF I & II online lernen: kompletter Kurs, alle 261 Prüfungsfragen der Bundesnetzagentur und KI-Tower zum Sprechfunk üben. Die ersten 2 Module kostenlos.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: TITLE,
   description: DESCRIPTION,
   keywords: [
-    "BZF Kurs",
     "BZF Online Kurs",
-    "Sprechfunkzeugnis",
-    "BZF I und II",
-    "Sprechfunkprüfung",
-    "Flugfunkzeugnis",
+    "BZF Kurs",
+    "BZF I und BZF II",
+    "Sprechfunkzeugnis online lernen",
     "BZF Fragenkatalog",
-    "Sprechfunkzeugnis PPL",
-    "BZF Kurs LAPL",
-    "Sprechfunk online lernen",
+    "BZF Prüfung Vorbereitung",
+    "BZF Prüfungssimulation",
+    "KI Sprechfunk Training",
+    "Sprechfunk üben mit KI",
+    "BZF Kurs PPL LAPL",
+    "Flugfunk Sprechfunkzeugnis",
+    "Bundesnetzagentur Fragenkatalog Flugfunk",
+    "BZF Englisch",
   ],
+
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
