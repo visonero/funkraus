@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { finishTowerSession, startTowerSession } from "@/lib/tower/actions";
 import type { UsageSummary } from "@/lib/tower/limits";
-import type { PublicScenario } from "@/lib/tower/scenarios";
+import type { FlightInfo, PublicScenario } from "@/lib/tower/scenarios";
 import type { Feedback } from "@/lib/tower/store";
 import AppIcon from "./AppIcon";
 
@@ -104,6 +104,7 @@ export default function TowerPractice({
   const [error, setError] = useState<string | null>(null);
   const [feedback, setFeedback] = useState<Feedback | null>(null);
   const [starting, setStarting] = useState<string | null>(null);
+  const [info, setInfo] = useState<FlightInfo | null>(null);
 
   const ctxRef = useRef<AudioContext | null>(null);
   const streamRef = useRef<MediaStream | null>(null);
@@ -146,6 +147,7 @@ export default function TowerPractice({
     setScenario(s);
     setSessionId(res.sessionId);
     setSituation(res.situation);
+    setInfo(res.info);
     setStep(0);
     setLog([]);
     setTurns(0);
@@ -323,7 +325,7 @@ export default function TowerPractice({
               <span className="label" style={{ color: "var(--sky)" }}>{s.level} · {s.language === "de" ? "Deutsch" : "English"}</span>
               <h2 style={{ marginTop: 8, fontSize: 18, fontWeight: 700 }}>{s.title}</h2>
               <p style={{ marginTop: 8, fontSize: 14, lineHeight: 1.55, color: "var(--text-dim)", flex: 1 }}>{s.blurb}</p>
-              <p style={{ marginTop: 10, fontSize: 12.5, color: "var(--text-faint)" }}>Dein Rufzeichen: {s.callsign}</p>
+              <p style={{ marginTop: 10, fontSize: 12.5, color: "var(--text-faint)" }}>{s.variantCount} Varianten: jedes Mal anderes Flugzeug, Rufzeichen, Flugplatz und andere Werte.</p>
               <button type="button" onClick={() => void start(s)} disabled={starting !== null} className="btn-accent" style={{ marginTop: 14, padding: "12px 20px", borderRadius: 999, fontSize: 14.5, border: "none", opacity: starting ? 0.7 : 1 }}>
                 {starting === s.id ? "Wird gestartet…" : "Übung starten"}
               </button>
@@ -349,6 +351,7 @@ export default function TowerPractice({
           <span style={{ color: "var(--line-strong)" }}>{"★".repeat(5 - feedback.bewertung)}</span>
         </p>
         <p style={{ marginTop: 10, fontSize: 15, lineHeight: 1.6, color: "var(--text-dim)" }}>{feedback.zusammenfassung}</p>
+        <p style={{ marginTop: 6, fontSize: 12, color: "var(--text-faint)" }}>Bewertet wurden nur Ablauf, Phraseologie und Rückbestätigungen, nicht deine Aussprache oder Erkennungsfehler.</p>
         {feedback.gut.length > 0 && (
           <>
             <h3 style={{ marginTop: 20, fontSize: 15, fontWeight: 700 }}>Das war gut</h3>
@@ -363,7 +366,7 @@ export default function TowerPractice({
             <div style={{ marginTop: 10, display: "flex", flexDirection: "column", gap: 12 }}>
               {feedback.verbessern.map((v, i) => (
                 <div key={i} style={{ borderRadius: 14, padding: "12px 14px", background: "rgba(47,155,234,0.08)", fontSize: 14, lineHeight: 1.55 }}>
-                  <p style={{ color: "#c0334d" }}>Du: {v.gesagt}</p>
+                  <p style={{ color: "#c0334d" }}>Erkannt: {v.gesagt}</p>
                   <p style={{ color: "#0f9f6e", fontWeight: 600 }}>Besser: {v.besser}</p>
                   <p style={{ color: "var(--text-dim)" }}>{v.grund}</p>
                 </div>
@@ -388,7 +391,21 @@ export default function TowerPractice({
           <span style={{ fontSize: 12.5, color: "var(--text-faint)" }}>{turns} Funksprüche</span>
         </div>
         <p style={{ marginTop: 10, fontSize: 15.5, lineHeight: 1.6, fontWeight: 600 }}>{done ? "Alle Schritte sind durch. Beende die Übung und sieh dir dein Feedback an." : situation}</p>
-        {scenario && !done && <p style={{ marginTop: 8, fontSize: 12.5, color: "var(--text-faint)" }}>Dein Rufzeichen: {scenario.callsign}</p>}
+        {info && !done && (
+          <div style={{ marginTop: 12, display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(190px, 1fr))", gap: 8 }}>
+            {[
+              { label: "Rufzeichen", value: `${info.registration}`, sub: info.callsign },
+              { label: "Flugzeug", value: info.typeDisplay, sub: `gesprochen: ${info.type}` },
+              { label: "Flugplatz", value: info.aerodrome, sub: "" },
+            ].map((d) => (
+              <div key={d.label} style={{ borderRadius: 12, padding: "8px 12px", background: "rgba(47,155,234,0.08)" }}>
+                <p style={{ fontSize: 11.5, fontWeight: 700, color: "var(--text-faint)" }}>{d.label}</p>
+                <p style={{ fontSize: 14, fontWeight: 700 }}>{d.value}</p>
+                {d.sub && <p style={{ fontSize: 12, color: "var(--text-dim)" }}>{d.sub}</p>}
+              </div>
+            ))}
+          </div>
+        )}
       </div>
 
       <div className="glass" style={{ marginTop: 14, borderRadius: 20, padding: 16, minHeight: 180, maxHeight: 340, overflowY: "auto", display: "flex", flexDirection: "column", gap: 10 }}>
@@ -407,6 +424,10 @@ export default function TowerPractice({
         ))}
         <div ref={logEndRef} />
       </div>
+
+      <p style={{ marginTop: 8, fontSize: 12, color: "var(--text-faint)" }}>
+        Die Spracherkennung versteht Namen und Akzente nicht immer richtig. Das wird nicht bewertet, es zählt nur, ob Ablauf, Phraseologie und Rückbestätigungen stimmen.
+      </p>
 
       {error && <p style={{ marginTop: 12, fontSize: 14, color: "#c0334d" }}>{error}</p>}
 

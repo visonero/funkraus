@@ -6,7 +6,7 @@ import { isDemoMode } from "@/lib/course/demo";
 import { speechAvailable, towerMode } from "@/lib/tower/ai";
 import { TOWER } from "@/lib/tower/config";
 import { getUsageSummary } from "@/lib/tower/limits";
-import { SCENARIOS, toPublic } from "@/lib/tower/scenarios";
+import { publicScenarios } from "@/lib/tower/scenarios";
 
 export default async function TowerPage() {
   const user = (await getCurrentUser())!;
@@ -30,7 +30,7 @@ export default async function TowerPage() {
           </p>
         </div>
       ) : (
-        <TowerPractice scenarios={SCENARIOS.map(toPublic)} usage={usage} mode={mode} speech={speechAvailable()} />
+        <TowerPractice scenarios={publicScenarios()} usage={usage} mode={mode} speech={speechAvailable()} />
       )}
     </div>
   );

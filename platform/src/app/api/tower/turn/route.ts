@@ -27,7 +27,7 @@ export async function POST(req: Request) {
   const store = getStore();
   const row = await store.get(String(form.get("sessionId") ?? ""));
   if (!row || row.userId !== user.id) return fail("Übung nicht gefunden.", 404);
-  const scenario = getScenario(row.scenarioId);
+  const scenario = getScenario(row.scenarioId, row.variant);
   if (!scenario) return fail("Übung nicht gefunden.", 404);
 
   const check = await checkCanTurn(row);
@@ -76,7 +76,11 @@ export async function POST(req: Request) {
     }
     if (voice) usage.ttsChars += voice.chars;
 
-    row.transcript = [...row.transcript, { role: "pilot", text: pilotText }, { role: "tower", text: answer.tower, ok: answer.ok }];
+    row.transcript = [
+      ...row.transcript,
+      { role: "pilot", text: pilotText, step: row.step, issues: answer.issues, better: answer.better },
+      { role: "tower", text: answer.tower, ok: answer.ok },
+    ];
     row.turns += 1;
     if (answer.ok) row.step += 1;
     const done = row.step >= scenario.steps.length;

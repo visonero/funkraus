@@ -3,21 +3,20 @@
 import { getCurrentUser } from "@/lib/auth/session";
 import { hasCourseAccess } from "@/lib/course/data";
 import { isDemoMode } from "@/lib/course/demo";
-import { makeFeedback, towerMode } from "./ai";
-import { costMicroUsd, TOWER } from "./config";
+import { towerMode } from "./ai";
+import { buildFeedback } from "./feedback";
 import { checkCanStart } from "./limits";
-import { getScenario } from "./scenarios";
+import { getScenario, pickVariant, scenarioExists, type FlightInfo } from "./scenarios";
 import { getStore, type Feedback } from "./store";
 
 type Result<T = object> = ({ ok: true } & T) | { ok: false; error: string };
 
 const GENERIC = "Das hat leider nicht geklappt. Bitte versuch es gleich nochmal.";
 
-export async function startTowerSession(scenarioId: string): Promise<Result<{ sessionId: string; situation: string; stepCount: number; mode: "live" | "mock" }>> {
+export async function startTowerSession(scenarioId: string): Promise<Result<{ sessionId: string; situation: string; stepCount: number; mode: "live" | "mock"; info: FlightInfo }>> {
   const user = await getCurrentUser();
   if (!user) return { ok: false, error: "Bitte melde dich erneut an." };
-  const scenario = getScenario(scenarioId);
-  if (!scenario) return { ok: false, error: "Diese Übung gibt es nicht." };
+  if (!scenarioExists(scenarioId)) return { ok: false, error: "Diese Übung gibt es nicht." };
 
   const mode = towerMode();
   // Prepared answers are for local development only. In production the feature stays closed until an API key exists.
@@ -35,8 +34,14 @@ export async function startTowerSession(scenarioId: string): Promise<Result<{ se
       const row = await store.get(s.id);
       if (row) await store.save({ ...row, status: "ended", endedAt: new Date().toISOString() });
     }
-    const row = await store.create(user.id, scenario.id, mode);
-    return { ok: true, sessionId: row.id, situation: scenario.steps[0].situation, stepCount: scenario.steps.length, mode };
+    // Random variant (aircraft, callsign, aerodrome, values), different from the last one this learner had.
+    const previous = (await store.forUserSince(user.id, new Date(Date.now() - 30 * 24 * 3600 * 1000).toISOString()))
+      .filter((r) => r.scenarioId === scenarioId)
+      .sort((a, b) => b.startedAt.localeCompare(a.startedAt))[0];
+    const variant = pickVariant(scenarioId, previous?.variant);
+    const scenario = getScenario(scenarioId, variant)!;
+    const row = await store.create(user.id, scenarioId, variant, mode);
+    return { ok: true, sessionId: row.id, situation: scenario.steps[0].situation, stepCount: scenario.steps.length, mode, info: scenario.info };
   } catch (e) {
     console.error("[tower] start failed", e);
     return { ok: false, error: GENERIC };
@@ -53,16 +58,14 @@ export async function finishTowerSession(sessionId: string): Promise<Result<{ fe
     const completed = row.status === "completed";
     if (row.feedback) return { ok: true, feedback: row.feedback, completed };
 
-    const scenario = getScenario(row.scenarioId);
+    const scenario = getScenario(row.scenarioId, row.variant);
     if (!scenario) return { ok: false, error: GENERIC };
-    if (!TOWER.enabled) return { ok: false, error: "Das Funktraining ist gerade nicht verfügbar." };
 
-    const { feedback, inputTokens, outputTokens } = await makeFeedback(scenario, row.transcript);
+    // Built from the mistakes recorded during the practice, so no extra AI call (and no cost) is needed.
+    const feedback = buildFeedback(scenario, row.transcript, completed);
     row.feedback = feedback;
     row.status = completed ? "completed" : "ended";
     row.endedAt = new Date().toISOString();
-    row.usage = { ...row.usage, inputTokens: row.usage.inputTokens + inputTokens, outputTokens: row.usage.outputTokens + outputTokens };
-    row.costMicroUsd = costMicroUsd(row.usage, TOWER.llmModel);
     await store.save(row);
     return { ok: true, feedback, completed };
   } catch (e) {

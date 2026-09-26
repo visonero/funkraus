@@ -11,7 +11,6 @@ export const TOWER = {
   enabled: process.env.TOWER_ENABLED !== "0",
 
   llmModel: process.env.TOWER_MODEL ?? "claude-haiku-4-5-20251001",
-  feedbackModel: process.env.TOWER_FEEDBACK_MODEL ?? process.env.TOWER_MODEL ?? "claude-haiku-4-5-20251001",
   ttsModel: process.env.TOWER_TTS_MODEL ?? "eleven_flash_v2_5",
   sttModel: process.env.TOWER_STT_MODEL ?? "scribe_v1",
   voiceId: process.env.TOWER_VOICE_ID ?? "j46AY0iVY3oHcnZbgEJg",
@@ -24,8 +23,7 @@ export const TOWER = {
     maxAudioBytes: num("TOWER_MAX_AUDIO_BYTES", 400_000),
     maxTranscriptChars: num("TOWER_MAX_TRANSCRIPT_CHARS", 300),
     minSecondsBetweenTurns: num("TOWER_MIN_SECONDS_BETWEEN_TURNS", 2),
-    llmMaxTokens: num("TOWER_LLM_MAX_TOKENS", 220),
-    feedbackMaxTokens: num("TOWER_FEEDBACK_MAX_TOKENS", 700),
+    llmMaxTokens: num("TOWER_LLM_MAX_TOKENS", 320),
     ttsMaxChars: num("TOWER_TTS_MAX_CHARS", 250),
     historyTurnsSent: num("TOWER_HISTORY_TURNS_SENT", 6),
 

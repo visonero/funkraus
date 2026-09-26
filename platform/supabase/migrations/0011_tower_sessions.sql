@@ -5,6 +5,7 @@ create table if not exists public.tower_sessions (
   id uuid primary key default gen_random_uuid(),
   user_id uuid not null references auth.users(id) on delete cascade,
   scenario_id text not null,
+  variant int not null default 0,
   status text not null default 'active' check (status in ('active', 'completed', 'ended')),
   mode text not null default 'live' check (mode in ('live', 'mock')),
   step int not null default 0,
@@ -30,3 +31,6 @@ alter table public.tower_sessions enable row level security;
 create policy "Users can view their own tower sessions"
   on public.tower_sessions for select
   using (auth.uid() = user_id);
+
+-- Safe to re-run if an earlier version of this table already exists.
+alter table public.tower_sessions add column if not exists variant int not null default 0;
