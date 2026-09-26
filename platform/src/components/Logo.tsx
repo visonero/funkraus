@@ -1,4 +1,4 @@
-export default function Logo({ size = 30 }: { size?: number }) {
+export default function Logo({ size = 30, color = "var(--text)" }: { size?: number; color?: string }) {
   return (
     <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
       <svg width={size} height={size} viewBox="0 0 40 40" fill="none">
@@ -33,7 +33,8 @@ export default function Logo({ size = 30 }: { size?: number }) {
           fontWeight: 700,
           fontSize: size < 28 ? 18 : 20,
           letterSpacing: "-0.02em",
-          color: "var(--text)",
+          color,
+          transition: "color 0.25s ease",
         }}
       >
         funkraus

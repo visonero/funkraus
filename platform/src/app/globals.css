@@ -113,6 +113,38 @@ button {
   border-color: var(--sky);
 }
 
+.nav-link--dark {
+  color: rgba(255, 255, 255, 0.86);
+}
+.nav-link--dark:hover {
+  color: #fff;
+  border-color: #7fe3ff;
+}
+.btn-nav-light {
+  background: #fff;
+  color: #0c2d57;
+  font-weight: 700;
+  border: none;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.btn-nav-light:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px -10px rgba(127, 227, 255, 0.55);
+}
+.btn-nav-ghost {
+  background: rgba(255, 255, 255, 0.16);
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  color: #fff;
+  transition: background 0.18s ease;
+}
+.btn-nav-ghost:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+.mobile-nav--dark {
+  background: rgba(7, 26, 51, 0.94);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 .btn-accent {
   background: linear-gradient(100deg, var(--sky), var(--sky-deep));
   color: #fff;
@@ -1585,7 +1617,7 @@ button {
   z-index: 2;
   max-width: 1240px;
   margin: 0 auto;
-  padding: 72px 32px 84px;
+  padding: 148px 32px 84px;
   display: grid;
   grid-template-columns: 1.02fr 1fr;
   gap: 56px;
@@ -1861,6 +1893,18 @@ button {
 .usp-card--ai::before {
   background: linear-gradient(140deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.05) 50%, rgba(127, 227, 255, 0.5));
 }
+.usp-card--wide {
+  grid-column: span 2;
+}
+.usp-big {
+  margin-top: 22px;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: clamp(30px, 3.2vw, 46px);
+  font-weight: 800;
+  line-height: 1.2;
+  padding-bottom: 4px;
+  white-space: nowrap;
+}
 .usp-icon {
   width: 52px;
   height: 52px;
@@ -1890,7 +1934,7 @@ button {
   .hero-ai-grid {
     grid-template-columns: 1fr;
     gap: 44px;
-    padding: 48px 22px 64px;
+    padding: 118px 22px 64px;
   }
   .hero-ai-frame {
     transform: none;
@@ -1911,10 +1955,14 @@ button {
 }
 @media (max-width: 620px) {
   .usp-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
-  .usp-card--ai {
+  .usp-card--ai,
+  .usp-card--wide {
     grid-column: auto;
+  }
+  .usp-big {
+    font-size: clamp(34px, 10.5vw, 44px);
   }
   .hero-float--tower {
     max-width: 200px;

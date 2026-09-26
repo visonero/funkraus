@@ -96,10 +96,10 @@ export default async function Home() {
   } = await supabase.auth.getUser();
 
   return (
-    <div style={{ width: "100%", background: "var(--bg)", overflowX: "hidden", position: "relative" }}>
+    <div style={{ width: "100%", background: "var(--bg)", overflowX: "clip", position: "relative" }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <ScrollRevealInit />
-      <SiteNav email={user?.email ?? null} />
+      <SiteNav email={user?.email ?? null} overHero />
 
       {/* HERO */}
       <HeroAI signupHref={SIGNUP_HREF} cta={FREE_CTA} />

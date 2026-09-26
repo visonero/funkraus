@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Logo from "./Logo";
@@ -15,16 +15,44 @@ const LINKS = [
   { href: "/#faq", label: "FAQ" },
 ];
 
+// Height of the bar, so a page with a dark hero can slide the hero underneath the transparent header.
+const BAR_HEIGHT = 77;
+
 export default function SiteNav({
   email,
   ctaHref = "/login?mode=signup",
+  overHero = false,
 }: {
   email?: string | null;
   ctaHref?: string;
+  // Landing page: the header floats over the dark hero (white text) and turns light once the hero is scrolled past.
+  overHero?: boolean;
 }) {
   const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
+  // "top": transparent on the hero, "hero": dark glass while scrolling the hero, "page": normal light header
+  const [phase, setPhase] = useState<"top" | "hero" | "page">(overHero ? "top" : "page");
+
+  useEffect(() => {
+    if (!overHero) return;
+    const onScroll = () => {
+      const heroH = document.querySelector<HTMLElement>(".hero-ai")?.offsetHeight ?? 700;
+      const y = window.scrollY;
+      setPhase(y > heroH - BAR_HEIGHT ? "page" : y > 24 ? "hero" : "top");
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, [overHero]);
+
+  const dark = phase !== "page";
+  const barBg =
+    phase === "top" ? (menuOpen ? "rgba(7,26,51,0.94)" : "rgba(7,26,51,0)") : phase === "hero" ? "rgba(7,26,51,0.78)" : "rgba(246,249,253,0.75)";
 
   async function handleSignOut() {
     const supabase = createClient();
@@ -46,8 +74,10 @@ export default function SiteNav({
         zIndex: 50,
         backdropFilter: "blur(16px)",
         WebkitBackdropFilter: "blur(16px)",
-        background: "rgba(246,249,253,0.75)",
-        borderBottom: "1px solid var(--line)",
+        background: barBg,
+        borderBottom: `1px solid ${phase === "top" && !menuOpen ? "transparent" : dark ? "rgba(255,255,255,0.10)" : "var(--line)"}`,
+        marginBottom: overHero ? -BAR_HEIGHT : 0,
+        transition: "background 0.25s ease, border-color 0.25s ease",
       }}
     >
       <div
@@ -61,17 +91,21 @@ export default function SiteNav({
         }}
       >
         <Link href="/" style={{ display: "flex" }}>
-          <Logo />
+          <Logo color={dark ? "#fff" : undefined} />
         </Link>
         <div className="desktop-nav" style={{ display: "flex", alignItems: "center", gap: 32 }}>
           {LINKS.map((l) => (
-            <a key={l.href} className="nav-link" href={l.href}>
+            <a key={l.href} className={`nav-link${dark ? " nav-link--dark" : ""}`} href={l.href}>
               {l.label}
             </a>
           ))}
         </div>
         <div className="desktop-nav" style={{ display: "flex", alignItems: "center", gap: 14 }}>
-          <Link href={primaryHref} className="btn-accent" style={{ padding: "11px 22px", borderRadius: 999, fontSize: 14 }}>
+          <Link
+            href={primaryHref}
+            className={dark ? "btn-nav-light" : "btn-accent"}
+            style={{ padding: "11px 22px", borderRadius: 999, fontSize: 14 }}
+          >
             {primaryLabel}
           </Link>
 
@@ -84,8 +118,8 @@ export default function SiteNav({
                   width: 40,
                   height: 40,
                   borderRadius: "50%",
-                  border: "1.5px solid var(--line-strong)",
-                  background: "linear-gradient(135deg,var(--sky),var(--sky-2))",
+                  border: dark ? "1.5px solid rgba(255,255,255,0.55)" : "1.5px solid var(--line-strong)",
+                  background: dark ? "rgba(255,255,255,0.18)" : "linear-gradient(135deg,var(--sky),var(--sky-2))",
                   color: "#fff",
                   fontFamily: "var(--font-display)",
                   fontWeight: 700,
@@ -132,7 +166,7 @@ export default function SiteNav({
             <Link
               href="/login"
               aria-label="Anmelden"
-              className="btn-ghost"
+              className={dark ? "btn-nav-ghost" : "btn-ghost"}
               style={{
                 width: 40,
                 height: 40,
@@ -153,14 +187,14 @@ export default function SiteNav({
           aria-label="Menü öffnen"
           style={{
             display: "none",
-            background: "rgba(255,255,255,0.6)",
-            border: "1.5px solid var(--line-strong)",
+            background: dark ? "rgba(255,255,255,0.14)" : "rgba(255,255,255,0.6)",
+            border: dark ? "1.5px solid rgba(255,255,255,0.45)" : "1.5px solid var(--line-strong)",
             borderRadius: 10,
             width: 40,
             height: 40,
             alignItems: "center",
             justifyContent: "center",
-            color: "var(--text)",
+            color: dark ? "#fff" : "var(--text)",
           }}
         >
           <span style={{ fontFamily: "var(--font-display)", fontSize: 16, fontWeight: 700 }}>
@@ -170,13 +204,13 @@ export default function SiteNav({
       </div>
       {menuOpen && (
         <div
-          className="mobile-nav glass"
+          className={`mobile-nav ${dark ? "mobile-nav--dark" : "glass"}`}
           style={{ display: "flex", flexDirection: "column", padding: "8px 24px 20px", gap: 4 }}
         >
           {LINKS.map((l) => (
             <a
               key={l.href}
-              className="nav-link"
+              className={`nav-link${dark ? " nav-link--dark" : ""}`}
               style={{ padding: "12px 0" }}
               href={l.href}
               onClick={() => setMenuOpen(false)}
@@ -186,25 +220,25 @@ export default function SiteNav({
           ))}
           {email ? (
             <>
-              <Link href="/dashboard" className="nav-link" style={{ padding: "12px 0" }} onClick={() => setMenuOpen(false)}>
+              <Link href="/dashboard" className={`nav-link${dark ? " nav-link--dark" : ""}`} style={{ padding: "12px 0" }} onClick={() => setMenuOpen(false)}>
                 Mein Profil
               </Link>
               <button
                 onClick={handleSignOut}
-                className="nav-link"
+                className={`nav-link${dark ? " nav-link--dark" : ""}`}
                 style={{ padding: "12px 0", textAlign: "left", background: "transparent", border: "none" }}
               >
                 Abmelden
               </button>
             </>
           ) : (
-            <Link href="/login" className="nav-link" style={{ padding: "12px 0" }} onClick={() => setMenuOpen(false)}>
+            <Link href="/login" className={`nav-link${dark ? " nav-link--dark" : ""}`} style={{ padding: "12px 0" }} onClick={() => setMenuOpen(false)}>
               Anmelden
             </Link>
           )}
           <Link
             href={primaryHref}
-            className="btn-accent"
+            className={dark ? "btn-nav-light" : "btn-accent"}
             style={{ padding: "12px 20px", borderRadius: 999, fontSize: 14, textAlign: "center", marginTop: 8 }}
             onClick={() => setMenuOpen(false)}
           >

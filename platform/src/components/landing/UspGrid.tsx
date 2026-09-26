@@ -72,7 +72,7 @@ export default function UspGrid() {
             <path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H11v15H5.5A1.5 1.5 0 0 0 4 20.5zM20 5.5A1.5 1.5 0 0 0 18.5 4H13v15h5.5a1.5 1.5 0 0 1 1.5 1.5z" />
           </Icon>
         </span>
-        <p className="grad" style={{ marginTop: 22, fontFamily: "var(--font-display)", fontSize: "clamp(38px,4.2vw,54px)", fontWeight: 800, lineHeight: 1 }}>
+        <p className="grad usp-big">
           <span className="usp-num" data-target="12">0</span> Module
         </p>
         <p style={{ marginTop: 10, fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 17 }}>Kompletter BZF-Kurs</p>
@@ -86,14 +86,14 @@ export default function UspGrid() {
             <path d="M8 9h8M8 13h8M8 17h5" />
           </Icon>
         </span>
-        <p className="grad" style={{ marginTop: 22, fontFamily: "var(--font-display)", fontSize: "clamp(38px,4.2vw,54px)", fontWeight: 800, lineHeight: 1 }}>
+        <p className="grad usp-big">
           <span className="usp-num" data-target="261">0</span> Fragen
         </p>
         <p style={{ marginTop: 10, fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 17 }}>Gesamter Fragenkatalog</p>
         <p style={{ marginTop: 6, fontSize: 14.5, lineHeight: 1.55, color: "var(--text-dim)" }}>Alle offiziellen Prüfungsfragen der Bundesnetzagentur, mit Erklärung zu jeder Antwort und als Prüfungssimulation mit 100 Fragen.</p>
       </div>
 
-      <div className="usp-card reveal" style={{ gridColumn: "span 2" }}>
+      <div className="usp-card usp-card--wide reveal">
         <div style={{ display: "flex", flexWrap: "wrap", gap: 24, alignItems: "center", justifyContent: "space-between" }}>
           <div style={{ flex: "1 1 280px" }}>
             <span className="usp-icon">
