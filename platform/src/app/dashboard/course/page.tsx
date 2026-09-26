@@ -41,7 +41,7 @@ export default async function CoursePage() {
         <div style={{ marginBottom: 20 }}>
           <UpgradeCard
             catalog={course.catalog}
-            title={<>Modul 0 und 1 sind <span className="grad">kostenlos</span> für dich offen</>}
+            title={<>Die ersten 2 Module sind <span className="grad">kostenlos</span> für dich offen</>}
             text="Lerne in deinem Tempo. Ab Modul 2 schaltest du den vollen Zugang frei, wenn du weitermachen möchtest."
           />
         </div>

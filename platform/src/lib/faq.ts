@@ -4,7 +4,7 @@ import { PRICE } from "@/lib/pricing";
 export const FAQS = [
   {
     q: "Was ist im kostenlosen Zugang enthalten?",
-    a: "Mit einem kostenlosen Konto nutzt du das Dashboard sowie Modul 0 und Modul 1 komplett: Videos, Lesetexte, PDF-Merkblätter und die zugehörigen offiziellen Prüfungsfragen mit Erklärung. Dein Fortschritt wird gespeichert. Dafür brauchst du keine Zahlungsdaten, und der Zugang läuft nicht ab.",
+    a: "Mit einem kostenlosen Konto nutzt du das Dashboard sowie die ersten 2 Module komplett: Videos, Lesetexte, PDF-Merkblätter und die zugehörigen offiziellen Prüfungsfragen mit Erklärung. Dein Fortschritt wird gespeichert. Dafür brauchst du keine Zahlungsdaten, und der Zugang läuft nicht ab.",
   },
   {
     q: "Brauche ich das BZF für meinen PPL(A) oder LAPL(A)?",

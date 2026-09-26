@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { gsap, useGSAP } from "@/lib/gsap";
 
 const STEPS = [
-  { num: "1", title: "Kostenlos registrieren", desc: "Konto in einer Minute erstellen, ohne Zahlungsdaten. Modul 0 und 1 sind sofort für dich offen." },
+  { num: "1", title: "Kostenlos registrieren", desc: "Konto in einer Minute erstellen, ohne Zahlungsdaten. Die ersten 2 Module sind sofort für dich offen." },
   { num: "2", title: "Lernen in deinem Tempo", desc: "Video, Audio und Quizze im Wechsel, wann und wo du willst. Dein Fortschritt wird gespeichert." },
   { num: "3", title: "Vollzugang freischalten", desc: "Gefällt dir der Kurs, schaltest du einmalig alle weiteren Module frei. Kein Abo, kein Verkaufsgespräch." },
   { num: "4", title: "Prüfung bestehen", desc: "Prüfungssimulation im echten Format, dann melden wir dir den Weg zur Anmeldung bei der Bundesnetzagentur." },

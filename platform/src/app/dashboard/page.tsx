@@ -117,7 +117,7 @@ export default async function DashboardPage({ searchParams }: PageProps<"/dashbo
         <div style={{ marginBottom: 20 }}>
           <UpgradeCard
             catalog={course.catalog}
-            title={<>Du lernst kostenlos: Modul 0 und 1 gehören <span className="grad">dir</span></>}
+            title={<>Du lernst kostenlos: Die ersten 2 Module gehören <span className="grad">dir</span></>}
             text="Starte ohne Risiko. Wenn du weitermachen möchtest, schaltest du ab Modul 2 den vollen Zugang einmalig frei."
             compact
           />

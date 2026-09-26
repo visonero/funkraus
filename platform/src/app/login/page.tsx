@@ -41,7 +41,7 @@ export default async function LoginPage({ searchParams }: PageProps<"/login">) {
         </h1>
         <p style={{ marginTop: 8, fontSize: 14, color: "var(--text-dim)", textAlign: "center" }}>
           {signup
-            ? "Konto erstellen und sofort mit Modul 0 und 1 loslegen. Keine Zahlungsdaten nötig."
+            ? "Konto erstellen und sofort mit den ersten 2 Modulen loslegen. Keine Zahlungsdaten nötig."
             : "Melde dich an oder erstelle ein kostenloses Konto."}
         </p>
         <div style={{ marginTop: 28 }}>

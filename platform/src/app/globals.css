@@ -1544,3 +1544,23 @@ button {
     overflow-x: auto;
   }
 }
+
+/* ===== Step-by-step lessons ===== */
+.lesson-step {
+  animation: lessonStepIn 0.32s ease both;
+}
+@keyframes lessonStepIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lesson-step {
+    animation: none;
+  }
+}

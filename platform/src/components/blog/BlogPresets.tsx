@@ -21,7 +21,7 @@ export function BlogCta() {
         Bereit für dein Sprechfunkzeugnis?
       </p>
       <p style={{ marginTop: 10, fontSize: 15.5, lineHeight: 1.6, color: "rgba(255,255,255,0.9)", maxWidth: 520 }}>
-        Starte mit funkraus kostenlos in den BZF-Kurs: Modul 0 und 1 sind sofort offen, ganz ohne Kreditkarte.
+        Starte mit funkraus kostenlos in den BZF-Kurs: Die ersten 2 Module sind sofort offen, ganz ohne Kreditkarte.
       </p>
       <ul style={{ margin: "16px 0 0", padding: 0, listStyle: "none", display: "flex", flexWrap: "wrap", gap: "8px 22px", fontSize: 14, fontWeight: 600 }}>
         <li>✓ Offizieller Fragenkatalog</li>
@@ -45,7 +45,7 @@ export function BlogCtaSlim() {
       style={{ margin: "32px 0", borderRadius: 18, padding: "18px 22px", display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 14, borderLeft: "4px solid var(--sky)" }}
     >
       <p style={{ flex: "1 1 260px", fontSize: 15, lineHeight: 1.5, color: "var(--text)", fontWeight: 600 }}>
-        BZF-Kurs kostenlos testen: Modul 0 und 1 ohne Kreditkarte.
+        BZF-Kurs kostenlos testen: Die ersten 2 Module ohne Kreditkarte.
       </p>
       <Link href={SIGNUP_HREF} className="btn-accent" style={{ padding: "11px 22px", borderRadius: 999, fontSize: 14 }}>
         Jetzt starten
