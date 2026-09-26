@@ -134,28 +134,32 @@ export default async function Home() {
         <UspGrid />
       </div>
 
-      {/* USP STORY: einblick */}
-      <div id="einblick" style={{ position: "relative", overflow: "hidden" }}>
-        <Blob style={{ top: "6%", left: "-6%", width: 280, height: 280, opacity: 0.2 }} color="var(--sky-2)" />
-        <div className="section-pad" style={{ position: "relative", zIndex: 1, padding: "0px 32px 10px", maxWidth: 1180, margin: "0 auto" }}>
+      {/* USP STORY: einblick (dark band with the sales video) */}
+      <div id="einblick" className="dark-band bg-hero-dark" style={{ padding: "96px 0 100px" }}>
+        <div className="section-pad" style={{ position: "relative", zIndex: 1, padding: "0 32px", maxWidth: 1180, margin: "0 auto" }}>
           <div className="reveal" style={{ maxWidth: 700, margin: "0 auto", textAlign: "center" }}>
-            <span className="label" style={{ color: "var(--sky)" }}>Einblick</span>
+            <span className="label dk-label">Einblick</span>
             <h2 style={{ fontSize: "clamp(28px,3.4vw,42px)", marginTop: 14, fontWeight: 700, lineHeight: 1.2 }}>
-              Warum funkraus der <span className="grad">BZF Online-Kurs</span> für dich ist.
+              Warum funkraus der <span className="hero-grad">BZF Online-Kurs</span> für dich ist.
             </h2>
-            <p style={{ marginTop: 16, fontSize: 17, color: "var(--text-dim)" }}>
+            <p className="dk-dim" style={{ marginTop: 16, fontSize: 17 }}>
               Keine Attrappe: Das sind echte Ansichten aus der Lernplattform. Erst das Video, dann vier Dinge, die funkraus besonders machen.
             </p>
           </div>
         </div>
 
         <div className="reveal section-pad" style={{ position: "relative", zIndex: 1, maxWidth: 960, margin: "40px auto 0", padding: "0 32px" }}>
-          <div style={{ borderRadius: 28, overflow: "hidden", boxShadow: "0 40px 80px -30px rgba(30,58,95,0.45)", border: "1px solid var(--line)" }}>
+          <div style={{ borderRadius: 28, overflow: "hidden", boxShadow: "0 40px 90px -30px rgba(0,0,0,0.6)", border: "1px solid rgba(255,255,255,0.18)" }}>
             <video controls preload="metadata" poster="/videos/sales-video-poster.webp" style={{ display: "block", width: "100%", height: "auto", background: "#0b1220" }}>
               <source src="/videos/sales-video.mp4" type="video/mp4" />
             </video>
           </div>
         </div>
+      </div>
+
+      {/* USP STORY: four showcases (light) */}
+      <div id="einblick-details" style={{ position: "relative", overflow: "hidden", paddingTop: 30 }}>
+        <Blob style={{ top: "6%", left: "-6%", width: 280, height: 280, opacity: 0.2 }} color="var(--sky-2)" />
 
         <ShowcaseSection
           id="ki-training"
@@ -235,20 +239,19 @@ export default async function Home() {
       </div>
 
       {/* DIFFERENTIATION / COMPARE */}
-      <div id="vorteile" style={{ position: "relative", overflow: "hidden" }}>
-        <Blob style={{ top: "0%", left: "-8%", width: 280, height: 280, opacity: 0.22 }} color="var(--sky-2)" />
-        <div className="section-pad" style={{ position: "relative", zIndex: 1, padding: "60px 32px 90px", maxWidth: 1180, margin: "0 auto" }}>
+      <div id="vorteile" className="dark-band bg-hero-dark">
+        <div className="section-pad" style={{ position: "relative", zIndex: 1, padding: "96px 32px 100px", maxWidth: 1180, margin: "0 auto" }}>
           <div className="reveal" style={{ maxWidth: 640, margin: "0 auto", textAlign: "center" }}>
-            <span className="label" style={{ color: "var(--sky)" }}>Der Unterschied</span>
+            <span className="label dk-label">Der Unterschied</span>
             <h2 style={{ fontSize: "clamp(28px,3.4vw,42px)", marginTop: 14, fontWeight: 700, lineHeight: 1.2 }}>
-              Ein BZF-Kurs, der <span className="grad">ehrlich mit dir funkt.</span>
+              Ein BZF-Kurs, der <span className="hero-grad">ehrlich mit dir funkt.</span>
             </h2>
           </div>
 
-          <div className="glass-strong cmp-table reveal">
+          <div className="glass-strong cmp-table cmp-table--dark reveal">
             <div className="cmp-head">
-              <span className="label" style={{ color: "var(--text-faint)" }}>Andere Anbieter</span>
-              <span className="label grad">funkraus</span>
+              <span className="label" style={{ color: "rgba(255,255,255,0.55)" }}>Andere Anbieter</span>
+              <span className="label dk-label">funkraus</span>
             </div>
             {CMP_ROWS.map((row) => (
               <div key={row.label} className="cmp-row">
@@ -258,7 +261,7 @@ export default async function Home() {
                   {row.them}
                 </span>
                 <span className="cmp-us">
-                  <span style={{ color: "var(--sky)", flex: "none" }}>✓</span>
+                  <span style={{ color: "#7fe3ff", flex: "none" }}>✓</span>
                   {row.us}
                 </span>
               </div>
@@ -368,22 +371,13 @@ export default async function Home() {
       </div>
 
       {/* FINAL CTA */}
-      <div style={{ position: "relative", overflow: "hidden", padding: "100px 32px", borderTop: "1px solid var(--line)" }}>
-        <div className="deco sky-wash" style={{ inset: 0 }} />
-        <svg className="deco cloud hide-mobile" style={{ top: "10%", left: "5%", width: 180, animationDuration: "20s" } as React.CSSProperties} viewBox="0 0 200 90" fill="none">
-          <ellipse cx="60" cy="55" rx="55" ry="28" fill="#ffffff" />
-          <ellipse cx="110" cy="40" rx="45" ry="30" fill="#ffffff" />
-        </svg>
-        <svg className="deco cloud hide-mobile" style={{ bottom: "8%", right: "6%", width: 200, animationDuration: "26s", animationDirection: "alternate-reverse" } as React.CSSProperties} viewBox="0 0 200 90" fill="none">
-          <ellipse cx="60" cy="55" rx="55" ry="28" fill="#ffffff" />
-          <ellipse cx="110" cy="40" rx="45" ry="30" fill="#ffffff" />
-        </svg>
+      <div className="dark-band bg-hero-dark" style={{ padding: "104px 32px" }}>
         <div className="reveal" style={{ position: "relative", zIndex: 1, maxWidth: 640, margin: "0 auto", textAlign: "center" }}>
           <h2 style={{ fontSize: "clamp(30px,4vw,48px)", fontWeight: 800, lineHeight: 1.15 }}>
-            Bereit, <span className="grad">klar zu funken?</span>
+            Bereit, <span className="hero-grad">klar zu funken?</span>
           </h2>
-          <p style={{ marginTop: 16, fontSize: 17, color: "var(--text-dim)" }}>Kostenlos starten, die ersten 2 Module frei. Fester Preis für den Rest. Kein Verkaufsgespräch.</p>
-          <Link href={SIGNUP_HREF} className="btn-accent" style={{ display: "inline-block", marginTop: 32, padding: "18px 38px", borderRadius: 999, fontSize: 17 }}>
+          <p className="dk-dim" style={{ marginTop: 16, fontSize: 17 }}>Kostenlos starten, die ersten 2 Module frei. Fester Preis für den Rest. Kein Verkaufsgespräch.</p>
+          <Link href={SIGNUP_HREF} className="btn-hero" style={{ marginTop: 32, padding: "18px 38px", fontSize: 17 }}>
             Jetzt kostenlos starten
           </Link>
         </div>

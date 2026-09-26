@@ -2185,3 +2185,65 @@ button {
   .sc-bubble, .sc-saved { opacity: 1; }
   .sc-ring-badge circle.fg { stroke-dashoffset: 80; }
 }
+
+/* ===== Dark blue bands (same background as the hero) so the landing page alternates light and dark ===== */
+.bg-hero-dark {
+  background: radial-gradient(1100px 620px at 82% 8%, rgba(34, 211, 238, 0.32), transparent 60%),
+    radial-gradient(900px 640px at 8% 92%, rgba(47, 155, 234, 0.4), transparent 58%),
+    linear-gradient(135deg, #071a33 0%, #0c2d57 46%, #14559b 100%);
+}
+.dark-band {
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+}
+.dark-band h2 {
+  color: #fff;
+}
+.dk-label {
+  color: #7fe3ff !important;
+}
+.dk-dim {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+.glass-strong.cmp-table--dark {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 30px 70px -30px rgba(0, 0, 0, 0.5);
+}
+.cmp-table--dark .cmp-row {
+  border-top-color: rgba(255, 255, 255, 0.12);
+}
+.cmp-table--dark .cmp-row-label {
+  color: rgba(255, 255, 255, 0.55);
+}
+.cmp-table--dark .cmp-them {
+  color: rgba(255, 255, 255, 0.62);
+}
+.cmp-table--dark .cmp-us {
+  color: #fff;
+}
+.timeline-num--dark {
+  background: rgba(255, 255, 255, 0.14);
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
+  color: #fff;
+}
+.timeline-diamond--dark {
+  box-shadow: 0 0 0 4px #0d3160;
+}
+.usp-mini-row {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+@media (max-width: 620px) {
+  .usp-mini-row {
+    flex-wrap: nowrap;
+    width: 100%;
+  }
+  .usp-mini-row > div {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 14px 10px !important;
+  }
+}

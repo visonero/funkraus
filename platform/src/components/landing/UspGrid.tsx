@@ -107,7 +107,7 @@ export default function UspGrid() {
             </p>
             <p style={{ marginTop: 8, fontSize: 14.5, lineHeight: 1.55, color: "var(--text-dim)" }}>Kein Abo, kein Verkaufsgespräch: Du schaltest alles mit einer Zahlung frei.</p>
           </div>
-          <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
+          <div className="usp-mini-row">
             <div style={{ borderRadius: 18, padding: "16px 20px", background: "rgba(52,211,153,0.14)", textAlign: "center" }}>
               <p style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 30, color: "#0b7a55", lineHeight: 1 }}>
                 <span className="usp-num" data-target="2">0</span>

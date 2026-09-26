@@ -157,6 +157,38 @@ async function synthesizeVerified(voice, spoken, options) {
   return best;
 }
 
+// Spelled-out words the voice sometimes drags out ("Kah Ih" for KI -> "AAKAAII"): voices.json "maxWordSeconds"
+// ({ "Kah Ih": 0.5 }). A scene is re-taken (up to 8 takes) until every such word is short enough; the best take is kept.
+const maxWordSeconds = Object.entries(voiceConfig.maxWordSeconds ?? {});
+function worstOverrun(spoken, alignment) {
+  const chars = alignment?.characters;
+  if (!chars || !maxWordSeconds.length) return 0;
+  const text = chars.join("");
+  let worst = 0;
+  for (const [word, limit] of maxWordSeconds) {
+    for (let i = text.indexOf(word); i !== -1; i = text.indexOf(word, i + 1)) {
+      const span = alignment.character_end_times_seconds[i + word.length - 1] - alignment.character_start_times_seconds[i];
+      worst = Math.max(worst, span / limit);
+    }
+  }
+  return worst;
+}
+async function synthesizeSceneTake(voice, spoken, options) {
+  let best = null;
+  let bestOver = Infinity;
+  for (let attempt = 1; attempt <= 8; attempt++) {
+    const take = await synthesizeVerified(voice, spoken, options);
+    const over = worstOverrun(spoken, take.alignment);
+    if (over < bestOver) {
+      best = take;
+      bestOver = over;
+    }
+    if (over <= 1) break;
+    console.warn(`  a spelled-out word is too long in "${spoken.slice(0, 40)}…" (${over.toFixed(2)}x the limit), taking another take (${attempt}/8)`);
+  }
+  return best;
+}
+
 // Plain clip (audio drills): no alignment needed.
 async function speak(voiceName, rawText) {
   const text = applyPronunciations(rawText);
@@ -200,6 +232,74 @@ function sentenceRanges(text) {
 }
 
 // Video narration: returns audio plus exact cue times (seconds from clip start) and sentence timings.
+// Radio sound of the course's KI-Tower (platform/src/components/app/TowerPractice.tsx playRadio()): high-pass 380 Hz,
+// low-pass 3100 Hz, waveshaper distortion, hiss and a squelch click before and after the voice. Reproduced here so
+// the tower in the video sounds exactly like the tower in the course. Voices with "radio": true in voices.json.
+function applyRadio(pcm) {
+  const fs = SAMPLE_RATE;
+  const voiceIn = new Float32Array(pcm.length / 2);
+  for (let i = 0; i < voiceIn.length; i++) voiceIn[i] = pcm.readInt16LE(i * 2) / 32768;
+
+  const biquad = (type, freq, qDb, input) => {
+    const q = 10 ** (qDb / 20);
+    const w0 = (2 * Math.PI * freq) / fs;
+    const alpha = Math.sin(w0) / (2 * q);
+    const cos = Math.cos(w0);
+    const [b0, b1, b2] = type === "highpass" ? [(1 + cos) / 2, -(1 + cos), (1 + cos) / 2] : [(1 - cos) / 2, 1 - cos, (1 - cos) / 2];
+    const a0 = 1 + alpha, a1 = -2 * cos, a2 = 1 - alpha;
+    const out = new Float32Array(input.length);
+    let x1 = 0, x2 = 0, y1 = 0, y2 = 0;
+    for (let i = 0; i < input.length; i++) {
+      const x = input[i];
+      const y = (b0 * x + b1 * x1 + b2 * x2 - a1 * y1 - a2 * y2) / a0;
+      x2 = x1; x1 = x; y2 = y1; y1 = y;
+      out[i] = y;
+    }
+    return out;
+  };
+
+  const n = 256;
+  const curve = new Float32Array(n);
+  for (let i = 0; i < n; i++) {
+    const x = (i * 2) / n - 1;
+    curve[i] = ((3 + 9) * x * 20 * (Math.PI / 180)) / (Math.PI + 9 * Math.abs(x));
+  }
+  const shaped = biquad("lowpass", 3100, 1, biquad("highpass", 380, 1, voiceIn)).map((x) => {
+    const v = ((n - 1) / 2) * (Math.max(-1, Math.min(1, x)) + 1);
+    const k = Math.min(n - 2, Math.floor(v));
+    return (curve[k] + (v - k) * (curve[k + 1] - curve[k])) * 0.85;
+  });
+
+  let seed = 20260926;
+  const rand = () => {
+    seed = (seed + 0x6d2b79f5) | 0;
+    let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+  const start = 0.05, voiceAt = 0.17;
+  const total = Math.round((voiceAt + shaped.length / fs + 0.03 + 0.09 + 0.05) * fs);
+  const mix = new Float32Array(total);
+  const noise = (from, seconds, volume) => {
+    const a = Math.round(from * fs);
+    const b = Math.min(total, a + Math.round(seconds * fs));
+    for (let i = a; i < b; i++) mix[i] += (rand() * 2 - 1) * volume;
+  };
+  noise(start, 0.07, 0.09); // squelch click
+  noise(start, shaped.length / fs + 0.5, 0.012); // hiss
+  noise(voiceAt + shaped.length / fs + 0.03, 0.09, 0.09); // release click
+  const offset = Math.round(voiceAt * fs);
+  for (let i = 0; i < shaped.length; i++) mix[offset + i] += shaped[i];
+
+  // The browser plays this at the system volume; here the mix is brought to the loudness of the narration.
+  let peak = 0;
+  for (const v of mix) peak = Math.max(peak, Math.abs(v));
+  const scale = peak > 0 ? 0.36 / peak : 1;
+  const out = Buffer.alloc(total * 2);
+  for (let i = 0; i < total; i++) out.writeInt16LE(Math.round(Math.max(-1, Math.min(1, mix[i] * scale)) * 32767), i * 2);
+  return { pcm: out, pre: voiceAt };
+}
+
 // leadIn (seconds, optional): silence before the speech, e.g. so an on-screen item can appear before the voice starts.
 // With a lead-in, the first cue marker at the very start of the text lands in that silence (not on the first word).
 async function speakScene(voiceName, displayTextWithCues, leadIn = 0) {
@@ -243,11 +343,12 @@ async function speakScene(voiceName, displayTextWithCues, leadIn = 0) {
     unlinkSync(tmp);
     writeFileSync(pcmFile, pcm);
   } else {
-    ({ pcm, alignment } = await synthesizeVerified(voice, spoken, { timestamps: true, speed }));
+    ({ pcm, alignment } = await synthesizeSceneTake(voice, spoken, { timestamps: true, speed }));
     writeFileSync(pcmFile, pcm);
     writeFileSync(alignFile, JSON.stringify(alignment));
   }
 
+  let pcmOut = pcm;
   const duration = seconds(pcm);
   const starts = alignment?.character_start_times_seconds;
   const ends = alignment?.character_end_times_seconds;
@@ -276,16 +377,19 @@ async function speakScene(voiceName, displayTextWithCues, leadIn = 0) {
         }))
       : [{ text: display.trim(), start: 0, end: +duration.toFixed(3) }];
 
-  if (leadIn > 0) {
-    const shift = (t) => +(t + leadIn).toFixed(3);
+  let pre = 0;
+  if (voice.radio) ({ pcm: pcmOut, pre } = applyRadio(pcm));
+  const total = leadIn + pre;
+  if (total > 0) {
+    const shift = (t) => +(t + total).toFixed(3);
     const firstAtStart = cueOffsets.findIndex((o) => o === 0);
     return {
-      pcm: Buffer.concat([silence(leadIn), pcm]),
-      cues: cues.map((c, i) => (c === null ? null : i === firstAtStart ? +Math.min(0.5, leadIn / 2).toFixed(3) : shift(c))),
+      pcm: Buffer.concat([silence(leadIn), pcmOut]),
+      cues: cues.map((c, i) => (c === null ? null : i === firstAtStart && leadIn > 0 ? +Math.min(0.5, leadIn / 2).toFixed(3) : shift(c))),
       sentences: sentences.map((x) => ({ ...x, start: shift(x.start), end: shift(x.end) })),
     };
   }
-  return { pcm, cues, sentences };
+  return { pcm: pcmOut, cues, sentences };
 }
 
 const clips = [];

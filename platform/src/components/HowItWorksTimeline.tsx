@@ -34,19 +34,18 @@ export default function HowItWorksTimeline() {
   );
 
   return (
-    <div id="ablauf" ref={sectionRef} style={{ position: "relative", overflow: "hidden" }}>
-      <div className="deco blob hide-mobile" style={{ position: "absolute", bottom: "0%", left: "-6%", width: 240, height: 240, opacity: 0.2, background: "var(--violet)" }} />
-      <div className="section-pad" style={{ position: "relative", zIndex: 1, padding: "20px 32px 110px", maxWidth: 1180, margin: "0 auto" }}>
+    <div id="ablauf" ref={sectionRef} className="dark-band bg-hero-dark">
+      <div className="section-pad" style={{ position: "relative", zIndex: 1, padding: "96px 32px 110px", maxWidth: 1180, margin: "0 auto" }}>
         <div className="reveal" style={{ maxWidth: 640, margin: "0 auto", textAlign: "center" }}>
-          <span className="label" style={{ color: "var(--sky)" }}>So einfach geht&apos;s</span>
+          <span className="label dk-label">So einfach geht&apos;s</span>
           <h2 style={{ fontSize: "clamp(28px,3.4vw,42px)", marginTop: 14, fontWeight: 700, lineHeight: 1.2 }}>
-            Von der Registrierung zur <span className="grad">bestandenen Prüfung.</span>
+            Von der Registrierung zur <span className="hero-grad">bestandenen Prüfung.</span>
           </h2>
         </div>
 
         {/* Desktop: horizontal timeline */}
         <div className="timeline-row" style={{ position: "relative", marginTop: 32, alignItems: "flex-start", justifyContent: "space-between", gap: 12 }}>
-          <div style={{ position: "absolute", top: 72, left: 24, right: 24, height: 4, borderRadius: 999, background: "var(--line)" }}>
+          <div style={{ position: "absolute", top: 72, left: 24, right: 24, height: 4, borderRadius: 999, background: "rgba(255,255,255,0.18)" }}>
             <div
               ref={fillRef}
               style={{
@@ -61,10 +60,10 @@ export default function HowItWorksTimeline() {
           </div>
           {STEPS.map((s) => (
             <div key={s.num} className="reveal" style={{ position: "relative", flex: 1, textAlign: "center", padding: "0 8px" }}>
-              <div className="glass timeline-num">{s.num}</div>
-              <div className="timeline-diamond" />
-              <p style={{ marginTop: 26, fontSize: 16.5, fontWeight: 700 }}>{s.title}</p>
-              <p style={{ marginTop: 8, fontSize: 13.5, color: "var(--text-dim)" }}>{s.desc}</p>
+              <div className="timeline-num timeline-num--dark">{s.num}</div>
+              <div className="timeline-diamond timeline-diamond--dark" />
+              <p style={{ marginTop: 26, fontSize: 16.5, fontWeight: 700, color: "#fff" }}>{s.title}</p>
+              <p className="dk-dim" style={{ marginTop: 8, fontSize: 13.5 }}>{s.desc}</p>
             </div>
           ))}
         </div>
@@ -74,7 +73,7 @@ export default function HowItWorksTimeline() {
           {STEPS.map((s) => (
             <div key={s.num} className="reveal" style={{ display: "flex", gap: 20 }}>
               <div
-                className="glass"
+                className="timeline-num--dark"
                 style={{
                   flex: "none",
                   width: 40,
@@ -85,14 +84,13 @@ export default function HowItWorksTimeline() {
                   justifyContent: "center",
                   fontFamily: "var(--font-display)",
                   fontWeight: 800,
-                  color: "var(--sky-deep)",
                 }}
               >
                 {s.num}
               </div>
               <div>
-                <h3 style={{ fontSize: 17, fontWeight: 700 }}>{s.title}</h3>
-                <p style={{ marginTop: 6, fontSize: 14, color: "var(--text-dim)" }}>{s.desc}</p>
+                <h3 style={{ fontSize: 17, fontWeight: 700, color: "#fff" }}>{s.title}</h3>
+                <p className="dk-dim" style={{ marginTop: 6, fontSize: 14 }}>{s.desc}</p>
               </div>
             </div>
           ))}

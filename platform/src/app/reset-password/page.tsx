@@ -19,8 +19,8 @@ export default async function ResetPasswordPage() {
   if (!user) redirect("/login?error=auth_callback_failed");
 
   return (
-    <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", padding: 32, background: "var(--bg)" }}>
-      <div className="glass-strong" style={{ borderRadius: 28, padding: 44, maxWidth: 420, width: "100%" }}>
+    <div className="bg-hero-dark" style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", padding: 32 }}>
+      <div className="glass-strong" style={{ borderRadius: 28, padding: 44, maxWidth: 420, width: "100%", background: "rgba(255,255,255,0.97)", boxShadow: "0 40px 90px -30px rgba(0,0,0,0.6)" }}>
         <div style={{ display: "flex", justifyContent: "center", marginBottom: 24 }}>
           <Logo />
         </div>

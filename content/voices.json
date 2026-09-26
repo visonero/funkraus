@@ -32,7 +32,8 @@
     "similarity_boost": 0.75
    },
    "say": "Anna",
-   "_comment": "Exactly what the KI-Tower in the course uses (platform/src/lib/tower/ai.ts speak()), so the video plays the real tower voice."
+   "_comment": "Exactly what the KI-Tower in the course uses (platform/src/lib/tower/ai.ts speak()), so the video plays the real tower voice.",
+   "radio": true
   }
  },
  "pronunciations": {
@@ -95,5 +96,8 @@
   "VIER",
   "NEUN",
   "ACHT"
- ]
+ ],
+ "maxWordSeconds": {
+  "Kah Ih": 0.5
+ }
 }
