@@ -2,9 +2,15 @@ import type { ReactNode } from "react";
 
 export type AppIconName =
   | "dashboard" | "course" | "payment" | "settings" | "logout" | "admin" | "home" | "lock" | "check"
-  | "video" | "audio" | "text" | "quiz" | "exam" | "menu" | "close" | "chevron" | "target" | "layers" | "help" | "arrow" | "bookmark" | "chat";
+  | "video" | "audio" | "text" | "quiz" | "exam" | "menu" | "close" | "chevron" | "target" | "layers" | "help" | "arrow" | "bookmark" | "chat" | "mic";
 
 const PATHS: Record<AppIconName, ReactNode> = {
+  mic: (
+    <>
+      <rect x="9" y="3.5" width="6" height="11" rx="3" />
+      <path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v2.5M9 20.5h6" />
+    </>
+  ),
   dashboard: (
     <>
       <rect x="3.5" y="3.5" width="7" height="8" rx="1.8" />
