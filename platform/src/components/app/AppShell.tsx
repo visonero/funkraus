@@ -75,6 +75,7 @@ export default function AppShell({ name, email, isAdmin, hasAccess, progressPerc
           {navItem("/dashboard", "Dashboard", "dashboard", true)}
           {navItem("/dashboard/course", "Kurs", "course", false, progressPercent > 0 ? `${progressPercent}%` : undefined)}
           {navItem("/dashboard/flagged", "Gemerkte Fragen", "bookmark", false, flaggedCount > 0 ? String(flaggedCount) : undefined)}
+          {navItem("/dashboard/tower", "Funktraining", "mic", false, "Neu")}
           <span className="app-nav-heading" style={{ marginTop: 14 }}>Konto</span>
           {navItem("/dashboard/tickets", "Meine Fragen", "chat", false, unreadTickets > 0 ? `${unreadTickets} neu` : undefined)}
           {navItem("/dashboard/payments", "Zahlungen & Rechnungen", "payment")}
