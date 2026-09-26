@@ -4,6 +4,8 @@ import AppIcon, { type AppIconName } from "@/components/app/AppIcon";
 import PageHeader from "@/components/app/PageHeader";
 import { ColumnChart, DonutChart, ProgressBar, ProgressRing } from "@/components/app/charts";
 import UpgradeCard from "@/components/app/UpgradeCard";
+import PurchaseTracker from "@/components/PurchaseTracker";
+import { getStripe } from "@/lib/stripe";
 import { getCurrentProfile, getCurrentUser } from "@/lib/auth/session";
 import { getCourseData } from "@/lib/course/data";
 import { moduleLabel } from "@/lib/course/format";
@@ -48,6 +50,18 @@ function Legend({ color, label, value }: { color: string; label: string; value: 
   );
 }
 
+// The paid Stripe session behind ?checkout=success (checked against the logged-in user, so a hand-typed URL tracks nothing).
+async function verifiedPurchase(sessionId: string | string[] | undefined, userId: string) {
+  if (typeof sessionId !== "string" || !sessionId.startsWith("cs_")) return null;
+  try {
+    const session = await getStripe().checkout.sessions.retrieve(sessionId);
+    if (session.payment_status !== "paid" || session.client_reference_id !== userId) return null;
+    return { id: session.id, value: (session.amount_total ?? 0) / 100 };
+  } catch {
+    return null;
+  }
+}
+
 export default async function DashboardPage({ searchParams }: PageProps<"/dashboard">) {
   const user = (await getCurrentUser())!;
   const [profile, course, params] = await Promise.all([getCurrentProfile(user.id), getCourseData(user.id), searchParams]);
@@ -56,6 +70,7 @@ export default async function DashboardPage({ searchParams }: PageProps<"/dashbo
   const { totals, tracks, activity, next } = course;
   const firstName = (profile?.full_name || "").trim().split(/\s+/)[0];
   const justPaid = params.checkout === "success";
+  const purchase = justPaid ? await verifiedPurchase(params.session_id, user.id) : null;
   const questionsOpen = Math.max(0, totals.questions - totals.questionsAnswered);
   const weekQuestions = activity.reduce((sum, d) => sum + d.questions, 0);
   const weekChapters = activity.reduce((sum, d) => sum + d.chapters, 0);
@@ -99,6 +114,7 @@ export default async function DashboardPage({ searchParams }: PageProps<"/dashbo
         subtitle="Hier siehst du auf einen Blick, wie weit du auf dem Weg zu deinem Sprechfunkzeugnis bist."
       />
 
+      {purchase && <PurchaseTracker transactionId={purchase.id} value={purchase.value} />}
       {justPaid && (
         <div
           className="dash-banner"

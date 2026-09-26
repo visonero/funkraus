@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { track } from "@/lib/analytics";
 
 export default function CheckoutButton({ price, marginTop = 32 }: { price: string; marginTop?: number }) {
   const router = useRouter();
@@ -12,6 +13,7 @@ export default function CheckoutButton({ price, marginTop = 32 }: { price: strin
 
   async function handleClick() {
     if (!accepted) return;
+    track("begin_checkout", { currency: "EUR", value: Number(price) });
     setLoading(true);
     setError(null);
 

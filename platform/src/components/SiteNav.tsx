@@ -68,6 +68,7 @@ export default function SiteNav({
 
   return (
     <div
+      data-loc="nav"
       style={{
         position: "sticky",
         top: 0,

@@ -371,7 +371,7 @@ export default async function Home() {
       </div>
 
       {/* FINAL CTA */}
-      <div className="dark-band bg-hero-dark" style={{ padding: "104px 32px" }}>
+      <div className="dark-band bg-hero-dark" data-loc="final-cta" style={{ padding: "104px 32px" }}>
         <div className="reveal" style={{ position: "relative", zIndex: 1, maxWidth: 640, margin: "0 auto", textAlign: "center" }}>
           <h2 style={{ fontSize: "clamp(30px,4vw,48px)", fontWeight: 800, lineHeight: 1.15 }}>
             Bereit, <span className="hero-grad">klar zu funken?</span>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
+import AnalyticsEvents from "@/components/AnalyticsEvents";
 import CookieConsent from "@/components/CookieConsent";
 
 const poppins = Poppins({
@@ -62,6 +63,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body>
         {children}
         <CookieConsent />
+        <AnalyticsEvents />
       </body>
     </html>
   );

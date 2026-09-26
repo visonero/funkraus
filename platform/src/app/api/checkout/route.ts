@@ -29,7 +29,7 @@ export async function POST(request: Request) {
     customer_email: user.email,
     client_reference_id: user.id,
     metadata: { supabase_user_id: user.id, agb_accepted: "true", agb_accepted_at: new Date().toISOString() },
-    success_url: `${origin}/dashboard?checkout=success`,
+    success_url: `${origin}/dashboard?checkout=success&session_id={CHECKOUT_SESSION_ID}`,
     cancel_url: `${origin}/#preis`,
   });
 

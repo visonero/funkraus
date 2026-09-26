@@ -1,5 +1,6 @@
 "use client";
 
+import { track } from "@/lib/analytics";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
@@ -70,6 +71,7 @@ export default function AuthForm({ initialMode = "signin", callbackError = false
       if (error) {
         setError(germanAuthError(error));
       } else {
+        track("sign_up", { method: "email" });
         setMessage("Fast geschafft — bitte bestätige deine E-Mail-Adresse über den Link, den wir dir geschickt haben.");
       }
     } else {

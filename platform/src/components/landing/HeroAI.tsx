@@ -18,7 +18,7 @@ const MicIcon = ({ size = 18 }: { size?: number }) => (
 // glance, with a real screenshot of the AI tower and small animated cards around it.
 export default function HeroAI({ signupHref, cta }: { signupHref: string; cta: string }) {
   return (
-    <section className="hero-ai" aria-labelledby="hero-title">
+    <section className="hero-ai" data-loc="hero" aria-labelledby="hero-title">
       <svg className="hero-ai-rings" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
         {[140, 260, 380, 500, 620].map((r, i) => (
           <circle key={r} cx="1120" cy="360" r={r} fill="none" stroke="#7fe3ff" strokeOpacity={0.18 - i * 0.025} strokeWidth="1.5" strokeDasharray={i % 2 ? "4 10" : undefined} />
