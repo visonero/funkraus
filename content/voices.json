@@ -22,6 +22,17 @@
     "video_speed": 1.03
    },
    "say": "Anna"
+  },
+  "tower": {
+   "elevenlabs": {
+    "voice_id": "j46AY0iVY3oHcnZbgEJg",
+    "model_id": "eleven_flash_v2_5",
+    "language_code": "de",
+    "stability": 0.6,
+    "similarity_boost": 0.75
+   },
+   "say": "Anna",
+   "_comment": "Exactly what the KI-Tower in the course uses (platform/src/lib/tower/ai.ts speak()), so the video plays the real tower voice."
   }
  },
  "pronunciations": {
@@ -59,7 +70,7 @@
   "TWY": "Taxiway",
   "QNH": "Ku En Ha",
   "DEHOL": "Delta Echo Hotel Oscar Lima",
-  "KI": "Ka I"
+  "KI": "Kah Ih"
  },
  "abbreviationStyle": "plain",
  "keepAsWord": [

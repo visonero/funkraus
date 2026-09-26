@@ -89,7 +89,7 @@ function voiceFor(voiceName) {
 
 async function synthesizeElevenLabs(voice, text, { timestamps, speed }) {
   const apiKey = process.env.ELEVENLABS_API_KEY;
-  const { voice_id, model_id, stability, similarity_boost, style, use_speaker_boost } = voice.elevenlabs ?? {};
+  const { voice_id, model_id, stability, similarity_boost, style, use_speaker_boost, language_code } = voice.elevenlabs ?? {};
   if (!apiKey) throw new Error("ELEVENLABS_API_KEY is not set");
   if (!voice_id) throw new Error("No elevenlabs.voice_id in voices.json");
   const url = `https://api.elevenlabs.io/v1/text-to-speech/${voice_id}${timestamps ? "/with-timestamps" : ""}?output_format=pcm_${SAMPLE_RATE}`;
@@ -100,7 +100,7 @@ async function synthesizeElevenLabs(voice, text, { timestamps, speed }) {
     res = await fetch(url, {
       method: "POST",
       headers: { "xi-api-key": apiKey, "Content-Type": "application/json" },
-      body: JSON.stringify({ text, model_id, voice_settings }),
+      body: JSON.stringify({ text, model_id, voice_settings, ...(language_code ? { language_code } : {}) }),
     });
     if (res.ok || (res.status !== 429 && res.status < 500) || attempt >= 6) break;
     const wait = 4 * 2 ** (attempt - 1);
@@ -200,7 +200,9 @@ function sentenceRanges(text) {
 }
 
 // Video narration: returns audio plus exact cue times (seconds from clip start) and sentence timings.
-async function speakScene(voiceName, displayTextWithCues) {
+// leadIn (seconds, optional): silence before the speech, e.g. so an on-screen item can appear before the voice starts.
+// With a lead-in, the first cue marker at the very start of the text lands in that silence (not on the first word).
+async function speakScene(voiceName, displayTextWithCues, leadIn = 0) {
   const voice = voiceFor(voiceName);
 
   // Split "…[[0]]text…" into spoken text and the character offset of each cue.
@@ -274,6 +276,15 @@ async function speakScene(voiceName, displayTextWithCues) {
         }))
       : [{ text: display.trim(), start: 0, end: +duration.toFixed(3) }];
 
+  if (leadIn > 0) {
+    const shift = (t) => +(t + leadIn).toFixed(3);
+    const firstAtStart = cueOffsets.findIndex((o) => o === 0);
+    return {
+      pcm: Buffer.concat([silence(leadIn), pcm]),
+      cues: cues.map((c, i) => (c === null ? null : i === firstAtStart ? +Math.min(0.5, leadIn / 2).toFixed(3) : shift(c))),
+      sentences: sentences.map((x) => ({ ...x, start: shift(x.start), end: shift(x.end) })),
+    };
+  }
   return { pcm, cues, sentences };
 }
 
@@ -289,7 +300,7 @@ const add = (pcm, meta) => {
 
 if (script.scenes) {
   for (const [i, scene] of script.scenes.entries()) {
-    const { pcm, cues, sentences } = await speakScene(scene.voice, scene.text);
+    const { pcm, cues, sentences } = await speakScene(scene.voice, scene.text, scene.leadIn);
     add(pcm, { id: scene.id, cues, sentences });
     if (i < script.scenes.length - 1) add(silence(SCENE_GAP_SECONDS));
   }
