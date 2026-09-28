@@ -11,7 +11,6 @@ import FaqAccordion from "@/components/FaqAccordion";
 import Footer from "@/components/Footer";
 import { FAQS } from "@/lib/faq";
 import { ORIGINAL_PRICE, PRICE } from "@/lib/pricing";
-import { createClient } from "@/lib/supabase/server";
 
 const SIGNUP_HREF = "/login?mode=signup";
 const FREE_CTA = "Heute kostenlos starten";
@@ -89,17 +88,12 @@ function Blob({ style, color }: { style: React.CSSProperties; color: string }) {
   return <div className="deco blob hide-mobile" style={{ ...style, background: color }} />;
 }
 
-export default async function Home() {
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
+export default function Home() {
   return (
     <div style={{ width: "100%", background: "var(--bg)", overflowX: "clip", position: "relative" }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <ScrollRevealInit />
-      <SiteNav email={user?.email ?? null} overHero />
+      <SiteNav overHero />
 
       {/* HERO */}
       <HeroAI signupHref={SIGNUP_HREF} cta={FREE_CTA} />

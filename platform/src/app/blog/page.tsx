@@ -5,7 +5,6 @@ import Footer from "@/components/Footer";
 import BlogCard from "@/components/blog/BlogCard";
 import { BlogCta } from "@/components/blog/BlogPresets";
 import { getPublishedPosts } from "@/lib/blog/posts";
-import { createClient } from "@/lib/supabase/server";
 
 const PAGE_SIZE = 9;
 
@@ -35,10 +34,7 @@ export default async function BlogIndexPage({ searchParams }: PageProps<"/blog">
   const q = first(params.q).trim();
   const page = Math.max(1, Number(first(params.seite)) || 1);
 
-  const [all, supabase] = await Promise.all([getPublishedPosts(), createClient()]);
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  const all = await getPublishedPosts();
 
   const topics = [...new Set(all.map((p) => p.topic).filter((t): t is string => !!t))].sort((a, b) => a.localeCompare(b, "de"));
   const counts = new Map(topics.map((t) => [t, all.filter((p) => p.topic === t).length]));
@@ -70,7 +66,7 @@ export default async function BlogIndexPage({ searchParams }: PageProps<"/blog">
 
   return (
     <div style={{ width: "100%", background: "var(--bg)", overflowX: "hidden" }}>
-      <SiteNav email={user?.email ?? null} />
+      <SiteNav />
       <div className="sky-wash">
         <div style={{ maxWidth: 1180, margin: "0 auto", padding: "64px 32px 40px", textAlign: "center" }}>
           <span className="label" style={{ color: "var(--sky)" }}>Blog</span>

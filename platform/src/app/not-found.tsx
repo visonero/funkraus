@@ -1,17 +1,11 @@
 import Link from "next/link";
 import SiteNav from "@/components/SiteNav";
 import Footer from "@/components/Footer";
-import { createClient } from "@/lib/supabase/server";
 
-export default async function NotFound() {
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
+export default function NotFound() {
   return (
     <div style={{ width: "100%", background: "var(--bg)", overflowX: "hidden" }}>
-      <SiteNav email={user?.email ?? null} />
+      <SiteNav />
       <div
         style={{
           maxWidth: 560,

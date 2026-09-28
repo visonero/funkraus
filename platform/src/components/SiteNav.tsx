@@ -20,11 +20,9 @@ const LINKS = [
 const BAR_HEIGHT = 77;
 
 export default function SiteNav({
-  email,
   ctaHref = "/login?mode=signup",
   overHero = false,
 }: {
-  email?: string | null;
   ctaHref?: string;
   // Landing page: the header floats over the dark hero (white text) and turns light once the hero is scrolled past.
   overHero?: boolean;
@@ -32,8 +30,20 @@ export default function SiteNav({
   const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
+  // Resolved client-side so this public shell needs no per-request auth check server-side,
+  // which would otherwise force every page that renders it out of static/cached rendering.
+  const [email, setEmail] = useState<string | null>(null);
   // "top": transparent on the hero, "hero": dark glass while scrolling the hero, "page": normal light header
   const [phase, setPhase] = useState<"top" | "hero" | "page">(overHero ? "top" : "page");
+
+  useEffect(() => {
+    const supabase = createClient();
+    supabase.auth.getUser().then(({ data }) => setEmail(data.user?.email ?? null));
+    const { data: sub } = supabase.auth.onAuthStateChange((_event, session) => {
+      setEmail(session?.user?.email ?? null);
+    });
+    return () => sub.subscription.unsubscribe();
+  }, []);
 
   useEffect(() => {
     if (!overHero) return;

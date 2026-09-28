@@ -1,0 +1,541 @@
+<title>Funkraus Market Position</title>
+<style>
+  @page { size: A4 landscape; margin: 14mm 16mm; }
+  @media print {
+    body { padding: 0; background: #fff; }
+    a { color: var(--accent-deep) !important; text-decoration: underline; }
+    .chart-scroll, .table-scroll { overflow: visible; }
+    section { margin-top: 26px; }
+    .card-grid, .checklist, .steps, .verdict, .chart-card { break-inside: avoid-page; }
+    table { min-width: 0; width: 100%; table-layout: fixed; font-size: 10.5px; }
+    thead th, tbody td { padding: 7px 6px; white-space: normal !important; overflow-wrap: break-word; }
+    td.provider span { font-size: 9.5px; }
+    tr { break-inside: avoid-page; }
+    .pill { white-space: normal !important; display: inline-block; line-height: 1.3; padding: 3px 7px; }
+    th:nth-child(1), td:nth-child(1) { width: 15%; }
+    th:nth-child(2), td:nth-child(2) { width: 13%; }
+    th:nth-child(3), td:nth-child(3) { width: 11%; }
+    th:nth-child(4), td:nth-child(4) { width: 12%; }
+    th:nth-child(5), td:nth-child(5) { width: 14%; }
+    th:nth-child(6), td:nth-child(6) { width: 13%; }
+    th:nth-child(7), td:nth-child(7) { width: 12%; }
+    th:nth-child(8), td:nth-child(8) { width: 10%; }
+    td.provider { overflow-wrap: normal; word-break: keep-all; hyphens: none; }
+  }
+  :root {
+    --bg: #f6f9fd;
+    --surface: #ffffff;
+    --surface-2: #eef3f9;
+    --ink: #12202f;
+    --ink-dim: #51677c;
+    --ink-faint: #8298ab;
+    --line: #e3ebf5;
+    --line-strong: #cfdcea;
+    --accent: #2f9bea;
+    --accent-deep: #1c7fd0;
+    --teal: #159c96;
+    --good: #0b7a55;
+    --good-bg: rgba(11,122,85,0.1);
+    --warn: #9a6400;
+    --warn-bg: rgba(184,141,10,0.14);
+    --bad: #b0294a;
+    --bad-bg: rgba(176,41,74,0.1);
+    --shadow: 0 24px 60px -32px rgba(28,60,95,0.28);
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b1420;
+      --surface: #101d2c;
+      --surface-2: #16273a;
+      --ink: #eaf1f8;
+      --ink-dim: #a9bdd0;
+      --ink-faint: #7590a6;
+      --line: rgba(255,255,255,0.1);
+      --line-strong: rgba(255,255,255,0.18);
+      --accent: #5fb6f5;
+      --accent-deep: #7fcdfa;
+      --teal: #3fd0c8;
+      --good: #3ecf95;
+      --good-bg: rgba(62,207,149,0.14);
+      --warn: #e3b143;
+      --warn-bg: rgba(227,177,67,0.14);
+      --bad: #ff6f8e;
+      --bad-bg: rgba(255,111,142,0.14);
+      --shadow: 0 24px 60px -32px rgba(0,0,0,0.6);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b1420;
+    --surface: #101d2c;
+    --surface-2: #16273a;
+    --ink: #eaf1f8;
+    --ink-dim: #a9bdd0;
+    --ink-faint: #7590a6;
+    --line: rgba(255,255,255,0.1);
+    --line-strong: rgba(255,255,255,0.18);
+    --accent: #5fb6f5;
+    --accent-deep: #7fcdfa;
+    --teal: #3fd0c8;
+    --good: #3ecf95;
+    --good-bg: rgba(62,207,149,0.14);
+    --warn: #e3b143;
+    --warn-bg: rgba(227,177,67,0.14);
+    --bad: #ff6f8e;
+    --bad-bg: rgba(255,111,142,0.14);
+    --shadow: 0 24px 60px -32px rgba(0,0,0,0.6);
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    padding: 0 20px;
+    padding-block: 48px 80px;
+  }
+  h1, h2, h3 { font-family: 'Poppins', 'Inter', sans-serif; font-weight: 800; text-wrap: balance; color: var(--ink); }
+  .wrap { max-width: 900px; margin: 0 auto; }
+
+  .kicker { display: inline-flex; align-items: center; gap: 8px; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--accent-deep); }
+  .kicker::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+  h1 { font-size: clamp(28px, 4vw, 38px); margin: 14px 0 6px; line-height: 1.15; }
+  .dek { color: var(--ink-dim); font-size: 16px; line-height: 1.6; max-width: 640px; margin: 0 0 8px; }
+  .meta { color: var(--ink-faint); font-size: 12.5px; margin-top: 2px; }
+
+  section { margin-top: 56px; }
+  h2 { font-size: clamp(20px, 2.6vw, 25px); margin: 0 0 14px; display: flex; align-items: baseline; gap: 10px; }
+  h2 .num { font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 800; color: var(--accent); background: var(--surface-2); border: 1px solid var(--line); border-radius: 999px; padding: 3px 10px; }
+  h3 { font-size: 16.5px; margin: 22px 0 8px; }
+  p { line-height: 1.65; color: var(--ink-dim); font-size: 15px; }
+  strong { color: var(--ink); }
+  a { color: var(--accent-deep); }
+
+  /* Verdict callout */
+  .verdict {
+    background: linear-gradient(155deg, var(--surface) 0%, var(--surface-2) 100%);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--accent);
+    border-radius: 18px;
+    padding: 26px 28px;
+    box-shadow: var(--shadow);
+  }
+  .verdict p:last-child { margin-bottom: 0; }
+  .verdict-grade { display: flex; align-items: center; gap: 16px; margin-bottom: 14px; flex-wrap: wrap; }
+  .grade-badge {
+    font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 22px;
+    color: #fff; background: linear-gradient(135deg, var(--accent-deep), var(--teal));
+    border-radius: 14px; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center;
+    flex: none; box-shadow: 0 14px 30px -12px rgba(28,127,208,0.6);
+  }
+  .grade-text { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 18px; }
+  .grade-sub { font-size: 13px; color: var(--ink-faint); margin-top: 2px; }
+
+  /* Pills */
+  .pill { display: inline-flex; align-items: center; gap: 6px; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 11.5px; letter-spacing: 0.02em; padding: 4px 10px; border-radius: 999px; white-space: nowrap; }
+  .pill-good { background: var(--good-bg); color: var(--good); }
+  .pill-warn { background: var(--warn-bg); color: var(--warn); }
+  .pill-bad { background: var(--bad-bg); color: var(--bad); }
+  .pill-neutral { background: var(--surface-2); color: var(--ink-dim); border: 1px solid var(--line); }
+
+  /* Tier cards */
+  .tier-label { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 13px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.06em; margin: 26px 0 10px; }
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 14px; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; }
+  .card.is-you { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+  .card-title { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 15px; display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+  .card p { font-size: 13.5px; margin: 8px 0 0; line-height: 1.55; }
+
+  /* Quadrant chart */
+  .chart-card { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 20px clamp(12px,3vw,28px) 8px; box-shadow: var(--shadow); }
+  .chart-scroll { overflow-x: auto; }
+  svg text { font-family: 'Inter', sans-serif; }
+  .dot-label { font-size: 12.5px; font-weight: 600; fill: var(--ink); }
+  .dot-you circle { fill: var(--accent); }
+  .dot-you .dot-label { fill: var(--accent-deep); font-weight: 800; }
+  .axis-label { font-size: 11.5px; fill: var(--ink-faint); font-weight: 600; }
+  .quad-line { stroke: var(--line-strong); stroke-width: 1; stroke-dasharray: 4 5; }
+  .chart-caption { font-size: 12px; color: var(--ink-faint); text-align: center; margin: 6px 0 4px; }
+
+  /* Table */
+  .table-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow); }
+  table { border-collapse: collapse; width: 100%; min-width: 760px; background: var(--surface); font-size: 13.5px; }
+  thead th { text-align: left; font-family: 'Poppins', sans-serif; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink-faint); background: var(--surface-2); padding: 12px 14px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+  tbody td { padding: 13px 14px; border-bottom: 1px solid var(--line); vertical-align: top; color: var(--ink-dim); }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr.is-you { background: var(--good-bg); }
+  tbody tr.is-you td:first-child { font-weight: 800; color: var(--ink); }
+  td.provider { font-weight: 700; color: var(--ink); white-space: nowrap; }
+  td.provider span { display: block; font-weight: 400; color: var(--ink-faint); font-size: 11.5px; margin-top: 2px; }
+
+  /* Strengths / gaps two-col */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .box { border-radius: 16px; padding: 18px 20px; border: 1px solid var(--line); }
+  .box.good { background: var(--good-bg); }
+  .box.bad { background: var(--bad-bg); }
+  .box h3 { margin-top: 0; display: flex; align-items: center; gap: 8px; }
+  .box ul { margin: 10px 0 0; padding-left: 18px; }
+  .box li { font-size: 13.5px; line-height: 1.55; margin-bottom: 8px; color: var(--ink-dim); }
+  .box li strong { color: var(--ink); }
+
+  /* Roadmap steps */
+  .steps { display: flex; flex-direction: column; gap: 0; border-left: 2px solid var(--line-strong); margin-left: 10px; padding-left: 24px; }
+  .step { position: relative; padding-bottom: 26px; }
+  .step:last-child { padding-bottom: 0; }
+  .step::before { content: ""; position: absolute; left: -30.5px; top: 3px; width: 13px; height: 13px; border-radius: 50%; background: var(--surface); border: 3px solid var(--accent); }
+  .step-title { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 14.5px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .step p { margin: 5px 0 0; font-size: 13.5px; }
+
+  /* Checklist */
+  .checklist { display: flex; flex-direction: column; gap: 10px; }
+  .check-item { display: flex; gap: 12px; align-items: flex-start; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; }
+  .check-box { flex: none; width: 22px; height: 22px; border-radius: 7px; border: 2px solid var(--line-strong); margin-top: 1px; display: flex; align-items: center; justify-content: center; }
+  .check-box.done { background: var(--good); border-color: var(--good); color: #fff; font-size: 13px; font-weight: 800; }
+  .check-text strong { display: block; font-size: 14px; color: var(--ink); }
+  .check-text span { font-size: 13px; color: var(--ink-dim); }
+
+  .content-table td, .content-table th { font-size: 13px; }
+  .num-cell { font-variant-numeric: tabular-nums; font-weight: 700; color: var(--accent-deep); }
+
+  footer { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--line); }
+  footer p { font-size: 12px; color: var(--ink-faint); line-height: 1.8; }
+  footer a { color: var(--ink-faint); }
+
+  @media (max-width: 680px) {
+    .two-col { grid-template-columns: 1fr; }
+    table { min-width: 620px; }
+  }
+</style>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<div class="wrap">
+  <span class="kicker">Competitive research — September 2026</span>
+  <h1>Where funkraus stands in the German BZF market</h1>
+  <p class="dek">A review of the online BZF I/II preparation market: who else is selling to the same student, how funkraus compares on offer, SEO and content, design and trust — and what it takes to go from "a good course" to "a market threat."</p>
+
+  <section id="verdict">
+    <div class="verdict">
+      <div class="verdict-grade">
+        <div class="grade-badge">B–</div>
+        <div>
+          <div class="grade-text">Strong product, close to zero visibility</div>
+          <div class="grade-sub">Product and content are already competitive. Search presence is not — that's the entire gap.</div>
+        </div>
+      </div>
+      <p>On paper, funkraus already has one of the most complete offers in this niche: a single course covering both BZF I and BZF II, a free 2-module trial with no card required, the full 261-question official catalogue, a live AI radio-training feature, a real 100-question/60-minute mock exam for both tracks, and 15 published articles — more content than every competitor except one. <strong>No other provider we found combines a fully structured self-paced course with AI voice training and a proper mock exam under one price.</strong></p>
+      <p>The catch: a <code>site:funkraus.de</code> search returns zero indexed pages. None of that product or content strength shows up in Google yet. funkraus isn't losing to competitors on quality — it's simply not in the race yet on the channel that matters most (organic search), while at least one competitor (bzf-kurs.de) already has real content-SEO traction and reviews, and the "AI radio training" pitch itself is no longer unique — three to four other tools now market a version of it.</p>
+    </div>
+  </section>
+
+  <section id="landscape">
+    <h2><span class="num">1</span>The competitive landscape</h2>
+    <p>Two genuinely different groups compete for the same searches. Tier A sells a full BZF I/II preparation the way funkraus does. Tier B sells one narrow piece of it (just the question catalogue, or just AI radio practice) — they don't replace a course, but they intercept the same searches and can expand later.</p>
+
+    <div class="tier-label">Tier A — full courses (direct competitors)</div>
+    <div class="card-grid">
+      <div class="card is-you">
+        <div class="card-title">funkraus <span class="pill pill-neutral">You</span></div>
+        <p>€279 (from €399), one-time. Free 2 modules, no card. Video + audio + text + quiz + PDF per lesson. AI tower (live voice). Full 100Q/60min mock exam, both tracks.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">FunkCoach <span class="pill pill-bad">Watch closely</span></div>
+        <p>App-based, 14 modules, 400+ vocab terms, AI voice dialogues with correction, "realistic exam mode." Closest match to funkraus's own pitch. License-code pricing, not disclosed.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">bzf-kurs.de <span class="pill pill-warn">Best content/SEO</span></div>
+        <p>Hybrid: self-paced video + live small-group Google Meet radio practice. No AI. 7 blog posts + ~5 SEO pillar pages, 44 five-star Trustpilot reviews shown on-site.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">Fluglehrerteam.com <span class="pill pill-good">Low threat</span></div>
+        <p>Live ATC-server groups since 2005, €299/365 days. No AI. Dated design, blog dormant since 2019 (3 posts total). Trades on longevity, not on modern execution.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">FlyCademy <span class="pill pill-good">Low threat</span></div>
+        <p>Live Zoom cohorts, from €280, taught by controllers/instructors. No AI, no blog. Doesn't scale the way a self-paced product does.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">Training4Pilots <span class="pill pill-good">Low threat</span></div>
+        <p>7× 90-minute 1:1 sessions, €449. No AI. Has a blog, but it's a travel blog, not BZF content — no SEO value from it.</p>
+      </div>
+    </div>
+
+    <div class="tier-label">Tier B — point tools (adjacent, not full courses)</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-title">bzf-simulator.de <span class="pill pill-warn">Fast-moving</span></div>
+        <p>Browser-based AI radio simulator, real-time phraseology feedback, 9 modules/57 drills. Closed beta/waitlist. Cross-promoted with bzf-fragen.de — same operator, building a network.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">bzftraining.de <span class="pill pill-warn">Fast-moving</span></div>
+        <p>iOS app, AI controller voice via ElevenLabs + OpenAI speech recognition, instant phraseology feedback. Free to start. Radio training only, no theory course.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">bzf-fragen.de <span class="pill pill-good">Low threat</span></div>
+        <p>Question-catalogue trainer only, one-time payment, has its own blog. Competes for "learn the question catalogue" searches, not for the full-course buyer.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="map">
+    <h2><span class="num">2</span>Positioning map</h2>
+    <p>Plotting each provider on course completeness (theory, audio, quiz, exam simulation, both tracks) against how AI-driven their radio training is shows the actual white space: funkraus is currently alone in the top-right corner. FunkCoach is the only one closing in on it.</p>
+    <div class="chart-card">
+      <div class="chart-scroll">
+        <svg viewBox="0 0 640 460" width="640" height="460" role="img" aria-label="Positioning map: course completeness vs AI-driven training">
+          <line class="quad-line" x1="60" y1="20" x2="60" y2="410" />
+          <line class="quad-line" x1="60" y1="410" x2="620" y2="410" />
+          <line class="quad-line" x1="340" y1="20" x2="340" y2="410" />
+          <line class="quad-line" x1="60" y1="215" x2="620" y2="215" />
+
+          <text class="axis-label" x="340" y="440" text-anchor="middle">Course completeness →</text>
+          <text class="axis-label" x="66" y="12" text-anchor="start">↑ AI-driven training</text>
+          <text class="axis-label" x="66" y="400" text-anchor="start">Point tool</text>
+          <text class="axis-label" x="614" y="400" text-anchor="end">Full structured course</text>
+          <text class="axis-label" x="66" y="34" text-anchor="start">No AI / human-led</text>
+
+          <g class="dot-you">
+            <circle cx="592" cy="53" r="9" />
+            <text class="dot-label" x="592" y="38" text-anchor="end">funkraus</text>
+          </g>
+          <g>
+            <circle cx="452" cy="102" r="6.5" fill="var(--accent-deep)" />
+            <text class="dot-label" x="452" y="120" text-anchor="middle">FunkCoach</text>
+          </g>
+          <g>
+            <circle cx="200" cy="110" r="6" fill="var(--teal)" />
+            <text class="dot-label" x="200" y="94" text-anchor="middle">bzf-simulator.de</text>
+          </g>
+          <g>
+            <circle cx="144" cy="88" r="6" fill="var(--teal)" />
+            <text class="dot-label" x="144" y="128" text-anchor="middle">bzftraining.de</text>
+          </g>
+          <g>
+            <circle cx="530" cy="358" r="6.5" fill="var(--ink-faint)" />
+            <text class="dot-label" x="530" y="343" text-anchor="middle">bzf-kurs.de</text>
+          </g>
+          <g>
+            <circle cx="410" cy="392" r="6" fill="var(--ink-faint)" />
+            <text class="dot-label" x="410" y="410" text-anchor="middle">Fluglehrerteam</text>
+          </g>
+          <g>
+            <circle cx="310" cy="380" r="6" fill="var(--ink-faint)" />
+            <text class="dot-label" x="310" y="365" text-anchor="middle">FlyCademy</text>
+          </g>
+          <g>
+            <circle cx="210" cy="392" r="6" fill="var(--ink-faint)" />
+            <text class="dot-label" x="210" y="410" text-anchor="middle">Training4Pilots</text>
+          </g>
+          <g>
+            <circle cx="120" cy="380" r="6" fill="var(--ink-faint)" />
+            <text class="dot-label" x="120" y="365" text-anchor="middle">bzf-fragen.de</text>
+          </g>
+        </svg>
+      </div>
+      <p class="chart-caption">Qualitative positioning from public site research, not a measured score.</p>
+    </div>
+  </section>
+
+  <section id="table">
+    <h2><span class="num">3</span>Side-by-side comparison</h2>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Provider</th>
+            <th>Format</th>
+            <th>Price</th>
+            <th>AI radio training</th>
+            <th>Full mock exam</th>
+            <th>Content / SEO</th>
+            <th>Trust signals</th>
+            <th>Threat level</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="is-you">
+            <td class="provider">funkraus</td>
+            <td>Self-paced, video+audio+text+quiz</td>
+            <td>€279 <span style="font-weight:400;color:var(--ink-faint)">(free trial)</span></td>
+            <td><span class="pill pill-good">Live, voice</span></td>
+            <td><span class="pill pill-good">Yes, both tracks</span></td>
+            <td>15 articles + partner page</td>
+            <td>None yet</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td class="provider">FunkCoach<span>funkcoach.app</span></td>
+            <td>Self-paced app, 14 modules</td>
+            <td>Undisclosed (license code)</td>
+            <td><span class="pill pill-good">Voice + correction</span></td>
+            <td><span class="pill pill-warn">"Exam mode" claimed</span></td>
+            <td>None found</td>
+            <td>None found</td>
+            <td><span class="pill pill-bad">High</span></td>
+          </tr>
+          <tr>
+            <td class="provider">bzf-kurs.de</td>
+            <td>Self-paced + live small groups</td>
+            <td>From €89 (self-study) to full course</td>
+            <td><span class="pill pill-bad">None</span></td>
+            <td><span class="pill pill-warn">Question trainer only</span></td>
+            <td>7 posts + ~5 pillar pages</td>
+            <td>44★ Trustpilot</td>
+            <td><span class="pill pill-warn">Medium–High</span></td>
+          </tr>
+          <tr>
+            <td class="provider">bzf-simulator.de</td>
+            <td>Browser AI radio drills only</td>
+            <td>Not public (closed beta)</td>
+            <td><span class="pill pill-good">Live, voice</span></td>
+            <td><span class="pill pill-bad">No theory course</span></td>
+            <td>Cross-linked network w/ bzf-fragen.de</td>
+            <td>None found</td>
+            <td><span class="pill pill-warn">Medium</span></td>
+          </tr>
+          <tr>
+            <td class="provider">bzftraining.de</td>
+            <td>iOS app, AI radio drills only</td>
+            <td>Free to start</td>
+            <td><span class="pill pill-good">Live, voice</span></td>
+            <td><span class="pill pill-bad">No theory course</span></td>
+            <td>None found</td>
+            <td>None found</td>
+            <td><span class="pill pill-warn">Medium</span></td>
+          </tr>
+          <tr>
+            <td class="provider">Fluglehrerteam.com</td>
+            <td>Live, ATC-server groups</td>
+            <td>€299 / 365 days</td>
+            <td><span class="pill pill-bad">None</span></td>
+            <td><span class="pill pill-warn">Generic trainer</span></td>
+            <td>3 posts, dormant since 2019</td>
+            <td>"Since 2005" longevity</td>
+            <td><span class="pill pill-good">Low</span></td>
+          </tr>
+          <tr>
+            <td class="provider">FlyCademy</td>
+            <td>Live Zoom cohorts</td>
+            <td>From €280</td>
+            <td><span class="pill pill-bad">None</span></td>
+            <td><span class="pill pill-bad">Not evident</span></td>
+            <td>None found</td>
+            <td>None found</td>
+            <td><span class="pill pill-good">Low</span></td>
+          </tr>
+          <tr>
+            <td class="provider">Training4Pilots</td>
+            <td>1:1 live sessions</td>
+            <td>€449</td>
+            <td><span class="pill pill-bad">None</span></td>
+            <td><span class="pill pill-warn">Generic trainer</span></td>
+            <td>Unrelated travel blog</td>
+            <td>None found</td>
+            <td><span class="pill pill-good">Low</span></td>
+          </tr>
+          <tr>
+            <td class="provider">bzf-fragen.de</td>
+            <td>Question catalogue only</td>
+            <td>One-time (undisclosed)</td>
+            <td><span class="pill pill-bad">None</span></td>
+            <td><span class="pill pill-bad">No theory course</span></td>
+            <td>Has a blog (size unknown)</td>
+            <td>None found</td>
+            <td><span class="pill pill-good">Low</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:10px;font-size:12.5px;color:var(--ink-faint);">Ratings are based on what's publicly visible on each site in September 2026 (pricing pages, blogs, app-store listings), not verified customer data.</p>
+  </section>
+
+  <section id="standing">
+    <h2><span class="num">4</span>Current standing: what's working, what isn't</h2>
+    <div class="two-col">
+      <div class="box good">
+        <h3>🟢 Real strengths</h3>
+        <ul>
+          <li><strong>Broadest single offer in the niche.</strong> No other provider bundles BZF I + II, a free trial, AI voice training, and a real 100Q/60min mock exam under one price.</li>
+          <li><strong>Content volume already leads Tier A.</strong> 15 published articles beats every full-course competitor except bzf-kurs.de's combined post+pillar count.</li>
+          <li><strong>Transparent, low-friction pricing.</strong> €279 one-time, visible upfront, free 2 modules with no card — most competitors hide price behind a contact form or checkout flow.</li>
+          <li><strong>Modern design and execution.</strong> Custom illustrations, animation, and a coherent brand — several direct competitors (Fluglehrerteam, Training4Pilots' course pages) look dated by comparison.</li>
+        </ul>
+      </div>
+      <div class="box bad">
+        <h3>🔴 Real gaps</h3>
+        <ul>
+          <li><strong>Not indexed yet.</strong> <code>site:funkraus.de</code> returns zero results. Every content and product advantage above is invisible to search until this is fixed.</li>
+          <li><strong>Zero trust signals.</strong> No reviews, testimonials, or case studies, versus bzf-kurs.de's 44 Trustpilot reviews and Fluglehrerteam's "since 2005" longevity.</li>
+          <li><strong>The AI pitch alone is no longer unique.</strong> Three to four competitors (FunkCoach, bzf-simulator.de, bzftraining.de) already market AI radio training — the differentiator has to be the complete package, not the feature in isolation.</li>
+          <li><strong>No backlinks yet.</strong> None of the research surfaced funkraus.de being linked from anywhere — no forum mentions, no directory listings, no partner links (the new /partner page is the first lever for this).</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="roadmap">
+    <h2><span class="num">5</span>How many blog articles is "enough"?</h2>
+    <p>Short answer: <strong>volume was never the bottleneck — indexation is.</strong> At 15 articles, funkraus already has more content than every full-course competitor except bzf-kurs.de (7 posts + ~5 pillar pages, ~12 pieces total). BZF is a narrow niche with limited search volume; nobody in this market has more than about a dozen content pieces. Publishing 100 articles wouldn't out-rank anyone if the pages behind them aren't crawled.</p>
+    <p>That said, there's a concrete ceiling worth reaching to own the topic outright — not by writing more, but by writing a few pieces no competitor has:</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-title">Now → immediately <span class="pill pill-bad">Fix indexation first</span></div>
+        <p>Confirm all 15 URLs are submitted in Search Console, check for crawl errors, and get the first backlinks flowing (the /partner page's mutual links are the fastest lever). No amount of new content matters until this resolves.</p>
+      </div>
+      <div class="step">
+        <div class="step-title">15 → ~22 articles <span class="pill pill-warn">Close the comparison gap</span></div>
+        <p>Add the handful of pieces bzf-kurs.de has that funkraus doesn't: a direct "online vs. Präsenzlehrgang" comparison, a cost-comparison page naming providers, and a BZF glossary page targeting single-term searches ("QNH", "Blindsendung", "PAN PAN MEDICAL") that a full article wouldn't rank for on its own.</p>
+      </div>
+      <div class="step">
+        <div class="step-title">~22 → ~30 pieces <span class="pill pill-good">Own the long tail</span></div>
+        <p>Round out remaining exam-catalogue topics (transponder codes 7500, radio-failure edge cases already covered, weather phraseology/ATIS/VOLMET, BZF for glider/UL pilots) and add proof pages once available: student testimonials, a partner-club case study, a "why we built the AI tower" behind-the-scenes piece.</p>
+      </div>
+    </div>
+    <p style="margin-top:16px;">30 well-targeted pieces would give funkraus roughly 2.5× the content depth of the best-optimized competitor (bzf-kurs.de) — more than sufficient to dominate this specific niche, since no one else is even close to that volume.</p>
+  </section>
+
+  <section id="threat">
+    <h2><span class="num">6</span>When does funkraus become a real threat?</h2>
+    <p>Five concrete, checkable milestones. Once all five are true, funkraus is the only provider in this market combining a complete course, AI training, a real mock exam, visible trust, and search presence — a position nobody currently holds.</p>
+    <div class="checklist">
+      <div class="check-item">
+        <div class="check-box done">✓</div>
+        <div class="check-text"><strong>Product completeness</strong><span>Full course (12 modules), AI tower, and the 100Q/60-min mock exam are all built and live for both tracks. This is already done — confirm the exam-attempts migration has been run in production if it hasn't.</span></div>
+      </div>
+      <div class="check-item">
+        <div class="check-box">2</div>
+        <div class="check-text"><strong>Indexed and ranking</strong><span>Site fully indexed, and funkraus appears on page 1 for "BZF online Kurs" and 3–4 related head terms.</span></div>
+      </div>
+      <div class="check-item">
+        <div class="check-box">3</div>
+        <div class="check-text"><strong>Content depth</strong><span>~25–30 published articles and pillar pages live, closing the comparison and glossary gaps against bzf-kurs.de.</span></div>
+      </div>
+      <div class="check-item">
+        <div class="check-box">4</div>
+        <div class="check-text"><strong>Visible trust</strong><span>First 10–20 real reviews or testimonials displayed on the site — the single fastest way to close the gap with bzf-kurs.de's 44 Trustpilot reviews.</span></div>
+      </div>
+      <div class="check-item">
+        <div class="check-box">5</div>
+        <div class="check-text"><strong>Distribution beyond search</strong><span>3–5 signed flight-club/school partners live on /partner, each sending referral traffic and a backlink.</span></div>
+      </div>
+    </div>
+    <p style="margin-top:18px;"><strong>Realistic timeline:</strong> items 2–3 are largely execution funkraus already knows how to do (weeks, not months, given the content pipeline already built this session). Item 4 depends on the first real cohort of paying students — the free-trial funnel is already built to produce that. Item 5 depends on club/school response to the new partner outreach. A reasonable target is <strong>3–4 months</strong> to have all five true, assuming outreach and indexing fixes start now.</p>
+  </section>
+
+  <footer>
+    <p>
+      Research conducted via public web search and page fetches, September 28, 2026. Competitor pricing, features, and content counts reflect what was published at time of research and may change; none of this is based on private data from competitors. Sources:
+      <a href="https://flycademy.de/bzf-online-kurs/">flycademy.de</a>,
+      <a href="https://bzf-kurs.de/">bzf-kurs.de</a>,
+      <a href="https://bzf-kurse.com/">bzf-kurse.com</a>,
+      <a href="https://fluglehrerteam.com/de/onlinekurse/online-flugfunkkurs-bzf-ii-de">fluglehrerteam.com</a>,
+      <a href="https://www.training-4pilots.de/bzf1">training-4pilots.de</a>,
+      <a href="https://bzf-fragen.de/">bzf-fragen.de</a>,
+      <a href="https://bzf-simulator.de/">bzf-simulator.de</a>,
+      <a href="https://bzftraining.de/">bzftraining.de</a>,
+      <a href="https://funkcoach.app/">funkcoach.app</a>.
+    </p>
+  </footer>
+</div>

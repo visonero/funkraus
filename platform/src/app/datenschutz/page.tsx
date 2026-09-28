@@ -3,7 +3,6 @@ import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import SiteNav from "@/components/SiteNav";
 import Footer from "@/components/Footer";
-import { createClient } from "@/lib/supabase/server";
 
 export const metadata: Metadata = {
   title: "Datenschutzerklärung — funkraus",
@@ -134,15 +133,10 @@ Wir behalten uns vor, diese Datenschutzerklärung anzupassen, um sie an geänder
 *Stand: September 2026*
 `;
 
-export default async function DatenschutzPage() {
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
+export default function DatenschutzPage() {
   return (
     <div style={{ width: "100%", background: "var(--bg)", overflowX: "hidden" }}>
-      <SiteNav email={user?.email ?? null} />
+      <SiteNav />
       <div style={{ maxWidth: 720, margin: "0 auto", padding: "56px 24px 80px" }}>
         <span className="label" style={{ color: "var(--sky)" }}>Rechtliches</span>
         <h1 style={{ marginTop: 10, fontSize: "clamp(28px,4vw,40px)", fontWeight: 800 }}>Datenschutzerklärung</h1>

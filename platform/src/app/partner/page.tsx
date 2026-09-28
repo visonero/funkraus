@@ -4,7 +4,6 @@ import Footer from "@/components/Footer";
 import PartnerBenefits from "@/components/PartnerBenefits";
 import PartnerContactForm from "@/components/PartnerContactForm";
 import { PRICE } from "@/lib/pricing";
-import { createClient } from "@/lib/supabase/server";
 
 const DISCOUNT = 80;
 
@@ -16,16 +15,12 @@ export const metadata: Metadata = {
   alternates: { canonical: "/partner" },
 };
 
-export default async function PartnerPage() {
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+export default function PartnerPage() {
   const partnerPrice = Number(PRICE) - DISCOUNT;
 
   return (
     <div style={{ width: "100%", background: "var(--bg)", overflowX: "hidden" }}>
-      <SiteNav email={user?.email ?? null} />
+      <SiteNav />
 
       {/* Header */}
       <div className="section-pad" style={{ padding: "64px 32px 8px", maxWidth: 820, margin: "0 auto", textAlign: "center" }}>

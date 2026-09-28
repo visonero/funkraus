@@ -7,7 +7,6 @@ import BlogBody from "@/components/blog/BlogBody";
 import BlogCard, { formatPostDate } from "@/components/blog/BlogCard";
 import { readingMinutes } from "@/lib/blog/body";
 import { getPublishedPost, getPublishedPosts } from "@/lib/blog/posts";
-import { createClient } from "@/lib/supabase/server";
 
 const SITE_URL = "https://www.funkraus.de";
 
@@ -40,10 +39,7 @@ export default async function BlogPostPage({ params }: PageProps<"/blog/[slug]">
   const post = await getPublishedPost(slug);
   if (!post) notFound();
 
-  const [all, supabase] = await Promise.all([getPublishedPosts(), createClient()]);
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  const all = await getPublishedPosts();
 
   const others = all.filter((p) => p.id !== post.id);
   const related = [...others.filter((p) => post.topic && p.topic === post.topic), ...others.filter((p) => !post.topic || p.topic !== post.topic)].slice(0, 3);
@@ -77,7 +73,7 @@ export default async function BlogPostPage({ params }: PageProps<"/blog/[slug]">
   return (
     <div style={{ width: "100%", background: "var(--bg)", overflowX: "hidden" }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
-      <SiteNav email={user?.email ?? null} />
+      <SiteNav />
       <article style={{ maxWidth: 760, margin: "0 auto", padding: "48px 24px 72px" }}>
         <nav aria-label="Brotkrumen" style={{ fontSize: 13.5, color: "var(--text-faint)" }}>
           <Link href="/blog" style={{ color: "var(--sky-deep)", fontWeight: 600 }}>Blog</Link>
