@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<title>funkraus Partnerangebot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f6f9fd; --line:rgba(30,58,95,0.12); --line-strong:rgba(30,58,95,0.18);
+    --text:#1c2b3a; --text-dim:#51677c; --text-faint:#8fa2b3;
+    --sky:#2f9bea; --sky-2:#22d3ee; --sky-deep:#1c7fd0;
+    --font-display:'Poppins',sans-serif; --font-body:'Plus Jakarta Sans',sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    width:210mm; height:297mm; background:#fff; color:var(--text);
+    font-family:var(--font-body); -webkit-font-smoothing:antialiased;
+    display:flex; flex-direction:column;
+  }
+  .hero,.trust,.section,.offer-wrap,.footer{flex-shrink:0;}
+  .grad{background:linear-gradient(100deg,var(--sky),var(--sky-2)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  h1,h2,h3{font-family:var(--font-display); margin:0; letter-spacing:-0.01em;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative; overflow:hidden; color:#fff;
+    background:
+      radial-gradient(700px 380px at 86% 6%, rgba(34,211,238,0.34), transparent 60%),
+      radial-gradient(600px 420px at 4% 100%, rgba(47,155,234,0.42), transparent 58%),
+      linear-gradient(135deg,#071a33 0%,#0c2d57 46%,#14559b 100%);
+    padding:10mm 16mm 8mm;
+  }
+  .hero-top{display:flex; align-items:center; justify-content:space-between; margin-bottom:6mm;}
+  .logo{display:flex; align-items:center; gap:9px;}
+  .logo span{font-family:var(--font-display); font-weight:700; font-size:19px; color:#fff;}
+  .tag-partner{
+    font-family:var(--font-display); font-weight:700; font-size:10.5px; letter-spacing:0.02em;
+    color:#fff; background:rgba(255,255,255,0.14); border:1px solid rgba(255,255,255,0.35);
+    padding:7px 14px; border-radius:999px;
+  }
+  .neu-pill{
+    display:inline-flex; align-items:center; gap:8px; padding:6px 14px 6px 8px; border-radius:999px;
+    background:rgba(255,255,255,0.10); border:1px solid rgba(255,255,255,0.28);
+    font-size:11.5px; font-weight:600; color:rgba(255,255,255,0.92); margin-bottom:9px;
+  }
+  .neu-pill b{
+    font-family:var(--font-display); font-weight:800; font-size:9.5px; letter-spacing:0.06em;
+    background:linear-gradient(100deg,#22d3ee,#5ab8ff); color:#04213f; padding:3px 9px; border-radius:999px;
+  }
+  .hero h1{font-size:26px; line-height:1.16; font-weight:800; max-width:150mm;}
+  .hero h1 .hl{background:linear-gradient(100deg,#7fe3ff,#5ab8ff 55%,#b4a0ff); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  .hero p.lead{margin:9px 0 0; font-size:12.5px; line-height:1.55; color:rgba(255,255,255,0.88); max-width:142mm;}
+  .pill-row{display:flex; gap:9px; margin-top:13px; flex-wrap:wrap;}
+  .pill{
+    display:flex; align-items:center; gap:6px; font-size:11px; font-weight:600; color:#fff;
+    background:rgba(255,255,255,0.09); border:1px solid rgba(255,255,255,0.26);
+    padding:8px 13px; border-radius:999px;
+  }
+  .pill .dot{width:6px; height:6px; border-radius:50%; background:#34d399;}
+
+  /* ---------- TRUST STRIP ---------- */
+  .trust{
+    display:flex; justify-content:space-between; gap:10px; padding:5mm 16mm; background:var(--bg);
+    border-bottom:1px solid var(--line);
+  }
+  .trust-item{flex:1; display:flex; gap:9px; align-items:flex-start;}
+  .check{
+    flex:none; width:18px; height:18px; border-radius:50%; background:linear-gradient(135deg,var(--sky),var(--sky-2));
+    display:flex; align-items:center; justify-content:center; margin-top:1px;
+  }
+  .check svg{width:10px; height:10px;}
+  .trust-item p{margin:0; font-size:10.3px; line-height:1.4; color:var(--text-dim); font-weight:600;}
+
+  /* ---------- USP GRID ---------- */
+  .section{padding:6mm 16mm 3mm;}
+  .eyebrow{font-family:var(--font-display); font-weight:700; font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--sky-deep);}
+  .section h2{font-size:19px; font-weight:800; margin-top:5px; color:var(--text);}
+  .usp-grid{display:grid; grid-template-columns:1fr 1fr; gap:7px; margin-top:7px;}
+  .usp-card{
+    border-radius:14px; padding:10px 14px; background:linear-gradient(160deg,rgba(255,255,255,0.95),rgba(240,246,252,0.9));
+    border:1px solid var(--line); box-shadow:0 10px 26px -18px rgba(30,58,95,0.35);
+  }
+  .usp-card--ai{
+    color:#fff; background:radial-gradient(220px 140px at 90% 0%, rgba(34,211,238,0.35), transparent 65%), linear-gradient(160deg,#0c2d57,#1268bd 75%,#1c9de0);
+    border-color:transparent;
+  }
+  .usp-top{display:flex; align-items:center; justify-content:space-between;}
+  .usp-icon{
+    width:30px; height:30px; border-radius:9px; display:flex; align-items:center; justify-content:center;
+    background:linear-gradient(135deg,rgba(47,155,234,0.16),rgba(34,211,238,0.2)); color:var(--sky-deep);
+  }
+  .usp-card--ai .usp-icon{background:rgba(255,255,255,0.18); color:#fff;}
+  .usp-icon svg{width:16px; height:16px;}
+  .usp-tag{font-family:var(--font-display); font-weight:800; font-size:8.5px; letter-spacing:0.06em; background:linear-gradient(100deg,#22d3ee,#5ab8ff); color:#04213f; padding:3px 8px; border-radius:999px;}
+  .usp-card h3{font-size:13.5px; font-weight:800; margin-top:6px; line-height:1.2;}
+  .usp-card p{margin:4px 0 0; font-size:10px; line-height:1.36; color:var(--text-dim);}
+  .usp-card--ai p{color:rgba(255,255,255,0.86);}
+
+  /* ---------- OFFER ---------- */
+  .offer-wrap{padding:3mm 16mm 0;}
+  .offer{
+    border-radius:18px; padding:12px 17px; color:#fff;
+    background:
+      radial-gradient(420px 220px at 90% 0%, rgba(34,211,238,0.30), transparent 62%),
+      linear-gradient(135deg,#071a33 0%,#0c2d57 55%,#14559b 100%);
+  }
+  .offer-head{display:flex; align-items:center; gap:10px; margin-bottom:8px;}
+  .offer-badge{
+    font-family:var(--font-display); font-weight:800; font-size:9px; letter-spacing:0.07em;
+    background:linear-gradient(100deg,#34d399,#22d3ee); color:#04213f; padding:4px 10px; border-radius:999px;
+  }
+  .offer h2{color:#fff; font-size:16.5px; font-weight:800;}
+  .offer-items{display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px;}
+  .offer-item{background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.18); border-radius:12px; padding:9px 11px;}
+  .offer-item .big{font-family:var(--font-display); font-weight:800; font-size:20px; background:linear-gradient(100deg,#7fe3ff,#b4a0ff); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  .offer-item p{margin:4px 0 0; font-size:10px; line-height:1.4; color:rgba(255,255,255,0.92); font-weight:600;}
+  .offer-note{
+    margin-top:9px; padding:7px 12px; border-radius:11px; background:rgba(255,255,255,0.07);
+    font-size:10.3px; color:rgba(255,255,255,0.9); font-weight:600; text-align:center;
+  }
+
+  /* ---------- FOOTER ---------- */
+  .footer{margin-top:auto; padding:5mm 16mm 8mm; display:flex; flex-direction:column; gap:6px;}
+  .cta-row{display:flex; align-items:center; justify-content:space-between; padding:10px 15px; border-radius:13px; background:var(--bg); border:1px solid var(--line);}
+  .cta-row .l{font-size:12px; font-weight:700; color:var(--text);}
+  .cta-row .r{font-family:var(--font-display); font-weight:700; font-size:12.5px; color:var(--sky-deep);}
+  .legal{font-size:8.6px; line-height:1.5; color:var(--text-faint); text-align:center; margin-top:2px;}
+</style>
+</head>
+<body>
+
+  <div class="hero">
+    <div class="hero-top">
+      <div class="logo">
+        <svg width="26" height="26" viewBox="0 0 40 40" fill="none">
+          <circle cx="10" cy="30" r="3.4" fill="#7fe3ff" />
+          <path d="M16 24 A11 11 0 0 1 27 13" stroke="#7fe3ff" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.5" />
+          <path d="M13.5 27.2 A15.5 15.5 0 0 1 29.2 11.5" stroke="#22d3ee" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.85" />
+          <path d="M11 29.8 A19.8 19.8 0 0 1 31.8 9" stroke="#ffffff" stroke-width="3" stroke-linecap="round" fill="none" />
+        </svg>
+        <span>funkraus</span>
+      </div>
+      <div class="tag-partner">FÜR VEREINE &amp; FLUGSCHULEN</div>
+    </div>
+
+    <div class="neu-pill"><b>NEU</b> Live sprechen mit dem KI-Tower</div>
+    <h1>Der BZF Online-Kurs<br/>mit <span class="hl">KI-Funktraining.</span></h1>
+    <p class="lead">BZF I &amp; BZF II in einem Kurs: mit dem kompletten offiziellen Prüfungsfragenkatalog der Bundesnetzagentur und einem KI-Tower, mit dem eure Mitglieder den Sprechfunk per Stimme üben.</p>
+
+    <div class="pill-row">
+      <span class="pill"><span class="dot"></span>BZF I &amp; II inklusive</span>
+      <span class="pill"><span class="dot"></span>Kompletter Fragenkatalog · 261 Fragen</span>
+      <span class="pill"><span class="dot"></span>KI-Funktraining live</span>
+    </div>
+  </div>
+
+  <div class="trust">
+    <div class="trust-item">
+      <span class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12.5 9.5 18 20 6" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <p>Basiert auf dem offiziellen Prüfungsfragenkatalog der Bundesnetzagentur</p>
+    </div>
+    <div class="trust-item">
+      <span class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12.5 9.5 18 20 6" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <p>Prüfungssimulation im Originalformat: 100 Fragen, 60&nbsp;Min., 75 richtig zum Bestehen</p>
+    </div>
+    <div class="trust-item">
+      <span class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12.5 9.5 18 20 6" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <p>Einmalige Zahlung, kein Abo, 12 Monate Zugriff</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <span class="eyebrow">Das bekommen eure Mitglieder</span>
+    <h2>Alles fürs Sprechfunkzeugnis, <span class="grad">in einem Kurs.</span></h2>
+
+    <div class="usp-grid">
+      <div class="usp-card usp-card--ai">
+        <div class="usp-top">
+          <span class="usp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3.5" width="6" height="11" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v2.5M9 20.5h6"/></svg></span>
+          <span class="usp-tag">NEU</span>
+        </div>
+        <h3>KI-Funktraining live</h3>
+        <p>Per Sprechtaste mit einem KI-Tower sprechen, der mit Stimme antwortet. Danach Feedback zu Ablauf, Phraseologie und Rückbestätigung.</p>
+      </div>
+      <div class="usp-card">
+        <span class="usp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H11v15H5.5A1.5 1.5 0 0 0 4 20.5zM20 5.5A1.5 1.5 0 0 0 18.5 4H13v15h5.5a1.5 1.5 0 0 1 1.5 1.5z"/></svg></span>
+        <h3>12 Module — kompletter Kurs</h3>
+        <p>BZF I und BZF II in einem Kurs, von den Grundlagen bis zur Prüfungssimulation, ohne Aufpreis für Englisch.</p>
+      </div>
+      <div class="usp-card">
+        <span class="usp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3.5" width="16" height="17" rx="2.5"/><path d="M8 9h8M8 13h8M8 17h5"/></svg></span>
+        <h3>261 Fragen — ganzer Katalog</h3>
+        <p>Alle offiziellen Prüfungsfragen der Bundesnetzagentur, mit Erklärung zu jeder Antwort.</p>
+      </div>
+      <div class="usp-card">
+        <span class="usp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7.5" width="18" height="13" rx="2.5"/><path d="M8 7.5V6a4 4 0 0 1 8 0v1.5M12 12.5v3"/></svg></span>
+        <h3>Schritt für Schritt lernen</h3>
+        <p>Video, Text in kleinen Abschnitten, Audio-Übung zum Mitsprechen und ein PDF-Merkblatt in jeder Lektion.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="offer-wrap">
+    <div class="offer">
+      <div class="offer-head">
+        <span class="offer-badge">PARTNERANGEBOT</span>
+        <h2>Für Vereine &amp; Flugschulen</h2>
+      </div>
+      <div class="offer-items">
+        <div class="offer-item">
+          <div class="big">80&nbsp;€</div>
+          <p>Rabatt für jedes Mitglied, mit eigenem Code (199&nbsp;€ statt 279&nbsp;€)</p>
+        </div>
+        <div class="offer-item">
+          <div class="big">2×</div>
+          <p>Kostenloser Vollzugang für eure Fluglehrer</p>
+        </div>
+        <div class="offer-item">
+          <div class="big">🔗</div>
+          <p>Gegenseitige Verlinkung als „Offizieller Partner" auf beiden Websites</p>
+        </div>
+      </div>
+      <div class="offer-note">Keine Provision, keine Kosten, keine Verpflichtung — nur ein echter Vorteil für eure Mitglieder.</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="cta-row">
+      <span class="l">Interesse an einer Partnerschaft?</span>
+      <span class="r">[DEINE E-MAIL] &nbsp;·&nbsp; funkraus.de</span>
+    </div>
+    <p class="legal">funkraus ist ein unabhängiges Lernangebot und kein Teil der Bundesnetzagentur, der Deutschen Flugsicherung (DFS) oder des Luftfahrt-Bundesamts (LBA). Es bereitet eigenständig auf die amtliche BZF-Prüfung vor, ersetzt die Anmeldung zur Prüfung bei der Bundesnetzagentur aber nicht.</p>
+  </div>
+
+</body>
+</html>
