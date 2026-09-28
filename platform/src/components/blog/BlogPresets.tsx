@@ -58,6 +58,7 @@ const HIGHLIGHTS = [
   { big: "261", small: "offizielle Prüfungsfragen mit Erklärung" },
   { big: "12", small: "Module für BZF I & II in einem Kurs" },
   { big: `${PRICE} €`, small: "einmalig, 12 Monate Zugriff, kein Abo" },
+  { big: "NEU", small: "KI-Tower: komplette Funkübungen wie im echten Funkverkehr" },
 ];
 
 export function BlogHighlights() {
