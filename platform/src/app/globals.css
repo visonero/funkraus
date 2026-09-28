@@ -482,6 +482,9 @@ button {
     text-align: center !important;
     width: 100%;
   }
+  .partner-split {
+    grid-template-columns: 1fr !important;
+  }
 }
 @media (max-width: 480px) {
   .hero-eyebrow {

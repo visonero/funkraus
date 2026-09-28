@@ -65,6 +65,7 @@ export default function Footer() {
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
             <Link className="nav-link" style={{ fontSize: 13.5 }} href="/#vorteile">Über uns</Link>
             <Link className="nav-link" style={{ fontSize: 13.5 }} href="/blog">Blog</Link>
+            <Link className="nav-link" style={{ fontSize: 13.5 }} href="/partner">Partner werden</Link>
             <a className="nav-link" style={{ fontSize: 13.5 }} href="mailto:h.alkhodour@web.de">Kontakt</a>
           </div>
         </div>
