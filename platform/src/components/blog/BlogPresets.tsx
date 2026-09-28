@@ -1,8 +1,18 @@
+"use client";
+
+import { useRef } from "react";
 import Link from "next/link";
+import { gsap, ScrollTrigger, useGSAP } from "@/lib/gsap";
 import { PRICE } from "@/lib/pricing";
 import type { PresetId } from "@/lib/blog/body";
 
 const SIGNUP_HREF = "/login?mode=signup";
+
+const Icon = ({ children }: { children: React.ReactNode }) => (
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    {children}
+  </svg>
+);
 
 export function BlogCta() {
   return (
@@ -54,24 +64,95 @@ export function BlogCtaSlim() {
   );
 }
 
-const HIGHLIGHTS = [
-  { big: "261", small: "offizielle Prüfungsfragen mit Erklärung" },
-  { big: "12", small: "Module für BZF I & II in einem Kurs" },
-  { big: `${PRICE} €`, small: "einmalig, 12 Monate Zugriff, kein Abo" },
-  { big: "NEU", small: "KI-Tower: komplette Funkübungen wie im echten Funkverkehr" },
-];
+const numStyle: React.CSSProperties = { marginTop: 14, fontFamily: "var(--font-display)", fontSize: 26, fontWeight: 800, lineHeight: 1.1 };
+const smallStyle: React.CSSProperties = { marginTop: 6, fontSize: 13, lineHeight: 1.45, color: "var(--text-dim)" };
 
+// Same bento tiles and count-up animation as the landing page's UspGrid, condensed to four even tiles for a mid-article CTA.
 export function BlogHighlights() {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      const els = gsap.utils.toArray<HTMLElement>(".usp-num");
+      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const set = (el: HTMLElement, v: number) => (el.textContent = Math.round(v).toLocaleString("de-DE"));
+      if (reduced) {
+        els.forEach((el) => set(el, Number(el.dataset.target)));
+        return;
+      }
+      ScrollTrigger.create({
+        trigger: ref.current,
+        start: "top 85%",
+        once: true,
+        onEnter: () =>
+          els.forEach((el) => {
+            const o = { v: 0 };
+            gsap.to(o, { v: Number(el.dataset.target), duration: 1.4, ease: "power2.out", onUpdate: () => set(el, o.v) });
+          }),
+      });
+    },
+    { scope: ref },
+  );
+
   return (
     <aside className="glass-strong" style={{ margin: "40px 0", borderRadius: 24, padding: "28px clamp(20px,4vw,36px)" }}>
       <p className="label" style={{ color: "var(--sky)" }}>Das steckt im Kurs</p>
-      <div style={{ marginTop: 16, display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(170px, 1fr))", gap: 14 }}>
-        {HIGHLIGHTS.map((h) => (
-          <div key={h.big} style={{ borderRadius: 16, padding: "18px 18px", background: "rgba(47,155,234,0.08)" }}>
-            <p className="grad" style={{ fontFamily: "var(--font-display)", fontSize: 30, fontWeight: 800, lineHeight: 1.1 }}>{h.big}</p>
-            <p style={{ marginTop: 6, fontSize: 13.5, lineHeight: 1.45, color: "var(--text-dim)" }}>{h.small}</p>
+      <div ref={ref} className="blog-highlight-grid" style={{ marginTop: 16 }}>
+        <div className="usp-card">
+          <span className="usp-icon">
+            <Icon>
+              <rect x="4" y="3.5" width="16" height="17" rx="2.5" />
+              <path d="M8 9h8M8 13h8M8 17h5" />
+            </Icon>
+          </span>
+          <p className="grad" style={numStyle}>
+            <span className="usp-num" data-target="261">0</span> Fragen
+          </p>
+          <p style={smallStyle}>offizielle Prüfungsfragen mit Erklärung</p>
+        </div>
+
+        <div className="usp-card">
+          <span className="usp-icon">
+            <Icon>
+              <path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H11v15H5.5A1.5 1.5 0 0 0 4 20.5zM20 5.5A1.5 1.5 0 0 0 18.5 4H13v15h5.5a1.5 1.5 0 0 1 1.5 1.5z" />
+            </Icon>
+          </span>
+          <p className="grad" style={numStyle}>
+            <span className="usp-num" data-target="12">0</span> Module
+          </p>
+          <p style={smallStyle}>für BZF I &amp; II in einem Kurs</p>
+        </div>
+
+        <div className="usp-card">
+          <span className="usp-icon">
+            <Icon>
+              <rect x="3" y="7.5" width="18" height="13" rx="2.5" />
+              <path d="M8 7.5V6a4 4 0 0 1 8 0v1.5M12 12.5v3" />
+            </Icon>
+          </span>
+          <p className="grad" style={numStyle}>
+            <span className="usp-num" data-target={PRICE}>0</span> €
+          </p>
+          <p style={smallStyle}>einmalig, 12 Monate Zugriff, kein Abo</p>
+        </div>
+
+        <div className="usp-card usp-card--ai">
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+            <span className="usp-icon">
+              <Icon>
+                <rect x="9" y="3.5" width="6" height="11" rx="3" />
+                <path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v2.5M9 20.5h6" />
+              </Icon>
+            </span>
+            <span className="usp-tag">NEU</span>
           </div>
-        ))}
+          <p style={{ marginTop: 14, fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 19, lineHeight: 1.2 }}>KI-Tower live</p>
+          <p style={{ marginTop: 6, fontSize: 13, lineHeight: 1.45, color: "rgba(255,255,255,0.86)" }}>komplette Funkübungen wie im echten Funkverkehr</p>
+          <div style={{ marginTop: 12, display: "inline-flex", alignItems: "center", gap: 8, padding: "7px 11px", borderRadius: 11, background: "rgba(255,255,255,0.12)" }}>
+            <span className="sc-bars" style={{ height: 16 }}><span /><span /><span /><span /><span /></span>
+            <span style={{ fontSize: 11, fontWeight: 600 }}>Live im Gespräch</span>
+          </div>
+        </div>
       </div>
       <Link href={SIGNUP_HREF} className="btn-accent" style={{ display: "inline-block", marginTop: 22, padding: "13px 26px", borderRadius: 999, fontSize: 15 }}>
         Kostenlos ausprobieren

@@ -1896,6 +1896,32 @@ button {
 .usp-card--wide {
   grid-column: span 2;
 }
+/* Blog CTA "Das steckt im Kurs": four even usp-cards in one row (no bento asymmetry), 2x2 then 1-column on narrow articles. */
+.blog-highlight-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.blog-highlight-grid > * {
+  min-width: 0;
+}
+.blog-highlight-grid .usp-card {
+  padding: 18px 16px;
+}
+.blog-highlight-grid .usp-card--ai {
+  grid-row: auto;
+  grid-column: auto;
+}
+@media (max-width: 640px) {
+  .blog-highlight-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 420px) {
+  .blog-highlight-grid {
+    grid-template-columns: 1fr;
+  }
+}
 .usp-big {
   margin-top: 22px;
   font-family: var(--font-display), system-ui, sans-serif;
