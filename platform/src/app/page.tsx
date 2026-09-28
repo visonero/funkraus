@@ -63,7 +63,7 @@ const jsonLd = [
     inLanguage: "de",
     educationalLevel: "Beginner",
     teaches: ["Sprechfunk im Flugfunkdienst", "BZF I", "BZF II", "Flugfunk-Phraseologie", "Englischer Flugfunk", "Prüfungsvorbereitung Bundesnetzagentur"],
-    provider: { "@type": "Organization", name: "funkraus", url: "https://www.funkraus.de", sameAs: "https://www.funkraus.de" },
+    provider: { "@type": "Organization", name: "funkraus", url: "https://www.funkraus.de" },
     hasCourseInstance: { "@type": "CourseInstance", courseMode: "online", courseWorkload: "PT9H" },
     offers: {
       "@type": "Offer",
