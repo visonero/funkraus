@@ -57,10 +57,26 @@ export const metadata: Metadata = {
   },
 };
 
+// Hints Google's Sitelinks algorithm toward the site's primary sections. No guarantee it's used,
+// but it's the standard signal for "these are the main parts of this site" beyond the nav itself.
+const siteNavigationLd = {
+  "@context": "https://schema.org",
+  "@type": "SiteNavigationElement",
+  name: ["Kursinhalt", "KI-Tower", "Preis", "Blog", "Partner werden"],
+  url: [
+    `${SITE_URL}/kurs`,
+    `${SITE_URL}/ki-tower`,
+    `${SITE_URL}/preis`,
+    `${SITE_URL}/blog`,
+    `${SITE_URL}/partner`,
+  ],
+};
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="de" className={`${poppins.variable} ${plusJakartaSans.variable}`}>
       <body>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteNavigationLd) }} />
         {children}
         <CookieConsent />
         <AnalyticsEvents />

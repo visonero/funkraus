@@ -68,7 +68,7 @@ const jsonLd = [
       "@type": "Offer",
       price: PRICE,
       priceCurrency: "EUR",
-      url: "https://www.funkraus.de/#preis",
+      url: "https://www.funkraus.de/preis",
       availability: "https://schema.org/InStock",
       category: "Vollzugang einmalig, die ersten 2 Module kostenlos",
     },

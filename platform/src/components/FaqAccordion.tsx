@@ -3,12 +3,12 @@
 import { useState } from "react";
 import { FAQS } from "@/lib/faq";
 
-export default function FaqAccordion() {
+export default function FaqAccordion({ items = FAQS }: { items?: { q: string; a: string }[] }) {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-      {FAQS.map((item, i) => {
+      {items.map((item, i) => {
         const isOpen = openIndex === i;
         return (
           <div key={item.q} className="glass reveal" style={{ borderRadius: 16, padding: "18px 24px" }}>

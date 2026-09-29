@@ -8,10 +8,11 @@ import { createClient } from "@/lib/supabase/client";
 
 const LINKS = [
   { href: "/#einblick", label: "Einblick" },
-  { href: "/#kurs", label: "Kurs" },
+  { href: "/kurs", label: "Kurs" },
+  { href: "/ki-tower", label: "KI-Tower" },
   { href: "/#ablauf", label: "Ablauf" },
   { href: "/#vorteile", label: "Vorteile" },
-  { href: "/#preis", label: "Preis" },
+  { href: "/preis", label: "Preis" },
   { href: "/partner", label: "Partner" },
   { href: "/#faq", label: "FAQ" },
 ];
@@ -105,7 +106,7 @@ export default function SiteNav({
         <Link href="/" style={{ display: "flex" }}>
           <Logo color={dark ? "#fff" : undefined} />
         </Link>
-        <div className="desktop-nav" style={{ display: "flex", alignItems: "center", gap: 32 }}>
+        <div className="desktop-nav" style={{ display: "flex", alignItems: "center", gap: 24 }}>
           {LINKS.map((l) => (
             <a key={l.href} className={`nav-link${dark ? " nav-link--dark" : ""}`} href={l.href}>
               {l.label}
