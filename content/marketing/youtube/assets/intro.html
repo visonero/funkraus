@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8">
+<style>
+  html,body{margin:0;padding:0;}
+  body{
+    width:1920px;height:1080px;overflow:hidden;
+    font-family:'Inter',sans-serif;
+    background:
+      radial-gradient(900px 640px at 50% 38%, rgba(34,211,238,0.16), transparent 62%),
+      linear-gradient(160deg, #0a2140 0%, #103a6c 50%, #175ea3 100%);
+    color:#fff;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .grid-lines {
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: radial-gradient(1100px 700px at 50% 40%, rgba(0,0,0,0.85), transparent 78%);
+  }
+  .wrap{ position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; text-align:center; }
+  .logo{ display:flex; align-items:center; gap:22px; }
+  .logo span{ font-family:'Poppins',sans-serif; font-weight:800; font-size:76px; color:#fff; letter-spacing:-0.01em; }
+  p.tag{
+    margin:30px 0 0; font-size:30px; font-weight:600; color:rgba(255,255,255,0.82); letter-spacing:0.01em;
+  }
+  p.tag .accent{ color:#7fd9ff; font-weight:700; }
+</style>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="grid-lines"></div>
+  <div class="wrap">
+    <div class="logo">
+      <svg width="90" height="90" viewBox="0 0 40 40" fill="none">
+        <circle cx="10" cy="30" r="3.4" fill="#5fc3ff" />
+        <path d="M16 24 A11 11 0 0 1 27 13" stroke="#5fc3ff" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.5" />
+        <path d="M13.5 27.2 A15.5 15.5 0 0 1 29.2 11.5" stroke="#22d3ee" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.85" />
+        <path d="M11 29.8 A19.8 19.8 0 0 1 31.8 9" stroke="#5fc3ff" stroke-width="3" stroke-linecap="round" fill="none" />
+      </svg>
+      <span>funkraus</span>
+    </div>
+    <p class="tag">Sprechfunk-Ausbildung, <span class="accent">neu gedacht.</span></p>
+  </div>
+</body></html>
