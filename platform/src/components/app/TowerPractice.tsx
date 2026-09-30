@@ -105,6 +105,11 @@ export default function TowerPractice({
   const [feedback, setFeedback] = useState<Feedback | null>(null);
   const [starting, setStarting] = useState<string | null>(null);
   const [info, setInfo] = useState<FlightInfo | null>(null);
+  // Mic permission is requested once, as early as possible (when the scenario starts, not when the
+  // record button is pressed), so the button can start MediaRecorder synchronously on press instead of
+  // waiting on the browser's permission prompt — that wait was eating the first few spoken words.
+  const [micState, setMicState] = useState<"idle" | "pending" | "ready" | "denied">("idle");
+  const [logOpen, setLogOpen] = useState(false);
 
   const ctxRef = useRef<AudioContext | null>(null);
   const streamRef = useRef<MediaStream | null>(null);
@@ -134,10 +139,25 @@ export default function TowerPractice({
     return ctxRef.current;
   };
 
+  // Asks for the microphone once, as soon as there's a click to anchor the permission prompt to (here,
+  // "Übung starten"). Runs in parallel with the session-start request so neither delays the other.
+  async function requestMic() {
+    if (streamRef.current || micState === "pending" || micState === "ready") return;
+    setMicState("pending");
+    try {
+      streamRef.current = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: true } });
+      setMicState("ready");
+    } catch {
+      setMicState("denied");
+      setError("Kein Zugriff auf das Mikrofon. Erlaube das Mikrofon im Browser, oder tippe deinen Funkspruch unten ein.");
+    }
+  }
+
   async function start(s: PublicScenario) {
     setError(null);
     setStarting(s.id);
     ensureAudio(); // created inside the click so the browser allows playback later
+    if (speech) void requestMic();
     const res = await startTowerSession(s.id);
     setStarting(null);
     if (!res.ok) {
@@ -200,17 +220,11 @@ export default function TowerPractice({
     setBusy(false);
   }
 
-  async function startRecording() {
-    if (!canSend || recording) return;
+  // No `await` here on purpose: the mic stream already exists (requested back in `start()`), so recording
+  // begins the instant this runs — the delay that used to eat the first spoken words is gone.
+  function startRecording() {
+    if (!canSend || recording || micState !== "ready" || !streamRef.current) return;
     setError(null);
-    try {
-      if (!streamRef.current) {
-        streamRef.current = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: true } });
-      }
-    } catch {
-      setError("Kein Zugriff auf das Mikrofon. Erlaube das Mikrofon im Browser, oder tippe deinen Funkspruch unten ein.");
-      return;
-    }
     ensureAudio();
     const mime = ["audio/webm;codecs=opus", "audio/webm", "audio/mp4"].find((m) => typeof MediaRecorder !== "undefined" && MediaRecorder.isTypeSupported(m));
     const rec = new MediaRecorder(streamRef.current, mime ? { mimeType: mime } : undefined);
@@ -247,19 +261,22 @@ export default function TowerPractice({
     if (phase !== "run") return;
     const isField = (t: EventTarget | null) => t instanceof HTMLElement && (t.tagName === "INPUT" || t.tagName === "TEXTAREA");
     const down = (e: KeyboardEvent) => {
-      if (e.code === "Space" && !e.repeat && !isField(e.target)) {
-        e.preventDefault();
-        void startRecording();
-      }
+      if (e.code !== "Space" || isField(e.target)) return;
+      // Held keys re-fire "keydown" every ~30ms; each one needs preventDefault or the browser scrolls
+      // the page on every repeat, not just the first press.
+      e.preventDefault();
+      if (!e.repeat) void startRecording();
     };
     const up = (e: KeyboardEvent) => {
       if (e.code === "Space" && !isField(e.target)) stopRecording();
     };
-    window.addEventListener("keydown", down);
-    window.addEventListener("keyup", up);
+    // Capture phase: preventDefault reliably beats the browser's own scroll-on-space handling
+    // regardless of which element happens to have focus (e.g. the record button itself).
+    window.addEventListener("keydown", down, { capture: true });
+    window.addEventListener("keyup", up, { capture: true });
     return () => {
-      window.removeEventListener("keydown", down);
-      window.removeEventListener("keyup", up);
+      window.removeEventListener("keydown", down, { capture: true });
+      window.removeEventListener("keyup", up, { capture: true });
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [phase, canSend, recording]);
@@ -413,21 +430,48 @@ export default function TowerPractice({
         )}
       </div>
 
-      <div className="glass" style={{ marginTop: 14, borderRadius: 20, padding: 16, minHeight: 180, maxHeight: 340, overflowY: "auto", display: "flex", flexDirection: "column", gap: 10 }}>
-        {log.length === 0 && <p style={{ fontSize: 14, color: "var(--text-faint)" }}>Halte die Sprechtaste gedrückt (oder die Leertaste) und sprich deinen Funkspruch.</p>}
-        {log.map((e, i) => (
-          <div key={i} style={{ alignSelf: e.role === "pilot" ? "flex-end" : "flex-start", maxWidth: "88%" }}>
-            <p style={{ fontSize: 11.5, fontWeight: 700, color: "var(--text-faint)", textAlign: e.role === "pilot" ? "right" : "left" }}>
-              {e.role === "pilot" ? "Du" : "Tower"}
-              {e.role === "tower" && e.ok === false ? " · Rückfrage" : ""}
-              {e.role === "tower" && e.ok ? " · ✓" : ""}
-            </p>
-            <div style={{ borderRadius: 14, padding: "9px 13px", fontSize: 14.5, lineHeight: 1.5, background: e.role === "pilot" ? "rgba(47,155,234,0.14)" : "rgba(255,255,255,0.85)", border: e.role === "tower" && e.ok === false ? "1.5px solid rgba(192,51,77,0.35)" : "1px solid var(--line)" }}>
-              {e.text ? e.text : <em style={{ color: "var(--text-faint)" }}>Keine Antwort nötig, du hast richtig bestätigt.</em>}
-            </div>
+      <div className="glass" style={{ marginTop: 14, borderRadius: 20, overflow: "hidden" }}>
+        <button
+          type="button"
+          onClick={() => setLogOpen((v) => !v)}
+          aria-expanded={logOpen}
+          style={{ width: "100%", display: "flex", alignItems: "center", gap: 10, padding: "14px 16px", background: "none", border: "none", textAlign: "left", cursor: "pointer" }}
+        >
+          <span style={{ display: "inline-flex", color: "var(--sky-deep)" }}>
+            <AppIcon name="chat" size={18} />
+          </span>
+          <span style={{ fontSize: 13.5, fontWeight: 700 }}>
+            Gesprächsverlauf{log.length > 0 ? ` (${log.length})` : ""}
+          </span>
+          {!logOpen && log.length > 0 && (
+            <span style={{ flex: 1, minWidth: 0, fontSize: 12.5, color: "var(--text-faint)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+              {log[log.length - 1].text || "Keine Antwort nötig, du hast richtig bestätigt."}
+            </span>
+          )}
+          {logOpen && <span style={{ flex: 1 }} />}
+          <span style={{ display: "inline-flex", flex: "none", color: "var(--text-faint)", transform: logOpen ? "rotate(90deg)" : "none", transition: "transform .2s" }}>
+            <AppIcon name="chevron" size={16} />
+          </span>
+        </button>
+
+        {logOpen && (
+          <div style={{ padding: "0 16px 16px", minHeight: 140, maxHeight: 340, overflowY: "auto", display: "flex", flexDirection: "column", gap: 10 }}>
+            {log.length === 0 && <p style={{ fontSize: 14, color: "var(--text-faint)" }}>Halte die Sprechtaste gedrückt (oder die Leertaste) und sprich deinen Funkspruch.</p>}
+            {log.map((e, i) => (
+              <div key={i} style={{ alignSelf: e.role === "pilot" ? "flex-end" : "flex-start", maxWidth: "88%" }}>
+                <p style={{ fontSize: 11.5, fontWeight: 700, color: "var(--text-faint)", textAlign: e.role === "pilot" ? "right" : "left" }}>
+                  {e.role === "pilot" ? "Du" : "Tower"}
+                  {e.role === "tower" && e.ok === false ? " · Rückfrage" : ""}
+                  {e.role === "tower" && e.ok ? " · ✓" : ""}
+                </p>
+                <div style={{ borderRadius: 14, padding: "9px 13px", fontSize: 14.5, lineHeight: 1.5, background: e.role === "pilot" ? "rgba(47,155,234,0.14)" : "rgba(255,255,255,0.85)", border: e.role === "tower" && e.ok === false ? "1.5px solid rgba(192,51,77,0.35)" : "1px solid var(--line)" }}>
+                  {e.text ? e.text : <em style={{ color: "var(--text-faint)" }}>Keine Antwort nötig, du hast richtig bestätigt.</em>}
+                </div>
+              </div>
+            ))}
+            <div ref={logEndRef} />
           </div>
-        ))}
-        <div ref={logEndRef} />
+        )}
       </div>
 
       <p style={{ marginTop: 8, fontSize: 12, color: "var(--text-faint)" }}>
@@ -441,9 +485,12 @@ export default function TowerPractice({
           {speech && (
             <button
               type="button"
-              disabled={!canSend && !recording}
+              disabled={(!canSend && !recording) || micState !== "ready"}
               onPointerDown={(e) => {
                 e.currentTarget.setPointerCapture(e.pointerId);
+                // Never let the button keep focus: a focused button reacts to Space itself in some
+                // browsers, which is exactly the double-handling that caused the page-scroll bug.
+                e.currentTarget.blur();
                 void startRecording();
               }}
               onPointerUp={stopRecording}
@@ -451,10 +498,20 @@ export default function TowerPractice({
               onContextMenu={(e) => e.preventDefault()}
               className="btn-accent"
               aria-label="Sprechtaste, gedrückt halten"
-              style={{ width: 132, height: 132, borderRadius: "50%", border: "none", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 6, fontSize: 13.5, touchAction: "none", userSelect: "none", opacity: !canSend && !recording ? 0.55 : 1, background: recording ? "linear-gradient(100deg,#e5484d,#c0334d)" : undefined, boxShadow: recording ? "0 0 0 10px rgba(229,72,77,0.18)" : undefined }}
+              style={{ width: 132, height: 132, borderRadius: "50%", border: "none", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 6, fontSize: 13.5, touchAction: "none", userSelect: "none", opacity: (!canSend && !recording) || micState !== "ready" ? 0.55 : 1, background: recording ? "linear-gradient(100deg,#e5484d,#c0334d)" : undefined, boxShadow: recording ? "0 0 0 10px rgba(229,72,77,0.18)" : undefined }}
             >
               <AppIcon name="mic" size={34} />
-              {recording ? "Sprich jetzt…" : busy ? "Tower antwortet…" : playing ? "Tower spricht…" : "Sprechtaste"}
+              {micState === "denied"
+                ? "Mikrofon nicht verfügbar"
+                : micState !== "ready"
+                  ? "Mikrofon wird vorbereitet…"
+                  : recording
+                    ? "Sprich jetzt…"
+                    : busy
+                      ? "Tower antwortet…"
+                      : playing
+                        ? "Tower spricht…"
+                        : "Sprechtaste"}
             </button>
           )}
           <div style={{ display: "flex", gap: 8, width: "100%", maxWidth: 520 }}>

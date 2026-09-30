@@ -29,13 +29,16 @@ export default function CourseSidebar({
   const [mobileOpenForPath, setMobileOpenForPath] = useState<string | null>(null);
   const mobileOpen = mobileOpenForPath === pathname;
   const isExpanded = (m: CourseModule) => toggled[m.id] ?? m.id === defaultModule?.id;
+  // Desktop-only: lets people collapse the sidebar to a slim rail for more reading width while studying.
+  // Stays mounted (and keeps this state) across chapter navigation since it lives in the course layout.
+  const [desktopOpen, setDesktopOpen] = useState(true);
 
   const openModules = modules.filter((m) => !m.locked);
   const chaptersTotal = openModules.reduce((sum, m) => sum + m.chapters.length, 0);
   const chaptersDone = openModules.reduce((sum, m) => sum + m.chaptersDone, 0);
 
   return (
-    <aside className="glass course-side" aria-label="Kursinhalt">
+    <aside className={`glass course-side${desktopOpen ? "" : " is-collapsed"}`} aria-label="Kursinhalt">
       <button
         className="course-side-toggle"
         onClick={() => setMobileOpenForPath(mobileOpen ? null : pathname)}
@@ -46,6 +49,19 @@ export default function CourseSidebar({
         <span style={{ display: "inline-flex", transform: mobileOpen ? "rotate(90deg)" : "none", transition: "transform .2s" }}>
           <AppIcon name="chevron" size={18} />
         </span>
+      </button>
+
+      <button
+        className="course-side-collapse-btn"
+        onClick={() => setDesktopOpen((v) => !v)}
+        aria-expanded={desktopOpen}
+        aria-label={desktopOpen ? "Kursübersicht einklappen" : "Kursübersicht ausklappen"}
+        title={desktopOpen ? "Einklappen" : "Kursübersicht"}
+      >
+        <span style={{ display: "inline-flex", transform: desktopOpen ? "rotate(180deg)" : "none", transition: "transform .2s" }}>
+          <AppIcon name="arrow" size={16} />
+        </span>
+        {desktopOpen && <span>Einklappen</span>}
       </button>
 
       <div className={`course-side-body${mobileOpen ? " is-open" : ""}`}>
